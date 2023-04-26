@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<ns1:TransakcniLogObjektu
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:ns1='http://nsess.public.cz/erms_trans/v_01_01'
+    xsi:schemaLocation='http://nsess.public.cz/erms_trans/v_01_01 TransakcniProtokolNavrh_verze1.7.xsd'>
+    <ns1:TransLogInfo>
+        <ns1:Identifikator></ns1:Identifikator>
+        <ns1:DatumVzniku></ns1:DatumVzniku>
+        <ns1:DatumCasOd></ns1:DatumCasOd>
+        <ns1:DatumCasDo></ns1:DatumCasDo>
+        <ns1:Software></ns1:Software>
+        <ns1:VerzeSoftware></ns1:VerzeSoftware>
+        <ns1:DoplnujiciData>
+        </ns1:DoplnujiciData>
+        <ns1:Objekt>
+            <ns1:TypObjektu>
+                <ns1:TypObjektuId></ns1:TypObjektuId>
+            </ns1:TypObjektu>
+            <ns1:Identifikator></ns1:Identifikator>
+            <ns1:DoplnujiciData>
+            </ns1:DoplnujiciData>
+        </ns1:Objekt>
+    </ns1:TransLogInfo>
+    <ns1:Udalosti>
+        <ns1:Udalost>
+            <ns1:Poradi></ns1:Poradi>
+            <ns1:DatumVzniku></ns1:DatumVzniku>
+            <ns1:provedlKdo></ns1:provedlKdo>
+            <ns1:TypUdalosti>
+                <ns1:TypUdalostiId></ns1:TypUdalostiId>
+            </ns1:TypUdalosti>
+            <ns1:ParametryUdalosti>
+                <ns1:ParametrUdalosti>
+                    <ns1:NazevParametru></ns1:NazevParametru>
+                    <ns1:HodnotaParametru></ns1:HodnotaParametru>
+                    <ns1:HodnotaParametru></ns1:HodnotaParametru>
+                    <ns1:HodnotaParametru></ns1:HodnotaParametru>
+                    <ns1:HodnotaParametru></ns1:HodnotaParametru>
+                    <ns1:DoplnujiciData>
+                    </ns1:DoplnujiciData>
+                </ns1:ParametrUdalosti>
+                <ns1:ParametrUdalosti>
+                    <ns1:NazevParametru></ns1:NazevParametru>
+                    <ns1:HodnotaParametru></ns1:HodnotaParametru>
+                    <ns1:DoplnujiciData>
+                    </ns1:DoplnujiciData>
+                </ns1:ParametrUdalosti>
+                <ns1:ParametrUdalosti>
+                    <ns1:NazevParametru></ns1:NazevParametru>
+                    <ns1:HodnotaParametru></ns1:HodnotaParametru>
+                    <ns1:DoplnujiciData>
+                    </ns1:DoplnujiciData>
+                </ns1:ParametrUdalosti>
+                <ns1:ParametrUdalosti>
+                    <ns1:NazevParametru></ns1:NazevParametru>
+                    <ns1:HodnotaParametru></ns1:HodnotaParametru>
+                    <ns1:DoplnujiciData>
+                    </ns1:DoplnujiciData>
+                </ns1:ParametrUdalosti>
+            </ns1:ParametryUdalosti>
+            <ns1:PopisUdalosti></ns1:PopisUdalosti>
+            <ns1:DoplnujiciData>
+            </ns1:DoplnujiciData>
+            <ns1:ZdrojID></ns1:ZdrojID>
+        </ns1:Udalost>
+    </ns1:Udalosti>
+
+</ns1:TransakcniLogObjektu>
