@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-Navržené schéma ESS.XSD slouží to pro výměnu spisů a dokumentů mezi spisovými službami.
-Lze ho využít pro všechny možnosti elektronické výměny dat mezi spisovými službami jednotlivých organizací, popřípadě jako základní nabídku typů pro komunikaci mezi elektronickými systémy spisové služby a agendovými informačními systémy.
--->
 <xsd:schema xmlns:tns="http://mvcr.cz/ess/v_1.0.0.0" xmlns:isds="http://isds.czechpoint.cz/v20" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mvcr.cz/ess/v_1.0.0.0" elementFormDefault="qualified" id="ess">
   <xsd:import namespace="http://isds.czechpoint.cz/v20" schemaLocation="dmBaseTypes.xsd"/>
-  <!-- Identifikator -->
   <xsd:complexType name="tIdentifikator">
     <xsd:annotation>
       <xsd:documentation>Obecný interní identifikátor informačního systému.
@@ -59,7 +54,7 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <!-- Odkaz na elektronický soubor, který je uložen v jiné části přenášených dat -->
+
   <xsd:complexType name="tFileLink">
     <xsd:annotation>
       <xsd:documentation>Datový typ, který popisuje odkaz na fyzické uložení souboru a také popisuje logické vazby mezi soubory.</xsd:documentation>
@@ -117,13 +112,12 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
       <xsd:element name="FileLink" type="tns:tFileLink" maxOccurs="unbounded"/>
     </xsd:sequence>
   </xsd:complexType>
-  <!-- DokumentSpis -->
+
   <xsd:group name="gSpolecneDokSpis">
     <xsd:annotation>
       <xsd:documentation>Skupina metadat společná jak pro popis dokumentu, tak pro popis spisu.</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <!-- Identifikator -->
       <xsd:element name="Identifikator" type="tns:tIdentifikator" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>Identifikátor, nebo identifikátory, které jsou v rámci různých informačních systémů přiřazeny tomuto záznamu, tedy dokumentu nebo spisu. Nejčastěji bude uveden pouze jeden identifikátor.</xsd:documentation>
@@ -332,7 +326,7 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
       </xsd:annotation>
     </xsd:attribute>
   </xsd:complexType>
-  <!-- Zmocneni -->
+
   <xsd:complexType name="tZmocneni">
     <xsd:annotation>
       <xsd:documentation>Určuje právní normu, podle které je daná věc vyřizována.</xsd:documentation>
@@ -376,15 +370,13 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <!-- Subjekt (complexType)-->
+
   <xsd:complexType name="tSubjekt">
     <xsd:annotation>
       <xsd:documentation>Metadata obecného subjektu.</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <!-- Identifikator -->
       <xsd:element name="Identifikator" type="tns:tIdentifikator" minOccurs="0" maxOccurs="unbounded"/>
-      <!-- TypSubjektu -->
       <xsd:element name="TypSubjektu">
         <xsd:annotation>
           <xsd:documentation>Typ subjektu vyjadřuje právní forma subjektu a případný způsob zastoupení tohoto subjektu.</xsd:documentation>
@@ -416,7 +408,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- ObchodniNazev -->
       <xsd:element name="ObchodniNazev" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Element se neuvádí pouze v případě,že TypSubjektu="Fyzicka".</xsd:documentation>
@@ -427,7 +418,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- IČ -->
       <xsd:element name="IC" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>IČ se uvádí, pokud je subjektu IČ přiděleno a je v době pořízení záznamu známé.</xsd:documentation>
@@ -440,13 +430,11 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- DatumNarozeni -->
       <xsd:element name="DatumNarozeni" type="xsd:date" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Datum narození. Element se uvádí pouze v případě že TypSubjektu="Fyzicka" nebo TypSubjektu="Osvc", a to pouze v případě, že je nutné odlišit dvě osoby stejného jména a příjmení a stejné adresy pobytu.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <!-- MistoNarozeni -->
       <xsd:element name="MistoNarozeni" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Místo narození. Element se uvádí pouze v případě že TypSubjektu="Fyzicka" nebo TypSubjektu="Osvc", a to pouze v případě, že je nutné odlišit dvě osoby stejného jména a příjmení a stejné adresy pobytu.</xsd:documentation>
@@ -457,7 +445,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- Jmeno -->
       <xsd:element name="Jmeno" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Element se neuvádí v případě TypSubjektu="Pravnicka" a value="Utvar".</xsd:documentation>
@@ -468,7 +455,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- Prijmeni -->
       <xsd:element name="Prijmeni" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xsd:documentation>
@@ -479,7 +465,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- Osloveni -->
       <xsd:element name="Osloveni" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xsd:documentation>
@@ -490,7 +475,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- TitulPred -->
       <xsd:element name="TitulPred" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xsd:documentation>
@@ -501,7 +485,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- TitulZa -->
       <xsd:element name="TitulZa" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xsd:documentation>
@@ -512,7 +495,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- FunkceUtvarPopis -->
       <xsd:element name="FunkceUtvarPopis" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Element se uvádí pouze v případě že TypSubjektu="Pravnicka" a value="Utvar".</xsd:documentation>
@@ -523,7 +505,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- FunkceUtvarIdentifikator -->
       <xsd:element name="FunkceUtvarIdentifikator" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Element se uvádí pouze v případě že TypSubjektu="Pravnicka" a value="Utvar".</xsd:documentation>
@@ -534,7 +515,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- Poznamka -->
       <xsd:element name="Poznamka" minOccurs="0">
         <xsd:simpleType>
           <xsd:restriction base="xsd:string">
@@ -542,9 +522,7 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- Adresy -->
       <xsd:element name="Adresy" type="tns:tAdresy" minOccurs="0"/>
-      <!-- DoplnujiciData -->
       <xsd:element name="DoplnujiciData" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace.</xsd:documentation>
@@ -557,7 +535,7 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <!-- AdresaPostovni -->
+
   <xsd:complexType name="tAdresaPostovni">
     <xsd:annotation>
       <xsd:documentation>Metadata poštovní adresy (pro doručování fyzických zásilek).</xsd:documentation>
@@ -649,8 +627,6 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
-      <!-- Do popisu uvést, že přípustné hodnoty státu jsou pouze na základě číselníku
-      (doplnit libovolný, dnes užívaný číselník států například ISVS AAA nebo jiný) -->
       <xsd:element name="Zeme" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Kód zkratky státu podle číselníku ČSÚ.</xsd:documentation>
@@ -724,7 +700,7 @@ kde aa je označení informačního systému (spisová služba, lokální agenda
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <!-- AdresaDS -->
+
   <xsd:complexType name="tAdresaDS">
     <xsd:annotation>
       <xsd:documentation>Metadata identifikátoru datové schránky.</xsd:documentation>
@@ -936,7 +912,6 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <!-- ZpusobManipulace -->
       <xsd:choice minOccurs="0">
         <xsd:element name="ZpusobManipulaceId">
           <xsd:annotation>
@@ -970,7 +945,6 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
           </xsd:annotation>
         </xsd:element>
       </xsd:choice>
-      <!-- ZpusobZachazeni -->
       <xsd:choice minOccurs="0">
         <xsd:element name="ZpusobZachazeniId">
           <xsd:annotation>
@@ -1000,7 +974,6 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
           </xsd:annotation>
         </xsd:element>
       </xsd:choice>
-      <!-- DruhZasilky -->
       <xsd:choice minOccurs="0">
         <xsd:element name="DruhZasilkyId">
           <xsd:annotation>
@@ -1019,7 +992,6 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
                 </xsd:annotation>
               </xsd:enumeration>
               <xsd:enumeration value="DoporucenaZasilkaStandard"/>
-              <!-- DOPORUCENA ZASILKA - STANDARD -->
             </xsd:restriction>
           </xsd:simpleType>
         </xsd:element>
@@ -1164,19 +1136,17 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <!-- Zasilka -->
+
   <xsd:complexType name="tZasilka">
     <xsd:annotation>
       <xsd:documentation>Komplexní popis jedné zásilky, obsahuje odesilatele a další popisné parametry zásilky.</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <!-- Odesilatel - v rámci ISDS musí být pouze jeden  -->
       <xsd:element name="Odesilatel" type="tns:tAdresat" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Popis subjektu, který odeslal - vypravil zásilku.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <!-- Adresat - může být větší počet cílových adresátů -->
       <xsd:element name="Adresat" type="tns:tAdresat" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Popis subjektu, který je uveden jako adresát zásilky.</xsd:documentation>
@@ -1185,7 +1155,7 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
       <xsd:element name="ZasilkaInfo" type="tns:tZasilkaInfo"/>
     </xsd:sequence>
   </xsd:complexType>
-  <!-- Souvisejici subjekty -->
+
   <xsd:complexType name="tSouvisejiciSubjekt">
     <xsd:annotation>
       <xsd:documentation>Metadata souvisejících subjektů (typický příklad jsou subjekty správního řízení například účastníci, dotčené orgány a další subjekty).</xsd:documentation>
@@ -1268,7 +1238,7 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
       <xsd:element name="VlozenyDokument" type="tns:tVlozenyDokument" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
   </xsd:complexType>
-  <!-- DokumentSpis -->
+
   <xsd:element name="Dokumenty">
     <xsd:annotation>
       <xsd:documentation>Seznam přenášených dokumentů.</xsd:documentation>
@@ -1279,6 +1249,7 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
+
   <xsd:element name="Spisy">
     <xsd:annotation>
       <xsd:documentation>Seznam přenášených spisů.</xsd:documentation>
@@ -1289,12 +1260,13 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
+
   <xsd:element name="Soubory" type="isds:tFilesArray">
     <xsd:annotation>
       <xsd:documentation>Množina souborů, která může být následně využita z dokumentů, spisů a zásilek pro zadání odkazů na jednotlivé elektronické soubory.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <!-- DoplnujiciData -->
+
   <xsd:element name="DoplnujiciData">
     <xsd:annotation>
       <xsd:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace.</xsd:documentation>

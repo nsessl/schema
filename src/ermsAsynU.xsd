@@ -1,20 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--
-	Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
-	Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.
--->
-<!--CHANGE 2011-04-28 Změny proti verzi připomínkované výrobci spisových služeb ze dne 24.4.2011 jsou označeny přímo v textu komentáři, začínajícími stejně jako tento řádek. Tyto změny se snaží uplatnit některé jejich připomínky. -->
 <xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://nsess.public.cz/erms/v_02_00" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nsess.public.cz/erms/v_02_00" elementFormDefault="qualified" id="ermsIFAsyn">
+  <xs:annotation>
+    <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého. Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.</xs:documentation>
+  </xs:annotation>
 	<xs:import namespace="http://isds.czechpoint.cz/v20" schemaLocation="dmBaseTypes.xsd"/>
 	<xs:include schemaLocation="ermsTypes.xsd"/>
-	<!--CHANGE 2011-04-28 Změněn datový typ. Důvodem byla snaha sjednotit datové typy. Z toho vzešla nutnost odlišit profil pro editaci a profil pro poskytnutí maximálních informací o objektu. -->
 	<xs:element name="DokumentUprava">
 		<xs:annotation>
 			<xs:documentation>Změna profilu existujícího dokumentu</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<!--CHANGE 2011-04-28 Změněn datový typ. Důvodem byla snaha sjednotit datové typy. Z toho vzešla nutnost odlišit profil pro editaci a profil pro poskytnutí maximálních informací o objektu. -->
 				<xs:element name="ProfilDokumentuUprava" type="tProfilDokumentuUprava"/>
 				<xs:element name="Autorizace" type="tAutorizace"/>
 				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
@@ -41,7 +37,6 @@
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<!--CHANGE 2011-04-28 Změna obsahu komplexního typu tProfilSpisu. -->
 				<xs:element name="ProfilSpisu" type="tProfilSpisu">
 					<xs:annotation>
 						<xs:documentation xml:lang="CS">V případě založení spisu se předpokládá pro položku StavSpisu povolená hodnota pouze "nevyrizen".
@@ -60,7 +55,6 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<!--CHANGE 2011-04-28 Změněn datový typ. Důvodem byla snaha sjednotit datové typy. Z toho vzešla nutnost odlišit profil pro editaci a profil pro poskytnutí maximálních informací o objektu. -->
 				<xs:element name="ProfilSpisuUprava" type="tProfilSpisuUprava"/>
 				<xs:element name="Autorizace" type="tAutorizace"/>
 				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
@@ -120,7 +114,6 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
 									</xs:complexType>
 								</xs:element>
 								<xs:element name="DokumentIdVlozeny">
-									<!--xs:annotation>Při této variantě je předpokládáno, že  je spis zákládán na již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.</xs:annotation-->
 									<xs:complexType>
 										<xs:sequence>
 											<xs:element name="IdDokument" type="tIdDokument"/>
@@ -207,7 +200,6 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="SpisId" type="tIdSpisu"/>
-				<!--CHANGE v. 2.0. -->
 				<xs:element name="Duvod" minOccurs="0" maxOccurs="1">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
@@ -228,7 +220,6 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="SpisId" type="tIdSpisu"/>
-				<!--CHANGE v. 2.0. -->
 				<xs:element name="Duvod" minOccurs="0" maxOccurs="1">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
@@ -429,7 +420,6 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE 2011-04-28 Osamostatnění souboru od dokumentu. Nová struktura umožní založit soubor bez okamžité vazby na dokument. Cílem této změny bylo umožnit rozložený, postupný přenos rozsáhlých dat, která např. při založení kompletního spisu mohou přesáhnout technologické možnosti podepisování XML. -->
 	<xs:element name="SouborZalozeni">
 		<xs:annotation>
 			<xs:documentation>Uložení nového souboru do úložiště obsahu elektronických dokumentů.
@@ -462,7 +452,6 @@ Vlastní binární obsah může být volitelně buď součástí této události
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE 2011-04-28 Osamostatnění souboru od dokumentu. Nová struktura umožní založit soubor bez okamžité vazby na dokument. Cílem této změny bylo umožnit rozložený, postupný přenos rozsáhlých dat, která např. při založení kompletního spisu mohou přesáhnout technologické možnosti podepisování XML. -->
 	<xs:element name="SouborNovaVerze">
 		<xs:annotation>
 			<xs:documentation>Náhrada obsahu souboru.
@@ -502,10 +491,6 @@ Pokud je identifikátor elektronického souboru propojen současně na více dok
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE 2011-04-28 Odstranění souboru z úložiště. Tato událost trvale odstraní soubor ve svém důsledku i od všech napojených dokumentů.
-	Změna: Osamostatnění souboru od dokumentu. 
-	Nová struktura umožní založit soubor bez okamžité vazby na dokument. 
-	Cílem této změny bylo umožnit rozložený, postupný přenos rozsáhlých dat, která např. při založení kompletního spisu mohou přesáhnout technologické možnosti podepisování XML. -->
 	<xs:element name="SouborZruseni">
 		<xs:annotation>
 			<xs:documentation>Zrušení elektronického souboru. Touto operací dojde k odstranění, nejenom rozpojení vazby s dokumenty a vypraveními. </xs:documentation>
@@ -527,10 +512,6 @@ Pokud je identifikátor elektronického souboru propojen současně na více dok
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE 2011-04-28 Nová událost, která je spojená s osamostatnění souboru od dokumentu. 
-	Touto událostí se propojuje dříve zaslaný elektronický soubor s dokumentem, ke kterému přísluší. 
-	Toto také umožné napojit jeden elektronický soubot na více dokumentů současně.
-	Nová struktura umožní založit soubor bez okamžité vazby na dokument. Cílem této změny bylo umožnit rozložený, postupný přenos rozsáhlých dat, která např. při založení kompletního spisu mohou přesáhnout technologické možnosti podepisování XML. -->
 	<xs:element name="SouborVlozitKDokumentu">
 		<xs:annotation>
 			<xs:documentation>Existující soubor připojí podle zadaného ID k dokumentu.
@@ -553,8 +534,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE 2011-04-28 Nová událost. 
-	Touto událostí odpojí elektronický soubor od dokumentu, ke kterému příslušel. Tato událost ale samotný elektronický soubor nemaže. -->
 	<xs:element name="SouborVyjmoutZDokumentu">
 		<xs:annotation>
 			<xs:documentation>Odstraní z dokumentu vazbu na zadaný elektronický soubor. Soubor samotný ale není zrušen.</xs:documentation>
@@ -595,7 +574,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 										<xs:element name="ZasilkaInfo">
 											<xs:complexType>
 												<xs:sequence>
-													<!--CHANGE 2011-04-28 Datový typ pole souborů byl nahrazen datovým typem odkazujícím na jeden soubor. Pro zajištění jednoznačné lokalizace případné chyby. -->
 													<xs:element name="Soubor" type="tFileLink"/>
 												</xs:sequence>
 											</xs:complexType>
@@ -630,7 +608,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 										<xs:element name="ZasilkaInfo">
 											<xs:complexType>
 												<xs:sequence>
-													<!--CHANGE 2011-04-28 Datový typ pole souborů byl nahrazen datovým typem odkazujícím na jeden soubor. Pro zajištění jednoznačné lokalizace případné chyby. -->
 													<xs:element name="Soubor" type="tFileId"/>
 												</xs:sequence>
 											</xs:complexType>
@@ -725,7 +702,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="IdDokument" type="tIdDokument"/>
-				<!--CHANGE v. 2.0. -->
 				<xs:element name="Vyrizeni" type="tVyrizeni"/>
 				<xs:element name="Autorizace" type="tAutorizace"/>
 				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
@@ -740,7 +716,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="SpisId" type="tIdSpisu"/>
-				<!--CHANGE v. 2.0. -->
 				<xs:element name="DatumCasUzavreni">
 					<xs:simpleType>
 						<xs:restriction base="xs:dateTime"/>
@@ -759,7 +734,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="IdDokument" type="tIdDokument"/>
-				<!--CHANGE v. 2.0. -->
 				<xs:element name="DatumCasUzavreni">
 					<xs:simpleType>
 						<xs:restriction base="xs:dateTime"/>
@@ -820,7 +794,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE v. 2.0. -->
 	<xs:element name="DokumentExterniSpousteciUdalost">
 		<xs:annotation>
 			<xs:documentation>Zápis datumu externí spouštěcí události</xs:documentation>
@@ -840,7 +813,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE v. 2.0. -->
 	<xs:element name="SpisExterniSpousteciUdalost">
 		<xs:annotation>
 			<xs:documentation>Zápis datumu externí spouštěcí události</xs:documentation>
@@ -848,7 +820,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="SpisId" type="tIdSpisu"/>
-				<!--CHANGE v. 2.0. -->
 				<xs:element name="DatumExterniUdalosti" minOccurs="1" maxOccurs="1">
 					<xs:simpleType>
 						<xs:restriction base="xs:date"/>
@@ -860,7 +831,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE v. 2.0. -->
 	<xs:element name="DokumentSkartovano">
 		<xs:annotation>
 			<xs:documentation>Postoupení informace o proběhlé skartaci.</xs:documentation>
@@ -880,7 +850,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE v. 2.0. -->
 	<xs:element name="SpisSkartovano">
 		<xs:annotation>
 			<xs:documentation>Postoupení informace o proběhlé skartaci.</xs:documentation>
@@ -888,7 +857,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="SpisId" type="tIdSpisu"/>
-				<!--CHANGE v. 2.0. -->
 				<xs:element name="SkartacniRezim" type="tSkartacniRezim" minOccurs="1"/>
 				<xs:element name="DatumSkartace" minOccurs="1" maxOccurs="1">
 					<xs:simpleType>
@@ -901,7 +869,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE v. 2.0. -->
 	<xs:element name="SouborOdemkniFinal">
 		<xs:annotation>
 			<xs:documentation>Po znovuotevření dokumentu nastává mnohdy nutnost editovat i přílohy, ale ty jsou ve finálním tvaru. Událost zruší příznak finálního tvaru souboru. Dokument souboru musí být pouze ve stavu ZPRACOVANI, soubor nesmí být součástí digitálního podání a vypravení předaného Výpravně.</xs:documentation>
@@ -921,7 +888,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 			<xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<!--CHANGE v. 2.0 Doplněny nové události. -->
 	<xs:group name="gUdalost">
 		<xs:sequence>
 			<xs:choice>
@@ -963,7 +929,6 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
 				<xs:element ref="DokumentSkartovano"/>
 				<xs:element ref="SpisSkartovano"/>
 				<xs:element ref="SouborOdemkniFinal"/>
-				<!--CHANGE v. 2.0. : pridan novy typ udalosti Ostatni-->
 				<xs:element name="Ostatni">
 					<xs:annotation>
 						<xs:documentation>Jakékoliv další události vzájemně dohodnuté mezi ESSS a AIS nad rámec definovaných v ermsAsyn.</xs:documentation>

@@ -201,29 +201,8 @@
 			</output>
 		</operation>
 	</binding>
-	<!--
-	<binding name="ermsSoapBindingAsyn" type="tns:ermsPortAsyn">
-		<soap:binding style="document"
-					  transport="http://schemas.xmlsoap.org/soap/http" />
-		<operation name="ermsAsyn">
-			<soap:operation soapAction="ermsAsyn" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-		</operation>
 
-		<operation name="WsTest">
-			<soap:operation soapAction="WsTest" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-	</binding>
-	-->
-	<binding name="V_02_00SoapBindingSyn" type="tns:V_02_00PortSyn">
+  <binding name="V_02_00SoapBindingSyn" type="tns:V_02_00PortSyn">
 		<soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http" />
 		<operation name="DokumentZalozeni">
 			<soap:operation soapAction="DokumentZalozeni" />
