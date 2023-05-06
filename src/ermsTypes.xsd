@@ -1303,33 +1303,48 @@ komplexním nepovinným prvkem Vyrizeni.</xs:documentation>
 			<xs:sequence>
 				<xs:element name="SkartacniZnak">
 					<xs:annotation>
-						<xs:documentation xml:lang="cs">A-archivace, S-skartace, V-vytřídění na základě skartačního řízení.</xs:documentation>
+						<xs:documentation xml:lang="cs">Typ skartační operace (skartační znak).</xs:documentation>
 					</xs:annotation>
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:length value="1"/>
-							<xs:enumeration value="A"/>
-							<xs:enumeration value="S"/>
-							<xs:enumeration value="V"/>
+							<xs:enumeration value="A">
+							  <xs:annotation>
+							    <xs:documentation>archivace</xs:documentation>
+							  </xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="S">
+							  <xs:annotation>
+							    <xs:documentation>skartace</xs:documentation>
+							  </xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="V">
+							  <xs:annotation>
+							    <xs:documentation>vytřídění na základě skartačního řízení</xs:documentation>
+							  </xs:annotation>
+							</xs:enumeration>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				<xs:element name="SkartacniLhuta">
+				<xs:element name="SkartacniLhuta" type="sLhuta">
 					<xs:annotation>
 						<xs:documentation xml:lang="cs">Skartační nebo archivační lhůta v letech.</xs:documentation>
 					</xs:annotation>
-					<xs:simpleType>
-						<xs:restriction base="xs:unsignedShort">
-							<xs:minInclusive value="1"/>
-							<xs:maxInclusive value="999"/>
-						</xs:restriction>
-					</xs:simpleType>
 				</xs:element>
+			  <xs:element name="RokVyrazeni" type="xs:gYear">
+			    <xs:annotation>
+			      <xs:documentation>Rok vyřazení.</xs:documentation>
+			    </xs:annotation>
+			  </xs:element>
 				<xs:element name="SpousteciUdalost" type="xs:string">
 					<xs:annotation>
 						<xs:documentation xml:lang="cs">Prvek pro zaznamenání kritéria, kterým je stanoven začátek plynutí skartační lhůty.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+			  <xs:element name="KontrolaLhuta" type="sLhuta">
+			    <xs:annotation>
+			      <xs:documentation xml:lang="cs">Lhůta v letech pro kontrolu, zda nastala externí spouštěcí událost.</xs:documentation>
+			    </xs:annotation>
+			  </xs:element>
 			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
@@ -2022,6 +2037,15 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
 	<xs:simpleType name="sDatumCasVytvoreni">
 		<xs:restriction base="xs:dateTime"/>
 	</xs:simpleType>
+  <xs:simpleType name="sLhuta">
+    <xs:annotation>
+      <xs:documentation>Lhůta v letech</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="999"/>
+    </xs:restriction>
+  </xs:simpleType>  
 	<xs:attributeGroup name="gZdrojCil">
 		<xs:attribute name="Zdroj" type="xs:string" use="required">
 			<xs:annotation>
