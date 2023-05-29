@@ -12,7 +12,9 @@
 	<message name="ermsAsynRequestMessage">
 		<part name="body" element="v_02_00:ermsAsyn" />
 	</message>
-	<message name="ermsAsynResponseMessage"/>
+	<message name="ermsAsynResponseMessage">
+	  <part name="body" element="v_02_00:ermsAsynResponse" />
+	</message>
 
 	<message name="WsTestRequestMessage">
 		<part name="body" element="v_02_00:WsTestRequest" />
