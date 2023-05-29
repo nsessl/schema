@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  
+  <!-- Local copy of METS specific xlink.xsd to allow validation without internet access -->
+  <uri name="http://www.loc.gov/standards/xlink/xlink.xsd" uri="mets-xlink.xsd"/>
+</catalog>
