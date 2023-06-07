@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:nsesss="http://www.mvcr.cz/nsesss/v3" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.mvcr.cz/nsesss/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0" id="nsesss-DA">
-  <xs:include schemaLocation="http://www.mvcr.cz/nsesss/v3/nsesss.xsd"/>
+  <xs:include schemaLocation="nsesss.xsd"/>
 
 	<xs:annotation>
 		<xs:documentation xml:lang="cs">Schéma XML pro zasílání údajů o rozhodnutí ve skartačním řízení a potvrzení přejímky s identifikátory digitálního archivu původci podle národního standardu pro elektronické systémy spisové služby</xs:documentation>
