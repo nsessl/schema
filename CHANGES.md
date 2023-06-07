@@ -1,6 +1,16 @@
-# Změny API
+# Změny provedené od 1.7.2023
 
-## Přidány následující funkce do synchronního rozhraní
+## Změny datových typů
+
+* u některých elementů bylo povolena delší maximální délka
+* u většiny hodnot omezení zůstala, aby se minimalizovala nutnost
+  úpravy stávajích aplikací, které v některých případech počítají s
+  pevnou délkou
+* 
+
+## Změny API
+
+### Přidány následující funkce do synchronního rozhraní
 
 * SpisPostoupeniZadost
 * ProfilTypovehoSpisuZadost
@@ -15,7 +25,7 @@
 * TypovySpisZalozeni
 * UzivateleSeznam
 
-## Přidány následující události do asynchronního rozhraní
+### Přidány následující události do asynchronního rozhraní
 
 * SpisVlozeniDoTypovehoSpisu
 * SpisVyjmutiZTypovehoSpisu
