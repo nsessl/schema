@@ -1,4 +1,4 @@
-# XML schémata pro Národní standard pro elektronické systémy spisové služby
+ # XML schémata pro Národní standard pro elektronické systémy spisové služby
 
 ## Příloha 1 – Schéma pro výměnu dokumentů a jejich metadat (WS API)
 
