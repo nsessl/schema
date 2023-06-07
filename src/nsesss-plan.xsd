@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:nsesss="http://www.mvcr.cz/nsesss/v3" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.mvcr.cz/nsesss/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0" id="nsesss-plan">
-  <xs:include schemaLocation="nsesss.xsd"/>
+  <xs:include schemaLocation="http://www.mvcr.cz/nsesss/v3/nsesss.xsd"/>
 
 	<xs:annotation>
 		<xs:documentation xml:lang="cs">Schéma XML pro export a import spisového a skartačního plánu podle národního standardu pro elektronické systémy spisové služby</xs:documentation>
@@ -19,6 +19,7 @@
 		</xs:appinfo>
 	</xs:annotation>
 
+	<!-- definice kořenových elementů -->
 	<xs:element name="SpisovyPlan">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Sada elementů pro popis spisového plánu (hierarchického uspořádání věcných skupin) organizace.</xs:documentation>
@@ -43,8 +44,10 @@
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
+	<!-- konec definice kořenových elementů -->
 
-  <xs:complexType name="tPlanEvidencniUdajeVecneSkupiny">
+	<!-- definice složených typů -->
+	<xs:complexType name="tPlanEvidencniUdajeVecneSkupiny">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Sada elementů pro evidenční údaje entity "věcná skupina".</xs:documentation>
 		</xs:annotation>
@@ -96,5 +99,5 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
+	<!-- konec definice složených typů -->
 </xs:schema>

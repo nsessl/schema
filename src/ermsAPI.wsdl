@@ -1,196 +1,304 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions name="V_02_00" targetNamespace="http://nsess.public.cz/erms/v_02_00"
-			 xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nsess.public.cz/erms/v_02_00"
-			 xmlns:v_02_00="http://nsess.public.cz/erms/v_02_00" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nsess.public.cz/erms/v_02_00" xmlns:v_02_00="http://nsess.public.cz/erms/v_02_00" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://isds.czechpoint.cz/v20" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" name="V_02_00" targetNamespace="http://nsess.public.cz/erms/v_02_00">
 	<types>
 		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-			<xsd:import namespace="http://nsess.public.cz/erms/v_02_00"	schemaLocation="ermsIFSyn.xsd" />
-			<xsd:import namespace="http://nsess.public.cz/erms/v_02_00"	schemaLocation="ermsIFAsyn.xsd" />
+			<xsd:import namespace="http://nsess.public.cz/erms/v_02_00" schemaLocation="ermsIFSyn.xsd"/>
+			<xsd:import namespace="http://nsess.public.cz/erms/v_02_00" schemaLocation="ermsIFAsyn.xsd"/>
 		</xsd:schema>
 	</types>
-	
 	<message name="ermsAsynRequestMessage">
-		<part name="body" element="v_02_00:ermsAsyn" />
+		<part name="body" element="v_02_00:ermsAsyn"/>
 	</message>
-	<message name="ermsAsynResponseMessage">
-	  <part name="body" element="v_02_00:ermsAsynResponse" />
-	</message>
-
+	<message name="ermsAsynResponseMessage"/>
 	<message name="WsTestRequestMessage">
-		<part name="body" element="v_02_00:WsTestRequest" />
+		<part name="body" element="v_02_00:WsTestRequest"/>
 	</message>
 	<message name="WsTestResponseMessage">
-		<part name="body" element="v_02_00:WsTestResponse" />
+		<part name="body" element="v_02_00:WsTestResponse"/>
 	</message>
-
 	<message name="DokumentZalozeniRequestMessage">
-		<part name="body" element="v_02_00:DokumentZalozeniRequest" />
+		<part name="body" element="v_02_00:DokumentZalozeniRequest"/>
 	</message>
 	<message name="DokumentZalozeniResponseMessage">
-		<part name="body" element="v_02_00:DokumentZalozeniResponse" />
+		<part name="body" element="v_02_00:DokumentZalozeniResponse"/>
 	</message>
-
 	<message name="SpisZalozeniRequestMessage">
-		<part name="body" element="v_02_00:SpisZalozeniRequest" />
+		<part name="body" element="v_02_00:SpisZalozeniRequest"/>
 	</message>
 	<message name="SpisZalozeniResponseMessage">
-		<part name="body" element="v_02_00:SpisZalozeniResponse" />
+		<part name="body" element="v_02_00:SpisZalozeniResponse"/>
 	</message>
-
 	<message name="UdalostiRequestMessage">
-		<part name="body" element="v_02_00:UdalostiRequest" />
+		<part name="body" element="v_02_00:UdalostiRequest"/>
 	</message>
 	<message name="UdalostiResponseMessage">
-		<part name="body" element="v_02_00:UdalostiResponse" />
+		<part name="body" element="v_02_00:UdalostiResponse"/>
 	</message>
-
 	<message name="DokumentPostoupeniZadostRequestMessage">
-		<part name="body" element="v_02_00:DokumentPostoupeniZadostRequest" />
+		<part name="body" element="v_02_00:DokumentPostoupeniZadostRequest"/>
 	</message>
 	<message name="DokumentPostoupeniZadostResponseMessage">
-		<part name="body" element="v_02_00:DokumentPostoupeniZadostResponse" />
+		<part name="body" element="v_02_00:DokumentPostoupeniZadostResponse"/>
 	</message>
-
 	<message name="ProfilDokumentuZadostRequestMessage">
-		<part name="body" element="v_02_00:ProfilDokumentuZadostRequest" />
+		<part name="body" element="v_02_00:ProfilDokumentuZadostRequest"/>
 	</message>
 	<message name="ProfilDokumentuZadostResponseMessage">
-		<part name="body" element="v_02_00:ProfilDokumentuZadostResponse" />
+		<part name="body" element="v_02_00:ProfilDokumentuZadostResponse"/>
 	</message>
-
 	<message name="ProfilSpisuZadostRequestMessage">
-		<part name="body" element="v_02_00:ProfilSpisuZadostRequest" />
+		<part name="body" element="v_02_00:ProfilSpisuZadostRequest"/>
 	</message>
 	<message name="ProfilSpisuZadostResponseMessage">
-		<part name="body" element="v_02_00:ProfilSpisuZadostResponse" />
+		<part name="body" element="v_02_00:ProfilSpisuZadostResponse"/>
 	</message>
-
 	<message name="SouborZadostRequestMessage">
-		<part name="body" element="v_02_00:SouborZadostRequest" />
+		<part name="body" element="v_02_00:SouborZadostRequest"/>
 	</message>
 	<message name="SouborZadostResponseMessage">
-		<part name="body" element="v_02_00:SouborZadostResponse" />
+		<part name="body" element="v_02_00:SouborZadostResponse"/>
 	</message>
-
 	<message name="DavkySeznamRequestMessage">
-		<part name="body" element="v_02_00:DavkySeznamRequest" />
+		<part name="body" element="v_02_00:DavkySeznamRequest"/>
 	</message>
 	<message name="DavkySeznamResponseMessage">
-		<part name="body" element="v_02_00:DavkySeznamResponse" />
+		<part name="body" element="v_02_00:DavkySeznamResponse"/>
 	</message>
-	
 	<message name="DavkaZadostRequestMessage">
-		<part name="body" element="v_02_00:DavkaZadostRequest" />
+		<part name="body" element="v_02_00:DavkaZadostRequest"/>
 	</message>
 	<message name="DavkaZadostResponseMessage">
-		<part name="body" element="v_02_00:DavkaZadostResponse" />
+		<part name="body" element="v_02_00:DavkaZadostResponse"/>
 	</message>
-
 	<message name="CiselnikZadostRequestMessage">
-		<part name="body" element="v_02_00:CiselnikZadostRequest" />
+		<part name="body" element="v_02_00:CiselnikZadostRequest"/>
 	</message>
 	<message name="CiselnikZadostResponseMessage">
-		<part name="body" element="v_02_00:CiselnikZadostResponse" />
+		<part name="body" element="v_02_00:CiselnikZadostResponse"/>
 	</message>
-
 	<message name="FunkcniMistaRequestMessage">
-		<part name="body" element="v_02_00:FunkcniMistaRequest" />
+		<part name="body" element="v_02_00:FunkcniMistaRequest"/>
 	</message>
 	<message name="FunkcniMistaResponseMessage">
-		<part name="body" element="v_02_00:FunkcniMistaResponse" />
+		<part name="body" element="v_02_00:FunkcniMistaResponse"/>
 	</message>
-
 	<message name="PrideleneSeznamRequestMessage">
-		<part name="body" element="v_02_00:PrideleneSeznamRequest" />
+		<part name="body" element="v_02_00:PrideleneSeznamRequest"/>
 	</message>
 	<message name="PrideleneSeznamResponseMessage">
-		<part name="body" element="v_02_00:PrideleneSeznamResponse" />
+		<part name="body" element="v_02_00:PrideleneSeznamResponse"/>
 	</message>
-
 	<portType name="V_02_00PortSyn">
 		<operation name="DokumentZalozeni">
-			<input message="tns:DokumentZalozeniRequestMessage" />
-			<output message="tns:DokumentZalozeniResponseMessage" />
+			<input message="tns:DokumentZalozeniRequestMessage"/>
+			<output message="tns:DokumentZalozeniResponseMessage"/>
 		</operation>
-
 		<operation name="SpisZalozeni">
-			<input message="tns:SpisZalozeniRequestMessage" />
-			<output message="tns:SpisZalozeniResponseMessage" />
+			<input message="tns:SpisZalozeniRequestMessage"/>
+			<output message="tns:SpisZalozeniResponseMessage"/>
 		</operation>
-
 		<operation name="Udalosti">
-			<input message="tns:UdalostiRequestMessage" />
-			<output message="tns:UdalostiResponseMessage" />
+			<input message="tns:UdalostiRequestMessage"/>
+			<output message="tns:UdalostiResponseMessage"/>
 		</operation>
-
 		<operation name="DokumentPostoupeniZadost">
-			<input message="tns:DokumentPostoupeniZadostRequestMessage" />
-			<output message="tns:DokumentPostoupeniZadostResponseMessage" />
+			<input message="tns:DokumentPostoupeniZadostRequestMessage"/>
+			<output message="tns:DokumentPostoupeniZadostResponseMessage"/>
 		</operation>
-
 		<operation name="ProfilDokumentuZadost">
-			<input message="tns:ProfilDokumentuZadostRequestMessage" />
-			<output message="tns:ProfilDokumentuZadostResponseMessage" />
+			<input message="tns:ProfilDokumentuZadostRequestMessage"/>
+			<output message="tns:ProfilDokumentuZadostResponseMessage"/>
 		</operation>
-
 		<operation name="ProfilSpisuZadost">
-			<input message="tns:ProfilSpisuZadostRequestMessage" />
-			<output message="tns:ProfilSpisuZadostResponseMessage" />
+			<input message="tns:ProfilSpisuZadostRequestMessage"/>
+			<output message="tns:ProfilSpisuZadostResponseMessage"/>
 		</operation>
-
 		<operation name="SouborZadost">
-			<input message="tns:SouborZadostRequestMessage" />
-			<output message="tns:SouborZadostResponseMessage" />
+			<input message="tns:SouborZadostRequestMessage"/>
+			<output message="tns:SouborZadostResponseMessage"/>
 		</operation>
-
 		<operation name="CiselnikZadost">
-			<input message="tns:CiselnikZadostRequestMessage" />
-			<output message="tns:CiselnikZadostResponseMessage" />
+			<input message="tns:CiselnikZadostRequestMessage"/>
+			<output message="tns:CiselnikZadostResponseMessage"/>
 		</operation>
-
 		<operation name="DavkaZadost">
-			<input message="tns:DavkaZadostRequestMessage" />
-			<output message="tns:DavkaZadostResponseMessage" />
+			<input message="tns:DavkaZadostRequestMessage"/>
+			<output message="tns:DavkaZadostResponseMessage"/>
 		</operation>
-		
 		<operation name="DavkySeznam">
-			<input message="tns:DavkySeznamRequestMessage" />
-			<output message="tns:DavkySeznamResponseMessage" />
+			<input message="tns:DavkySeznamRequestMessage"/>
+			<output message="tns:DavkySeznamResponseMessage"/>
 		</operation>
-
 		<operation name="FunkcniMista">
-			<input message="tns:FunkcniMistaRequestMessage" />
-			<output message="tns:FunkcniMistaResponseMessage" />
+			<input message="tns:FunkcniMistaRequestMessage"/>
+			<output message="tns:FunkcniMistaResponseMessage"/>
 		</operation>
-
 		<operation name="PrideleneSeznam">
-			<input message="tns:PrideleneSeznamRequestMessage" />
-			<output message="tns:PrideleneSeznamResponseMessage" />
+			<input message="tns:PrideleneSeznamRequestMessage"/>
+			<output message="tns:PrideleneSeznamResponseMessage"/>
 		</operation>
 	</portType>
-	
 	<portType name="V_02_00PortAsyn">
 		<operation name="ermsAsyn">
-			<input message="tns:ermsAsynRequestMessage" />
+			<input message="tns:ermsAsynRequestMessage"/>
 			<output message="tns:ermsAsynResponseMessage"/>
 		</operation>
-
 		<operation name="WsTest">
-			<input message="tns:WsTestRequestMessage" />
-			<output message="tns:WsTestResponseMessage" />
+			<input message="tns:WsTestRequestMessage"/>
+			<output message="tns:WsTestResponseMessage"/>
 		</operation>
 	</portType>
-
 	<binding name="V_02_00SoapBindingAsyn" type="tns:V_02_00PortAsyn">
-		<soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="ermsAsyn">
+			<soap:operation soapAction="ermsAsyn"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="WsTest">
+			<soap:operation soapAction="WsTest"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="V_02_00SoapBindingSyn" type="tns:V_02_00PortSyn">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="DokumentZalozeni">
+			<soap:operation soapAction="DokumentZalozeni"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SpisZalozeni">
+			<soap:operation soapAction="SpisZalozeni"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="Udalosti">
+			<soap:operation soapAction="Udalosti"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="DokumentPostoupeniZadost">
+			<soap:operation soapAction="DokumentPostoupeniZadost"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ProfilDokumentuZadost">
+			<soap:operation soapAction="ProfilDokumentuZadost"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ProfilSpisuZadost">
+			<soap:operation soapAction="ProfilSpisuZadost"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SouborZadost">
+			<soap:operation soapAction="SouborZadost"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CiselnikZadost">
+			<soap:operation soapAction="CiselnikZadost"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="FunkcniMista">
+			<soap:operation soapAction="FunkcniMista"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="DavkySeznam">
+			<soap:operation soapAction="DavkySeznam"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="DavkaZadost">
+			<soap:operation soapAction="DavkaZadost"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="PrideleneSeznam">
+			<soap:operation soapAction="PrideleneSeznam"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="V_02_00ServiceSyn">
+		<port name="V_02_00_Syn" binding="tns:V_02_00SoapBindingSyn">
+			<soap:address location="http://server:port/context/ermsAPI"/>
+		</port>
+	</service>
+	<service name="V_02_00ServiceAsyn">
+		<port name="V_02_00_Asyn" binding="tns:V_02_00SoapBindingAsyn">
+			<soap:address location="http://server:port/context/ermsAPI"/>
+		</port>
+	</service>
+	<!--
+	<binding name="ermsSoapBindingAsyn" type="tns:ermsPortAsyn">
+		<soap:binding style="document"
+					  transport="http://schemas.xmlsoap.org/soap/http" />
 		<operation name="ermsAsyn">
 			<soap:operation soapAction="ermsAsyn" />
 			<input>
 				<soap:body use="literal" />
 			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
 		</operation>
 
 		<operation name="WsTest">
@@ -203,139 +311,5 @@
 			</output>
 		</operation>
 	</binding>
-
-  <binding name="V_02_00SoapBindingSyn" type="tns:V_02_00PortSyn">
-		<soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http" />
-		<operation name="DokumentZalozeni">
-			<soap:operation soapAction="DokumentZalozeni" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-
-		<operation name="SpisZalozeni">
-			<soap:operation soapAction="SpisZalozeni" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-
-		<operation name="Udalosti">
-			<soap:operation soapAction="Udalosti" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-
-		<operation name="DokumentPostoupeniZadost">
-			<soap:operation soapAction="DokumentPostoupeniZadost" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-
-		<operation name="ProfilDokumentuZadost">
-			<soap:operation soapAction="ProfilDokumentuZadost" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-
-		<operation name="ProfilSpisuZadost">
-			<soap:operation soapAction="ProfilSpisuZadost" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-
-		<operation name="SouborZadost">
-			<soap:operation soapAction="SouborZadost" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-		
-		<operation name="CiselnikZadost">
-			<soap:operation soapAction="CiselnikZadost" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-
-		<operation name="FunkcniMista">
-			<soap:operation soapAction="FunkcniMista" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-
-		<operation name="DavkySeznam">
-			<soap:operation soapAction="DavkySeznam" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-		
-		<operation name="DavkaZadost">
-			<soap:operation soapAction="DavkaZadost" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-
-		<operation name="PrideleneSeznam">
-			<soap:operation soapAction="PrideleneSeznam" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-	</binding>
-
-	<service name="V_02_00ServiceSyn">
-		<port name="V_02_00_Syn" binding="tns:V_02_00SoapBindingSyn">
-			<soap:address location="http://server:port/context/ermsAPI" />
-		</port>
-	</service>
-	<service name="V_02_00ServiceAsyn">
-		<port name="V_02_00_Asyn" binding="tns:V_02_00SoapBindingAsyn">
-			<soap:address location="http://server:port/context/ermsAPI" />
-		</port>
-	</service>
-
+	-->
 </definitions>

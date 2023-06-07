@@ -1,335 +1,336 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ns0="http://mvcr.cz/ess/v_1.0.0.0" xmlns="http://nsess.public.cz/erms_trans/v_01_01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nsess.public.cz/erms_trans/v_01_01" elementFormDefault="qualified">
-	<xs:import namespace="http://mvcr.cz/ess/v_1.0.0.0" schemaLocation="ess_ns.xsd"/>
-	<xs:element name="TransakcniLogObjektu">
-		<xs:annotation>
-			<xs:documentation>Kořenový element souboru transakčního protokolu generovaného pro jeden konkrétní objekt vedený v rámci IS.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="TransLogInfo" type="tTransLogInfoObjektu">
-					<xs:annotation>
-						<xs:documentation>Hlavička transakčního protokolu.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="Udalosti">
-					<xs:annotation>
-						<xs:documentation>Seznam událostí objektu vzniklých v zadaném období.</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence minOccurs="0" maxOccurs="unbounded">
-							<xs:element name="Udalost" type="tUdalostObjektu"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="TransakcniLogSystemu">
-		<xs:annotation>
-			<xs:documentation>Kořenový element souboru transakčního protokolu generovaného v rámci celého IS.
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio 7.1.6.1440 (http://www.liquid-technologies.com)-->
+<xsd:schema xmlns:ns0="http://mvcr.cz/ess/v_1.0.0.0" xmlns="http://nsess.public.cz/erms_trans/v_01_01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://nsess.public.cz/erms_trans/v_01_01">
+  <xs:import schemaLocation="ess_ns.xsd" namespace="http://mvcr.cz/ess/v_1.0.0.0" />
+  <xs:element name="TransakcniLogObjektu">
+    <xs:annotation>
+      <xs:documentation>Kořenový element souboru transakčního protokolu generovaného pro jeden konkrétní objekt vedený v rámci IS.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TransLogInfo" type="tTransLogInfoObjektu">
+          <xs:annotation>
+            <xs:documentation>Hlavička transakčního protokolu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Udalosti">
+          <xs:annotation>
+            <xs:documentation>Seznam událostí objektu vzniklých v zadaném období.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Udalost" type="tUdalostObjektu" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransakcniLogSystemu">
+    <xs:annotation>
+      <xs:documentation>Kořenový element souboru transakčního protokolu generovaného v rámci celého IS.
 Může obsahovat veškeré události systému vzniklé v zadaném časovém období ( potom se element TypyObjektu neuvádí ) nebo může obsahovat události pouze uvedených typů dokumentů ( uvedeno v elementu TypyObjektu ).</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="TransLogInfo" type="tTransLogInfoSystemu">
-					<xs:annotation>
-						<xs:documentation>Hlavička transakčního protokolu.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="Udalosti">
-					<xs:annotation>
-						<xs:documentation>Seznam událostí systému objektů zadaných typů vzniklých v zadaném období.</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence minOccurs="0" maxOccurs="unbounded">
-							<xs:element name="Udalost" type="tUdalostSystemu"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:complexType name="tTypObjektu">
-		<xs:annotation>
-			<xs:documentation>Specifikace typu objektu.</xs:documentation>
-		</xs:annotation>
-		<xs:choice>
-			<xs:element name="TypObjektuId">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Komponenta"/>
-						<xs:enumeration value="Zasilka"/>
-						<xs:enumeration value="Dokument"/>
-						<xs:enumeration value="Spis"/>
-						<xs:enumeration value="Soucast"/>
-						<xs:enumeration value="Dil"/>
-						<xs:enumeration value="TypovySpis"/>
-						<xs:enumeration value="VecnaSkupina"/>
-						<xs:enumeration value="SpisovyPlan"/>
-						<xs:enumeration value="Denik"/>
-						<xs:enumeration value="KonfiguraceSystemu"/>
-						<xs:enumeration value="Osoba"/>
-						<xs:enumeration value="FunkcniMisto"/>
-						<xs:enumeration value="SpisovyUzel"/>
-						<xs:enumeration value="OrganizacniJednotka"/>
-						<xs:enumeration value="SkupinaUzivatelu"/>
-						<xs:enumeration value="KonverzeZMociUredni"/>
-						<xs:enumeration value="Obalka"/>
-						<xs:enumeration value="SkartacniRezim"/>
-						<xs:enumeration value="SkartacniNavrh"/>
-						<xs:enumeration value="SpisovaRozluka"/>
-						<xs:enumeration value="SablonaTypovehoSpisu"/>
-						<xs:enumeration value="SablonaSoucasti"/>
-						<xs:enumeration value="Subjekt"/>
-						<xs:enumeration value="TypDokumentu"/>
-						<xs:enumeration value="TypSpisu"/>
-						<xs:enumeration value="UkladaciJednotka"/>
-						<xs:enumeration value="SchvaleniSpis"/>
-						<xs:enumeration value="SchvaleniDokument"/>
-						<xs:enumeration value="SchvaleniKomponenta"/>
-						<xs:enumeration value="ZpusobVyrizeni"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="TypObjektuText" type="xs:string"/>
-		</xs:choice>
-	</xs:complexType>
-	<xs:complexType name="tTypUdalosti">
-		<xs:annotation>
-			<xs:documentation>Specifikace typu události.</xs:documentation>
-		</xs:annotation>
-		<xs:choice>
-			<xs:element name="TypUdalostiId">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Zalozeni"/>
-						<xs:enumeration value="Uprava"/>
-						<xs:enumeration value="Zruseni"/>
-						<xs:enumeration value="Zobrazeni"/>
-						<xs:enumeration value="Export"/>
-						<xs:enumeration value="Prenos"/>
-						<xs:enumeration value="Storno"/>
-						<xs:enumeration value="Zniceni"/>
-						<xs:enumeration value="VlozeniDoSpisu"/>
-						<xs:enumeration value="VyjmutiZeSpisu"/>
-						<xs:enumeration value="PripojeniCJ"/>
-						<xs:enumeration value="NovaVerze"/>
-						<xs:enumeration value="VlozeniKDokumentu"/>
-						<xs:enumeration value="VyjmutiZDokumentu"/>
-						<xs:enumeration value="VlozeniKVypraveni"/>
-						<xs:enumeration value="VyjmutiZVypraveni"/>
-						<xs:enumeration value="PripojeniPodpisu"/>
-						<xs:enumeration value="PripojeniRazitka"/>
-						<xs:enumeration value="FinalniVerze"/>
-						<xs:enumeration value="PredaniVypravne"/>
-						<xs:enumeration value="Vypraveno"/>
-						<xs:enumeration value="Doruceno"/>
-						<xs:enumeration value="Vyrizeni"/>
-						<xs:enumeration value="Schvaleni"/>
-						<xs:enumeration value="Uzavreni"/>
-						<xs:enumeration value="Otevreni"/>
-						<xs:enumeration value="PostoupeniAgende"/>
-						<xs:enumeration value="VraceniZAgendy"/>
-						<xs:enumeration value="ZmenaZpracovatele"/>
-						<xs:enumeration value="PripojeniKlicovehoSlova"/>
-						<xs:enumeration value="OdebraniKlicovehoSlova"/>
-						<xs:enumeration value="PredaniNaSpisovnu"/>
-						<xs:enumeration value="PrevzetiNaSpisovnu"/>
-						<xs:enumeration value="VraceniZeSpisovny"/>
-						<xs:enumeration value="PozastaveniSkartacniOperace"/>
-						<xs:enumeration value="ZruseniPozastaveniSkartacniOperace"/>
-						<xs:enumeration value="VlozeniDoUkladaciJednotky"/>
-						<xs:enumeration value="VyjmutiZUkladaciJednotky"/>
-						<xs:enumeration value="VlozeniDoSkartacnihoNavrhu"/>
-						<xs:enumeration value="VyjmutiZeSkartacnihoNavrhu"/>
-						<xs:enumeration value="VlozeniDoSpisoveRozluky"/>
-						<xs:enumeration value="VyjmutiZeSpisoveRozluky"/>
-						<xs:enumeration value="KonverzeZMociUredni"/>
-						<xs:enumeration value="KonverzeFormatu"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="TypUdalostiText" type="xs:string"/>
-		</xs:choice>
-	</xs:complexType>
-	<xs:complexType name="tObjekt">
-		<xs:sequence>
-			<xs:element name="TypObjektu" type="tTypObjektu"/>
-			<xs:element name="Identifikator" type="ns0:tIdentifikator"/>
-			<xs:element name="DoplnujiciData" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:any minOccurs="0" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:group name="gSpolecneTransLogInfo">
-		<xs:sequence>
-			<xs:element name="Identifikator" type="ns0:tIdentifikator">
-				<xs:annotation>
-					<xs:documentation>Identifikátor transakčního protokolu.
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TransLogInfo" type="tTransLogInfoSystemu">
+          <xs:annotation>
+            <xs:documentation>Hlavička transakčního protokolu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Udalosti">
+          <xs:annotation>
+            <xs:documentation>Seznam událostí systému objektů zadaných typů vzniklých v zadaném období.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Udalost" type="tUdalostSystemu" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="tTypObjektu">
+    <xs:annotation>
+      <xs:documentation>Specifikace typu objektu.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="TypObjektuId">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Komponenta" />
+            <xs:enumeration value="Zasilka" />
+            <xs:enumeration value="Dokument" />
+            <xs:enumeration value="Spis" />
+            <xs:enumeration value="Soucast" />
+            <xs:enumeration value="Dil" />
+            <xs:enumeration value="TypovySpis" />
+            <xs:enumeration value="VecnaSkupina" />
+            <xs:enumeration value="SpisovyPlan" />
+            <xs:enumeration value="Denik" />
+            <xs:enumeration value="KonfiguraceSystemu" />
+            <xs:enumeration value="Osoba" />
+            <xs:enumeration value="FunkcniMisto" />
+            <xs:enumeration value="SpisovyUzel" />
+            <xs:enumeration value="OrganizacniJednotka" />
+            <xs:enumeration value="SkupinaUzivatelu" />
+            <xs:enumeration value="KonverzeZMociUredni" />
+            <xs:enumeration value="Obalka" />
+            <xs:enumeration value="SkartacniRezim" />
+            <xs:enumeration value="SkartacniNavrh" />
+            <xs:enumeration value="SpisovaRozluka" />
+            <xs:enumeration value="SablonaTypovehoSpisu" />
+            <xs:enumeration value="SablonaSoucasti" />
+            <xs:enumeration value="Subjekt" />
+            <xs:enumeration value="TypDokumentu" />
+            <xs:enumeration value="TypSpisu" />
+            <xs:enumeration value="UkladaciJednotka" />
+            <xs:enumeration value="SchvaleniSpis" />
+            <xs:enumeration value="SchvaleniDokument" />
+            <xs:enumeration value="SchvaleniKomponenta" />
+            <xs:enumeration value="ZpusobVyrizeni" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TypObjektuText" type="xs:string" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="tTypUdalosti">
+    <xs:annotation>
+      <xs:documentation>Specifikace typu události.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="TypUdalostiId">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Zalozeni" />
+            <xs:enumeration value="Uprava" />
+            <xs:enumeration value="Zruseni" />
+            <xs:enumeration value="Zobrazeni" />
+            <xs:enumeration value="Export" />
+            <xs:enumeration value="Prenos" />
+            <xs:enumeration value="Storno" />
+            <xs:enumeration value="Zniceni" />
+            <xs:enumeration value="VlozeniDoSpisu" />
+            <xs:enumeration value="VyjmutiZeSpisu" />
+            <xs:enumeration value="PripojeniCJ" />
+            <xs:enumeration value="NovaVerze" />
+            <xs:enumeration value="VlozeniKDokumentu" />
+            <xs:enumeration value="VyjmutiZDokumentu" />
+            <xs:enumeration value="VlozeniKVypraveni" />
+            <xs:enumeration value="VyjmutiZVypraveni" />
+            <xs:enumeration value="PripojeniPodpisu" />
+            <xs:enumeration value="PripojeniRazitka" />
+            <xs:enumeration value="FinalniVerze" />
+            <xs:enumeration value="PredaniVypravne" />
+            <xs:enumeration value="Vypraveno" />
+            <xs:enumeration value="Doruceno" />
+            <xs:enumeration value="Vyrizeni" />
+            <xs:enumeration value="Schvaleni" />
+            <xs:enumeration value="Uzavreni" />
+            <xs:enumeration value="Otevreni" />
+            <xs:enumeration value="PostoupeniAgende" />
+            <xs:enumeration value="VraceniZAgendy" />
+            <xs:enumeration value="ZmenaZpracovatele" />
+            <xs:enumeration value="PripojeniKlicovehoSlova" />
+            <xs:enumeration value="OdebraniKlicovehoSlova" />
+            <xs:enumeration value="PredaniNaSpisovnu" />
+            <xs:enumeration value="PrevzetiNaSpisovnu" />
+            <xs:enumeration value="VraceniZeSpisovny" />
+            <xs:enumeration value="PozastaveniSkartacniOperace" />
+            <xs:enumeration value="ZruseniPozastaveniSkartacniOperace" />
+            <xs:enumeration value="VlozeniDoUkladaciJednotky" />
+            <xs:enumeration value="VyjmutiZUkladaciJednotky" />
+            <xs:enumeration value="VlozeniDoSkartacnihoNavrhu" />
+            <xs:enumeration value="VyjmutiZeSkartacnihoNavrhu" />
+            <xs:enumeration value="VlozeniDoSpisoveRozluky" />
+            <xs:enumeration value="VyjmutiZeSpisoveRozluky" />
+            <xs:enumeration value="KonverzeZMociUredni" />
+            <xs:enumeration value="KonverzeFormatu" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TypUdalostiText" type="xs:string" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="tObjekt">
+    <xs:sequence>
+      <xs:element name="TypObjektu" type="tTypObjektu" />
+      <xs:element name="Identifikator" type="ns0:tIdentifikator" />
+      <xs:element minOccurs="0" name="DoplnujiciData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="gSpolecneTransLogInfo">
+    <xs:sequence>
+      <xs:element name="Identifikator" type="ns0:tIdentifikator">
+        <xs:annotation>
+          <xs:documentation>Identifikátor transakčního protokolu.
 Každé generování transakčního protokolu by mělo být unikátně identifikováno.
 Součástí identifikátoru je také ZdrojID, který slouží k identifikaci zdrojového systému, ze kterého byl identifikátor generován.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DatumVzniku" type="xs:dateTime">
-				<xs:annotation>
-					<xs:documentation>Datum a čas generování transakčního protokolu.
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DatumVzniku" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Datum a čas generování transakčního protokolu.
           </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DatumCasOd" type="xs:dateTime">
-				<xs:annotation>
-					<xs:documentation>Datum a čas, od kterého jsou události do transakčního protokolu generovány.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DatumCasDo" type="xs:dateTime">
-				<xs:annotation>
-					<xs:documentation>Datum a čas, do kterého jsou události do transakčního protokolu generovány.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Software" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Označení software ( typové ). Může sloužit společně s verzí SW k identifikaci typu transakčního protokolu ( očekávání nadstandardních částí, položek atd. )</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="VerzeSoftware" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Verze software. Upřesňuje označení software.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DoplnujiciData" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:any minOccurs="0" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:group>
-	<xs:complexType name="tTransLogInfoObjektu">
-		<xs:sequence>
-			<xs:group ref="gSpolecneTransLogInfo"/>
-			<xs:element name="Objekt" type="tObjekt">
-				<xs:annotation>
-					<xs:documentation>Specifikace objektu, pro který je transakční protokol generován.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="tTransLogInfoSystemu">
-		<xs:sequence>
-			<xs:group ref="gSpolecneTransLogInfo"/>
-			<xs:element name="TypyObjektu" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence maxOccurs="unbounded">
-						<xs:element name="TypObjektu" type="tTypObjektu"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:group name="gSpolecneUdalost">
-		<xs:sequence>
-			<xs:element name="Poradi" type="xs:unsignedLong">
-				<xs:annotation>
-					<xs:documentation>Pořadové číslo události v rámci transakčního protokolu ERMS. 
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DatumCasOd" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Datum a čas, od kterého jsou události do transakčního protokolu generovány.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DatumCasDo" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Datum a čas, do kterého jsou události do transakčního protokolu generovány.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Software" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Označení software ( typové ). Může sloužit společně s verzí SW k identifikaci typu transakčního protokolu ( očekávání nadstandardních částí, položek atd. )</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="VerzeSoftware" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Verze software. Upřesňuje označení software.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="DoplnujiciData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="tTransLogInfoObjektu">
+    <xs:sequence>
+      <xs:group ref="gSpolecneTransLogInfo" />
+      <xs:element name="Objekt" type="tObjekt">
+        <xs:annotation>
+          <xs:documentation>Specifikace objektu, pro který je transakční protokol generován.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tTransLogInfoSystemu">
+    <xs:sequence>
+      <xs:group ref="gSpolecneTransLogInfo" />
+      <xs:element minOccurs="0" name="TypyObjektu">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="TypObjektu" type="tTypObjektu" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="gSpolecneUdalost">
+    <xs:sequence>
+      <xs:element name="Poradi" type="xs:unsignedLong">
+        <xs:annotation>
+          <xs:documentation>Pořadové číslo události v rámci transakčního protokolu ERMS. 
 V číslování událostí mohou být mezery. 
 Generovaný transakční protokol nemusí obsahovat všechny typy událostí.
 Události obsažené v transakčním protokolu mají svým pořadím zápisu odpovídat rostoucímu číslu Poradi.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DatumVzniku" type="xs:dateTime">
-				<xs:annotation>
-					<xs:documentation>Datum a čas vzniku události</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="provedlKdo">
-				<xs:annotation>
-					<xs:documentation>Kdo událost vyvolal – příjmení, jméno, role a identifikátor osoby textově</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:minLength value="1"/>
-						<xs:maxLength value="100"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="TypUdalosti" type="tTypUdalosti"/>
-			<xs:element name="ParametryUdalosti" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="ParametrUdalosti" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="NazevParametru" type="xs:string">
-										<xs:annotation>
-											<xs:documentation>Obsahuje identifikaci parametru. 
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DatumVzniku" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Datum a čas vzniku události</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="provedlKdo">
+        <xs:annotation>
+          <xs:documentation>Kdo událost vyvolal – příjmení, jméno, role a identifikátor osoby textově</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:maxLength value="100" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TypUdalosti" type="tTypUdalosti" />
+      <xs:element minOccurs="0" name="ParametryUdalosti">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="ParametrUdalosti">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="NazevParametru" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Obsahuje identifikaci parametru. 
 Je doporučeno, aby označení parametrů splňovalo požadavky kladené na PARAM-NAME podle RFC5424 kapitolu 6.3.3. SD-PARAM tak, aby bylo možné realizovat snadnou konverzi transakčního protokolu např. do formátu syslog.
 http://tools.ietf.org/html/rfc5424#section-6.3.3 </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="HodnotaParametru" type="xs:string" maxOccurs="unbounded">
-										<xs:annotation>
-											<xs:documentation>Obsahuje hodnotu nebo hodnoty parametru. </xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="DoplnujiciData" minOccurs="0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:any minOccurs="0" maxOccurs="unbounded"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="PopisUdalosti" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Může obsahovat lidsky čitelný upřesňující popis vzniklé události. Tato položka je určena např. k textovému tisku historie objektu ( bez využití parametrů události )</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DoplnujiciData" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:any minOccurs="0" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="ZdrojID" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Identifikace zdroje události ( zdrojového IS )
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="HodnotaParametru" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Obsahuje hodnotu nebo hodnoty parametru. </xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="DoplnujiciData">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:any minOccurs="0" maxOccurs="unbounded" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PopisUdalosti" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Může obsahovat lidsky čitelný upřesňující popis vzniklé události. Tato položka je určena např. k textovému tisku historie objektu ( bez využití parametrů události )</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="DoplnujiciData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ZdrojID">
+        <xs:annotation>
+          <xs:documentation>Identifikace zdroje události ( zdrojového IS )
 Tato položka se standardně nebude uvádět. 
 Pokud tato položka není uvedena, potom se automaticky za zdrojový systém chápe hodnota uvedená v hlavičce transakčního logu v položce Identifikator.ZdrojID
 Pouze v případě, kdy transakční protokol obsahuje události generované v rámci více IS se zde touto položkou odliší zdrojový systém události.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xsd:string">
-						<xs:maxLength value="50"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-		</xs:sequence>
-	</xs:group>
-	<xs:complexType name="tUdalostObjektu">
-		<xs:sequence>
-			<xs:group ref="gSpolecneUdalost"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="tUdalostSystemu">
-		<xs:sequence>
-			<xs:group ref="gSpolecneUdalost"/>
-			<xs:element name="Objekt" type="tObjekt">
-				<xs:annotation>
-					<xs:documentation>Specifikace objektu události.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-</xs:schema>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="tUdalostObjektu">
+    <xs:sequence>
+      <xs:group ref="gSpolecneUdalost" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tUdalostSystemu">
+    <xs:sequence>
+      <xs:group ref="gSpolecneUdalost" />
+      <xs:element name="Objekt" type="tObjekt">
+        <xs:annotation>
+          <xs:documentation>Specifikace objektu události.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xsd:schema>

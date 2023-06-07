@@ -17,6 +17,7 @@
 		</xs:appinfo>
 	</xs:annotation>
 
+	<!-- definice kořenových elementů -->
 	<xs:element name="Dil">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Sada elementů pro popis základní entity "díl" (mechanická část součásti typového spisu). Tato sada se využije jako výchozí v případě přejímky určité části typového spisu (resp. uzavřeného dílu v rámci součásti typového spisu).</xs:documentation>
@@ -71,8 +72,10 @@
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
+	<!-- konec definice kořenových elementů -->
 
-  <xs:group name="tEntita">
+	<!-- definice skupiny elementů -->
+	<xs:group name="tEntita">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Sada elementů pro popis evidenčních údajů dále uvedených entit, tedy věcné skupiny, spisu, součásti, dílu a dokumentu.</xs:documentation>
 		</xs:annotation>
@@ -85,8 +88,10 @@
 			<xs:element name="JineUdaje" type="nsesss:tJineUdaje" minOccurs="0"/>
 		</xs:sequence>
 	</xs:group>
+	<!-- konec definice skupiny elementů -->
 
-  <xs:simpleType name="tDruhKomponenty">
+	<!-- definice jednoduchých typů -->
+	<xs:simpleType name="tDruhKomponenty">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Charakteristika komponenty, která upřesňuje, jakou formální část dokumentu tvoří (např. průvodní dopis nebo jiný hlavní dokument, příloha s příslušným označením, elektronický podpis). Jde o vysvětlení k pořadovému číslu komponenty.</xs:documentation>
 		</xs:annotation>
@@ -288,8 +293,10 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
+	<!-- konec definice odvozených jednoduchých typů -->
 
-  <xs:complexType name="tBezpecnostniKategorie">
+	<!-- definice složených typů -->
+	<xs:complexType name="tBezpecnostniKategorie">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Bezpečnostní kategorie je opatření spojené s entitou, které podmiňuje nebo definuje pravidla určující podmínky přístupu k ní. Toto opatření se uplatňuje zejména v souvislosti s klasifikací dokumentu, který obsahuje utajovanou informaci, stupněm utajení, jímž je klasifikován (zákon č. 412/2005 Sb.), nebo v souvislosti s označením dokumentu pro omezení přístupu k němu podle jiného právního předpisu, anebo v souvislosti s rozhodnutím organizace (původce) omezit přístup k jím stanoveným kategoriím entit.</xs:documentation>
 		</xs:annotation>
@@ -1480,5 +1487,5 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
+	<!-- konec definice odvozených složených typů -->
 </xs:schema>

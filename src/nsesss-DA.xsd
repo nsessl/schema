@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:nsesss="http://www.mvcr.cz/nsesss/v3" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.mvcr.cz/nsesss/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0" id="nsesss-DA">
-  <xs:include schemaLocation="nsesss.xsd"/>
+  <xs:include schemaLocation="http://www.mvcr.cz/nsesss/v3/nsesss.xsd"/>
 
 	<xs:annotation>
 		<xs:documentation xml:lang="cs">Schéma XML pro zasílání údajů o rozhodnutí ve skartačním řízení a potvrzení přejímky s identifikátory digitálního archivu původci podle národního standardu pro elektronické systémy spisové služby</xs:documentation>
@@ -19,6 +19,7 @@
 		</xs:appinfo>
 	</xs:annotation>
 
+	<!-- definice kořenových elementů -->
 	<xs:element name="Seznam">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Sada elementů pro zaznamenání entit, které byly zařazeny do skartačního řízení nebo které byly vybrány za archiválie.</xs:documentation>
@@ -59,8 +60,10 @@
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
+	<!-- konec definice kořenových elementů -->
 
-  <xs:simpleType name="tOperace">
+	<!-- definice jednoduchých typů -->
+	<xs:simpleType name="tOperace">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Prvek pro zaznamenání operace, která se provádí ve skartačním řízení.</xs:documentation>
 		</xs:annotation>
@@ -71,8 +74,10 @@
 			<xs:enumeration value="vyřadit z výběru"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<!-- konec definice jednoduchých typů -->
 
-  <xs:complexType name="tEntitaSeznamu">
+	<!-- definice složených typů -->
+	<xs:complexType name="tEntitaSeznamu">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Sada elementů pro zaznamenání entity, její identifikace přidělené původcem a stanovené operace nebo příslušného identifikátoru digitálního archivu.</xs:documentation>
 		</xs:annotation>
@@ -92,5 +97,5 @@
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-	
+	<!-- konec definice složených typů -->
 </xs:schema>
