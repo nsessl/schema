@@ -94,7 +94,7 @@
 	<message name="PrideleneSeznamResponseMessage">
 		<part name="body" element="tns:PrideleneSeznamResponse"/>
 	</message>
-	<portType name="V_02_00PortSyn">
+	<portType name="PortSyn">
 		<operation name="DokumentZalozeni">
 			<input message="tns:DokumentZalozeniRequestMessage"/>
 			<output message="tns:DokumentZalozeniResponseMessage"/>
@@ -144,7 +144,7 @@
 			<output message="tns:PrideleneSeznamResponseMessage"/>
 		</operation>
 	</portType>
-	<portType name="V_02_00PortAsyn">
+	<portType name="PortAsyn">
 		<operation name="ermsAsyn">
 			<input message="tns:ermsAsynRequestMessage"/>
 			<output message="tns:ermsAsynResponseMessage"/>
@@ -154,7 +154,7 @@
 			<output message="tns:WsTestResponseMessage"/>
 		</operation>
 	</portType>
-	<binding name="V_02_00SoapBindingAsyn" type="tns:V_02_00PortAsyn">
+	<binding name="SoapBindingAsyn" type="tns:PortAsyn">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="ermsAsyn">
 			<soap:operation soapAction="ermsAsyn"/>
@@ -175,7 +175,7 @@
 			</output>
 		</operation>
 	</binding>
-	<binding name="V_02_00SoapBindingSyn" type="tns:V_02_00PortSyn">
+	<binding name="SoapBindingSyn" type="tns:PortSyn">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="DokumentZalozeni">
 			<soap:operation soapAction="DokumentZalozeni"/>
@@ -286,13 +286,13 @@
 			</output>
 		</operation>
 	</binding>
-	<service name="V_02_00ServiceSyn">
-		<port name="V_02_00_Syn" binding="tns:V_02_00SoapBindingSyn">
+	<service name="ServiceSyn">
+		<port name="Syn" binding="tns:SoapBindingSyn">
 			<soap:address location="http://server:port/context/ermsAPI"/>
 		</port>
 	</service>
-	<service name="V_02_00ServiceAsyn">
-		<port name="V_02_00_Asyn" binding="tns:V_02_00SoapBindingAsyn">
+	<service name="ServiceAsyn">
+		<port name="Asyn" binding="tns:SoapBindingAsyn">
 			<soap:address location="http://server:port/context/ermsAPI"/>
 		</port>
 	</service>
