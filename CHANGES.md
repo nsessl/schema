@@ -19,8 +19,8 @@
 * OsobaUprava
 * OsobySeznam
 * CiselnikySeznam
-* DokumentVraceniZadostRequest
-* SpisVraceniZadostRequest
+* DokumentVraceniZadost
+* SpisVraceniZadost
 * FunkcniMista
 * TypovySpisZalozeni
 * UzivateleSeznam
