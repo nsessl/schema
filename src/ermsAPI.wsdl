@@ -94,7 +94,13 @@
 	<message name="PrideleneSeznamResponseMessage">
 		<part name="body" element="tns:PrideleneSeznamResponse"/>
 	</message>
-	<portType name="PortSyn">
+  <message name="SpisPostoupeniZadostRequestMessage">
+    <part name="body" element="tns:SpisPostoupeniZadostRequest"/>
+  </message>
+  <message name="SpisPostoupeniZadostResponseMessage">
+    <part name="body" element="tns:SpisPostoupeniZadostResponse"/>
+  </message>
+  <portType name="PortSyn">
 		<operation name="DokumentZalozeni">
 			<input message="tns:DokumentZalozeniRequestMessage"/>
 			<output message="tns:DokumentZalozeniResponseMessage"/>
@@ -143,6 +149,10 @@
 			<input message="tns:PrideleneSeznamRequestMessage"/>
 			<output message="tns:PrideleneSeznamResponseMessage"/>
 		</operation>
+	  <operation name="SpisPostoupeniZadost">
+      <input message="tns:SpisPostoupeniZadostRequestMessage"/>
+      <output message="tns:SpisPostoupeniZadostResponseMessage"/>	    
+	  </operation>
 	</portType>
 	<portType name="PortAsyn">
 		<operation name="ermsAsyn">
@@ -285,6 +295,15 @@
 				<soap:body use="literal"/>
 			</output>
 		</operation>
+	  <operation name="SpisPostoupeniZadost">
+	    <soap:operation soapAction="SpisPostoupeniZadost"/>
+	    <input>
+	      <soap:body use="literal"/>
+	    </input>
+	    <output>
+	      <soap:body use="literal"/>
+	    </output>
+	  </operation>
 	</binding>
 	<service name="ServiceSyn">
 		<port name="Syn" binding="tns:SoapBindingSyn">
