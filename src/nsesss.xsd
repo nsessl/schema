@@ -134,7 +134,8 @@
 			<xs:documentation xml:lang="cs">Zkratka jazyku dokumentu podle číselníku v ISO 639-2:1998 Codes for the representation of names of languages – Part 2: Alpha-3 code (viz http://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt).</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:length value="3"/>
+		  <xs:minLength value="2"/>
+			<xs:maxLength value="3"/>
 		</xs:restriction>
 	</xs:simpleType>
 
