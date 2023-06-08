@@ -5,7 +5,7 @@
 	Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.
 -->
 <!--CHANGE 2011-04-28 Změny proti verzi připomínkované výrobci spisových služeb ze dne 24.4.2011 jsou označeny přímo v textu komentáře, začínajícími stejně jako tento řádek. Tyto změny se snaží uplatnit některé jejich připomínky. -->
-<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://nsess.public.cz/erms/v_03_00" elementFormDefault="qualified" targetNamespace="http://nsess.public.cz/erms/v_03_00" id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api" elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api" id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20" />
   <xs:include schemaLocation="ermsTypes.xsd" />
   <xs:include schemaLocation="ermsAsynU.xsd" />

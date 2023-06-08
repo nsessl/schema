@@ -1,94 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nsess.public.cz/erms/v_02_00" xmlns:v_02_00="http://nsess.public.cz/erms/v_02_00" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://isds.czechpoint.cz/v20" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" name="V_02_00" targetNamespace="http://nsess.public.cz/erms/v_02_00">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://www.mvcr.cz/nsesss/2023/api"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             name="V_02_00"
+             targetNamespace="http://www.mvcr.cz/nsesss/2023/api">
 	<types>
-		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-			<xsd:import namespace="http://nsess.public.cz/erms/v_02_00" schemaLocation="ermsIFSyn.xsd"/>
-			<xsd:import namespace="http://nsess.public.cz/erms/v_02_00" schemaLocation="ermsIFAsyn.xsd"/>
-		</xsd:schema>
+		<xs:schema>
+			<xs:import namespace="http://www.mvcr.cz/nsesss/2023/api" schemaLocation="ermsIFSyn.xsd"/>
+			<xs:import namespace="http://www.mvcr.cz/nsesss/2023/api" schemaLocation="ermsIFAsyn.xsd"/>
+		</xs:schema>
 	</types>
 	<message name="ermsAsynRequestMessage">
-		<part name="body" element="v_02_00:ermsAsyn"/>
+		<part name="body" element="tns:ermsAsyn"/>
 	</message>
 	<message name="ermsAsynResponseMessage">
-	  <part name="body" element="v_02_00:ermsAsynResponse"/>
+	  <part name="body" element="tns:ermsAsynResponse"/>
 	</message>
 	<message name="WsTestRequestMessage">
-		<part name="body" element="v_02_00:WsTestRequest"/>
+		<part name="body" element="tns:WsTestRequest"/>
 	</message>
 	<message name="WsTestResponseMessage">
-		<part name="body" element="v_02_00:WsTestResponse"/>
+		<part name="body" element="tns:WsTestResponse"/>
 	</message>
 	<message name="DokumentZalozeniRequestMessage">
-		<part name="body" element="v_02_00:DokumentZalozeniRequest"/>
+		<part name="body" element="tns:DokumentZalozeniRequest"/>
 	</message>
 	<message name="DokumentZalozeniResponseMessage">
-		<part name="body" element="v_02_00:DokumentZalozeniResponse"/>
+		<part name="body" element="tns:DokumentZalozeniResponse"/>
 	</message>
 	<message name="SpisZalozeniRequestMessage">
-		<part name="body" element="v_02_00:SpisZalozeniRequest"/>
+		<part name="body" element="tns:SpisZalozeniRequest"/>
 	</message>
 	<message name="SpisZalozeniResponseMessage">
-		<part name="body" element="v_02_00:SpisZalozeniResponse"/>
+		<part name="body" element="tns:SpisZalozeniResponse"/>
 	</message>
 	<message name="UdalostiRequestMessage">
-		<part name="body" element="v_02_00:UdalostiRequest"/>
+		<part name="body" element="tns:UdalostiRequest"/>
 	</message>
 	<message name="UdalostiResponseMessage">
-		<part name="body" element="v_02_00:UdalostiResponse"/>
+		<part name="body" element="tns:UdalostiResponse"/>
 	</message>
 	<message name="DokumentPostoupeniZadostRequestMessage">
-		<part name="body" element="v_02_00:DokumentPostoupeniZadostRequest"/>
+		<part name="body" element="tns:DokumentPostoupeniZadostRequest"/>
 	</message>
 	<message name="DokumentPostoupeniZadostResponseMessage">
-		<part name="body" element="v_02_00:DokumentPostoupeniZadostResponse"/>
+		<part name="body" element="tns:DokumentPostoupeniZadostResponse"/>
 	</message>
 	<message name="ProfilDokumentuZadostRequestMessage">
-		<part name="body" element="v_02_00:ProfilDokumentuZadostRequest"/>
+		<part name="body" element="tns:ProfilDokumentuZadostRequest"/>
 	</message>
 	<message name="ProfilDokumentuZadostResponseMessage">
-		<part name="body" element="v_02_00:ProfilDokumentuZadostResponse"/>
+		<part name="body" element="tns:ProfilDokumentuZadostResponse"/>
 	</message>
 	<message name="ProfilSpisuZadostRequestMessage">
-		<part name="body" element="v_02_00:ProfilSpisuZadostRequest"/>
+		<part name="body" element="tns:ProfilSpisuZadostRequest"/>
 	</message>
 	<message name="ProfilSpisuZadostResponseMessage">
-		<part name="body" element="v_02_00:ProfilSpisuZadostResponse"/>
+		<part name="body" element="tns:ProfilSpisuZadostResponse"/>
 	</message>
 	<message name="SouborZadostRequestMessage">
-		<part name="body" element="v_02_00:SouborZadostRequest"/>
+		<part name="body" element="tns:SouborZadostRequest"/>
 	</message>
 	<message name="SouborZadostResponseMessage">
-		<part name="body" element="v_02_00:SouborZadostResponse"/>
+		<part name="body" element="tns:SouborZadostResponse"/>
 	</message>
 	<message name="DavkySeznamRequestMessage">
-		<part name="body" element="v_02_00:DavkySeznamRequest"/>
+		<part name="body" element="tns:DavkySeznamRequest"/>
 	</message>
 	<message name="DavkySeznamResponseMessage">
-		<part name="body" element="v_02_00:DavkySeznamResponse"/>
+		<part name="body" element="tns:DavkySeznamResponse"/>
 	</message>
 	<message name="DavkaZadostRequestMessage">
-		<part name="body" element="v_02_00:DavkaZadostRequest"/>
+		<part name="body" element="tns:DavkaZadostRequest"/>
 	</message>
 	<message name="DavkaZadostResponseMessage">
-		<part name="body" element="v_02_00:DavkaZadostResponse"/>
+		<part name="body" element="tns:DavkaZadostResponse"/>
 	</message>
 	<message name="CiselnikZadostRequestMessage">
-		<part name="body" element="v_02_00:CiselnikZadostRequest"/>
+		<part name="body" element="tns:CiselnikZadostRequest"/>
 	</message>
 	<message name="CiselnikZadostResponseMessage">
-		<part name="body" element="v_02_00:CiselnikZadostResponse"/>
+		<part name="body" element="tns:CiselnikZadostResponse"/>
 	</message>
 	<message name="FunkcniMistaRequestMessage">
-		<part name="body" element="v_02_00:FunkcniMistaRequest"/>
+		<part name="body" element="tns:FunkcniMistaRequest"/>
 	</message>
 	<message name="FunkcniMistaResponseMessage">
-		<part name="body" element="v_02_00:FunkcniMistaResponse"/>
+		<part name="body" element="tns:FunkcniMistaResponse"/>
 	</message>
 	<message name="PrideleneSeznamRequestMessage">
-		<part name="body" element="v_02_00:PrideleneSeznamRequest"/>
+		<part name="body" element="tns:PrideleneSeznamRequest"/>
 	</message>
 	<message name="PrideleneSeznamResponseMessage">
-		<part name="body" element="v_02_00:PrideleneSeznamResponse"/>
+		<part name="body" element="tns:PrideleneSeznamResponse"/>
 	</message>
 	<portType name="V_02_00PortSyn">
 		<operation name="DokumentZalozeni">
