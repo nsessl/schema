@@ -5,11 +5,13 @@
 	Toto schéma popisuje synchroní výměnu událostí, např. formou webových služeb.
 -->
 <!--CHANGE 2011-04-28 Změny proti verzi připomínkované výrobci spisových služeb ze dne 24.4.2011 jsou označeny přímo v textu komentáře, začínajícími stejně jako tento řádek. Tyto změny se snaží uplatnit některé jejich připomínky. -->
-<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://nsess.public.cz/erms/v_03_00" elementFormDefault="qualified" targetNamespace="http://nsess.public.cz/erms/v_03_00" id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20" />
-  <xs:import schemaLocation="nsesss-TrP.xsd" namespace="http://nsess.public.cz/erms_trans/v_01_01" />
-  <xs:include schemaLocation="ermsTypes.xsd" />
-  <xs:include schemaLocation="ermsAsynU.xsd" />
+<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://nsess.public.cz/erms/v_03_00"
+  elementFormDefault="qualified" targetNamespace="http://nsess.public.cz/erms/v_03_00"
+  id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
+  <xs:import schemaLocation="nsesss-TrP.xsd" namespace="http://nsess.public.cz/erms_trans/v_01_01"/>
+  <xs:include schemaLocation="ermsTypes.xsd"/>
+  <xs:include schemaLocation="ermsAsynU.xsd"/>
   <xs:element name="ESslPrenos">
     <xs:annotation>
       <xs:documentation>Root element pro přenos dat jednotlivých entit mezi IS typu spisová služba
@@ -17,11 +19,11 @@ Určeno pro off-line přenost dat mezi systém ISSD.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:group ref="gExportPrenosSpolecne" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:group ref="gExportPrenosSpolecne"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attributeGroup ref="gZdrojCilDavkaPoradi" />
+      <xs:attributeGroup ref="gZdrojCilDavkaPoradi"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="ESslExport">
@@ -31,11 +33,11 @@ Určeno pro off-line předání dat mezi systém ISSD.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:group ref="gExportPrenosSpolecne" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:group ref="gExportPrenosSpolecne"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attributeGroup ref="gZdrojDavkaPoradi" />
+      <xs:attributeGroup ref="gZdrojDavkaPoradi"/>
       <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
       <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
@@ -47,7 +49,7 @@ Určeno pro off-line předání dat mezi systémy ISSD.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence maxOccurs="unbounded">
-        <xs:element name="Uzivatel" type="tProfilUzivateleSeznam" />
+        <xs:element name="Uzivatel" type="tProfilUzivateleSeznam"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -57,7 +59,7 @@ Určeno pro off-line předání dat mezi systémy ISSD.</xs:documentation>
         <xs:element name="TypovySpis">
           <xs:complexType>
             <xs:sequence>
-              <xs:group ref="gTypovySpis" />
+              <xs:group ref="gTypovySpis"/>
               <xs:element minOccurs="0" name="Udalosti">
                 <xs:annotation>
                   <xs:documentation>Události transakčního protokolu této entity spisové služby - typového spisu.
@@ -65,7 +67,8 @@ Neobsahuje události vložených entit - ty se exportují v rámci samostatných
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost" type="q1:tUdalostObjektu" />
+                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost"
+                      type="q1:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -75,7 +78,7 @@ Neobsahuje události vložených entit - ty se exportují v rámci samostatných
         <xs:element name="Spis">
           <xs:complexType>
             <xs:sequence>
-              <xs:group ref="gProfilSpisu" />
+              <xs:group ref="gProfilSpisu"/>
               <xs:element minOccurs="0" name="Udalosti">
                 <xs:annotation>
                   <xs:documentation>Události transakčního protokolu této entity spisové služby - spisu.
@@ -83,7 +86,8 @@ Neobsahuje události vložených entit - ty se exportují v rámci samostatných
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost" type="q1:tUdalostObjektu" />
+                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost"
+                      type="q1:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -93,7 +97,7 @@ Neobsahuje události vložených entit - ty se exportují v rámci samostatných
         <xs:element name="Dokument">
           <xs:complexType>
             <xs:sequence>
-              <xs:group ref="gProfilDokumentu" />
+              <xs:group ref="gProfilDokumentu"/>
               <xs:element minOccurs="0" name="Udalosti">
                 <xs:annotation>
                   <xs:documentation>Události transakčního protokolu této entity spisové služby - dokumentu.
@@ -101,7 +105,8 @@ Měl by obsahovat i události spojené s obsaženými komponentami tohoto dokume
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost" type="q1:tUdalostObjektu" />
+                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost"
+                      type="q1:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -111,7 +116,7 @@ Měl by obsahovat i události spojené s obsaženými komponentami tohoto dokume
         <xs:element name="Soubor">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Identifikator" type="tIdentifikator" />
+              <xs:element name="Identifikator" type="tIdentifikator"/>
               <xs:element name="AktualniVerze" type="tTransferFileLocation">
                 <xs:annotation>
                   <xs:documentation>Aktuálně platný obsah souboru/komponenty.
@@ -126,7 +131,7 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element name="StraraVerze" type="tTransferFileLocation" />
+                    <xs:element name="StraraVerze" type="tTransferFileLocation"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -136,7 +141,8 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost" type="q1:tUdalostObjektu" />
+                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost"
+                      type="q1:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -158,8 +164,8 @@ Tento soubor dokumentu vznik případně určení dávky a dále popisuje obsah 
         <xs:element name="DavkaId">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:minLength value="1" />
-              <xs:maxLength value="40" />
+              <xs:minLength value="1"/>
+              <xs:maxLength value="40"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -177,10 +183,10 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
             <xs:documentation>NS z roku 2023 požadavek č.8.1.2</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="Cil" type="sIdInformacnihoSystemu" />
-        <xs:element minOccurs="0" name="Puvodce" type="tAdresat" />
-        <xs:element minOccurs="0" name="UcelDavky" type="xs:string" />
-        <xs:element minOccurs="0" name="Poznamka" type="xs:string" />
+        <xs:element name="Cil" type="sIdInformacnihoSystemu"/>
+        <xs:element minOccurs="0" name="Puvodce" type="tAdresat"/>
+        <xs:element minOccurs="0" name="UcelDavky" type="xs:string"/>
+        <xs:element minOccurs="0" name="Poznamka" type="xs:string"/>
         <xs:element name="Obsah">
           <xs:complexType>
             <xs:sequence maxOccurs="unbounded">
@@ -190,7 +196,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
                     <xs:element name="PoradiVDavce">
                       <xs:simpleType>
                         <xs:restriction base="xs:int">
-                          <xs:minInclusive value="1" />
+                          <xs:minInclusive value="1"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -210,16 +216,16 @@ Standardně se bude jednat o strojně generovaný název např. s příponou .bi
 Jediné zásadní je zachovat unikátnost názvů přenášených souborů v rámci celé exportované nebo přenášené dávky.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="FileHash" type="xs:string" />
-                    <xs:element name="FileHashAlgorithm" type="xs:string" />
+                    <xs:element name="FileHash" type="xs:string"/>
+                    <xs:element name="FileHashAlgorithm" type="xs:string"/>
                     <xs:element name="TypEntity">
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
-                          <xs:enumeration value="TypovySpis" />
-                          <xs:enumeration value="Spis" />
-                          <xs:enumeration value="Dokument" />
-                          <xs:enumeration value="Soubor" />
-                          <xs:enumeration value="BinarniSoubor" />
+                          <xs:enumeration value="TypovySpis"/>
+                          <xs:enumeration value="Spis"/>
+                          <xs:enumeration value="Dokument"/>
+                          <xs:enumeration value="Soubor"/>
+                          <xs:enumeration value="BinarniSoubor"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -259,20 +265,20 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
             <xs:documentation>NS z roku 2023 požadavek č.8.1.2</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="CilPotvrzeni" type="sIdInformacnihoSystemu" />
-        <xs:element minOccurs="0" name="PuvodcePotvrzeni" type="tAdresat" />
+        <xs:element name="CilPotvrzeni" type="sIdInformacnihoSystemu"/>
+        <xs:element minOccurs="0" name="PuvodcePotvrzeni" type="tAdresat"/>
         <xs:element name="PotvrzovanaDavka">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DavkaId">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:minLength value="1" />
-                    <xs:maxLength value="40" />
+                    <xs:minLength value="1"/>
+                    <xs:maxLength value="40"/>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Cil" type="sIdInformacnihoSystemu" />
+              <xs:element name="Cil" type="sIdInformacnihoSystemu"/>
               <xs:element name="Zdroj" type="sIdInformacnihoSystemu">
                 <xs:annotation>
                   <xs:documentation xml:lang="CS">Zdroj interního identifikátoru:
@@ -285,37 +291,37 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="Poznamka" type="xs:string" />
+        <xs:element minOccurs="0" name="Poznamka" type="xs:string"/>
         <xs:element name="StatusPrenosu">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:enumeration value="nacteno" />
-              <xs:enumeration value="castecneNacteno" />
-              <xs:enumeration value="nenacteno" />
+              <xs:enumeration value="nacteno"/>
+              <xs:enumeration value="castecneNacteno"/>
+              <xs:enumeration value="nenacteno"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
         <xs:element name="StatusEntit">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="StatuEntity">
+              <xs:element name="StatusEntity">
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="PoradiVDavce">
                       <xs:simpleType>
                         <xs:restriction base="xs:int">
-                          <xs:minInclusive value="1" />
+                          <xs:minInclusive value="1"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
                     <xs:element name="TypEntity">
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
-                          <xs:enumeration value="TypovySpis" />
-                          <xs:enumeration value="Spis" />
-                          <xs:enumeration value="Dokument" />
-                          <xs:enumeration value="Soubor" />
-                          <xs:enumeration value="BinarniSoubor" />
+                          <xs:enumeration value="TypovySpis"/>
+                          <xs:enumeration value="Spis"/>
+                          <xs:enumeration value="Dokument"/>
+                          <xs:enumeration value="Soubor"/>
+                          <xs:enumeration value="BinarniSoubor"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -329,8 +335,8 @@ Zde uvedené ID má především přehledovou funkci pro uživatele, který dáv
                     <xs:element name="StatusPrenosu">
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
-                          <xs:enumeration value="nacteno" />
-                          <xs:enumeration value="nenacteno" />
+                          <xs:enumeration value="nacteno"/>
+                          <xs:enumeration value="nenacteno"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
