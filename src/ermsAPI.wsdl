@@ -3,7 +3,6 @@
              xmlns:tns="http://www.mvcr.cz/nsesss/2023/api"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
-             name="V_02_00"
              targetNamespace="http://www.mvcr.cz/nsesss/2023/api">
 	<types>
 		<xs:schema>
