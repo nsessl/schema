@@ -1195,7 +1195,7 @@ Webovou službu poskytuje ISSD pro napojené ESSL.</xs:documentation>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UziveteleSeznamResponse">
+  <xs:element name="UzivateleSeznamResponse">
     <xs:annotation>
       <xs:documentation>VZ01_priloha2 bod i) - podbod 12</xs:documentation>
     </xs:annotation>

@@ -154,6 +154,12 @@
   <message name="TypovySpisZalozeniResponseMessage">
     <part name="body" element="tns:TypovySpisZalozeniResponse"/>
   </message>
+  <message name="UzivateleSeznamRequestMessage">
+    <part name="body" element="tns:UzivateleSeznamRequest"/>
+  </message>
+  <message name="UzivateleSeznamResponseMessage">
+    <part name="body" element="tns:UzivateleSeznamResponse"/>
+  </message>
   <portType name="PortSyn">
 		<operation name="DokumentZalozeni">
 			<input message="tns:DokumentZalozeniRequestMessage"/>
@@ -242,6 +248,10 @@
     <operation name="TypovySpisZalozeni">
       <input message="tns:TypovySpisZalozeniRequestMessage"/>
       <output message="tns:TypovySpisZalozeniResponseMessage"/>
+    </operation>
+    <operation name="UzivateleSeznam">
+      <input message="tns:UzivateleSeznamRequestMessage"/>
+      <output message="tns:UzivateleSeznamResponseMessage"/>
     </operation>
 	</portType>
 	<portType name="PortAsyn">
@@ -468,6 +478,15 @@
 	  </operation>	  
 	  <operation name="TypovySpisZalozeni">
 	    <soap:operation soapAction="TypovySpisZalozeni"/>
+	    <input>
+	      <soap:body use="literal"/>
+	    </input>
+	    <output>
+	      <soap:body use="literal"/>
+	    </output>
+	  </operation>	  
+	  <operation name="UzivateleSeznam">
+	    <soap:operation soapAction="UzivateleSeznam"/>
 	    <input>
 	      <soap:body use="literal"/>
 	    </input>
