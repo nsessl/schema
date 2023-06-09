@@ -118,6 +118,12 @@
   <message name="OsobaZalozeniResponseMessage">
     <part name="body" element="tns:OsobaZalozeniResponse"/>
   </message>
+  <message name="OsobaUpravaRequestMessage">
+    <part name="body" element="tns:OsobaUpravaRequest"/>
+  </message>
+  <message name="OsobaUpravaResponseMessage">
+    <part name="body" element="tns:OsobaUpravaResponse"/>
+  </message>
   <portType name="PortSyn">
 		<operation name="DokumentZalozeni">
 			<input message="tns:DokumentZalozeniRequestMessage"/>
@@ -182,6 +188,10 @@
     <operation name="OsobaZalozeni">
       <input message="tns:OsobaZalozeniRequestMessage"/>
       <output message="tns:OsobaZalozeniResponseMessage"/>
+    </operation>
+    <operation name="OsobaUprava">
+      <input message="tns:OsobaUpravaRequestMessage"/>
+      <output message="tns:OsobaUpravaResponseMessage"/>
     </operation>
 	</portType>
 	<portType name="PortAsyn">
@@ -354,6 +364,15 @@
 	  </operation>
 	  <operation name="OsobaZalozeni">
 	    <soap:operation soapAction="OsobaZalozeni"/>
+	    <input>
+	      <soap:body use="literal"/>
+	    </input>
+	    <output>
+	      <soap:body use="literal"/>
+	    </output>
+	  </operation>
+	  <operation name="OsobaUprava">
+	    <soap:operation soapAction="OsobaUprava"/>
 	    <input>
 	      <soap:body use="literal"/>
 	    </input>
