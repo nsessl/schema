@@ -112,6 +112,12 @@
   <message name="ProfilOsobyZadostResponseMessage">
     <part name="body" element="tns:ProfilOsobyZadostResponse"/>
   </message>
+  <message name="OsobaZalozeniRequestMessage">
+    <part name="body" element="tns:OsobaZalozeniRequest"/>
+  </message>
+  <message name="OsobaZalozeniResponseMessage">
+    <part name="body" element="tns:OsobaZalozeniResponse"/>
+  </message>
   <portType name="PortSyn">
 		<operation name="DokumentZalozeni">
 			<input message="tns:DokumentZalozeniRequestMessage"/>
@@ -172,6 +178,10 @@
     <operation name="ProfilOsobyZadost">
       <input message="tns:ProfilOsobyZadostRequestMessage"/>
       <output message="tns:ProfilOsobyZadostResponseMessage"/>
+    </operation>
+    <operation name="OsobaZalozeni">
+      <input message="tns:OsobaZalozeniRequestMessage"/>
+      <output message="tns:OsobaZalozeniResponseMessage"/>
     </operation>
 	</portType>
 	<portType name="PortAsyn">
@@ -335,6 +345,15 @@
 	  </operation>
 	  <operation name="ProfilOsobyZadost">
 	    <soap:operation soapAction="ProfilOsobyZadost"/>
+	    <input>
+	      <soap:body use="literal"/>
+	    </input>
+	    <output>
+	      <soap:body use="literal"/>
+	    </output>
+	  </operation>
+	  <operation name="OsobaZalozeni">
+	    <soap:operation soapAction="OsobaZalozeni"/>
 	    <input>
 	      <soap:body use="literal"/>
 	    </input>
