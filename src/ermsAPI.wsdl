@@ -148,6 +148,12 @@
   <message name="SpisVraceniZadostResponseMessage">
     <part name="body" element="tns:SpisVraceniZadostResponse"/>
   </message>
+  <message name="TypovySpisZalozeniRequestMessage">
+    <part name="body" element="tns:TypovySpisZalozeniRequest"/>
+  </message>
+  <message name="TypovySpisZalozeniResponseMessage">
+    <part name="body" element="tns:TypovySpisZalozeniResponse"/>
+  </message>
   <portType name="PortSyn">
 		<operation name="DokumentZalozeni">
 			<input message="tns:DokumentZalozeniRequestMessage"/>
@@ -232,6 +238,10 @@
     <operation name="SpisVraceniZadost">
       <input message="tns:SpisVraceniZadostRequestMessage"/>
       <output message="tns:SpisVraceniZadostResponseMessage"/>
+    </operation>
+    <operation name="TypovySpisZalozeni">
+      <input message="tns:TypovySpisZalozeniRequestMessage"/>
+      <output message="tns:TypovySpisZalozeniResponseMessage"/>
     </operation>
 	</portType>
 	<portType name="PortAsyn">
@@ -449,6 +459,15 @@
 	  </operation>	  
 	  <operation name="SpisVraceniZadost">
 	    <soap:operation soapAction="SpisVraceniZadost"/>
+	    <input>
+	      <soap:body use="literal"/>
+	    </input>
+	    <output>
+	      <soap:body use="literal"/>
+	    </output>
+	  </operation>	  
+	  <operation name="TypovySpisZalozeni">
+	    <soap:operation soapAction="TypovySpisZalozeni"/>
 	    <input>
 	      <soap:body use="literal"/>
 	    </input>
