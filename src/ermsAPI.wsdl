@@ -136,6 +136,12 @@
   <message name="CiselnikySeznamResponseMessage">
     <part name="body" element="tns:CiselnikySeznamResponse"/>
   </message>
+  <message name="DokumentVraceniZadostRequestMessage">
+    <part name="body" element="tns:DokumentVraceniZadostRequest"/>
+  </message>
+  <message name="DokumentVraceniZadostResponseMessage">
+    <part name="body" element="tns:DokumentVraceniZadostResponse"/>
+  </message>
   <portType name="PortSyn">
 		<operation name="DokumentZalozeni">
 			<input message="tns:DokumentZalozeniRequestMessage"/>
@@ -212,6 +218,10 @@
     <operation name="CiselnikySeznam">
       <input message="tns:CiselnikySeznamRequestMessage"/>
       <output message="tns:CiselnikySeznamResponseMessage"/>
+    </operation>
+    <operation name="DokumentVraceniZadost">
+      <input message="tns:DokumentVraceniZadostRequestMessage"/>
+      <output message="tns:DokumentVraceniZadostResponseMessage"/>
     </operation>
 	</portType>
 	<portType name="PortAsyn">
@@ -411,6 +421,15 @@
 	  </operation>	  
 	  <operation name="CiselnikySeznam">
 	    <soap:operation soapAction="CiselnikySeznam"/>
+	    <input>
+	      <soap:body use="literal"/>
+	    </input>
+	    <output>
+	      <soap:body use="literal"/>
+	    </output>
+	  </operation>	  
+	  <operation name="DokumentVraceniZadost">
+	    <soap:operation soapAction="DokumentVraceniZadost"/>
 	    <input>
 	      <soap:body use="literal"/>
 	    </input>
