@@ -100,6 +100,12 @@
   <message name="SpisPostoupeniZadostResponseMessage">
     <part name="body" element="tns:SpisPostoupeniZadostResponse"/>
   </message>
+  <message name="ProfilTypovehoSpisuZadostRequestMessage">
+    <part name="body" element="tns:ProfilTypovehoSpisuZadostRequest"/>
+  </message>
+  <message name="ProfilTypovehoSpisuZadostResponseMessage">
+    <part name="body" element="tns:ProfilTypovehoSpisuZadostResponse"/>
+  </message>
   <portType name="PortSyn">
 		<operation name="DokumentZalozeni">
 			<input message="tns:DokumentZalozeniRequestMessage"/>
@@ -153,6 +159,10 @@
       <input message="tns:SpisPostoupeniZadostRequestMessage"/>
       <output message="tns:SpisPostoupeniZadostResponseMessage"/>	    
 	  </operation>
+    <operation name="ProfilTypovehoSpisuZadost">
+      <input message="tns:ProfilTypovehoSpisuZadostRequestMessage"/>
+      <output message="tns:ProfilTypovehoSpisuZadostResponseMessage"/>
+    </operation>
 	</portType>
 	<portType name="PortAsyn">
 		<operation name="ermsAsyn">
@@ -297,6 +307,15 @@
 		</operation>
 	  <operation name="SpisPostoupeniZadost">
 	    <soap:operation soapAction="SpisPostoupeniZadost"/>
+	    <input>
+	      <soap:body use="literal"/>
+	    </input>
+	    <output>
+	      <soap:body use="literal"/>
+	    </output>
+	  </operation>
+	  <operation name="ProfilTypovehoSpisuZadost">
+	    <soap:operation soapAction="ProfilTypovehoSpisuZadost"/>
 	    <input>
 	      <soap:body use="literal"/>
 	    </input>
