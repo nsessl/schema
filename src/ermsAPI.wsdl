@@ -504,27 +504,5 @@
 		<port name="Asyn" binding="tns:SoapBindingAsyn">
 			<soap:address location="http://server:port/context/ermsAPI"/>
 		</port>
-	</service>
-	<!--
-	<binding name="ermsSoapBindingAsyn" type="tns:ermsPortAsyn">
-		<soap:binding style="document"
-					  transport="http://schemas.xmlsoap.org/soap/http" />
-		<operation name="ermsAsyn">
-			<soap:operation soapAction="ermsAsyn" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-		</operation>
-
-		<operation name="WsTest">
-			<soap:operation soapAction="WsTest" />
-			<input>
-				<soap:body use="literal" />
-			</input>
-			<output>
-				<soap:body use="literal" />
-			</output>
-		</operation>
-	</binding>
-	-->
+	</service>	
 </definitions>
