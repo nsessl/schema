@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api" elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api" id="ermsIFTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xml:lang="cs">
-  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20" />
+<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api"
+  elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
+  id="ermsIFTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
+  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
   <xs:simpleType name="tUzivatel">
     <xs:annotation>
       <xs:documentation>Identifikace uživatele informačního systému. 
@@ -12,13 +13,13 @@ ID uživatele tedy podle implementace rozhraní odpovídá kódu funkčního mí
 </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="50" />
-      <xs:minLength value="1" />
+      <xs:maxLength value="50"/>
+      <xs:minLength value="1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="tAutorizace">
     <xs:sequence>
-      <xs:group ref="gAutorizace" />
+      <xs:group ref="gAutorizace"/>
     </xs:sequence>
   </xs:complexType>
   <xs:group name="gAutorizace">
@@ -29,8 +30,8 @@ ID uživatele tedy podle implementace rozhraní odpovídá kódu funkčního mí
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="tUzivatel">
-            <xs:maxLength value="50" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -49,8 +50,8 @@ ID uživatele tedy podle implementace rozhraní odpovídá kódu funkčního mí
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="tUzivatel">
-            <xs:maxLength value="50" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -67,9 +68,9 @@ Je duplicitní k položce provedlKdy a přináší nejednoznačnost, který datu
       <xs:documentation>Skupina metadat společná jak pro popis dokumentu tak pro popis spisu. Jedná se o kopii ze schématu ess_ns.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
-      <xs:element name="Nazev" type="sNazev" />
-      <xs:element minOccurs="0" name="Popis" type="sPopis" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode"/>
+      <xs:element name="Nazev" type="sNazev"/>
+      <xs:element minOccurs="0" name="Popis" type="sPopis"/>
       <xs:element minOccurs="0" name="CisloJednaci" type="sCisloJednaci">
         <xs:annotation>
           <xs:documentation>NS z roku 2023 požadavek č.3.2.3
@@ -83,9 +84,9 @@ NS z roku 2023 požadavek č.2.7.4</xs:documentation>
 Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu. Potom obsahuje spisovou značku spisu do kterého byl naposledy vložen.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="PodaciDenikPoradi" type="sPodaciDenikPoradi" />
-      <xs:element minOccurs="0" name="PodaciDenikRok" type="sPodaciDenikRok" />
-      <xs:element minOccurs="0" name="PodaciDenik" type="sPodaciDenik" />
+      <xs:element minOccurs="0" name="PodaciDenikPoradi" type="sPodaciDenikPoradi"/>
+      <xs:element minOccurs="0" name="PodaciDenikRok" type="sPodaciDenikRok"/>
+      <xs:element minOccurs="0" name="PodaciDenik" type="sPodaciDenik"/>
       <xs:element minOccurs="0" name="TypDokumentu" type="sTypDokumentu">
         <xs:annotation>
           <xs:documentation>NS z roku 2023 požadavek č.4.2.2</xs:documentation>
@@ -93,10 +94,10 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
 Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="VecnaSkupina" type="tVecnaSkupina" />
-      <xs:element minOccurs="0" name="SkartacniRezim" type="tSkartacniRezim" />
-      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka" />
-      <xs:element minOccurs="0" name="Zmocneni" type="tZmocneni" />
+      <xs:element minOccurs="0" name="VecnaSkupina" type="tVecnaSkupina"/>
+      <xs:element minOccurs="0" name="SkartacniRezim" type="tSkartacniRezim"/>
+      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka"/>
+      <xs:element minOccurs="0" name="Zmocneni" type="tZmocneni"/>
       <xs:element minOccurs="0" name="SouvisejiciSubjekty" type="tSouvisejiciSubjekty">
         <xs:annotation>
           <xs:documentation>Seznam subjektů, které nějak souvisí s dokumentem nebo spisem.</xs:documentation>
@@ -108,15 +109,15 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="50" />
+            <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="PocetListu" type="xs:integer" />
-      <xs:element name="PocetPriloh" type="xs:integer" />
-      <xs:element name="DruhPriloh" type="xs:string" />
-      <xs:element name="PocetListuPriloh" type="xs:integer" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciDataDokument" />
+      <xs:element name="PocetListu" type="xs:integer"/>
+      <xs:element name="PocetPriloh" type="xs:integer"/>
+      <xs:element name="DruhPriloh" type="xs:string"/>
+      <xs:element name="PocetListuPriloh" type="xs:integer"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciDataDokument"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="gSpisZakladniProfil">
@@ -124,24 +125,24 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
       <xs:documentation>Skupina metadat společná jak pro popis dokumentu tak pro popis spisu. Jedná se o kopii ze schématu ess_ns.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
-      <xs:element name="Nazev" type="sNazev" />
-      <xs:element minOccurs="0" name="Popis" type="sPopis" />
-      <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka" />
-      <xs:element minOccurs="0" name="PodaciDenikPoradi" type="sPodaciDenikPoradi" />
-      <xs:element minOccurs="0" name="PodaciDenikRok" type="sPodaciDenikRok" />
-      <xs:element minOccurs="0" name="PodaciDenik" type="sPodaciDenik" />
-      <xs:element minOccurs="0" name="TypDokumentu" type="sTypDokumentu" />
-      <xs:element minOccurs="0" name="VecnaSkupina" type="tVecnaSkupina" />
-      <xs:element minOccurs="0" name="SkartacniRezim" type="tSkartacniRezim" />
-      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka" />
-      <xs:element minOccurs="0" name="Zmocneni" type="tZmocneni" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode"/>
+      <xs:element name="Nazev" type="sNazev"/>
+      <xs:element minOccurs="0" name="Popis" type="sPopis"/>
+      <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka"/>
+      <xs:element minOccurs="0" name="PodaciDenikPoradi" type="sPodaciDenikPoradi"/>
+      <xs:element minOccurs="0" name="PodaciDenikRok" type="sPodaciDenikRok"/>
+      <xs:element minOccurs="0" name="PodaciDenik" type="sPodaciDenik"/>
+      <xs:element minOccurs="0" name="TypDokumentu" type="sTypDokumentu"/>
+      <xs:element minOccurs="0" name="VecnaSkupina" type="tVecnaSkupina"/>
+      <xs:element minOccurs="0" name="SkartacniRezim" type="tSkartacniRezim"/>
+      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka"/>
+      <xs:element minOccurs="0" name="Zmocneni" type="tZmocneni"/>
       <xs:element minOccurs="0" name="SouvisejiciSubjekty" type="tSouvisejiciSubjekty">
         <xs:annotation>
           <xs:documentation>Seznam subjektů, které nějak souvisí s dokumentem nebo spisem.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciDataSpis" />
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciDataSpis"/>
     </xs:sequence>
   </xs:group>
   <xs:complexType name="tDoplnujiciData">
@@ -150,7 +151,7 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
 			</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tDoplnujiciDataSpis">
@@ -159,7 +160,7 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
 			</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tDoplnujiciDataDokument">
@@ -168,13 +169,13 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
 			</xs:documentation>
     </xs:annotation>
     <xs:sequence minOccurs="0">
-      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tIdDokument">
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tIdSpisu">
@@ -182,8 +183,8 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
       <xs:documentation>Unikátní technické ID spisu</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tFile">
@@ -198,7 +199,7 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
           <xs:documentation>obálka pro písemnost libovolného podporovaného formátu</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
     </xs:sequence>
     <xs:attribute name="dmMimeType" type="xs:string" use="required">
       <xs:annotation>
@@ -216,15 +217,15 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:enumeration value="A" />
-          <xs:enumeration value="N" />
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="N"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
   <xs:complexType name="tFileLink">
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element minOccurs="0" name="WsUrl" type="xs:string">
         <xs:annotation>
           <xs:documentation>URL stream webové služby pro získání obsahu komponenty - elektronického souboru.
@@ -239,12 +240,12 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:enumeration value="main" />
-          <xs:enumeration value="enclosure" />
-          <xs:enumeration value="signature" />
-          <xs:enumeration value="meta" />
-          <xs:enumeration value="dorucenka" />
-          <xs:enumeration value="protokol_overeni_podpisu" />
+          <xs:enumeration value="main"/>
+          <xs:enumeration value="enclosure"/>
+          <xs:enumeration value="signature"/>
+          <xs:enumeration value="meta"/>
+          <xs:enumeration value="dorucenka"/>
+          <xs:enumeration value="protokol_overeni_podpisu"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -270,15 +271,15 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:enumeration value="A" />
-          <xs:enumeration value="N" />
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="N"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
   <xs:complexType name="tFileLinkZalozeni">
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
     </xs:sequence>
     <xs:attribute name="dmFileMetaType" use="optional">
       <xs:annotation>
@@ -286,12 +287,12 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:enumeration value="main" />
-          <xs:enumeration value="enclosure" />
-          <xs:enumeration value="signature" />
-          <xs:enumeration value="meta" />
-          <xs:enumeration value="dorucenka" />
-          <xs:enumeration value="protokol_overeni_podpisu" />
+          <xs:enumeration value="main"/>
+          <xs:enumeration value="enclosure"/>
+          <xs:enumeration value="signature"/>
+          <xs:enumeration value="meta"/>
+          <xs:enumeration value="dorucenka"/>
+          <xs:enumeration value="protokol_overeni_podpisu"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -317,15 +318,15 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:enumeration value="A" />
-          <xs:enumeration value="N" />
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="N"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
   <xs:complexType name="tFileId">
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element minOccurs="0" name="WsUrl" type="xs:string">
         <xs:annotation>
           <xs:documentation>URL stream webové služby pro získání obsahu komponenty - elektronického souboru.
@@ -340,12 +341,12 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
       <xs:documentation>Pole odkazů na místa obsahující binární obrazy soubory.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="dmFileLink" type="tFileLink" />
+      <xs:element maxOccurs="unbounded" name="dmFileLink" type="tFileLink"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tFilesIdArray">
     <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="dmFileId" type="tFileId" />
+      <xs:element maxOccurs="unbounded" name="dmFileId" type="tFileId"/>
     </xs:sequence>
   </xs:complexType>
   <xs:group name="gStavVypraveneZasilky">
@@ -353,7 +354,7 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
       <xs:element name="StavZasilky">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:whiteSpace value="collapse" />
+            <xs:whiteSpace value="collapse"/>
             <xs:enumeration value="nevypraveno">
               <xs:annotation>
                 <xs:documentation>
@@ -455,7 +456,7 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="20" />
+            <xs:maxLength value="20"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -465,7 +466,7 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="200" />
+            <xs:maxLength value="200"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -473,16 +474,16 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
   </xs:complexType>
   <xs:complexType name="tObalka">
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:element name="Adresat" type="tAdresat" />
-      <xs:element name="ZasilkaInfo" type="tZasilkaInfoVypraveni" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element name="Adresat" type="tAdresat"/>
+      <xs:element name="ZasilkaInfo" type="tZasilkaInfoVypraveni"/>
       <xs:element name="ObalkaObsah">
         <xs:complexType>
           <xs:sequence>
             <xs:element maxOccurs="unbounded" name="Vypraveni">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="Identifikator" type="tIdentifikator" />
+                  <xs:element name="Identifikator" type="tIdentifikator"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -496,13 +497,13 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
       <xs:documentation>Jednoznačná identifikace události v rámci dávky.</xs:documentation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.4</xs:documentation>
     </xs:annotation>
-    <xs:restriction base="xs:integer" />
+    <xs:restriction base="xs:integer"/>
   </xs:simpleType>
   <xs:attributeGroup name="gUdalostId">
     <xs:annotation>
       <xs:documentation>Jednoznačná identifikace události v rámci dávky.</xs:documentation>
     </xs:annotation>
-    <xs:attribute name="UdalostId" type="xs:integer" use="required" />
+    <xs:attribute name="UdalostId" type="xs:integer" use="required"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="gDavkaInfo">
     <xs:attribute name="Poradi" type="xs:integer" use="required">
@@ -516,7 +517,7 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:maxLength value="6" />
+          <xs:maxLength value="6"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -526,7 +527,7 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:maxLength value="6" />
+          <xs:maxLength value="6"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -553,9 +554,9 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
   </xs:attributeGroup>
   <xs:complexType name="tVypraveni">
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:element name="Adresat" type="tAdresat" />
-      <xs:element name="ZasilkaInfo" type="tZasilkaInfoVypraveni" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element name="Adresat" type="tAdresat"/>
+      <xs:element name="ZasilkaInfo" type="tZasilkaInfoVypraveni"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tProfilDokumentuZalozeni">
@@ -563,7 +564,7 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
       <xs:documentation>Profilové informace o dokumentu určené pro přímou editaci v rámci služby DokumentUprava.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element minOccurs="0" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
         <xs:annotation>
           <xs:documentation>Při exportu dat je tato položka vždy povinná.
@@ -578,19 +579,19 @@ SpisV § 10, odst. 2 písm. b), NSESSS 5.2.6 k)</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="analogova" />
-            <xs:enumeration value="digitalni" />
+            <xs:enumeration value="analogova"/>
+            <xs:enumeration value="digitalni"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:group minOccurs="0" ref="gDokumentZakladniProfil" />
+      <xs:group minOccurs="0" ref="gDokumentZakladniProfil"/>
       <xs:element minOccurs="0" maxOccurs="1" name="VlozenVeSpisu">
         <xs:annotation>
           <xs:documentation>Pokud je při založení dokumentu uveden spis pro vložení, potom se dokument založí ihned v rámci zadaného spisu.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="SpisId" type="tIdSpisu" />
+            <xs:element name="SpisId" type="tIdSpisu"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -600,7 +601,7 @@ SpisV § 10, odst. 2 písm. b), NSESSS 5.2.6 k)</xs:documentation>
 Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArray" />
+      <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArray"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tProfilDokumentuUprava">
@@ -608,7 +609,7 @@ Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:d
       <xs:documentation>Profilové informace o dokumentu určené pro přímou editaci v rámci služby DokumentUprava.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element name="Forma">
         <xs:annotation>
           <xs:documentation>Podoba dokumentu (výběr – analogová nebo digitální)
@@ -616,12 +617,12 @@ SpisV § 10, odst. 2 písm. b), NSESSS 5.2.6 k)</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="analogova" />
-            <xs:enumeration value="digitalni" />
+            <xs:enumeration value="analogova"/>
+            <xs:enumeration value="digitalni"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:group minOccurs="0" ref="gDokumentZakladniProfil" />
+      <xs:group minOccurs="0" ref="gDokumentZakladniProfil"/>
     </xs:sequence>
   </xs:complexType>
   <xs:group name="gProfilDokumentu">
@@ -649,8 +650,8 @@ SpisV § 10, odst. 2 písm. b), NSESSS 5.2.6 k)</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="analogova" />
-            <xs:enumeration value="digitalni" />
+            <xs:enumeration value="analogova"/>
+            <xs:enumeration value="digitalni"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -662,7 +663,7 @@ Pro starší dokumentu není uvedena.</xs:documentation>
           <xs:documentation>NS z roku 2023 požadavek č.2.7.2</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:group minOccurs="0" ref="gDokumentZakladniProfil" />
+      <xs:group minOccurs="0" ref="gDokumentZakladniProfil"/>
       <xs:element minOccurs="0" maxOccurs="1" name="VlozenVeSpisu">
         <xs:annotation>
           <xs:documentation>Informace o vložení do spisu se může uplatnit např. při exportu dat.
@@ -671,14 +672,14 @@ VlozenVeSpisu vynechá nebo ignoruje. Mohl by obsahovat informace, které jsou v
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="SpisId" type="tIdSpisu" />
+            <xs:element name="SpisId" type="tIdSpisu"/>
             <xs:element name="PoradiVeSpisu">
               <xs:annotation>
                 <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:integer">
-                  <xs:minInclusive value="1" />
+                  <xs:minInclusive value="1"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -688,13 +689,13 @@ VlozenVeSpisu vynechá nebo ignoruje. Mohl by obsahovat informace, které jsou v
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:enumeration value="Vlozen" />
-                  <xs:enumeration value="Vyjmut" />
+                  <xs:enumeration value="Vlozen"/>
+                  <xs:enumeration value="Vyjmut"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element name="DatumCasVlozeniDoSpisu" type="xs:dateTime" />
-            <xs:element minOccurs="0" name="DatumCasVyjmutiZeSpisu" type="xs:dateTime" />
+            <xs:element name="DatumCasVlozeniDoSpisu" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="DatumCasVyjmutiZeSpisu" type="xs:dateTime"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -704,8 +705,8 @@ VlozenVeSpisu vynechá nebo ignoruje. Mohl by obsahovat informace, které jsou v
 Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vypraveni" type="tVypraveni" />
-      <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArray" >
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vypraveni" type="tVypraveni"/>
+      <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArray">
         <xs:annotation>
           <xs:documentation>Samotné obsahy ( elektronické dokumenty ) musí být přenášeny odděleně od popisných dat dokumentu. 
             U synchronního rozhraní budou obsahy přenášeny následně po přenosu popisných dat a to dodatečným voláním webové služby, která požadovaný obsah poskytne. 
@@ -713,13 +714,14 @@ Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:d
             Toto obrácené pořadí je u asynchronního přenosu nutné pro zajištění konzistence dat popisovaného a přenášeného dokumentu.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="SouvisejiciDokument" type="tSouvisejiciDokument" />
-      <xs:element name="KrizoveOdkazyVolne">
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SouvisejiciDokument"
+        type="tSouvisejiciDokument"/>
+      <xs:element name="KrizoveOdkazyVolne" minOccurs="0">
         <xs:complexType>
           <xs:sequence maxOccurs="unbounded">
             <xs:choice>
-              <xs:element name="SpisId" type="tIdSpisu" />
-              <xs:element name="DokumentId" type="tIdDokument" />
+              <xs:element name="SpisId" type="tIdSpisu"/>
+              <xs:element name="DokumentId" type="tIdDokument"/>
             </xs:choice>
           </xs:sequence>
         </xs:complexType>
@@ -730,8 +732,8 @@ Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:d
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="tUzivatel">
-            <xs:maxLength value="50" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -748,43 +750,43 @@ Při zakládání záznamu nebo při jeho následné editaci se tato položka ig
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="255"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element name="StavDokumentu">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="nevyrizen" />
-            <xs:enumeration value="vyrizen" />
-            <xs:enumeration value="uzavren" />
-            <xs:enumeration value="predanDoSpisovny" />
-            <xs:enumeration value="predanDoArchivu" />
-            <xs:enumeration value="skartovan" />
-            <xs:enumeration value="znepristupnen" />
-            <xs:enumeration value="prenesen" />
-            <xs:enumeration value="znicen" />
+            <xs:enumeration value="nevyrizen"/>
+            <xs:enumeration value="vyrizen"/>
+            <xs:enumeration value="uzavren"/>
+            <xs:enumeration value="predanDoSpisovny"/>
+            <xs:enumeration value="predanDoArchivu"/>
+            <xs:enumeration value="skartovan"/>
+            <xs:enumeration value="znepristupnen"/>
+            <xs:enumeration value="prenesen"/>
+            <xs:enumeration value="znicen"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="Vyrizeni" type="tVyrizeni"/>
-      <xs:element minOccurs="0" name="DatumPrenosu" type="xs:date" />
-      <xs:element minOccurs="0" name="DatumZnepristupneni" type="xs:date" />
+      <xs:element minOccurs="0" name="DatumPrenosu" type="xs:date"/>
+      <xs:element minOccurs="0" name="DatumZnepristupneni" type="xs:date"/>
       <xs:element minOccurs="0" name="DuvodZnepristupneni">
         <xs:annotation>
           <xs:documentation>NSESSS 7.2.12</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="DatumZniceni" type="xs:date" />
-      <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DatumCasPredaniDoArchivuNeboSkartace" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatumZniceni" type="xs:date"/>
+      <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumCasPredaniDoArchivuNeboSkartace" type="xs:dateTime"/>
       <xs:element minOccurs="0" name="UzivatelskePoznamky">
         <xs:annotation>
           <xs:documentation>Příloha M - Uživatelské poznámky spisu (uživatelské poznámky spisu se jménem uživatele a
@@ -800,11 +802,11 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
                   <xs:element name="Poznamka">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:maxLength value="255" />
+                        <xs:maxLength value="255"/>
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:group ref="gAutorizace" />
+                  <xs:group ref="gAutorizace"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -815,7 +817,7 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
   </xs:group>
   <xs:complexType name="tProfilDokumentu">
     <xs:sequence>
-      <xs:group ref="gProfilDokumentu" />
+      <xs:group ref="gProfilDokumentu"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tSouvisejiciDokument">
@@ -823,15 +825,15 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
       <xs:documentation>Výčet odkazů na dokumenty související s řešením problematiky daného dokumentu, primárně vyřizující odpověď.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element name="DuvodId">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="odpoved" />
-            <xs:enumeration value="souvisejici" />
-            <xs:enumeration value="iniciacni" />
-            <xs:enumeration value="kopie" />
-            <xs:enumeration value="original" />
+            <xs:enumeration value="odpoved"/>
+            <xs:enumeration value="souvisejici"/>
+            <xs:enumeration value="iniciacni"/>
+            <xs:enumeration value="kopie"/>
+            <xs:enumeration value="original"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -841,11 +843,11 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="50" />
+            <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
   <xs:group name="gProfilSpisu">
@@ -853,12 +855,12 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
       <xs:documentation>Profil spisu použitý při exportu profilových dat spisu - při postoupení a dotazu na profil.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element minOccurs="1" maxOccurs="1" name="ZpusobVedeni">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Priorace" />
-            <xs:enumeration value="SbernyArch" />
+            <xs:enumeration value="Priorace"/>
+            <xs:enumeration value="SbernyArch"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -869,24 +871,24 @@ Při zakládání nového záznamu může být tato položka vyplněna starším
 Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:group ref="gSpisZakladniProfil" />
+      <xs:group ref="gSpisZakladniProfil"/>
       <xs:element minOccurs="0" name="VlozenVTypovemSpisu">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="TypovySpisId" type="tIdTypovehoSpisu" />
+            <xs:element name="TypovySpisId" type="tIdTypovehoSpisu"/>
             <xs:element name="StavZarazeni">
               <xs:annotation>
                 <xs:documentation>Výčtový typ, který určuje, zda je dokument aktuálně vložen do spisu.</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:enumeration value="Vlozen" />
-                  <xs:enumeration value="Vyjmut" />
+                  <xs:enumeration value="Vlozen"/>
+                  <xs:enumeration value="Vyjmut"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element name="DatumCasVlozeni" type="xs:dateTime" />
-            <xs:element minOccurs="0" name="DatumCasVyjmuti" type="xs:dateTime" />
+            <xs:element name="DatumCasVlozeni" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="DatumCasVyjmuti" type="xs:dateTime"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -908,7 +910,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
                     <xs:element name="ProfilDokumentu">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:group ref="gProfilDokumentu" />
+                          <xs:group ref="gProfilDokumentu"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
@@ -919,7 +921,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
                       </xs:annotation>
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
-                          <xs:minInclusive value="1" />
+                          <xs:minInclusive value="1"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -929,20 +931,20 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
                       </xs:annotation>
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
-                          <xs:enumeration value="Vlozen" />
-                          <xs:enumeration value="Vyjmut" />
+                          <xs:enumeration value="Vlozen"/>
+                          <xs:enumeration value="Vyjmut"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
-                    <xs:element name="DatumCasVlozeniDoSpisu" type="xs:dateTime" />
-                    <xs:element minOccurs="0" name="DatumCasVyjmutiZeSpisu" type="xs:dateTime" />
+                    <xs:element name="DatumCasVlozeniDoSpisu" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="DatumCasVyjmutiZeSpisu" type="xs:dateTime"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
               <xs:element name="DokumentIdVlozeny">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="IdDokument" type="tIdDokument" />
+                    <xs:element name="IdDokument" type="tIdDokument"/>
                     <xs:element name="PoradiVeSpisu">
                       <xs:annotation>
                         <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
@@ -950,7 +952,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
                       </xs:annotation>
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
-                          <xs:minInclusive value="1" />
+                          <xs:minInclusive value="1"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -960,13 +962,13 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
                       </xs:annotation>
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
-                          <xs:enumeration value="Vlozen" />
-                          <xs:enumeration value="Vyjmut" />
+                          <xs:enumeration value="Vlozen"/>
+                          <xs:enumeration value="Vyjmut"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
-                    <xs:element name="DatumCasVlozeniDoSpisu" type="xs:dateTime" />
-                    <xs:element minOccurs="0" name="DatumCasVyjmutiZeSpisu" type="xs:dateTime" />
+                    <xs:element name="DatumCasVlozeniDoSpisu" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="DatumCasVyjmutiZeSpisu" type="xs:dateTime"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -980,8 +982,8 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="50" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -998,29 +1000,29 @@ Při zakládání záznamu nebo při jeho následné editaci se tato položka ig
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:minLength value="1" />
-            <xs:maxLength value="255" />
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="Umisteni">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element name="StavSpisu">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="nevyrizen" />
-            <xs:enumeration value="vyrizen" />
-            <xs:enumeration value="uzavren" />
-            <xs:enumeration value="predanDoSpisovny" />
-            <xs:enumeration value="predanDoArchivu" />
-            <xs:enumeration value="skartovan" />
-            <xs:enumeration value="prenesen" />
-            <xs:enumeration value="znicen" />
+            <xs:enumeration value="nevyrizen"/>
+            <xs:enumeration value="vyrizen"/>
+            <xs:enumeration value="uzavren"/>
+            <xs:enumeration value="predanDoSpisovny"/>
+            <xs:enumeration value="predanDoArchivu"/>
+            <xs:enumeration value="skartovan"/>
+            <xs:enumeration value="prenesen"/>
+            <xs:enumeration value="znicen"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1030,13 +1032,13 @@ Při zakládání záznamu nebo při jeho následné editaci se tato položka ig
 komplexním nepovinným prvkem Vyrizeni.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DatumCasPredaniDoArchivuNeboSkartace" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumCasPredaniDoArchivuNeboSkartace" type="xs:dateTime"/>
       <xs:element minOccurs="0" name="KrizoveOdkazyPevne">
         <xs:complexType>
           <xs:sequence maxOccurs="unbounded">
-            <xs:element name="SpisId" type="tIdSpisu" />
+            <xs:element name="SpisId" type="tIdSpisu"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -1044,25 +1046,25 @@ komplexním nepovinným prvkem Vyrizeni.</xs:documentation>
         <xs:complexType>
           <xs:sequence maxOccurs="unbounded">
             <xs:choice>
-              <xs:element name="DokumentId" type="tIdDokument" />
-              <xs:element name="SpisId" type="tIdSpisu" />
+              <xs:element name="DokumentId" type="tIdDokument"/>
+              <xs:element name="SpisId" type="tIdSpisu"/>
             </xs:choice>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="0" name="DatumPrenosu" type="xs:date" />
-      <xs:element minOccurs="0" name="DatumZnepristupneni" type="xs:date" />
+      <xs:element minOccurs="0" name="DatumPrenosu" type="xs:date"/>
+      <xs:element minOccurs="0" name="DatumZnepristupneni" type="xs:date"/>
       <xs:element minOccurs="0" name="DuvodZnepristupneni">
         <xs:annotation>
           <xs:documentation>NSESSS 7.2.12</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="DatumZniceni" type="xs:date" />
+      <xs:element minOccurs="0" name="DatumZniceni" type="xs:date"/>
       <xs:element minOccurs="0" name="UzivatelskePoznamky">
         <xs:annotation>
           <xs:documentation>Příloha M - Uživatelské poznámky spisu (uživatelské poznámky spisu se jménem uživatele a
@@ -1078,11 +1080,11 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
                   <xs:element name="Poznamka">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:maxLength value="255" />
+                        <xs:maxLength value="255"/>
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:group ref="gAutorizace" />
+                  <xs:group ref="gAutorizace"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -1093,7 +1095,7 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
   </xs:group>
   <xs:complexType name="tProfilSpisu">
     <xs:sequence>
-      <xs:group ref="gProfilSpisu" />
+      <xs:group ref="gProfilSpisu"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tProfilSpisuZalozeni">
@@ -1116,8 +1118,8 @@ NS z roku 2023 požadavek č.3.2.2</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Priorace" />
-            <xs:enumeration value="SbernyArch" />
+            <xs:enumeration value="Priorace"/>
+            <xs:enumeration value="SbernyArch"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1128,8 +1130,8 @@ Při zakládání nového záznamu může být tato položka vyplněna starším
 Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="VlozenVTypovemSpisu" type="tIdTypovehoSpisu" />
-      <xs:group ref="gSpisZakladniProfil" />
+      <xs:element minOccurs="0" name="VlozenVTypovemSpisu" type="tIdTypovehoSpisu"/>
+      <xs:group ref="gSpisZakladniProfil"/>
       <xs:element name="DokumentyVlozene">
         <xs:annotation>
           <xs:documentation>Je-li použit element VlozenyDokumentUplny, pak jsou nejprve založeny dokumenty uvedené v tomto elementu, poté je založen spis kde iniciačním dokumentem je ten, který má  PoradiVeSpisu rovno 1 a poté jsou do spisu vloženy i další dokumenty.
@@ -1147,14 +1149,14 @@ Pokud dokument v okamžiku zakládání spisu bude již existovat, potom se z t�
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="ProfilDokumentu" type="tProfilDokumentuZalozeni" />
+                    <xs:element name="ProfilDokumentu" type="tProfilDokumentuZalozeni"/>
                     <xs:element name="PoradiVeSpisu">
                       <xs:annotation>
                         <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
                       </xs:annotation>
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
-                          <xs:minInclusive value="1" />
+                          <xs:minInclusive value="1"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -1164,8 +1166,8 @@ Pokud dokument v okamžiku zakládání spisu bude již existovat, potom se z t�
                       </xs:annotation>
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
-                          <xs:enumeration value="Vlozen" />
-                          <xs:enumeration value="Vyjmut" />
+                          <xs:enumeration value="Vlozen"/>
+                          <xs:enumeration value="Vyjmut"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -1175,14 +1177,14 @@ Pokud dokument v okamžiku zakládání spisu bude již existovat, potom se z t�
               <xs:element name="DokumentIdVlozeny">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="IdDokument" type="tIdDokument" />
+                    <xs:element name="IdDokument" type="tIdDokument"/>
                     <xs:element name="PoradiVeSpisu">
                       <xs:annotation>
                         <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
                       </xs:annotation>
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
-                          <xs:minInclusive value="1" />
+                          <xs:minInclusive value="1"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -1192,8 +1194,8 @@ Pokud dokument v okamžiku zakládání spisu bude již existovat, potom se z t�
                       </xs:annotation>
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
-                          <xs:enumeration value="Vlozen" />
-                          <xs:enumeration value="Vyjmut" />
+                          <xs:enumeration value="Vlozen"/>
+                          <xs:enumeration value="Vyjmut"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -1213,8 +1215,8 @@ Neobsahuje vazební data, která se musí ke spisu připojit voláním specifick
 Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:group ref="gSpisZakladniProfil" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:group ref="gSpisZakladniProfil"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tVecnaSkupina">
@@ -1222,7 +1224,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
       <xs:documentation>Věcná skupina.</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:sequence>
         <xs:element name="SpisovyPlan">
           <xs:annotation>
@@ -1230,7 +1232,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="100" />
+              <xs:maxLength value="100"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -1248,7 +1250,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
       <xs:documentation>Skartační režim.</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:sequence>
         <xs:element name="SkartacniZnak">
           <xs:annotation>
@@ -1257,10 +1259,10 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:length value="1" />
-              <xs:enumeration value="A" />
-              <xs:enumeration value="S" />
-              <xs:enumeration value="V" />
+              <xs:length value="1"/>
+              <xs:enumeration value="A"/>
+              <xs:enumeration value="S"/>
+              <xs:enumeration value="V"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -1271,8 +1273,8 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
             </xs:annotation>
             <xs:simpleType>
               <xs:restriction base="xs:integer">
-                <xs:minInclusive value="1" />
-                <xs:maxInclusive value="999" />
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="999"/>
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
@@ -1293,8 +1295,8 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:integer">
-              <xs:minInclusive value="1" />
-              <xs:maxInclusive value="999" />
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="999"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -1331,8 +1333,8 @@ Součástí informace obsažené v tomto prvku je i  určení, který informačn
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="40" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="40"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1358,7 +1360,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-            <xs:minInclusive value="1" />
+            <xs:minInclusive value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1368,8 +1370,8 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:integer">
-            <xs:minInclusive value="1900" />
-            <xs:totalDigits value="4" />
+            <xs:minInclusive value="1900"/>
+            <xs:totalDigits value="4"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1392,7 +1394,8 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
   </xs:complexType>
   <xs:complexType name="tSouvisejiciSubjekty">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="SouvisejiciSubjekt" type="tSouvisejiciSubjekt" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SouvisejiciSubjekt"
+        type="tSouvisejiciSubjekt"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tSouvisejiciSubjekt">
@@ -1400,14 +1403,14 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
       <xs:documentation>Matadata souvisejících subjektů (typický příklad jsou subjekty správního řízení např. účastníci, dotčené orgány a další subjekty)</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Subjekt" type="tSubjekt" />
+      <xs:element name="Subjekt" type="tSubjekt"/>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Duvodvazby">
         <xs:annotation>
           <xs:documentation>Text důvodu vazby subjektu na dokument nebo spis.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1418,7 +1421,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
       <xs:documentation>Metadata obecného subjektu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Identifikator" type="tIdentifikator" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Identifikator" type="tIdentifikator"/>
       <xs:element name="TypSubjektu">
         <xs:annotation>
           <xs:documentation>Typ subjektu vyjadřuje právní forma subjektu a případný způsob zastoupení tohoto subjektu.</xs:documentation>
@@ -1432,7 +1435,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
                 </xs:documentation>
               </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Fyzicka" />
+            <xs:enumeration value="Fyzicka"/>
             <xs:enumeration value="Osvc">
               <xs:annotation>
                 <xs:documentation>
@@ -1440,7 +1443,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
                 </xs:documentation>
               </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Pravnicka" />
+            <xs:enumeration value="Pravnicka"/>
             <xs:enumeration value="Zamestnanec">
               <xs:annotation>
                 <xs:documentation>
@@ -1466,7 +1469,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1477,8 +1480,8 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="14" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="14"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1499,7 +1502,7 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="48" />
+            <xs:maxLength value="48"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1509,7 +1512,7 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="24" />
+            <xs:maxLength value="24"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1519,28 +1522,28 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
+            <xs:maxLength value="35"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="Osloveni">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="50" />
+            <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="TitulPred">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
+            <xs:maxLength value="35"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="TitulZa">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
+            <xs:maxLength value="35"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1550,7 +1553,7 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="100" />
+            <xs:maxLength value="100"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1560,25 +1563,25 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="100" />
+            <xs:maxLength value="100"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="Poznamka">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="Adresy" type="tAdresy" />
+      <xs:element minOccurs="0" name="Adresy" type="tAdresy"/>
       <xs:element minOccurs="0" name="DoplnujiciData">
         <xs:annotation>
           <xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -1593,9 +1596,10 @@ Tyto adresy slouží k určení (popisu) subjektu.
 Subjekt, např. v systémech spisových služeb, může být popsán velmi neúplnými informacemi. Např. již komunikace se subjektem s pomocí mailu vynucuje zaznamenat popis takového subjektu do systému, ale přitom subjekt lze identifikovat pouze na základě mailové adresy. Podobně neúplné informace je nutné zaznamenávat u papírové korespondence atd..</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdresaPostovni" type="tAdresaPostovni" />
-      <xs:element minOccurs="0" name="AdresaDS" type="tAdresaDS" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdresaElektronicka" type="tAdresaElektronicka" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdresaPostovni" type="tAdresaPostovni"/>
+      <xs:element minOccurs="0" name="AdresaDS" type="tAdresaDS"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdresaElektronicka"
+        type="tAdresaElektronicka"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tAdresaPostovni">
@@ -1614,7 +1618,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="48" />
+            <xs:maxLength value="48"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1624,7 +1628,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="48" />
+            <xs:maxLength value="48"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1634,7 +1638,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="48" />
+            <xs:maxLength value="48"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1644,7 +1648,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="48" />
+            <xs:maxLength value="48"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1654,8 +1658,8 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="4" />
-            <xs:pattern value="[0-9]{0,4}" />
+            <xs:maxLength value="4"/>
+            <xs:pattern value="[0-9]{0,4}"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1665,7 +1669,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="6" />
+            <xs:maxLength value="6"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1675,7 +1679,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="8" />
+            <xs:maxLength value="8"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1685,8 +1689,8 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="12" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="12"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1696,8 +1700,8 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:minLength value="2" />
-            <xs:maxLength value="3" />
+            <xs:minLength value="2"/>
+            <xs:maxLength value="3"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1707,7 +1711,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="100" />
+            <xs:maxLength value="100"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1717,7 +1721,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1727,7 +1731,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="10" />
+            <xs:maxLength value="10"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1737,12 +1741,12 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Neurceno" />
-            <xs:enumeration value="Dorucovaci" />
-            <xs:enumeration value="TrvaleBydliste" />
-            <xs:enumeration value="PrechodneBydliste" />
-            <xs:enumeration value="SidloFirmy" />
-            <xs:enumeration value="PobockaFirmy" />
+            <xs:enumeration value="Neurceno"/>
+            <xs:enumeration value="Dorucovaci"/>
+            <xs:enumeration value="TrvaleBydliste"/>
+            <xs:enumeration value="PrechodneBydliste"/>
+            <xs:enumeration value="SidloFirmy"/>
+            <xs:enumeration value="PobockaFirmy"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1757,7 +1761,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="48" />
+            <xs:maxLength value="48"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1790,13 +1794,13 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
       <xs:documentation>Metadata elektronické adresy ( mail, fax, rep, .. )</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="0" name="Identifikator" type="tIdentifikator" />
+      <xs:element minOccurs="0" name="Identifikator" type="tIdentifikator"/>
       <xs:element name="Typ">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="tel" />
-            <xs:enumeration value="fax" />
-            <xs:enumeration value="mail" />
+            <xs:enumeration value="tel"/>
+            <xs:enumeration value="fax"/>
+            <xs:enumeration value="mail"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1806,7 +1810,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="254" />
+            <xs:maxLength value="254"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1865,17 +1869,17 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="dokumentem" />
-            <xs:enumeration value="postoupenim" />
-            <xs:enumeration value="vzetimNaVedomi" />
-            <xs:enumeration value="zaznamemNaDokumentu" />
-            <xs:enumeration value="jinyZpusob" />
+            <xs:enumeration value="dokumentem"/>
+            <xs:enumeration value="postoupenim"/>
+            <xs:enumeration value="vzetimNaVedomi"/>
+            <xs:enumeration value="zaznamemNaDokumentu"/>
+            <xs:enumeration value="jinyZpusob"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element name="DatumCasVyrizeni">
         <xs:simpleType>
-          <xs:restriction base="xs:dateTime" />
+          <xs:restriction base="xs:dateTime"/>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="ObsahVyrizeni" type="xs:string">
@@ -1895,8 +1899,8 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>Informace o doručení zásilky.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Odesilatel" type="tAdresat" />
-      <xs:element name="ZasilkaInfo" type="tZasilkaInfoDoruceni" />
+      <xs:element name="Odesilatel" type="tAdresat"/>
+      <xs:element name="ZasilkaInfo" type="tZasilkaInfoDoruceni"/>
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="sIdInformacnihoSystemu">
@@ -1905,8 +1909,8 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.2</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="10" />
-      <xs:minLength value="1" />
+      <xs:maxLength value="10"/>
+      <xs:minLength value="1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sNazev">
@@ -1914,7 +1918,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>Krátká věc vystihující obsah dokumentu nebo spisu.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="100" />
+      <xs:maxLength value="100"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sBarCode">
@@ -1925,8 +1929,8 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
 			</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="50" />
-      <xs:minLength value="1" />
+      <xs:maxLength value="50"/>
+      <xs:minLength value="1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sPopis">
@@ -1934,7 +1938,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>Podrobný popis obsahu dokumentu nebo spisu.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="255" />
+      <xs:maxLength value="255"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sCisloJednaci">
@@ -1945,7 +1949,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
 			</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="50" />
+      <xs:maxLength value="50"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sSpisovyZnak">
@@ -1954,7 +1958,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>NS z roku 2023 kapitola 1.40</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="255" />
+      <xs:maxLength value="255"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sSpisovaZnacka">
@@ -1963,7 +1967,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>NS z roku 2023 kapitola 1.38</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="50" />
+      <xs:maxLength value="50"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sPodaciDenikPoradi">
@@ -1971,21 +1975,21 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>Pořadí v rámci roku (začíná od 1) a podacího deníku (či jiné evidenční pomůcky)</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:integer">
-      <xs:minInclusive value="1" />
+      <xs:minInclusive value="1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sPodaciDenikRok">
     <xs:annotation>
       <xs:documentation>Rok podacího deníku.</xs:documentation>
     </xs:annotation>
-    <xs:restriction base="xs:gYear" />
+    <xs:restriction base="xs:gYear"/>
   </xs:simpleType>
   <xs:simpleType name="sPodaciDenik">
     <xs:annotation>
       <xs:documentation>Označení podacího deníku či jiné evidenční pomůcky ( většinou se pro označení využívá výstižná zkratka )</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="12" />
+      <xs:maxLength value="12"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sTypDokumentu">
@@ -1993,7 +1997,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>Popis typu dokumentu</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="100" />
+      <xs:maxLength value="100"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sTypOdkazu">
@@ -2007,11 +2011,11 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   </xs:simpleType>
   <xs:simpleType name="sPoznamka">
     <xs:restriction base="xs:string">
-      <xs:maxLength value="255" />
+      <xs:maxLength value="255"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sDatumCasVytvoreni">
-    <xs:restriction base="xs:dateTime" />
+    <xs:restriction base="xs:dateTime"/>
   </xs:simpleType>
   <xs:attributeGroup name="gZdrojCil">
     <xs:attribute name="Zdroj" type="sIdInformacnihoSystemu" use="required">
@@ -2037,15 +2041,15 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
-      <xs:element name="Nazev" type="sNazev" />
-      <xs:element minOccurs="0" name="CisloJednaci" type="sCisloJednaci" />
-      <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka" />
-      <xs:element name="DatumCasVytvoreni" type="sDatumCasVytvoreni" />
-      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka" />
-      <xs:element name="SpisovyZnak" type="sSpisovyZnak" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode"/>
+      <xs:element name="Nazev" type="sNazev"/>
+      <xs:element minOccurs="0" name="CisloJednaci" type="sCisloJednaci"/>
+      <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka"/>
+      <xs:element name="DatumCasVytvoreni" type="sDatumCasVytvoreni"/>
+      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka"/>
+      <xs:element name="SpisovyZnak" type="sSpisovyZnak"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tProfilSpisuSeznam">
@@ -2053,14 +2057,14 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
-      <xs:element name="Nazev" type="sNazev" />
-      <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka" />
-      <xs:element name="DatumCasVytvoreni" type="sDatumCasVytvoreni" />
-      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka" />
-      <xs:element name="SpisovyZnak" type="sSpisovyZnak" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode"/>
+      <xs:element name="Nazev" type="sNazev"/>
+      <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka"/>
+      <xs:element name="DatumCasVytvoreni" type="sDatumCasVytvoreni"/>
+      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka"/>
+      <xs:element name="SpisovyZnak" type="sSpisovyZnak"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tProfilTypovehoSpisuSeznam">
@@ -2068,14 +2072,14 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
-      <xs:element name="Nazev" type="sNazev" />
-      <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka" />
-      <xs:element name="DatumCasVytvoreni" type="sDatumCasVytvoreni" />
-      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka" />
-      <xs:element name="SpisovyZnak" type="sSpisovyZnak" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode"/>
+      <xs:element name="Nazev" type="sNazev"/>
+      <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka"/>
+      <xs:element name="DatumCasVytvoreni" type="sDatumCasVytvoreni"/>
+      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka"/>
+      <xs:element name="SpisovyZnak" type="sSpisovyZnak"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tProfilSoucastiTypovehoSpisuSeznam">
@@ -2083,13 +2087,13 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
-      <xs:element name="Nazev" type="sNazev" />
-      <xs:element name="DatumCasVytvoreni" type="sDatumCasVytvoreni" />
-      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka" />
-      <xs:element name="SpisovyZnak" type="sSpisovyZnak" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode"/>
+      <xs:element name="Nazev" type="sNazev"/>
+      <xs:element name="DatumCasVytvoreni" type="sDatumCasVytvoreni"/>
+      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka"/>
+      <xs:element name="SpisovyZnak" type="sSpisovyZnak"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tSouvisejiciSpis">
@@ -2097,11 +2101,11 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>Výčet odkazů na související spisy - rozšížení proti NS2017 pro MV ČR - pro integraci se SAP</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element name="DuvodId">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="souvisejici" />
+            <xs:enumeration value="souvisejici"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -2111,11 +2115,11 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="50" />
+            <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tEvidenceDokumentu">
@@ -2123,7 +2127,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:documentation>NS z roku 2023 požadavek č.2.7.2</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="EvidenceObdobiId" type="sObdobiId" />
+      <xs:element name="EvidenceObdobiId" type="sObdobiId"/>
       <xs:element name="EvidencePoradi" type="sEvidencePoradi">
         <xs:annotation>
           <xs:documentation>NS z roku 2023 požadavek č.2.7.2</xs:documentation>
@@ -2138,8 +2142,8 @@ V jednom okamžiku může být otevřeno pouze jedno období.</xs:documentation>
       <xs:documentation>NS z roku 2023 požadavek č.2.7.2</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:maxLength value="10" />
-      <xs:minLength value="1" />
+      <xs:maxLength value="10"/>
+      <xs:minLength value="1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sEvidencePoradi">
@@ -2147,7 +2151,7 @@ V jednom okamžiku může být otevřeno pouze jedno období.</xs:documentation>
       <xs:documentation>Pořadí v rámci evidenčního období (začíná od 1) - jedná se o jednotnou řadu čísel evidence dokumentů v rámci stanoveného období.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:integer">
-      <xs:minInclusive value="1" />
+      <xs:minInclusive value="1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="tCiselnik">
@@ -2161,8 +2165,8 @@ V jednom okamžiku může být otevřeno pouze jedno období.</xs:documentation>
           <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="NazevCiselniku" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="PocetPrvkuCiselniku" type="xs:integer" />
+      <xs:element name="NazevCiselniku" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="PocetPrvkuCiselniku" type="xs:integer"/>
       <xs:element minOccurs="0" maxOccurs="1" name="CasPosledniZmeny" type="xs:dateTime">
         <xs:annotation>
           <xs:documentation>Čas kdy se naposledy změnila některé položka vedená v tomto číselníku.
@@ -2176,8 +2180,8 @@ Tento údaj může sloužit pro posouzení, zda je nutné načítat tento celý 
       <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="40" />
+      <xs:minLength value="1"/>
+      <xs:maxLength value="40"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="tPolozkaCiselniku">
@@ -2191,8 +2195,8 @@ Tento údaj může sloužit pro posouzení, zda je nutné načítat tento celý 
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:minLength value="1" />
-            <xs:maxLength value="40" />
+            <xs:minLength value="1"/>
+            <xs:maxLength value="40"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -2203,8 +2207,8 @@ Z důvodu obecnosti není omezen rozsah. Rozsah pro konkrétní číselník mů�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:minLength value="1" />
-            <xs:maxLength value="255" />
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -2214,8 +2218,8 @@ Z důvodu obecnosti není omezen rozsah. Rozsah pro konkrétní číselník mů�
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:minLength value="1" />
-            <xs:maxLength value="255" />
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -2226,8 +2230,8 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Aktivni" />
-            <xs:enumeration value="Neaktivni" />
+            <xs:enumeration value="Aktivni"/>
+            <xs:enumeration value="Neaktivni"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -2241,7 +2245,7 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
           <xs:documentation>Pokud se u číselníku sleduje časová platnost položek, potom je možné uvést jako doplňkovou informaci platnost této položky OD a případně DO</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tIdTypovehoSpisu">
@@ -2249,8 +2253,8 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
       <xs:documentation>Unikátní technické ID typového spisu</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
   <xs:group name="gTypovySpisZakladniProfil">
@@ -2258,27 +2262,27 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
       <xs:documentation>Skupina metadat společná jak pro popis dokumentu tak pro popis spisu. Jedná se o kopii ze schématu ess_ns.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="VecnaSkupina" type="tVecnaSkupina" />
+      <xs:element name="VecnaSkupina" type="tVecnaSkupina"/>
       <xs:element name="SpisovaZnacka">
         <xs:simpleType>
           <xs:restriction base="sSpisovaZnacka">
-            <xs:minLength value="1" />
-            <xs:maxLength value="50" />
+            <xs:minLength value="1"/>
+            <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
-      <xs:element name="Nazev" type="sNazev" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode"/>
+      <xs:element name="Nazev" type="sNazev"/>
       <xs:element minOccurs="0" name="Popis">
         <xs:simpleType>
           <xs:restriction base="sPopis">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka" />
-      <xs:element minOccurs="0" name="Zmocneni" type="tZmocneni" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciDataSpis" />
+      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka"/>
+      <xs:element minOccurs="0" name="Zmocneni" type="tZmocneni"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciDataSpis"/>
     </xs:sequence>
   </xs:group>
   <xs:complexType name="tProfilTypovehoSpisuZalozeni">
@@ -2291,8 +2295,8 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
           <xs:documentation>NS z roku 2023 požadavek č.2.7.1</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VecnaSkupina" type="tVecnaSkupina" />
-      <xs:group ref="gTypovySpisZakladniProfil" />
+      <xs:element name="VecnaSkupina" type="tVecnaSkupina"/>
+      <xs:group ref="gTypovySpisZakladniProfil"/>
     </xs:sequence>
   </xs:complexType>
   <xs:group name="gTypovySpis">
@@ -2300,7 +2304,7 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
       <xs:documentation>Profil spisu použitý při exportu profilových dat spisu - při postoupení a dotazu na profil.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element minOccurs="1" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
         <xs:annotation>
           <xs:documentation>Při exportu dat je tato položka vždy povinná.
@@ -2308,14 +2312,14 @@ Při zakládání nového záznamu může být tato položka vyplněna starším
 Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:group ref="gTypovySpisZakladniProfil" />
+      <xs:group ref="gTypovySpisZakladniProfil"/>
       <xs:element name="Soucasti">
         <xs:complexType>
           <xs:sequence maxOccurs="unbounded">
             <xs:element name="Soucast">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:group ref="gSoucastTypovehoSpisu" />
+                  <xs:group ref="gSoucastTypovehoSpisu"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -2328,8 +2332,8 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="50" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -2339,27 +2343,27 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:minLength value="1" />
-            <xs:maxLength value="255" />
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element name="StavTypovehoSpisu">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="otevren" />
-            <xs:enumeration value="uzavren" />
+            <xs:enumeration value="otevren"/>
+            <xs:enumeration value="uzavren"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DatumZniceni" type="xs:date" />
-      <xs:element minOccurs="0" name="DatumPrenosu" type="xs:date" />
+      <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumZniceni" type="xs:date"/>
+      <xs:element minOccurs="0" name="DatumPrenosu" type="xs:date"/>
     </xs:sequence>
   </xs:group>
   <xs:complexType name="tTypovySpis">
     <xs:sequence>
-      <xs:group ref="gTypovySpis" />
+      <xs:group ref="gTypovySpis"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tProfilTypovehoSpisuUprava">
@@ -2369,8 +2373,8 @@ Neobsahuje vazební data, která se musí ke spisu připojit voláním specifick
 Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
-      <xs:group ref="gTypovySpisZakladniProfil" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:group ref="gTypovySpisZakladniProfil"/>
     </xs:sequence>
   </xs:complexType>
   <xs:attributeGroup name="gZdrojCilDavkaPoradi">
@@ -2421,7 +2425,7 @@ Rozložení na menší soubory spojené do logického celku jedné dávky je zvo
     <xs:attribute name="DavkaId">
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:minLength value="1" />
+          <xs:minLength value="1"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -2494,8 +2498,8 @@ NSESSS 2.1.3</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:enumeration value="A" />
-          <xs:enumeration value="N" />
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="N"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -2505,7 +2509,7 @@ NSESSS 2.1.3</xs:documentation>
       <xs:documentation>Profil spisu použitý při exportu profilových dat spisu - při postoupení a dotazu na profil.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element minOccurs="1" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
         <xs:annotation>
           <xs:documentation>Při exportu dat je tato položka vždy povinná.
@@ -2513,7 +2517,7 @@ Při zakládání nového záznamu může být tato položka vyplněna starším
 Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:group ref="gSoucastTypovehoSpisuZakladniProfil" />
+      <xs:group ref="gSoucastTypovehoSpisuZakladniProfil"/>
       <xs:choice>
         <xs:element name="Dily">
           <xs:complexType>
@@ -2521,7 +2525,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
               <xs:element name="Dil">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:group ref="gDilSoucastiTypovehoSpisu" />
+                    <xs:group ref="gDilSoucastiTypovehoSpisu"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -2534,7 +2538,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
               <xs:element name="Soucast">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:group ref="gSoucastTypovehoSpisu" />
+                    <xs:group ref="gSoucastTypovehoSpisu"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -2545,20 +2549,20 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
       <xs:element name="Stav">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="otevren" />
-            <xs:enumeration value="uzavren" />
+            <xs:enumeration value="otevren"/>
+            <xs:enumeration value="uzavren"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime"/>
       <xs:element name="VlastniKdo">
         <xs:annotation>
           <xs:documentation>Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="50" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -2566,7 +2570,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
   </xs:group>
   <xs:group name="gDilSoucastiTypovehoSpisu">
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element name="Stav">
         <xs:annotation>
           <xs:documentation>Výčtový typ, který určuje, zda je spis aktuálně vložen do součásti typového spisu.</xs:documentation>
@@ -2575,29 +2579,29 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="otevren" />
-            <xs:enumeration value="uzavren" />
-            <xs:enumeration value="predanDoSpisovny" />
-            <xs:enumeration value="predanDoArchivu" />
-            <xs:enumeration value="skartovan" />
+            <xs:enumeration value="otevren"/>
+            <xs:enumeration value="uzavren"/>
+            <xs:enumeration value="predanDoSpisovny"/>
+            <xs:enumeration value="predanDoArchivu"/>
+            <xs:enumeration value="skartovan"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="DatumCasOtevreni" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
+      <xs:element name="DatumCasOtevreni" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime"/>
       <xs:element name="VlastniKdo">
         <xs:annotation>
           <xs:documentation>Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="50" />
-            <xs:minLength value="1" />
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="DatumCasPredaniDoArchivuNeboSkartace" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatumCasPredaniDoArchivuNeboSkartace" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime"/>
       <xs:element name="SpisyVlozene">
         <xs:annotation>
           <xs:documentation>Je-li použit element VlozenyDokumentUplny, pak jsou nejprve založeny dokumenty uvedené v tomto elementu, poté je založen spis kde iniciačním dokumentem je ten, který má  PoradiVeSpisu rovno 1 a poté jsou do spisu vloženy i další dokumenty.
@@ -2616,11 +2620,11 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:integer">
-                        <xs:minInclusive value="1" />
+                        <xs:minInclusive value="1"/>
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="SpisId" type="tIdSpisu" />
+                  <xs:element name="SpisId" type="tIdSpisu"/>
                   <xs:element name="StavZarazeniDoTypovehoSpisu">
                     <xs:annotation>
                       <xs:documentation>Výčtový typ, který určuje, zda je spis aktuálně vložen do součásti typového spisu.</xs:documentation>
@@ -2629,13 +2633,13 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:enumeration value="vlozen" />
-                        <xs:enumeration value="vyjmut" />
+                        <xs:enumeration value="vlozen"/>
+                        <xs:enumeration value="vyjmut"/>
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="DatumCasVlozeni" type="xs:dateTime" />
-                  <xs:element minOccurs="0" name="DatumCasVyjmuti" type="xs:dateTime" />
+                  <xs:element name="DatumCasVlozeni" type="xs:dateTime"/>
+                  <xs:element minOccurs="0" name="DatumCasVyjmuti" type="xs:dateTime"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -2649,34 +2653,34 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
       <xs:documentation>Skupina metadat společná jak pro popis dokumentu tak pro popis spisu. Jedná se o kopii ze schématu ess_ns.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="VecnaSkupina" type="tVecnaSkupina" />
+      <xs:element name="VecnaSkupina" type="tVecnaSkupina"/>
       <xs:element name="SpisovaZnacka">
         <xs:simpleType>
           <xs:restriction base="sSpisovaZnacka">
-            <xs:minLength value="1" />
-            <xs:maxLength value="50" />
+            <xs:minLength value="1"/>
+            <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode"/>
       <xs:element name="Nazev">
         <xs:simpleType>
           <xs:restriction base="sNazev">
-            <xs:minLength value="1" />
-            <xs:maxLength value="100" />
+            <xs:minLength value="1"/>
+            <xs:maxLength value="100"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="Popis">
         <xs:simpleType>
           <xs:restriction base="sPopis">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka" />
-      <xs:element minOccurs="0" name="Zmocneni" type="tZmocneni" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciDataSpis" />
+      <xs:element minOccurs="0" name="Poznamka" type="sPoznamka"/>
+      <xs:element minOccurs="0" name="Zmocneni" type="tZmocneni"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciDataSpis"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="gZasilkaInfoZakladni">
@@ -2700,9 +2704,9 @@ Většinou oslovení</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:minLength value="0" />
-                  <xs:maxLength value="50" />
-                  <xs:whiteSpace value="collapse" />
+                  <xs:minLength value="0"/>
+                  <xs:maxLength value="50"/>
+                  <xs:whiteSpace value="collapse"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -2714,9 +2718,9 @@ Většinou funkce nebo konkrétní osoba ( u firem nebo organizací )</xs:docume
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:minLength value="0" />
-                  <xs:maxLength value="50" />
-                  <xs:whiteSpace value="collapse" />
+                  <xs:minLength value="0"/>
+                  <xs:maxLength value="50"/>
+                  <xs:whiteSpace value="collapse"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -2728,9 +2732,9 @@ Většinou obchodní jméno nebo jméno a příjmení.</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:minLength value="0" />
-                  <xs:maxLength value="50" />
-                  <xs:whiteSpace value="collapse" />
+                  <xs:minLength value="0"/>
+                  <xs:maxLength value="50"/>
+                  <xs:whiteSpace value="collapse"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -2742,9 +2746,9 @@ Většinou ulice.</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:minLength value="0" />
-                  <xs:maxLength value="50" />
-                  <xs:whiteSpace value="collapse" />
+                  <xs:minLength value="0"/>
+                  <xs:maxLength value="50"/>
+                  <xs:whiteSpace value="collapse"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -2756,9 +2760,9 @@ Většinou částo obce</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:minLength value="0" />
-                  <xs:maxLength value="50" />
-                  <xs:whiteSpace value="collapse" />
+                  <xs:minLength value="0"/>
+                  <xs:maxLength value="50"/>
+                  <xs:whiteSpace value="collapse"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -2770,9 +2774,9 @@ Většinou město.</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:minLength value="0" />
-                  <xs:maxLength value="50" />
-                  <xs:whiteSpace value="collapse" />
+                  <xs:minLength value="0"/>
+                  <xs:maxLength value="50"/>
+                  <xs:whiteSpace value="collapse"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -2784,9 +2788,9 @@ Většinou PSČ</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:minLength value="0" />
-                  <xs:maxLength value="50" />
-                  <xs:whiteSpace value="collapse" />
+                  <xs:minLength value="0"/>
+                  <xs:maxLength value="50"/>
+                  <xs:whiteSpace value="collapse"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -2798,9 +2802,9 @@ Většinou stát</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:minLength value="0" />
-                  <xs:maxLength value="50" />
-                  <xs:whiteSpace value="collapse" />
+                  <xs:minLength value="0"/>
+                  <xs:maxLength value="50"/>
+                  <xs:whiteSpace value="collapse"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -2814,25 +2818,25 @@ Většinou stát</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:enumeration value="Posta" />
-              <xs:enumeration value="Osobne" />
-              <xs:enumeration value="VerejnaVyhlaska" />
-              <xs:enumeration value="DetasovanaPosta" />
-              <xs:enumeration value="Kuryr" />
-              <xs:enumeration value="DorucovaciSluzba" />
-              <xs:enumeration value="ElektronickaPosta" />
-              <xs:enumeration value="Fax" />
-              <xs:enumeration value="DalnopisTelegram" />
-              <xs:enumeration value="Telefon" />
-              <xs:enumeration value="UstneDoProtokolu" />
-              <xs:enumeration value="EPodatelnaNosic" />
-              <xs:enumeration value="EPodatelnaWeb" />
-              <xs:enumeration value="EPodatelnaMail" />
-              <xs:enumeration value="Rep" />
-              <xs:enumeration value="DatovaSchranka" />
-              <xs:enumeration value="HromadnaKonverzniPosta" />
-              <xs:enumeration value="DopisOnline" />
-              <xs:enumeration value="InterniVypraveni" />
+              <xs:enumeration value="Posta"/>
+              <xs:enumeration value="Osobne"/>
+              <xs:enumeration value="VerejnaVyhlaska"/>
+              <xs:enumeration value="DetasovanaPosta"/>
+              <xs:enumeration value="Kuryr"/>
+              <xs:enumeration value="DorucovaciSluzba"/>
+              <xs:enumeration value="ElektronickaPosta"/>
+              <xs:enumeration value="Fax"/>
+              <xs:enumeration value="DalnopisTelegram"/>
+              <xs:enumeration value="Telefon"/>
+              <xs:enumeration value="UstneDoProtokolu"/>
+              <xs:enumeration value="EPodatelnaNosic"/>
+              <xs:enumeration value="EPodatelnaWeb"/>
+              <xs:enumeration value="EPodatelnaMail"/>
+              <xs:enumeration value="Rep"/>
+              <xs:enumeration value="DatovaSchranka"/>
+              <xs:enumeration value="HromadnaKonverzniPosta"/>
+              <xs:enumeration value="DopisOnline"/>
+              <xs:enumeration value="InterniVypraveni"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -2861,36 +2865,37 @@ Bohužel, toto schéma bude pro určité časové období pevné, ale obchodní 
             <xs:element minOccurs="0" maxOccurs="unbounded" name="PostovniSluzbaId">
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:enumeration value="Dodejka" />
-                  <xs:enumeration value="DoVlastnichRukou" />
-                  <xs:enumeration value="DoVlastnichRukouVyhradne" />
-                  <xs:enumeration value="Dobirka" />
-                  <xs:enumeration value="NeprodluzovatOdberniLhutu" />
-                  <xs:enumeration value="UdanaCena" />
-                  <xs:enumeration value="Neskladne" />
-                  <xs:enumeration value="NeskladneII" />
-                  <xs:enumeration value="Krehke" />
-                  <xs:enumeration value="Pilne" />
-                  <xs:enumeration value="Doplatne" />
-                  <xs:enumeration value="OdpovedniZasilky" />
-                  <xs:enumeration value="OpakovaneDodaniBezne" />
-                  <xs:enumeration value="OpakovaneDodaniZvlastni" />
-                  <xs:enumeration value="ZkraceniOdberniLhuty3Dny" />
-                  <xs:enumeration value="ZkraceniOdberniLhuty10Dni" />
-                  <xs:enumeration value="ProdlouzeniOdberniLhuty1Mesic" />
-                  <xs:enumeration value="ZkraceniOdberniLhuty7Dni" />
-                  <xs:enumeration value="Neukladat" />
-                  <xs:enumeration value="NeprodluzovatLhutu" />
-                  <xs:enumeration value="NevracetVlozitDoSchranky" />
-                  <xs:enumeration value="Nevracet" />
-                  <xs:enumeration value="NevkladatDoSchranky" />
-                  <xs:enumeration value="TerminovanaVyplata" />
-                  <xs:enumeration value="Nedosilat" />
-                  <xs:enumeration value="EkonomickeDoruceni" />
+                  <xs:enumeration value="Dodejka"/>
+                  <xs:enumeration value="DoVlastnichRukou"/>
+                  <xs:enumeration value="DoVlastnichRukouVyhradne"/>
+                  <xs:enumeration value="Dobirka"/>
+                  <xs:enumeration value="NeprodluzovatOdberniLhutu"/>
+                  <xs:enumeration value="UdanaCena"/>
+                  <xs:enumeration value="Neskladne"/>
+                  <xs:enumeration value="NeskladneII"/>
+                  <xs:enumeration value="Krehke"/>
+                  <xs:enumeration value="Pilne"/>
+                  <xs:enumeration value="Doplatne"/>
+                  <xs:enumeration value="OdpovedniZasilky"/>
+                  <xs:enumeration value="OpakovaneDodaniBezne"/>
+                  <xs:enumeration value="OpakovaneDodaniZvlastni"/>
+                  <xs:enumeration value="ZkraceniOdberniLhuty3Dny"/>
+                  <xs:enumeration value="ZkraceniOdberniLhuty10Dni"/>
+                  <xs:enumeration value="ProdlouzeniOdberniLhuty1Mesic"/>
+                  <xs:enumeration value="ZkraceniOdberniLhuty7Dni"/>
+                  <xs:enumeration value="Neukladat"/>
+                  <xs:enumeration value="NeprodluzovatLhutu"/>
+                  <xs:enumeration value="NevracetVlozitDoSchranky"/>
+                  <xs:enumeration value="Nevracet"/>
+                  <xs:enumeration value="NevkladatDoSchranky"/>
+                  <xs:enumeration value="TerminovanaVyplata"/>
+                  <xs:enumeration value="Nedosilat"/>
+                  <xs:enumeration value="EkonomickeDoruceni"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="PostovniSluzbaText" type="xs:string">
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="PostovniSluzbaText"
+              type="xs:string">
               <xs:annotation>
                 <xs:documentation>Tento prvek se použije pouze v případě, že Česká pošta ( nebo časem jiný poskytovatel poštovních služeb ) vytvoří novou službu, která není obsažena v této verzi standardu.
 Této textové podoby určení poštovní služby se nesmí zneužívat pro "usnadnění si práce". 
@@ -3074,9 +3079,9 @@ Zde použité textové konstanty musí být vždy dohodnuty s komunikující pro
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:minLength value="0" />
-            <xs:maxLength value="30" />
-            <xs:whiteSpace value="collapse" />
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+            <xs:whiteSpace value="collapse"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -3086,13 +3091,13 @@ Zde použité textové konstanty musí být vždy dohodnuty s komunikující pro
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:minLength value="0" />
-            <xs:maxLength value="30" />
-            <xs:whiteSpace value="collapse" />
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+            <xs:whiteSpace value="collapse"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="Poznamka" type="xs:string" />
+      <xs:element minOccurs="0" name="Poznamka" type="xs:string"/>
       <xs:element minOccurs="0" name="dmID" type="isds:tIdDm">
         <xs:annotation>
           <xs:documentation>ID datové zprávy</xs:documentation>
@@ -3102,22 +3107,22 @@ Zde použité textové konstanty musí být vždy dohodnuty s komunikující pro
   </xs:group>
   <xs:complexType name="tZasilkaInfoDoruceni">
     <xs:sequence>
-      <xs:group ref="gZasilkaInfoZakladni" />
-      <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArray" />
-      <xs:element name="DatumDoruceni" type="xs:date" />
+      <xs:group ref="gZasilkaInfoZakladni"/>
+      <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArray"/>
+      <xs:element name="DatumDoruceni" type="xs:date"/>
       <xs:element minOccurs="0" name="CasDoruceni" type="xs:time">
         <xs:annotation>
           <xs:documentation>Vyhláška o SSL z roku 2023 paragraf.3 bod 1.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="DatumVypraveni" type="xs:date" />
-      <xs:element minOccurs="0" name="CasVypraveni" type="xs:time" />
+      <xs:element minOccurs="0" name="DatumVypraveni" type="xs:date"/>
+      <xs:element minOccurs="0" name="CasVypraveni" type="xs:time"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tZasilkaInfoVypraveni">
     <xs:sequence>
-      <xs:group ref="gZasilkaInfoZakladni" />
-      <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArrayVypraveni" />
+      <xs:group ref="gZasilkaInfoZakladni"/>
+      <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArrayVypraveni"/>
       <xs:element minOccurs="0" name="PovolenaFikceDoruceni">
         <xs:annotation>
           <xs:documentation>Příznak, že zásilka má byt/byla doručena s fikcí doručení.
@@ -3125,15 +3130,15 @@ Pokud element není uveden, potom se to chápe jako hodnota (ne).</xs:documentat
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="ano" />
-            <xs:enumeration value="ne" />
+            <xs:enumeration value="ano"/>
+            <xs:enumeration value="ne"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="StavZasilky">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:whiteSpace value="collapse" />
+            <xs:whiteSpace value="collapse"/>
             <xs:enumeration value="nevypraveno">
               <xs:annotation>
                 <xs:documentation>
@@ -3221,19 +3226,19 @@ Pokud element není uveden, potom se to chápe jako hodnota (ne).</xs:documentat
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="DatumCasVytvoreni" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DatumCasStornovani" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DatumCasPredeniVypravne" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DatumVypraveni" type="xs:date" />
-      <xs:element minOccurs="0" name="CasVypraveni" type="xs:time" />
+      <xs:element name="DatumCasVytvoreni" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumCasStornovani" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumCasPredeniVypravne" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumVypraveni" type="xs:date"/>
+      <xs:element minOccurs="0" name="CasVypraveni" type="xs:time"/>
       <xs:element minOccurs="0" name="Poplatek">
         <xs:annotation>
           <xs:documentation>Poplatek za odeslání zásilky</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:decimal">
-            <xs:totalDigits value="7" />
-            <xs:fractionDigits value="2" />
+            <xs:totalDigits value="7"/>
+            <xs:fractionDigits value="2"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -3243,12 +3248,12 @@ Pokud element není uveden, potom se to chápe jako hodnota (ne).</xs:documentat
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:decimal">
-            <xs:totalDigits value="5" />
-            <xs:fractionDigits value="3" />
+            <xs:totalDigits value="5"/>
+            <xs:fractionDigits value="3"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="DatumDoruceni" type="xs:date" />
+      <xs:element minOccurs="0" name="DatumDoruceni" type="xs:date"/>
       <xs:element minOccurs="0" name="CasDoruceni" type="xs:time">
         <xs:annotation>
           <xs:documentation>Vyhláška o SSL z roku 2023 paragraf.3 bod 1.</xs:documentation>
@@ -3266,12 +3271,12 @@ Pokud element není uveden, potom se to chápe jako hodnota (ne).</xs:documentat
       <xs:documentation>Pole odkazů na místa obsahující binární obrazy soubory.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="dmFileLink" type="tFileLinkVypraveni" />
+      <xs:element maxOccurs="unbounded" name="dmFileLink" type="tFileLinkVypraveni"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tFileLinkVypraveni">
     <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator" />
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element minOccurs="0" name="WsUrl" type="xs:string">
         <xs:annotation>
           <xs:documentation>URL stream webové služby pro získání obsahu komponenty - elektronického souboru.
@@ -3285,16 +3290,16 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
             <xs:element name="Konverze">
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:enumeration value="ano" />
-                  <xs:enumeration value="ne" />
+                  <xs:enumeration value="ano"/>
+                  <xs:enumeration value="ne"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
             <xs:element name="TypTisku">
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:enumeration value="jednostranne" />
-                  <xs:enumeration value="oboustranne" />
+                  <xs:enumeration value="jednostranne"/>
+                  <xs:enumeration value="oboustranne"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -3308,12 +3313,12 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:enumeration value="main" />
-          <xs:enumeration value="enclosure" />
-          <xs:enumeration value="signature" />
-          <xs:enumeration value="meta" />
-          <xs:enumeration value="dorucenka" />
-          <xs:enumeration value="protokol_overeni_podpisu" />
+          <xs:enumeration value="main"/>
+          <xs:enumeration value="enclosure"/>
+          <xs:enumeration value="signature"/>
+          <xs:enumeration value="meta"/>
+          <xs:enumeration value="dorucenka"/>
+          <xs:enumeration value="protokol_overeni_podpisu"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -3339,8 +3344,8 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:enumeration value="A" />
-          <xs:enumeration value="N" />
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="N"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -3362,18 +3367,18 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
       <xs:element name="PrihlasovaciJmeno">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="100" />
+            <xs:maxLength value="100"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="OsobniCislo" type="xs:string" />
+      <xs:element minOccurs="0" name="OsobniCislo" type="xs:string"/>
       <xs:element name="Jmeno">
         <xs:annotation>
           <xs:documentation>Element se neuvádí v případě TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="24" />
+            <xs:maxLength value="24"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -3383,28 +3388,28 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
+            <xs:maxLength value="35"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="TitulPred">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
+            <xs:maxLength value="35"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="TitulZa">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
+            <xs:maxLength value="35"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="IdFunkcnihoMista">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="50" />
+            <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -3414,40 +3419,40 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="IdOrganizacniJednotky" type="xs:string" />
+      <xs:element minOccurs="0" name="IdOrganizacniJednotky" type="xs:string"/>
       <xs:element minOccurs="0" name="OrganizacniJednotka">
         <xs:annotation>
           <xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="IdSpisovehoUzlu" type="xs:string" />
+      <xs:element minOccurs="0" name="IdSpisovehoUzlu" type="xs:string"/>
       <xs:element minOccurs="0" name="SpisovyUzel">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="255" />
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element name="Stav">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="aktivni" />
-            <xs:enumeration value="historicky" />
+            <xs:enumeration value="aktivni"/>
+            <xs:enumeration value="historicky"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="DatumVytvoreni" type="xs:date" />
-      <xs:element minOccurs="0" name="DatumUkonceni" type="xs:date" />
-      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      <xs:element minOccurs="0" name="DatumVytvoreni" type="xs:date"/>
+      <xs:element minOccurs="0" name="DatumUkonceni" type="xs:date"/>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
