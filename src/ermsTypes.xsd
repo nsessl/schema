@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api" elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api" id="ermsIFTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api" elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api" id="ermsIFTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xml:lang="cs">
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20" />
   <xs:simpleType name="tUzivatel">
     <xs:annotation>
@@ -24,7 +25,7 @@ ID uživatele tedy podle implementace rozhraní odpovídá kódu funkčního mí
     <xs:sequence>
       <xs:element name="provedlKdo">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">ID uživatele, který realizoval akci.</xs:documentation>
+          <xs:documentation>ID uživatele, který realizoval akci.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="tUzivatel">
@@ -35,7 +36,7 @@ ID uživatele tedy podle implementace rozhraní odpovídá kódu funkčního mí
       </xs:element>
       <xs:element name="provedlKdy" type="xs:dateTime">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Čas realizované akce.</xs:documentation>
+          <xs:documentation>Čas realizované akce.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -201,17 +202,17 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
     </xs:sequence>
     <xs:attribute name="dmMimeType" type="xs:string" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Typ obsahu souboru v MIME zápisu, např. application/pdf nebo image/tiff</xs:documentation>
+        <xs:documentation>Typ obsahu souboru v MIME zápisu, např. application/pdf nebo image/tiff</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="dmFileDescr" type="xs:string" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Musí se vždy jednat o jméno souboru, splňující požadavky Windows a Linux OS, kladené na pojmenování souboru v rámci souborového systému, včetně přípony souboru.</xs:documentation>
+        <xs:documentation>Musí se vždy jednat o jméno souboru, splňující požadavky Windows a Linux OS, kladené na pojmenování souboru v rámci souborového systému, včetně přípony souboru.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="dmFinalniVerze" use="optional">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. </xs:documentation>
+        <xs:documentation>Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. </xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -264,7 +265,7 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
     </xs:attribute>
     <xs:attribute name="dmFinalniVerze" use="optional">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
+        <xs:documentation>Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
 U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přenášet s pomocí REST služby a nebude se tedy využívat tFile</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
@@ -311,7 +312,7 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
     </xs:attribute>
     <xs:attribute name="dmFinalniVerze" use="optional">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
+        <xs:documentation>Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
 U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přenášet s pomocí REST služby a nebude se tedy využívat tFile</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
@@ -537,16 +538,16 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
   </xs:attributeGroup>
   <xs:attributeGroup name="gDavkaInfoResponse">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Pomocné informace odpovědní dávky.</xs:documentation>
+      <xs:documentation>Pomocné informace odpovědní dávky.</xs:documentation>
     </xs:annotation>
     <xs:attribute name="Poradi" type="xs:integer" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Má obsahovat stejnou hodnotu jako je hodnota atributu Poradi u přijaté dávky.</xs:documentation>
+        <xs:documentation>Má obsahovat stejnou hodnotu jako je hodnota atributu Poradi u přijaté dávky.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="DatumZpracovani" type="xs:dateTime">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Datum ukončení příjmu a zpracování dávky.</xs:documentation>
+        <xs:documentation>Datum ukončení příjmu a zpracování dávky.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -559,13 +560,13 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
   </xs:complexType>
   <xs:complexType name="tProfilDokumentuZalozeni">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Profilové informace o dokumentu určené pro přímou editaci v rámci služby DokumentUprava.</xs:documentation>
+      <xs:documentation>Profilové informace o dokumentu určené pro přímou editaci v rámci služby DokumentUprava.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator" />
       <xs:element minOccurs="0" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Při exportu dat je tato položka vždy povinná.
+          <xs:documentation>Při exportu dat je tato položka vždy povinná.
 Při zakládání nového záznamu může být tato položka vyplněna starším datum než je aktuální systémový čas IS. Pokud není vyplněna, cílový systém ji doplní automaticky podle systémového času.
 Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
         </xs:annotation>
@@ -595,7 +596,7 @@ SpisV § 10, odst. 2 písm. b), NSESSS 5.2.6 k)</xs:documentation>
       </xs:element>
       <xs:element minOccurs="0" name="Doruceni" type="tDoruceni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Přítomností tohoto elementu je určeno, že se jedná o doručený dokument.
+          <xs:documentation>Přítomností tohoto elementu je určeno, že se jedná o doručený dokument.
 Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -604,7 +605,7 @@ Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:d
   </xs:complexType>
   <xs:complexType name="tProfilDokumentuUprava">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Profilové informace o dokumentu určené pro přímou editaci v rámci služby DokumentUprava.</xs:documentation>
+      <xs:documentation>Profilové informace o dokumentu určené pro přímou editaci v rámci služby DokumentUprava.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator" />
@@ -625,7 +626,7 @@ SpisV § 10, odst. 2 písm. b), NSESSS 5.2.6 k)</xs:documentation>
   </xs:complexType>
   <xs:group name="gProfilDokumentu">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Kompletní profilové informace o dokumentu. 
+      <xs:documentation>Kompletní profilové informace o dokumentu. 
 Tento profil je určen pro export kompletních dat o dokumetnu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -636,7 +637,7 @@ Tento profil je určen pro export kompletních dat o dokumetnu.</xs:documentatio
       </xs:element>
       <xs:element minOccurs="1" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Při exportu dat je tato položka vždy povinná.
+          <xs:documentation>Při exportu dat je tato položka vždy povinná.
 Při zakládání nového záznamu může být tato položka vyplněna starším datum než je aktuální systémový čas IS. Pokud není vyplněna, cílový systém ji doplní automaticky podle systémového času.
 Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
         </xs:annotation>
@@ -699,7 +700,7 @@ VlozenVeSpisu vynechá nebo ignoruje. Mohl by obsahovat informace, které jsou v
       </xs:element>
       <xs:element minOccurs="0" name="Doruceni" type="tDoruceni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Přítomností tohoto elementu je určeno, že se jedná o doručený dokument.
+          <xs:documentation>Přítomností tohoto elementu je určeno, že se jedná o doručený dokument.
 Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -725,7 +726,7 @@ Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:d
       </xs:element>
       <xs:element name="VlastniKdo">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu. To je uživatele IS, který je zodpovědný za zpracování (vyřízení) dokumentu.</xs:documentation>
+          <xs:documentation>Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu. To je uživatele IS, který je zodpovědný za zpracování (vyřízení) dokumentu.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="tUzivatel">
@@ -863,7 +864,7 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
       </xs:element>
       <xs:element minOccurs="1" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Při exportu dat je tato položka vždy povinná.
+          <xs:documentation>Při exportu dat je tato položka vždy povinná.
 Při zakládání nového záznamu může být tato položka vyplněna starším datum než je aktuální systémový čas IS. Pokud není vyplněna, cílový systém ji doplní automaticky podle systémového času.
 Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
         </xs:annotation>
@@ -975,7 +976,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
       </xs:element>
       <xs:element name="VlastniKdo">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
+          <xs:documentation>Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -1025,7 +1026,7 @@ Při zakládání záznamu nebo při jeho následné editaci se tato položka ig
       </xs:element>
       <xs:element minOccurs="0" name="Vyrizeni" type="tVyrizeni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Byl odstraněn element DatumCasVyrizeni a byl nahrazen 
+          <xs:documentation>Byl odstraněn element DatumCasVyrizeni a byl nahrazen 
 komplexním nepovinným prvkem Vyrizeni.</xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1122,7 +1123,7 @@ NS z roku 2023 požadavek č.3.2.2</xs:documentation>
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Při exportu dat je tato položka vždy povinná.
+          <xs:documentation>Při exportu dat je tato položka vždy povinná.
 Při zakládání nového záznamu může být tato položka vyplněna starším datum než je aktuální systémový čas IS. Pokud není vyplněna, cílový systém ji doplní automaticky podle systémového času.
 Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
         </xs:annotation>
@@ -1207,7 +1208,7 @@ Pokud dokument v okamžiku zakládání spisu bude již existovat, potom se z t�
   </xs:complexType>
   <xs:complexType name="tProfilSpisuUprava">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Přímo editovatelné profilové údaje popisující spis. 
+      <xs:documentation>Přímo editovatelné profilové údaje popisující spis. 
 Neobsahuje vazební data, která se musí ke spisu připojit voláním specifických služeb.
 Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentation>
     </xs:annotation>
@@ -1218,14 +1219,14 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
   </xs:complexType>
   <xs:complexType name="tVecnaSkupina">
     <xs:annotation>
-      <xs:documentation xml:lang="cs">Věcná skupina.</xs:documentation>
+      <xs:documentation>Věcná skupina.</xs:documentation>
     </xs:annotation>
     <xs:choice>
       <xs:element name="Identifikator" type="tIdentifikator" />
       <xs:sequence>
         <xs:element name="SpisovyPlan">
           <xs:annotation>
-            <xs:documentation xml:lang="cs">Stručný popis/označení spisového a skartačního plánu</xs:documentation>
+            <xs:documentation>Stručný popis/označení spisového a skartačního plánu</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">
@@ -1244,14 +1245,14 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
   </xs:complexType>
   <xs:complexType name="tSkartacniRezim">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Skartační režim.</xs:documentation>
+      <xs:documentation>Skartační režim.</xs:documentation>
     </xs:annotation>
     <xs:choice>
       <xs:element name="Identifikator" type="tIdentifikator" />
       <xs:sequence>
         <xs:element name="SkartacniZnak">
           <xs:annotation>
-            <xs:documentation xml:lang="cs">A-archivace, S-skartace. Obsolete: ( V-vytřídění na základě skartačního řízení. )</xs:documentation>
+            <xs:documentation>A-archivace, S-skartace. Obsolete: ( V-vytřídění na základě skartačního řízení. )</xs:documentation>
             <xs:documentation>Podle vyhlášky z 2023 již znak V nemá existovat. Zůstane zde zachován pro stará data.</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
@@ -1266,7 +1267,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
         <xs:choice>
           <xs:element name="SkartacniLhuta">
             <xs:annotation>
-              <xs:documentation xml:lang="cs">Skartační nebo archivační lhůta v letech.</xs:documentation>
+              <xs:documentation>Skartační nebo archivační lhůta v letech.</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
               <xs:restriction base="xs:integer">
@@ -1283,7 +1284,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
         </xs:choice>
         <xs:element name="SpousteciUdalost" type="xs:string">
           <xs:annotation>
-            <xs:documentation xml:lang="cs">Prvek pro zaznamenání kritéria, kterým je stanoven začátek plynutí skartační lhůty.</xs:documentation>
+            <xs:documentation>Prvek pro zaznamenání kritéria, kterým je stanoven začátek plynutí skartační lhůty.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="KontrolaLhuta" minOccurs="0">
@@ -1302,7 +1303,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
   </xs:complexType>
   <xs:complexType name="tDavka">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Dávka událostí.</xs:documentation>
+      <xs:documentation>Dávka událostí.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Poradi" type="xs:integer">
@@ -1326,7 +1327,7 @@ Součástí informace obsažené v tomto prvku je i  určení, který informačn
     <xs:sequence>
       <xs:element name="HodnotaID">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Hodnota identifikátoru</xs:documentation>
+          <xs:documentation>Hodnota identifikátoru</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -1337,7 +1338,7 @@ Součástí informace obsažené v tomto prvku je i  určení, který informačn
       </xs:element>
       <xs:element name="ZdrojID" type="sIdInformacnihoSystemu">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Zdroj interního identifikátoru:
+          <xs:documentation>Zdroj interního identifikátoru:
 Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.
 
 </xs:documentation>
@@ -1879,19 +1880,19 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       </xs:element>
       <xs:element minOccurs="0" name="ObsahVyrizeni" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="cs">Prvek je povinný v případě, že byla v prvku "ZpusobVyrizeni" vybrána hodnota "jiný způsob". Zaznamená se věcná informace o výsledku vyřízení (obsah vyřizujícího sdělení).</xs:documentation>
+          <xs:documentation>Prvek je povinný v případě, že byla v prvku "ZpusobVyrizeni" vybrána hodnota "jiný způsob". Zaznamená se věcná informace o výsledku vyřízení (obsah vyřizujícího sdělení).</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="Oduvodneni" type="xs:string">
         <xs:annotation>
-          <xs:documentation xml:lang="cs">Prvek je povinný v případě, že byla do prvku "ZpusobVyrizeni" vybrána hodnota "jiný způsob". Nejčastěji se zaznamená vyřízení jiným způsobem, než zpracováním dokumentu, tedy s využitím například komunikačního prostředku (například telefonem, ústním jednáním apod.).</xs:documentation>
+          <xs:documentation>Prvek je povinný v případě, že byla do prvku "ZpusobVyrizeni" vybrána hodnota "jiný způsob". Nejčastěji se zaznamená vyřízení jiným způsobem, než zpracováním dokumentu, tedy s využitím například komunikačního prostředku (například telefonem, ústním jednáním apod.).</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tDoruceni">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Informace o doručení zásilky.</xs:documentation>
+      <xs:documentation>Informace o doručení zásilky.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Odesilatel" type="tAdresat" />
@@ -1918,7 +1919,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   </xs:simpleType>
   <xs:simpleType name="sBarCode">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Tento element je určen pro uchování hodnoty čárového kódu, kterým může být označen dokument nebo spis a to jak v jejich fyzické, tak i elektronické podobě.
+      <xs:documentation>Tento element je určen pro uchování hodnoty čárového kódu, kterým může být označen dokument nebo spis a to jak v jejich fyzické, tak i elektronické podobě.
 		S pomocí hodnoty tohoto elementu je možné propojit fyzický a elektronický svět tak, aby se uživatelům usnadnilo vyhledávání fyzických dokumentů v aplikacích IS.
 		V případě dokumentu může být hodnota této položky prohlášena původcem za jednoznačný identifikátor dokumentu ve smyslu § 64 zákona č. 499/2004 Sb.
 			</xs:documentation>
@@ -2015,7 +2016,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   <xs:attributeGroup name="gZdrojCil">
     <xs:attribute name="Zdroj" type="sIdInformacnihoSystemu" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Identifikuje Zdroj volání - volajícího.
+        <xs:documentation>Identifikuje Zdroj volání - volajícího.
 						Při propojení ESSS a více AIS je nutné odlišit, kdo službu volá.
 						Toto je primární identifikace volajícího systému.
 						Pokud jsou XML data podepsána, potom podpis slouží jako další kontrola k této identifikaci volajícího.</xs:documentation>
@@ -2023,7 +2024,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
     </xs:attribute>
     <xs:attribute name="Cil" type="sIdInformacnihoSystemu" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Identifikuje cíl volání - volaného.
+        <xs:documentation>Identifikuje cíl volání - volaného.
 						Volaná strana je již jednoznačně určena svou URL.
 						Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
 						K omylům může dojít především mezi ostrou, provozní instalací a testovací.
@@ -2033,7 +2034,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   </xs:attributeGroup>
   <xs:complexType name="tProfilDokumentuSeznam">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
+      <xs:documentation>Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator" />
@@ -2049,7 +2050,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   </xs:complexType>
   <xs:complexType name="tProfilSpisuSeznam">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
+      <xs:documentation>Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator" />
@@ -2064,7 +2065,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   </xs:complexType>
   <xs:complexType name="tProfilTypovehoSpisuSeznam">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
+      <xs:documentation>Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator" />
@@ -2079,7 +2080,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   </xs:complexType>
   <xs:complexType name="tProfilSoucastiTypovehoSpisuSeznam">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
+      <xs:documentation>Metadata entity ESSL zobrazované v seznamových funkcích.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator" />
@@ -2181,12 +2182,12 @@ Tento údaj může sloužit pro posouzení, zda je nutné načítat tento celý 
   </xs:simpleType>
   <xs:complexType name="tPolozkaCiselniku">
     <xs:annotation>
-      <xs:documentation xml:lang="cs">Položka číselníku. Z důvodu obecnosti jsou všechny vnořené elementy ponechány jako nepovinné. Alespoň jeden z elementů by však měl být vždy uveden.</xs:documentation>
+      <xs:documentation>Položka číselníku. Z důvodu obecnosti jsou všechny vnořené elementy ponechány jako nepovinné. Alespoň jeden z elementů by však měl být vždy uveden.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="0" name="IdPolozky">
         <xs:annotation>
-          <xs:documentation xml:lang="cs">Kód položky číselníku. Z důvodu obecnosti není omezen rozsah. Rozsah pro konkrétní číselník může specifikovat poskytující ERMS ve vlastním metodickém popisu.</xs:documentation>
+          <xs:documentation>Kód položky číselníku. Z důvodu obecnosti není omezen rozsah. Rozsah pro konkrétní číselník může specifikovat poskytující ERMS ve vlastním metodickém popisu.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -2197,7 +2198,7 @@ Tento údaj může sloužit pro posouzení, zda je nutné načítat tento celý 
       </xs:element>
       <xs:element name="Text">
         <xs:annotation>
-          <xs:documentation xml:lang="cs">Text položky číselníku pro prezentaci dat uživatelům. 
+          <xs:documentation>Text položky číselníku pro prezentaci dat uživatelům. 
 Z důvodu obecnosti není omezen rozsah. Rozsah pro konkrétní číselník může specifikovat poskytující ERMS ve vlastním metodickém popisu.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
@@ -2302,7 +2303,7 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
       <xs:element name="Identifikator" type="tIdentifikator" />
       <xs:element minOccurs="1" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Při exportu dat je tato položka vždy povinná.
+          <xs:documentation>Při exportu dat je tato položka vždy povinná.
 Při zakládání nového záznamu může být tato položka vyplněna starším datum než je aktuální systémový čas IS. Pokud není vyplněna, cílový systém ji doplní automaticky podle systémového času.
 Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
         </xs:annotation>
@@ -2323,7 +2324,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
       </xs:element>
       <xs:element name="VlastniKdo">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
+          <xs:documentation>Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -2363,7 +2364,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
   </xs:complexType>
   <xs:complexType name="tProfilTypovehoSpisuUprava">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Přímo editovatelné profilové údaje popisující spis. 
+      <xs:documentation>Přímo editovatelné profilové údaje popisující spis. 
 Neobsahuje vazební data, která se musí ke spisu připojit voláním specifických služeb.
 Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentation>
     </xs:annotation>
@@ -2375,7 +2376,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
   <xs:attributeGroup name="gZdrojCilDavkaPoradi">
     <xs:attribute name="Zdroj" type="sIdInformacnihoSystemu" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Identifikuje Zdroj volání - volajícího.
+        <xs:documentation>Identifikuje Zdroj volání - volajícího.
 						Při propojení ESSS a více AIS je nutné odlišit, kdo službu volá.
 						Toto je primární identifikace volajícího systému.
 						Pokud jsou XML data podepsána, potom podpis slouží jako další kontrola k této identifikaci volajícího.</xs:documentation>
@@ -2383,7 +2384,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
     </xs:attribute>
     <xs:attribute name="Cil" type="sIdInformacnihoSystemu" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Identifikuje cíl volání - volaného.
+        <xs:documentation>Identifikuje cíl volání - volaného.
 						Volaná strana je již jednoznačně určena svou URL.
 						Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
 						K omylům může dojít především mezi ostrou, provozní instalací a testovací.
@@ -2400,7 +2401,7 @@ Rozložení na menší soubory spojené do logického celku jedné dávky je zvo
     </xs:attribute>
     <xs:attribute name="PoradiVDavce" type="xs:integer" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Identifikuje cíl volání - volaného.
+        <xs:documentation>Identifikuje cíl volání - volaného.
 						Volaná strana je již jednoznačně určena svou URL.
 						Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
 						K omylům může dojít především mezi ostrou, provozní instalací a testovací.
@@ -2411,7 +2412,7 @@ Rozložení na menší soubory spojené do logického celku jedné dávky je zvo
   <xs:attributeGroup name="gZdrojDavkaPoradi">
     <xs:attribute name="Zdroj" type="sIdInformacnihoSystemu" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Identifikuje Zdroj volání - volajícího.
+        <xs:documentation>Identifikuje Zdroj volání - volajícího.
 						Při propojení ESSS a více AIS je nutné odlišit, kdo službu volá.
 						Toto je primární identifikace volajícího systému.
 						Pokud jsou XML data podepsána, potom podpis slouží jako další kontrola k této identifikaci volajícího.</xs:documentation>
@@ -2426,7 +2427,7 @@ Rozložení na menší soubory spojené do logického celku jedné dávky je zvo
     </xs:attribute>
     <xs:attribute name="PoradiVDavce" type="xs:integer" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Identifikuje cíl volání - volaného.
+        <xs:documentation>Identifikuje cíl volání - volaného.
 						Volaná strana je již jednoznačně určena svou URL.
 						Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
 						K omylům může dojít především mezi ostrou, provozní instalací a testovací.
@@ -2458,7 +2459,7 @@ Jediné zásadní je zachovat unikátnost názvů přenášených souborů v rá
       </xs:element>
       <xs:element minOccurs="1" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Čas vzniku verze komponenty</xs:documentation>
+          <xs:documentation>Čas vzniku verze komponenty</xs:documentation>
           <xs:documentation>NSESSS 2.1.1, 7.2.2</xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -2476,20 +2477,20 @@ I u finální verze komponenty může např. přerazítkováním vzniknout nová
     </xs:sequence>
     <xs:attribute name="dmMimeType" type="xs:string" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Typ obsahu souboru v MIME zápisu, např. application/pdf nebo image/tiff</xs:documentation>
+        <xs:documentation>Typ obsahu souboru v MIME zápisu, např. application/pdf nebo image/tiff</xs:documentation>
         <xs:documentation>Datový formát komponenty (včetně verze formátu podle vnitřní struktury komponenty)
 NSESSS 2.1.3</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="dmFileDescr" type="xs:string" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Musí se vždy jednat o jméno souboru, splňující požadavky Windows a Linux OS, kladené na pojmenování souboru v rámci souborového systému, včetně přípony souboru.</xs:documentation>
+        <xs:documentation>Musí se vždy jednat o jméno souboru, splňující požadavky Windows a Linux OS, kladené na pojmenování souboru v rámci souborového systému, včetně přípony souboru.</xs:documentation>
         <xs:documentation>Název komponenty (file name) NSESSS 1.19, 9.2.10</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="dmFinalniVerze" use="optional">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. </xs:documentation>
+        <xs:documentation>Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. </xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -2507,7 +2508,7 @@ NSESSS 2.1.3</xs:documentation>
       <xs:element name="Identifikator" type="tIdentifikator" />
       <xs:element minOccurs="1" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Při exportu dat je tato položka vždy povinná.
+          <xs:documentation>Při exportu dat je tato položka vždy povinná.
 Při zakládání nového záznamu může být tato položka vyplněna starším datum než je aktuální systémový čas IS. Pokud není vyplněna, cílový systém ji doplní automaticky podle systémového času.
 Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
         </xs:annotation>
@@ -2552,7 +2553,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
       <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
       <xs:element name="VlastniKdo">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
+          <xs:documentation>Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -2586,7 +2587,7 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
       <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
       <xs:element name="VlastniKdo">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
+          <xs:documentation>Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -2891,7 +2892,7 @@ Bohužel, toto schéma bude pro určité časové období pevné, ale obchodní 
             </xs:element>
             <xs:element minOccurs="0" maxOccurs="unbounded" name="PostovniSluzbaText" type="xs:string">
               <xs:annotation>
-                <xs:documentation xml:lang="CS">Tento prvek se použije pouze v případě, že Česká pošta ( nebo časem jiný poskytovatel poštovních služeb ) vytvoří novou službu, která není obsažena v této verzi standardu.
+                <xs:documentation>Tento prvek se použije pouze v případě, že Česká pošta ( nebo časem jiný poskytovatel poštovních služeb ) vytvoří novou službu, která není obsažena v této verzi standardu.
 Této textové podoby určení poštovní služby se nesmí zneužívat pro "usnadnění si práce". 
 Zde použité textové konstanty musí být vždy dohodnuty s komunikující protistranou v rámci každé implementace rozhraní.
 </xs:documentation>
@@ -3333,7 +3334,7 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
     </xs:attribute>
     <xs:attribute name="dmFinalniVerze" use="optional">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
+        <xs:documentation>Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
 U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přenášet s pomocí REST služby a nebude se tedy využívat tFile</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
@@ -3346,7 +3347,7 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
   </xs:complexType>
   <xs:complexType name="tProfilUzivateleSeznam">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Metadata uživatele/funkčního místa pro použití v seznamových funkcích.
+      <xs:documentation>Metadata uživatele/funkčního místa pro použití v seznamových funkcích.
 Fyzická osoba s přiděleným loginem může zastávat více funčních míst.</xs:documentation>
     </xs:annotation>
     <xs:sequence>

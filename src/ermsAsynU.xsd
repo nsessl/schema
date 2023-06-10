@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api" elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api" id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api" elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api" id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xml:lang="cs">
   <xs:annotation>
     <xs:documentation>
       Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
@@ -18,7 +19,7 @@ Toto oprávnění budou mít od této chvíle pouze uživatelé ISSD do kterého
       <xs:sequence>
         <xs:element minOccurs="1" name="ProfilDokumentu" type="tProfilDokumentu">
           <xs:annotation>
-            <xs:documentation xml:lang="CS">
+            <xs:documentation>
 							Kompletní popis postupovaného dokumentu. 
 							Tento popis obsahuje také všechny odkazy na obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
           </xs:annotation>
@@ -31,7 +32,7 @@ Toto oprávnění budou mít od této chvíle pouze uživatelé ISSD do kterého
   </xs:element>
   <xs:element name="DokumentZalozeni">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Hlášení z ISSD do ESSL.
+      <xs:documentation>Hlášení z ISSD do ESSL.
 Založení dokumentu. Dříve bylo spojeno s přidělením ČJ dokumentu na základě samostatné evidence dokumentů. Nově může být ČJ dokumentu přiděleno i na základě vložení dokumentu do zadaného spisu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -108,7 +109,7 @@ Pokud dokument již dříve existoval, potom se z této položky převezme pouze
                     <xs:sequence>
                       <xs:element name="ProfilDokumentu" type="tProfilDokumentuZalozeni">
                         <xs:annotation>
-                          <xs:documentation xml:lang="CS">V případě vložení úplného dokumentu do spisu se předpokládá pro položku StavDokumentu povolená hodnota pouze "nevyrizen".
+                          <xs:documentation>V případě vložení úplného dokumentu do spisu se předpokládá pro položku StavDokumentu povolená hodnota pouze "nevyrizen".
 Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCasPredaniDoArchivuNeboStornovani se v této situaci neuvádějí.</xs:documentation>
                         </xs:annotation>
                       </xs:element>
@@ -309,7 +310,7 @@ SpisovaZnacka, PodaciDenik, PodaciDenikRok, PodaciDenikPoradi je přidělována 
       <xs:sequence>
         <xs:element name="ProfilSpisu" type="tProfilSpisuZalozeni">
           <xs:annotation>
-            <xs:documentation xml:lang="CS">V případě založení spisu se předpokládá pro položku StavSpisu povolená hodnota pouze "nevyrizen".
+            <xs:documentation>V případě založení spisu se předpokládá pro položku StavSpisu povolená hodnota pouze "nevyrizen".
 Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCasPredaniDoArchivuNeboStornovani se v této situaci neuvádějí.</xs:documentation>
           </xs:annotation>
         </xs:element>
@@ -321,7 +322,7 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
   </xs:element>
   <xs:element name="SpisUprava">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">Hlášení z ISSD do ESSL.
+      <xs:documentation>Hlášení z ISSD do ESSL.
 Událost popisující změnu evidenčních položek spisu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -704,7 +705,7 @@ Pokud je identifikátor elektronického souboru propojen současně na více dok
         </xs:element>
         <xs:element minOccurs="0" name="Duvod">
           <xs:annotation>
-            <xs:documentation xml:lang="CS">Umožňuje uvést důvod přidání nové verze souboru</xs:documentation>
+            <xs:documentation>Umožňuje uvést důvod přidání nové verze souboru</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">

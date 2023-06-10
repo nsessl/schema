@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://mvcr.cz/ess/v_1.0.0.0" xmlns:isds="http://isds.czechpoint.cz/v20" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mvcr.cz/ess/v_1.0.0.0" elementFormDefault="qualified" id="ess">
+<xs:schema xmlns:tns="http://mvcr.cz/ess/v_1.0.0.0" xmlns:isds="http://isds.czechpoint.cz/v20" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mvcr.cz/ess/v_1.0.0.0" elementFormDefault="qualified" id="ess"
+  xml:lang="cs">
 	<xs:annotation>
 	  <xs:documentation>Toto je návrh obecného přenosového formátu pro výměnu dat mezi systémy Spisových služeb.
 	    Tento návrh vznikl v rámci pracovní skupiny založené na základě memoranda:

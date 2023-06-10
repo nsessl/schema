@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://isds.czechpoint.cz/v20" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://isds.czechpoint.cz/v20" elementFormDefault="qualified">
+<xs:schema xmlns:tns="http://isds.czechpoint.cz/v20" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://isds.czechpoint.cz/v20" elementFormDefault="qualified"
+  xml:lang="cs">
 	<xs:simpleType name="tIdDm">
 		<xs:annotation>
 			<xs:documentation>ID datové zprávy</xs:documentation>

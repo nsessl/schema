@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xsd:schema xmlns:ns0="http://mvcr.cz/ess/v_1.0.0.0" xmlns="http://nsess.public.cz/erms_trans/v_01_01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://nsess.public.cz/erms_trans/v_01_01">
+<xs:schema xmlns:ns0="http://mvcr.cz/ess/v_1.0.0.0" 
+  xmlns="http://nsess.public.cz/erms_trans/v_01_01"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+  targetNamespace="http://nsess.public.cz/erms_trans/v_01_01"
+  xml:lang="cs">
   <xs:import schemaLocation="ess_ns.xsd" namespace="http://mvcr.cz/ess/v_1.0.0.0" />
   <xs:element name="TransakcniLogObjektu">
     <xs:annotation>
@@ -332,4 +337,4 @@ Pouze v případě, kdy transakční protokol obsahuje události generované v r
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-</xsd:schema>
+</xs:schema>
