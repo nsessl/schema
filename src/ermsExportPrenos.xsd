@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
-  xmlns="http://www.mvcr.cz/nsesss/2023/api" xmlns:isds="http://isds.czechpoint.cz/v20"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="ermsExportPrenos"
+<xs:schema
+  targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
+  xmlns="http://www.mvcr.cz/nsesss/2023/api" 
+  xmlns:isds="http://isds.czechpoint.cz/v20"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:log="http://www.mvcr.cz/nsesss/2023/log"
+  elementFormDefault="qualified" 
+  id="ermsExportPrenos"
   xml:lang="cs">
   <xs:annotation>
     <xs:documentation>
@@ -65,8 +70,7 @@ Neobsahuje události vložených entit - ty se exportují v rámci samostatných
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://www.mvcr.cz/nsesss/2023/log" name="Udalost"
-                      type="q1:tUdalostObjektu"/>
+                    <xs:element name="Udalost" type="log:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -84,8 +88,7 @@ Neobsahuje události vložených entit - ty se exportují v rámci samostatných
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://www.mvcr.cz/nsesss/2023/log" name="Udalost"
-                      type="q1:tUdalostObjektu"/>
+                    <xs:element name="Udalost" type="log:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -103,8 +106,7 @@ Měl by obsahovat i události spojené s obsaženými komponentami tohoto dokume
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://www.mvcr.cz/nsesss/2023/log" name="Udalost"
-                      type="q1:tUdalostObjektu"/>
+                    <xs:element name="Udalost" type="log:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -139,8 +141,7 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://www.mvcr.cz/nsesss/2023/log" name="Udalost"
-                      type="q1:tUdalostObjektu"/>
+                    <xs:element name="Udalost" type="log:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
