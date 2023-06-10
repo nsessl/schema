@@ -2053,6 +2053,15 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:maxLength value="100" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="sTypOdkazu">
+    <xs:annotation>
+      <xs:documentation>Typ křížového odkazu</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pevny"/>
+      <xs:enumeration value="volny"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="sPoznamka">
     <xs:restriction base="xs:string">
       <xs:maxLength value="255" />

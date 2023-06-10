@@ -28,7 +28,6 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
 * CiselnikySeznam
 * DokumentVraceniZadost
 * SpisVraceniZadost
-* FunkcniMista
 * TypovySpisZalozeni
 * UzivateleSeznam
 
@@ -40,6 +39,9 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
 * DokumentUzavreni
 * DokumentVyrizeni
 * SpisVraceni
+* OdkazVytvoreni
+* OdkazZruseni
+
 
 
 

@@ -1063,6 +1063,36 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
       <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
     </xs:complexType>
   </xs:element>
+  <xs:element name="OdkazVytvoreni">
+    <xs:annotation>
+      <xs:documentation>Vytvoření křížového odkazu mezi dvěma entitami</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ZdrojIdentifikator" type="tIdentifikator" />
+        <xs:element name="CilIdentifikator" type="tIdentifikator" />
+        <xs:element name="TypOdkazu" type="sTypOdkazu"/>
+        <xs:element name="Autorizace" type="tAutorizace" />
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      </xs:sequence>
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OdkazZruseni">
+    <xs:annotation>
+      <xs:documentation>Zrušení křížového odkazu mezi dvěma entitami</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ZdrojIdentifikator" type="tIdentifikator" />
+        <xs:element name="CilIdentifikator" type="tIdentifikator" />
+        <xs:element name="TypOdkazu" type="sTypOdkazu"/>
+        <xs:element name="Autorizace" type="tAutorizace" />
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+      </xs:sequence>
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+    </xs:complexType>
+  </xs:element>
   <!--CHANGE v. 2.0 Doplněny nové události. -->
   <xs:group name="gUdalost">
     <xs:sequence>
@@ -1108,6 +1138,8 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
         <xs:element ref="SouborOdemkniFinal" />
         <xs:element ref="SpisVlozeniDoTypovehoSpisu" />
         <xs:element ref="SpisVyjmutiZTypovehoSpisu" />
+        <xs:element ref="OdkazVytvoreni"/>
+        <xs:element ref="OdkazZruseni"/>
         <!--CHANGE v. 2.0. : pridan novy typ udalosti Ostatni-->
         <xs:element name="Ostatni">
           <xs:annotation>
