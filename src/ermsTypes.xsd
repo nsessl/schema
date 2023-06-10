@@ -1319,7 +1319,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
             <xs:documentation xml:lang="cs">Skartační nebo archivační lhůta v letech.</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
-            <xs:restriction base="xs:unsignedShort">
+            <xs:restriction base="xs:integer">
               <xs:minInclusive value="1" />
               <xs:maxInclusive value="999" />
             </xs:restriction>
