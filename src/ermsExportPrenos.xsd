@@ -190,54 +190,59 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
             <xs:sequence maxOccurs="unbounded">
               <xs:element name="File">
                 <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="PoradiVDavce">
-                      <xs:simpleType>
-                        <xs:restriction base="xs:integer">
-                          <xs:minInclusive value="1"/>
-                        </xs:restriction>
-                      </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="RelativePath" type="xs:string">
-                      <xs:annotation>
-                        <xs:documentation>Relativní cesta k souboru s binárním obsahem komponenty.
-Relativní cesta je vztažena k lokaci načítaného XML souboru s daty dokumentu.
-Standardně se bude jednat o podadresář např. data nebo komponenty atd. </xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="FileName" type="xs:string">
-                      <xs:annotation>
-                        <xs:documentation>Jméno pomocného souboru použitého pro přenos nebo export binárního obsahu komponenty.
-Jméno souboru standardně nebude odpovídat jménu komponenty evidované u přenášeného souboru. 
-Ani přímona souboru nemusí odpovídat skutečné příponě komponety.
-Standardně se bude jednat o strojně generovaný název např. s příponou .bin nebo .dat 
-Jediné zásadní je zachovat unikátnost názvů přenášených souborů v rámci celé exportované nebo přenášené dávky.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="FileHash" type="xs:string"/>
-                    <xs:element name="FileHashAlgorithm" type="xs:string"/>
-                    <xs:element name="TypEntity">
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:enumeration value="TypovySpis"/>
-                          <xs:enumeration value="Spis"/>
-                          <xs:enumeration value="Dokument"/>
-                          <xs:enumeration value="Soubor"/>
-                          <xs:enumeration value="BinarniSoubor"/>
-                        </xs:restriction>
-                      </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="IdEntity" type="xs:string">
-                      <xs:annotation>
-                        <xs:documentation>Identifikace entity podle systému původce. 
-Přesné identifikace entit jsou obsaženy v každmé jednom obsaženém specifickém XML souboru. 
-Zde uvedené ID má především přehledovou funkci pro uživatele, který dávku generoval nebo se chystá d8vku načítat.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                  </xs:sequence>
+                  <xs:attribute name="Poradi" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="Umisteni" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>Relativní cesta k souboru s binárním obsahem komponenty.
+                        Relativní cesta je vztažena k lokaci načítaného XML souboru s daty dokumentu.
+                        Standardně se bude jednat o podadresář např. data nebo komponenty atd. </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Jmeno" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>Jméno pomocného souboru použitého pro přenos nebo export binárního obsahu komponenty.
+                        Jméno souboru standardně nebude odpovídat jménu komponenty evidované u přenášeného souboru. 
+                        Ani přímona souboru nemusí odpovídat skutečné příponě komponety.
+                        Standardně se bude jednat o strojně generovaný název např. s příponou .bin nebo .dat 
+                        Jediné zásadní je zachovat unikátnost názvů přenášených souborů v rámci celé exportované nebo přenášené dávky.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Otisk" type="xs:string"/>
+                  <xs:attribute name="TypEntity" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="TypovySpis"/>
+                        <xs:enumeration value="Spis"/>
+                        <xs:enumeration value="Dokument"/>
+                        <xs:enumeration value="Soubor"/>
+                        <xs:enumeration value="BinarniSoubor"/>
+                        <xs:enumeration value="SeznamUzivatelu"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="IdEntity" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>Identifikace entity podle systému původce. 
+                        Přesné identifikace entit jsou obsaženy v každmé jednom obsaženém specifickém XML souboru. 
+                        Zde uvedené ID má především přehledovou funkci pro uživatele, který dávku generoval nebo se chystá d8vku načítat.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="HashAlgorithm" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Identifikace algoritmu použitého pro kontrolní otisk souborů. 
+                  Jako identifikátory se používají URL definované v https://www.w3.org/TR/xmlsec-algorithms/#sha
+                  Např. SHA-256 je identifikováno hodnotou "http://www.w3.org/2001/04/xmlenc#sha256"</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -302,43 +307,42 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
         <xs:element name="StatusEntit">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="StatusEntity">
+              <xs:element name="Entita">
                 <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="PoradiVDavce">
-                      <xs:simpleType>
-                        <xs:restriction base="xs:integer">
-                          <xs:minInclusive value="1"/>
-                        </xs:restriction>
-                      </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="TypEntity">
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:enumeration value="TypovySpis"/>
-                          <xs:enumeration value="Spis"/>
-                          <xs:enumeration value="Dokument"/>
-                          <xs:enumeration value="Soubor"/>
-                          <xs:enumeration value="BinarniSoubor"/>
-                        </xs:restriction>
-                      </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="IdEntity" type="xs:string">
-                      <xs:annotation>
-                        <xs:documentation>Identifikace entity podle systému původce. 
-Přesné identifikace entit jsou obsaženy v každmé jednom obsaženém specifickém XML souboru. 
-Zde uvedené ID má především přehledovou funkci pro uživatele, který dávku generoval nebo se chystá d8vku načítat.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="StatusPrenosu">
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:enumeration value="nacteno"/>
-                          <xs:enumeration value="nenacteno"/>
-                        </xs:restriction>
-                      </xs:simpleType>
-                    </xs:element>
-                  </xs:sequence>
+                  <xs:attribute name="Poradi" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="TypEntity" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="TypovySpis"/>
+                        <xs:enumeration value="Spis"/>
+                        <xs:enumeration value="Dokument"/>
+                        <xs:enumeration value="Soubor"/>
+                        <xs:enumeration value="BinarniSoubor"/>
+                        <xs:enumeration value="SeznamUzivatelu"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="IdEntity" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>Identifikace entity podle systému původce. 
+                        Přesné identifikace entit jsou obsaženy v každmé jednom obsaženém specifickém XML souboru. 
+                        Zde uvedené ID má především přehledovou funkci pro uživatele, který dávku generoval nebo se chystá d8vku načítat.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="StatusPrenosu" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="nacteno"/>
+                        <xs:enumeration value="nenacteno"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
