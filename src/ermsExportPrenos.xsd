@@ -153,9 +153,9 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
   <xs:element name="PrenosovaDavka">
     <xs:annotation>
       <xs:documentation>Soubor popisující obsah celé přenosové dávky ve formátu ZIP
-Tento soubor musí být v root adresáři ZIPu se jménem EssPrenosovaDavka.XML
+Tento soubor musí být v root adresáři ZIPu se jménem manifest.xml
 Ostatní datové soubory obsažené v ZIP souboru budou uvedena v podadresářích.
-Tento soubor dokumentu vznik případně určení dávky a dále popisuje obsah dávky.</xs:documentation>
+Tento soubor dokumentuje vznik případně určení dávky a dále popisuje obsah dávky.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
