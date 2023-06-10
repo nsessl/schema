@@ -6,7 +6,6 @@
 * u většiny hodnot omezení zůstala, aby se minimalizovala nutnost
   úpravy stávajích aplikací, které v některých případech počítají s
   pevnou délkou
-* 
 
 ## Změny API
 
@@ -43,12 +42,14 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
 * OdkazZruseni
 * DokumentOdebran
 * SpisOdebran
+* DokumentSkartacniNavrh
+* SpisSkartacniNavrh
 
+## Změny v transakčním protokolu
 
+Místo jmenného prostoru `http://nsess.public.cz/erms_trans/v_01_01` se nyní
+používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/log`.
 
-
-
-
-
-
-
+Zároveň byla odstraněna nekonzistence, kdy elementy `HodnotaID` a
+`ZdrojID` byly v jiném jméném prostoru než všechny ostatní elementy
+transakčního protokolu.
