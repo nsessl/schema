@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema
-  targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
-  xmlns="http://www.mvcr.cz/nsesss/2023/api" 
-  xmlns:isds="http://isds.czechpoint.cz/v20"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:log="http://www.mvcr.cz/nsesss/2023/log"
-  elementFormDefault="qualified" 
-  id="ermsExportPrenos"
-  xml:lang="cs">
+<xs:schema targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
+  xmlns="http://www.mvcr.cz/nsesss/2023/api" xmlns:isds="http://isds.czechpoint.cz/v20"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:log="http://www.mvcr.cz/nsesss/2023/log"
+  elementFormDefault="qualified" id="ermsExportPrenos" xml:lang="cs">
   <xs:annotation>
     <xs:documentation>
       Schéma pro migraci dat mezi spisovými službami a pro spisovou rozluku
@@ -17,23 +12,9 @@
   <xs:import schemaLocation="nsesss-TrP.xsd" namespace="http://www.mvcr.cz/nsesss/2023/log"/>
   <xs:include schemaLocation="ermsTypes.xsd"/>
   <xs:include schemaLocation="ermsAsynU.xsd"/>
-  <xs:element name="Prenos">
-    <xs:annotation>
-      <xs:documentation>Root element pro přenos dat jednotlivých entit mezi IS typu spisová služba
-Určeno pro off-line přenost dat mezi systém ISSD.</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="gExportPrenosSpolecne"/>
-        <xs:element name="Autorizace" type="tAutorizace"/>
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="gZdrojCilDavkaPoradi"/>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="Export">
     <xs:annotation>
-      <xs:documentation>Root element pro export a následný import dat jednotlivých entit mezi IS typu spisová služba.
+      <xs:documentation>Element pro export a následný import dat jednotlivých entit mezi IS typu spisová služba.
 Určeno pro off-line předání dat mezi systém ISSD.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -43,17 +24,6 @@ Určeno pro off-line předání dat mezi systém ISSD.</xs:documentation>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojDavkaPoradi"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SeznamUzivatelu">
-    <xs:annotation>
-      <xs:documentation>Root element pro export a následný import dat uživatelů mezi IS typu spisová služba.
-Určeno pro off-line předání dat mezi systémy ISSD.</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence maxOccurs="unbounded">
-        <xs:element name="Uzivatel" type="tProfilUzivateleSeznam"/>
-      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:group name="gExportPrenosSpolecne">
@@ -148,6 +118,40 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Ciselnik">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdCiselniku" type="sIdCiselniku">
+                <xs:annotation>
+                  <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="NazevCiselniku" type="xs:string"/>
+              <xs:element name="Polozky">
+                <xs:annotation>
+                  <xs:documentation>Seznam položek číselníku.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Polozka"
+                      type="tPolozkaCiselniku"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SeznamUzivatelu">
+          <xs:annotation>
+            <xs:documentation>Element pro export a následný import dat uživatelů mezi IS typu spisová služba.
+              Určeno pro off-line předání dat mezi systémy ISSD.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <xs:element name="Uzivatel" type="tProfilUzivateleSeznam"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:sequence>
   </xs:group>
@@ -223,18 +227,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
                     </xs:annotation>
                   </xs:attribute>
                   <xs:attribute name="Otisk" type="xs:string"/>
-                  <xs:attribute name="TypEntity" use="required">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="TypovySpis"/>
-                        <xs:enumeration value="Spis"/>
-                        <xs:enumeration value="Dokument"/>
-                        <xs:enumeration value="Soubor"/>
-                        <xs:enumeration value="BinarniSoubor"/>
-                        <xs:enumeration value="SeznamUzivatelu"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:attribute>
+                  <xs:attribute name="TypEntity" use="required" type="sTypEntity"/>
                   <xs:attribute name="IdEntity" type="xs:string" use="required">
                     <xs:annotation>
                       <xs:documentation>Identifikace entity podle systému původce. 
@@ -325,18 +318,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:attribute>
-                  <xs:attribute name="TypEntity" use="required">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="TypovySpis"/>
-                        <xs:enumeration value="Spis"/>
-                        <xs:enumeration value="Dokument"/>
-                        <xs:enumeration value="Soubor"/>
-                        <xs:enumeration value="BinarniSoubor"/>
-                        <xs:enumeration value="SeznamUzivatelu"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:attribute>
+                  <xs:attribute name="TypEntity" use="required" type="sTypEntity"/>
                   <xs:attribute name="IdEntity" type="xs:string" use="required">
                     <xs:annotation>
                       <xs:documentation>Identifikace entity podle systému původce. 
@@ -360,4 +342,16 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:simpleType name="sTypEntity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TypovySpis"/>
+      <xs:enumeration value="Spis"/>
+      <xs:enumeration value="Dokument"/>
+      <xs:enumeration value="Soubor"/>
+      <xs:enumeration value="BinarniSoubor"/>
+      <xs:enumeration value="SeznamUzivatelu"/>
+      <xs:enumeration value="Ciselnik"/>
+    </xs:restriction>
+  </xs:simpleType>
+
 </xs:schema>
