@@ -1117,7 +1117,7 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="IdSpisu" type="tIdSpisu" />
+        <xs:element name="SpisId" type="tIdSpisu" />
         <xs:element name="DuvodText" type="xs:string">
           <xs:annotation>
             <xs:documentation>Důvod odebrání výhradní správy</xs:documentation>
