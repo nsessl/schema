@@ -182,7 +182,6 @@
 		</xs:annotation>
 		<xs:restriction base="xs:integer">
 			<xs:minInclusive value="1"/>
-			<xs:maxInclusive value="2147483647"/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -190,7 +189,7 @@
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Časový údaj charakterizovaný roky, v jejichž průběhu musí být dokument uložen u původce a po jehož uplynutí od spouštěcí události musí být entita předána do skartačního řízení.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:unsignedShort">
+		<xs:restriction base="xs:integer">
 			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="999"/>
 		</xs:restriction>

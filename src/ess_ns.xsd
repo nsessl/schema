@@ -217,7 +217,6 @@ Může se jednat o označení dokumentu nebo spisu určitou značkou, která v t
 				<xs:simpleType>
 					<xs:restriction base="xs:integer">
 						<xs:minInclusive value="1"/>
-						<xs:maxInclusive value="2147483647"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -1346,7 +1345,6 @@ Bylo by vhodné vytvořit číselník důvodů, ale v tomto okamžiku je to patr
 				<xs:simpleType>
 					<xs:restriction base="xs:integer">
 						<xs:minInclusive value="1"/>
-						<xs:maxInclusive value="2147483647"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

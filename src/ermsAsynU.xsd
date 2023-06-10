@@ -119,7 +119,6 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
                         <xs:simpleType>
                           <xs:restriction base="xs:integer">
                             <xs:minInclusive value="1" />
-                            <xs:maxInclusive value="2147483647" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
@@ -151,7 +150,6 @@ V případě exportu popisných dat musí být tato položka vyplněna.</xs:docu
                         <xs:simpleType>
                           <xs:restriction base="xs:integer">
                             <xs:minInclusive value="1" />
-                            <xs:maxInclusive value="2147483647" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>

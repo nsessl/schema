@@ -678,7 +678,6 @@ VlozenVeSpisu vynechá nebo ignoruje. Mohl by obsahovat informace, které jsou v
               <xs:simpleType>
                 <xs:restriction base="xs:integer">
                   <xs:minInclusive value="1" />
-                  <xs:maxInclusive value="2147483647" />
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -926,7 +925,6 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
                           <xs:minInclusive value="1" />
-                          <xs:maxInclusive value="2147483647" />
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -958,7 +956,6 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
                           <xs:minInclusive value="1" />
-                          <xs:maxInclusive value="2147483647" />
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -1164,7 +1161,6 @@ Pokud dokument v okamžiku zakládání spisu bude již existovat, potom se z t�
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
                           <xs:minInclusive value="1" />
-                          <xs:maxInclusive value="2147483647" />
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -1193,7 +1189,6 @@ Pokud dokument v okamžiku zakládání spisu bude již existovat, potom se z t�
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
                           <xs:minInclusive value="1" />
-                          <xs:maxInclusive value="2147483647" />
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
@@ -1983,7 +1978,6 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:integer">
       <xs:minInclusive value="1" />
-      <xs:maxInclusive value="2147483647" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sPodaciDenikRok">
@@ -2160,7 +2154,6 @@ V jednom okamžiku může být otevřeno pouze jedno období.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:integer">
       <xs:minInclusive value="1" />
-      <xs:maxInclusive value="2147483647" />
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="tCiselnik">
@@ -2630,7 +2623,6 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
                     <xs:simpleType>
                       <xs:restriction base="xs:integer">
                         <xs:minInclusive value="1" />
-                        <xs:maxInclusive value="2147483647" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
