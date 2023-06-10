@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api"
-  elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
-  id="ermsExportPrenos" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
+  xmlns="http://www.mvcr.cz/nsesss/2023/api" xmlns:isds="http://isds.czechpoint.cz/v20"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="ermsExportPrenos"
   xml:lang="cs">
   <xs:annotation>
     <xs:documentation>
-      Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
-      Toto schéma popisuje synchroní výměnu událostí, např. formou webových služeb.
+      Schéma pro migraci dat mezi spisovými službami a pro spisovou rozluku
     </xs:documentation>
   </xs:annotation>
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
   <xs:import schemaLocation="nsesss-TrP.xsd" namespace="http://www.mvcr.cz/nsesss/2023/log"/>
   <xs:include schemaLocation="ermsTypes.xsd"/>
   <xs:include schemaLocation="ermsAsynU.xsd"/>
-  <xs:element name="ESslPrenos">
+  <xs:element name="Prenos">
     <xs:annotation>
       <xs:documentation>Root element pro přenos dat jednotlivých entit mezi IS typu spisová služba
 Určeno pro off-line přenost dat mezi systém ISSD.</xs:documentation>
@@ -27,7 +26,7 @@ Určeno pro off-line přenost dat mezi systém ISSD.</xs:documentation>
       <xs:attributeGroup ref="gZdrojCilDavkaPoradi"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ESslExport">
+  <xs:element name="Export">
     <xs:annotation>
       <xs:documentation>Root element pro export a následný import dat jednotlivých entit mezi IS typu spisová služba.
 Určeno pro off-line předání dat mezi systém ISSD.</xs:documentation>
@@ -41,7 +40,7 @@ Určeno pro off-line předání dat mezi systém ISSD.</xs:documentation>
       <xs:attributeGroup ref="gZdrojDavkaPoradi"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EssSeznamUzivatelu">
+  <xs:element name="SeznamUzivatelu">
     <xs:annotation>
       <xs:documentation>Root element pro export a následný import dat uživatelů mezi IS typu spisová služba.
 Určeno pro off-line předání dat mezi systémy ISSD.</xs:documentation>
@@ -151,7 +150,7 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
       </xs:choice>
     </xs:sequence>
   </xs:group>
-  <xs:element name="EssPrenosovaDavka">
+  <xs:element name="PrenosovaDavka">
     <xs:annotation>
       <xs:documentation>Soubor popisující obsah celé přenosové dávky ve formátu ZIP
 Tento soubor musí být v root adresáři ZIPu se jménem EssPrenosovaDavka.XML
@@ -244,7 +243,7 @@ Zde uvedené ID má především přehledovou funkci pro uživatele, který dáv
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EssPrenosPotvrzeni">
+  <xs:element name="PrenosPotvrzeni">
     <xs:annotation>
       <xs:documentation>Formát XML souboru, který se v rámci off-line přenosu dat používá pro potvrzení úspěšného přenosu dat. Na základě tohoto potvrzení zdrojový systém může realizovat mazání dat atd..</xs:documentation>
     </xs:annotation>
