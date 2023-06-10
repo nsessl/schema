@@ -1314,9 +1314,32 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="SkartacniLhuta">
+        <xs:choice>
+          <xs:element name="SkartacniLhuta">
+            <xs:annotation>
+              <xs:documentation xml:lang="cs">Skartační nebo archivační lhůta v letech.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="1" />
+                <xs:maxInclusive value="999" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="RokVyrazeni" type="xs:gYear">
+            <xs:annotation>
+              <xs:documentation>Rok vyřazení, pokud není nastavena skartační lhůta</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:choice>
+        <xs:element name="SpousteciUdalost" type="xs:string">
           <xs:annotation>
-            <xs:documentation xml:lang="cs">Skartační nebo archivační lhůta v letech.</xs:documentation>
+            <xs:documentation xml:lang="cs">Prvek pro zaznamenání kritéria, kterým je stanoven začátek plynutí skartační lhůty.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="KontrolaLhuta" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Lhůta pro kontrolu, zda došlo k externí spouštěcí události</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:integer">
@@ -1324,11 +1347,6 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
               <xs:maxInclusive value="999" />
             </xs:restriction>
           </xs:simpleType>
-        </xs:element>
-        <xs:element name="SpousteciUdalost" type="xs:string">
-          <xs:annotation>
-            <xs:documentation xml:lang="cs">Prvek pro zaznamenání kritéria, kterým je stanoven začátek plynutí skartační lhůty.</xs:documentation>
-          </xs:annotation>
         </xs:element>
       </xs:sequence>
     </xs:choice>
