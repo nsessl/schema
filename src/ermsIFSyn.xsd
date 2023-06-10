@@ -477,9 +477,6 @@ Tedy např. 'TypDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si b
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="Udalosti" nillable="true">
-          <xs:annotation>
-            <xs:documentation xml:lang="CS">2016-06-15 Změna z minOccurs="1" na minOccurs="0"</xs:documentation>
-          </xs:annotation>
           <xs:complexType>
             <xs:sequence minOccurs="1" maxOccurs="unbounded">
               <xs:group ref="gUdalost"/>

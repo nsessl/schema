@@ -695,7 +695,7 @@ Pokud je identifikátor elektronického souboru propojen současně na více dok
                 <xs:element name="Soubor" type="tFile" />
                 <xs:element name="SouborOdkaz" type="tFileLink">
                   <xs:annotation>
-                    <xs:documentation>2016-06-15 Zde je uvedena možnost, pro založení nové verze souboru, použít odkaz na soubor. To následně předpokládá, že příjemce těchto dat musí volat REST službu pro získání obsahu samotné nové verze el.souboru</xs:documentation>
+                    <xs:documentation>Zde je uvedena možnost, pro založení nové verze souboru, použít odkaz na soubor. To následně předpokládá, že příjemce těchto dat musí volat REST službu pro získání obsahu samotné nové verze el.souboru</xs:documentation>
                   </xs:annotation>
                 </xs:element>
               </xs:choice>
@@ -704,7 +704,7 @@ Pokud je identifikátor elektronického souboru propojen současně na více dok
         </xs:element>
         <xs:element minOccurs="0" name="Duvod">
           <xs:annotation>
-            <xs:documentation xml:lang="CS">2016-06-15 Umožňuje uvést důvod přidání nové verze souboru</xs:documentation>
+            <xs:documentation xml:lang="CS">Umožňuje uvést důvod přidání nové verze souboru</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">

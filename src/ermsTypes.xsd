@@ -264,7 +264,7 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
     </xs:attribute>
     <xs:attribute name="dmFinalniVerze" use="optional">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">2016-06-15 Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
+        <xs:documentation xml:lang="CS">Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
 U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přenášet s pomocí REST služby a nebude se tedy využívat tFile</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
@@ -311,7 +311,7 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
     </xs:attribute>
     <xs:attribute name="dmFinalniVerze" use="optional">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">2016-06-15 Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
+        <xs:documentation xml:lang="CS">Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
 U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přenášet s pomocí REST služby a nebude se tedy využívat tFile</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
@@ -537,16 +537,16 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
   </xs:attributeGroup>
   <xs:attributeGroup name="gDavkaInfoResponse">
     <xs:annotation>
-      <xs:documentation xml:lang="CS">2016-06-15 Pomocné informace odpovědní dávky.</xs:documentation>
+      <xs:documentation xml:lang="CS">Pomocné informace odpovědní dávky.</xs:documentation>
     </xs:annotation>
     <xs:attribute name="Poradi" type="xs:integer" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">2016-06-15 Má obsahovat stejnou hodnotu jako je hodnota atributu Poradi u přijaté dávky.</xs:documentation>
+        <xs:documentation xml:lang="CS">Má obsahovat stejnou hodnotu jako je hodnota atributu Poradi u přijaté dávky.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="DatumZpracovani" type="xs:dateTime">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">2016-06-15 Datum ukončení příjmu a zpracování dávky.</xs:documentation>
+        <xs:documentation xml:lang="CS">Datum ukončení příjmu a zpracování dávky.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -767,13 +767,7 @@ Při zakládání záznamu nebo při jeho následné editaci se tato položka ig
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="Vyrizeni" type="tVyrizeni">
-        <xs:annotation>
-          <xs:documentation xml:lang="CS">2016-06-15
-Byl odstraněn element DatumCasVyrizeni a byl nahrazen 
-komplexním nepovinným prvkem Vyrizeni.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
+      <xs:element minOccurs="0" name="Vyrizeni" type="tVyrizeni"/>
       <xs:element minOccurs="0" name="DatumPrenosu" type="xs:date" />
       <xs:element minOccurs="0" name="DatumZnepristupneni" type="xs:date" />
       <xs:element minOccurs="0" name="DuvodZnepristupneni">
@@ -1031,8 +1025,7 @@ Při zakládání záznamu nebo při jeho následné editaci se tato položka ig
       </xs:element>
       <xs:element minOccurs="0" name="Vyrizeni" type="tVyrizeni">
         <xs:annotation>
-          <xs:documentation xml:lang="CS">2016-06-15
-Byl odstraněn element DatumCasVyrizeni a byl nahrazen 
+          <xs:documentation xml:lang="CS">Byl odstraněn element DatumCasVyrizeni a byl nahrazen 
 komplexním nepovinným prvkem Vyrizeni.</xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -3340,7 +3333,7 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
     </xs:attribute>
     <xs:attribute name="dmFinalniVerze" use="optional">
       <xs:annotation>
-        <xs:documentation xml:lang="CS">2016-06-15 Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
+        <xs:documentation xml:lang="CS">Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
 U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přenášet s pomocí REST služby a nebude se tedy využívat tFile</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
