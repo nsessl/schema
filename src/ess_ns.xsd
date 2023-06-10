@@ -215,7 +215,7 @@ Může se jednat o označení dokumentu nebo spisu určitou značkou, která v t
 					<xs:documentation>Pořadí v rámci roku (začíná od 1) a podacího deníku (či jiné evidenční pomůcky)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
-					<xs:restriction base="xs:int">
+					<xs:restriction base="xs:integer">
 						<xs:minInclusive value="1"/>
 						<xs:maxInclusive value="2147483647"/>
 					</xs:restriction>
@@ -1344,7 +1344,7 @@ Bylo by vhodné vytvořit číselník důvodů, ale v tomto okamžiku je to patr
 					<xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
-					<xs:restriction base="xs:int">
+					<xs:restriction base="xs:integer">
 						<xs:minInclusive value="1"/>
 						<xs:maxInclusive value="2147483647"/>
 					</xs:restriction>

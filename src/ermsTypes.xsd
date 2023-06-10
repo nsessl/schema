@@ -111,10 +111,10 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="PocetListu" type="xs:int" />
-      <xs:element name="PocetPriloh" type="xs:int" />
+      <xs:element name="PocetListu" type="xs:integer" />
+      <xs:element name="PocetPriloh" type="xs:integer" />
       <xs:element name="DruhPriloh" type="xs:string" />
-      <xs:element name="PocetListuPriloh" type="xs:int" />
+      <xs:element name="PocetListuPriloh" type="xs:integer" />
       <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciDataDokument" />
     </xs:sequence>
   </xs:group>
@@ -495,16 +495,16 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
       <xs:documentation>Jednoznačná identifikace události v rámci dávky.</xs:documentation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.4</xs:documentation>
     </xs:annotation>
-    <xs:restriction base="xs:int" />
+    <xs:restriction base="xs:integer" />
   </xs:simpleType>
   <xs:attributeGroup name="gUdalostId">
     <xs:annotation>
       <xs:documentation>Jednoznačná identifikace události v rámci dávky.</xs:documentation>
     </xs:annotation>
-    <xs:attribute name="UdalostId" type="xs:int" use="required" />
+    <xs:attribute name="UdalostId" type="xs:integer" use="required" />
   </xs:attributeGroup>
   <xs:attributeGroup name="gDavkaInfo">
-    <xs:attribute name="Poradi" type="xs:int" use="required">
+    <xs:attribute name="Poradi" type="xs:integer" use="required">
       <xs:annotation>
         <xs:documentation>Pořadí dávky událostí vygenerované v rámci komunikace mezi dvěma ERMS. Pořadí bude z vzestupné nepřerušované řady v rámci jednoho zákazníka a kombinace ERMS (zdroj) - ERMS (cíl).</xs:documentation>
       </xs:annotation>
@@ -539,7 +539,7 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
     <xs:annotation>
       <xs:documentation xml:lang="CS">2016-06-15 Pomocné informace odpovědní dávky.</xs:documentation>
     </xs:annotation>
-    <xs:attribute name="Poradi" type="xs:int" use="required">
+    <xs:attribute name="Poradi" type="xs:integer" use="required">
       <xs:annotation>
         <xs:documentation xml:lang="CS">2016-06-15 Má obsahovat stejnou hodnotu jako je hodnota atributu Poradi u přijaté dávky.</xs:documentation>
       </xs:annotation>
@@ -676,7 +676,7 @@ VlozenVeSpisu vynechá nebo ignoruje. Mohl by obsahovat informace, které jsou v
                 <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
-                <xs:restriction base="xs:int">
+                <xs:restriction base="xs:integer">
                   <xs:minInclusive value="1" />
                   <xs:maxInclusive value="2147483647" />
                 </xs:restriction>
@@ -924,7 +924,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
                         <xs:documentation>NS z roku 2023 požadavek č.3.2.3</xs:documentation>
                       </xs:annotation>
                       <xs:simpleType>
-                        <xs:restriction base="xs:int">
+                        <xs:restriction base="xs:integer">
                           <xs:minInclusive value="1" />
                           <xs:maxInclusive value="2147483647" />
                         </xs:restriction>
@@ -956,7 +956,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
                         <xs:documentation>NS z roku 2023 požadavek č.3.2.3</xs:documentation>
                       </xs:annotation>
                       <xs:simpleType>
-                        <xs:restriction base="xs:int">
+                        <xs:restriction base="xs:integer">
                           <xs:minInclusive value="1" />
                           <xs:maxInclusive value="2147483647" />
                         </xs:restriction>
@@ -1162,7 +1162,7 @@ Pokud dokument v okamžiku zakládání spisu bude již existovat, potom se z t�
                         <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
                       </xs:annotation>
                       <xs:simpleType>
-                        <xs:restriction base="xs:int">
+                        <xs:restriction base="xs:integer">
                           <xs:minInclusive value="1" />
                           <xs:maxInclusive value="2147483647" />
                         </xs:restriction>
@@ -1191,7 +1191,7 @@ Pokud dokument v okamžiku zakládání spisu bude již existovat, potom se z t�
                         <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
                       </xs:annotation>
                       <xs:simpleType>
-                        <xs:restriction base="xs:int">
+                        <xs:restriction base="xs:integer">
                           <xs:minInclusive value="1" />
                           <xs:maxInclusive value="2147483647" />
                         </xs:restriction>
@@ -1317,7 +1317,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
       <xs:documentation xml:lang="CS">Dávka událostí.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Poradi" type="xs:int">
+      <xs:element name="Poradi" type="xs:integer">
         <xs:annotation>
           <xs:documentation>Pořadí dávky událostí vygenerované v rámci komunikace mezi dvěma ERMS. Pořadí bude z vzestupné nepřerušované řady v rámci jednoho zákazníka a kombinace ERMS (zdroj) - ERMS (cíl).</xs:documentation>
         </xs:annotation>
@@ -1981,7 +1981,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
     <xs:annotation>
       <xs:documentation>Pořadí v rámci roku (začíná od 1) a podacího deníku (či jiné evidenční pomůcky)</xs:documentation>
     </xs:annotation>
-    <xs:restriction base="xs:int">
+    <xs:restriction base="xs:integer">
       <xs:minInclusive value="1" />
       <xs:maxInclusive value="2147483647" />
     </xs:restriction>
@@ -2158,7 +2158,7 @@ V jednom okamžiku může být otevřeno pouze jedno období.</xs:documentation>
     <xs:annotation>
       <xs:documentation>Pořadí v rámci evidenčního období (začíná od 1) - jedná se o jednotnou řadu čísel evidence dokumentů v rámci stanoveného období.</xs:documentation>
     </xs:annotation>
-    <xs:restriction base="xs:int">
+    <xs:restriction base="xs:integer">
       <xs:minInclusive value="1" />
       <xs:maxInclusive value="2147483647" />
     </xs:restriction>
@@ -2175,7 +2175,7 @@ V jednom okamžiku může být otevřeno pouze jedno období.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="NazevCiselniku" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="PocetPrvkuCiselniku" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PocetPrvkuCiselniku" type="xs:integer" />
       <xs:element minOccurs="0" maxOccurs="1" name="CasPosledniZmeny" type="xs:dateTime">
         <xs:annotation>
           <xs:documentation>Čas kdy se naposledy změnila některé položka vedená v tomto číselníku.
@@ -2476,7 +2476,7 @@ Jediné zásadní je zachovat unikátnost názvů přenášených souborů v rá
           <xs:documentation>NSESSS 2.1.1, 7.2.2</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Verze" type="xs:int">
+      <xs:element name="Verze" type="xs:integer">
         <xs:annotation>
           <xs:documentation>Pořadové číslo verze souboru/komponenty. Verze začínají od 1 a tvoří rostoucí nepřerušenou řadu.
 Při přenosu dat dokumentu je přípustné přenést pouze poslední verzi souboru/komponenty.
@@ -2628,7 +2628,7 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
                       <xs:documentation>NS z roku 2023 požadavek č.3.2.3</xs:documentation>
                     </xs:annotation>
                     <xs:simpleType>
-                      <xs:restriction base="xs:int">
+                      <xs:restriction base="xs:integer">
                         <xs:minInclusive value="1" />
                         <xs:maxInclusive value="2147483647" />
                       </xs:restriction>

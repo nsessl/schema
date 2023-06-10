@@ -180,7 +180,7 @@
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Pořadové číslo spisu nebo dokumentu v rámci evidence dokumentů a určeného časového období nebo pořadové číslo komponenty.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:int">
+		<xs:restriction base="xs:integer">
 			<xs:minInclusive value="1"/>
 			<xs:maxInclusive value="2147483647"/>
 		</xs:restriction>

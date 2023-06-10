@@ -117,7 +117,7 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
                           <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
                         </xs:annotation>
                         <xs:simpleType>
-                          <xs:restriction base="xs:int">
+                          <xs:restriction base="xs:integer">
                             <xs:minInclusive value="1" />
                             <xs:maxInclusive value="2147483647" />
                           </xs:restriction>
@@ -149,7 +149,7 @@ Položka nemusí být vyplněna v případě, že se dokument vkládá do spisu 
 V případě exportu popisných dat musí být tato položka vyplněna.</xs:documentation>
                         </xs:annotation>
                         <xs:simpleType>
-                          <xs:restriction base="xs:int">
+                          <xs:restriction base="xs:integer">
                             <xs:minInclusive value="1" />
                             <xs:maxInclusive value="2147483647" />
                           </xs:restriction>
@@ -1204,7 +1204,7 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
         </xs:element>
       </xs:sequence>
       <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
-      <xs:attribute name="Poradi" type="xs:int" use="required" />
+      <xs:attribute name="Poradi" type="xs:integer" use="required" />
       <xs:attribute name="DatumVzniku" type="xs:dateTime" />
     </xs:complexType>
   </xs:element>
