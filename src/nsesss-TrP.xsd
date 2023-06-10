@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema xmlns:ns0="http://mvcr.cz/ess/v_1.0.0.0" 
-  xmlns="http://nsess.public.cz/erms_trans/v_01_01"
+<xs:schema  
+  xmlns="http://www.mvcr.cz/nsesss/2023/log"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   elementFormDefault="qualified"
-  targetNamespace="http://nsess.public.cz/erms_trans/v_01_01"
+  targetNamespace="http://www.mvcr.cz/nsesss/2023/log"
   xml:lang="cs">
   <xs:element name="TransakcniLogObjektu">
     <xs:annotation>

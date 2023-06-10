@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api"
   elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
-  id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  id="ermsExportPrenos" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xml:lang="cs">
   <xs:annotation>
     <xs:documentation>
@@ -10,7 +10,7 @@
     </xs:documentation>
   </xs:annotation>
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
-  <xs:import schemaLocation="nsesss-TrP.xsd" namespace="http://nsess.public.cz/erms_trans/v_01_01"/>
+  <xs:import schemaLocation="nsesss-TrP.xsd" namespace="http://www.mvcr.cz/nsesss/2023/log"/>
   <xs:include schemaLocation="ermsTypes.xsd"/>
   <xs:include schemaLocation="ermsAsynU.xsd"/>
   <xs:element name="ESslPrenos">
@@ -66,7 +66,7 @@ Neobsahuje události vložených entit - ty se exportují v rámci samostatných
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost"
+                    <xs:element xmlns:q1="http://www.mvcr.cz/nsesss/2023/log" name="Udalost"
                       type="q1:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
@@ -85,7 +85,7 @@ Neobsahuje události vložených entit - ty se exportují v rámci samostatných
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost"
+                    <xs:element xmlns:q1="http://www.mvcr.cz/nsesss/2023/log" name="Udalost"
                       type="q1:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
@@ -104,7 +104,7 @@ Měl by obsahovat i události spojené s obsaženými komponentami tohoto dokume
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost"
+                    <xs:element xmlns:q1="http://www.mvcr.cz/nsesss/2023/log" name="Udalost"
                       type="q1:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
@@ -140,7 +140,7 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element xmlns:q1="http://nsess.public.cz/erms_trans/v_01_01" name="Udalost"
+                    <xs:element xmlns:q1="http://www.mvcr.cz/nsesss/2023/log" name="Udalost"
                       type="q1:tUdalostObjektu"/>
                   </xs:sequence>
                 </xs:complexType>
