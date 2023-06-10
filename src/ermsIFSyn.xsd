@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML Studio 7.1.6.1440 (http://www.liquid-technologies.com)-->
-<!--
-	Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
-	Toto schéma popisuje synchroní výměnu událostí, např. formou webových služeb.
--->
-<!--CHANGE 2011-04-28 Změny proti verzi připomínkované výrobci spisových služeb ze dne 24.4.2011 jsou označeny přímo v textu komentáře, začínajícími stejně jako tento řádek. Tyto změny se snaží uplatnit některé jejich připomínky. -->
 <xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api"
   elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
   id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
+      Toto schéma popisuje synchroní výměnu událostí, např. formou webových služeb.</xs:documentation>
+  </xs:annotation>
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
   <xs:include schemaLocation="ermsTypes.xsd"/>
   <xs:include schemaLocation="ermsAsynU.xsd"/>
@@ -35,8 +33,6 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentZalozeniResponse">
@@ -77,8 +73,6 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisZalozeniResponse">
@@ -93,25 +87,6 @@ NS z roku 2023 požadavek č.3.2.2</xs:documentation>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2011-04-28 Odstraněna služba FindDataBoxRequest. -->
-  <!--
-	<xs:element name="FindDataBoxRequest">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="dbOwnerInfo" type="isds:tDbOwnerInfo"/>
-				<xs:element name="Autorizace" type="tAutorizace"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="FindDataBoxResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="dbResults" type="isds:tDbOwnersArray" maxOccurs="0"/>
-				<xs:element name="OperaceStatus" type="tOperaceStatus"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	-->
   <xs:element name="UdalostiRequest">
     <xs:annotation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
@@ -123,8 +98,6 @@ Požadavek na synchronní zpracování seznamu udalostí.</xs:documentation>
         <xs:element name="Udalosti" type="tUdalostiSyn"/>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
   <xs:element name="UdalostiResponse">
@@ -160,11 +133,8 @@ Volání WS s žádostí o postoupení dokumentu z ESSL do výhradní správy IS
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2011-04-28 Sjednocen návratový datový typ. -->
   <xs:element name="DokumentPostoupeniZadostResponse">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Odpověď na volání webové služby s požadavkem na postoupení ( předání do výhradní správy ) zadaného dokumentu.
@@ -175,7 +145,6 @@ Za chybu je považována žádost o postoupení dokumentu, který není ve volan
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <!--CHANGE 2011-04-28 Sjednocen datový typ. -->
         <xs:element minOccurs="0" name="ProfilDokumentu" type="tProfilDokumentu">
           <xs:annotation>
             <xs:documentation xml:lang="CS">Kompletní popis postupovaného dokumentu. 
@@ -186,7 +155,6 @@ Za chybu je považována žádost o postoupení dokumentu, který není ve volan
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2023-05-29 Přidáno pro novou webovou službu SpisPostoupeniZadost -->
   <xs:element name="SpisPostoupeniZadostRequest">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Webovou službu poskytuje ESSL pro napojené ISSD.
@@ -226,7 +194,6 @@ Volání WS s žádostí o postoupení spisu z ESSL do výhradní správy ISSD. 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2011-04-28 Přejmenování služby a sjednocen návratový datový typ. -->
   <xs:element name="ProfilDokumentuZadostRequest">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Webovou službu poskytuje ESSL pro napojené ISSD.
@@ -246,11 +213,8 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2011-04-28 Přejmenování služby a sjednocen návratový datový typ. -->
   <xs:element name="ProfilDokumentuZadostResponse">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Odpověď na volání webové služby s žádostí o poskytnutí detailních informací o dokumentu.
@@ -276,7 +240,6 @@ Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2011-04-28 Přidána chybějící služba a sjednocen návratový datový typ. -->
   <xs:element name="ProfilSpisuZadostRequest">
     <xs:annotation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.8 f)</xs:documentation>
@@ -296,11 +259,8 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2011-04-28 Přidána chybějící služba a sjednocen návratový datový typ. -->
   <xs:element name="ProfilSpisuZadostResponse">
     <xs:annotation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.8 f)</xs:documentation>
@@ -326,7 +286,6 @@ Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2011-04-28 Přidána nová služba. Cílem je možnost rozložit jednotlivé operace s dokumenty na objemově menší operace. Tedy přenáše soubory odděleně od dokumentů a kompletních spisů. -->
   <xs:element name="SouborZadostRequest">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Webovou službu poskytuje ESSL pro napojené ISSD.
@@ -346,11 +305,8 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2011-04-28 Přidána nová služba. Cílem je možnost rozložit jednotlivé operace s dokumenty na objemově menší operace. Tedy přenáše soubory odděleně od dokumentů a kompletních spisů. -->
   <xs:element name="SouborZadostResponse">
     <xs:annotation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.8 g)</xs:documentation>
@@ -403,7 +359,6 @@ Webová služba pro získání seznamu číselníků, které jsou dostupné v r�
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <!--CHANGE v. 2.0. -->
   <xs:element name="CiselnikZadostRequest">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Webovou službu poskytuje ESSL pro napojené ISSD.
@@ -433,11 +388,8 @@ Tedy např. 'TypDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si b
         </xs:element>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
-  <!--CHANGE v. 2.0. -->
   <xs:element name="CiselnikZadostResponse">
     <xs:annotation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
@@ -467,7 +419,6 @@ Tedy např. 'TypDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si b
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <!--CHANGE v. 2.0. -->
   <xs:element name="DavkySeznamRequest">
     <xs:annotation>
       <xs:documentation>Požadavek na seznam připravených nepotvrzených dávek událostí pro ISSD.</xs:documentation>
@@ -488,11 +439,8 @@ Tedy např. 'TypDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si b
         </xs:element>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
-  <!-- CHANGE v. 2.0. -->
   <xs:element name="DavkySeznamResponse">
     <xs:annotation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.8 i)</xs:documentation>
@@ -503,7 +451,6 @@ Tedy např. 'TypDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si b
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <!--CHANGE v. 2.0. -->
   <xs:element name="DavkaZadostRequest">
     <xs:annotation>
       <xs:documentation>Žádost o zaslání dávky událostí pro ISSD.</xs:documentation>
@@ -524,11 +471,8 @@ Tedy např. 'TypDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si b
         </xs:element>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
-  <!-- CHANGE v. 2.0. -->
   <xs:element name="DavkaZadostResponse">
     <xs:complexType>
       <xs:sequence>
@@ -1108,8 +1052,6 @@ Volání WS s žádostí o vrácení dokumentu z ISSD do výhradní správy ESSL
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentVraceniZadostResponse">
@@ -1122,7 +1064,6 @@ Za chybu je považována žádost o vrácení dokumentu, který není ve volané
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <!--CHANGE 2011-04-28 Sjednocen datový typ. -->
         <xs:element minOccurs="0" name="ProfilDokumentu" type="tProfilDokumentu">
           <xs:annotation>
             <xs:documentation xml:lang="CS">Kompletní popis postupovaného dokumentu. 

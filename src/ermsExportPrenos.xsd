@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML Studio 7.1.6.1440 (http://www.liquid-technologies.com)-->
-<!--
-	Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
-	Toto schéma popisuje synchroní výměnu událostí, např. formou webových služeb.
--->
-<!--CHANGE 2011-04-28 Změny proti verzi připomínkované výrobci spisových služeb ze dne 24.4.2011 jsou označeny přímo v textu komentáře, začínajícími stejně jako tento řádek. Tyto změny se snaží uplatnit některé jejich připomínky. -->
 <xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api"
   elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
   id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>
+      Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
+      Toto schéma popisuje synchroní výměnu událostí, např. formou webových služeb.
+    </xs:documentation>
+  </xs:annotation>
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
   <xs:import schemaLocation="nsesss-TrP.xsd" namespace="http://nsess.public.cz/erms_trans/v_01_01"/>
   <xs:include schemaLocation="ermsTypes.xsd"/>
@@ -38,8 +38,6 @@ Určeno pro off-line předání dat mezi systém ISSD.</xs:documentation>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojDavkaPoradi"/>
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
   <xs:element name="EssSeznamUzivatelu">

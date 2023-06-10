@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML Studio 7.1.6.1440 (http://www.liquid-technologies.com)-->
-<!--CHANGE 2011-04-28 Změny proti verzi připomínkované výrobci spisových služeb ze dne 24.4.2011 jsou označeny přímo v textu komentáře, začínajícími stejně jako tento řádek. Tyto změny se snaží uplatnit některé jejich připomínky. -->
 <xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api" elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api" id="ermsIFTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20" />
   <xs:simpleType name="tUzivatel">
@@ -55,7 +53,6 @@ ID uživatele tedy podle implementace rozhraní odpovídá kódu funkčního mí
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!--TODO: Zvážit odstranění - toto je duplicitní údat k polo6ce tAutorizace\provedlKdy -->
       <xs:element minOccurs="0" name="predanoKdy" type="xs:dateTime">
         <xs:annotation>
           <xs:documentation>Obsolete: V další verzi popisu rozhraní bude tato položka odstraněna. 
@@ -69,7 +66,6 @@ Je duplicitní k položce provedlKdy a přináší nejednoznačnost, který datu
       <xs:documentation>Skupina metadat společná jak pro popis dokumentu tak pro popis spisu. Jedná se o kopii ze schématu ess_ns.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <!--CHANGE 2011-04-28 Přidání nového elementu pro společný profil dokumentu a spisu. -->
       <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
       <xs:element name="Nazev" type="sNazev" />
       <xs:element minOccurs="0" name="Popis" type="sPopis" />
@@ -96,9 +92,7 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
 Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <!--CHANGE v. 2.0.  elementy SpisovyPlan a SpisovyZnak přesunuty do komplexního typu tVecnaSkupina. -->
       <xs:element minOccurs="0" name="VecnaSkupina" type="tVecnaSkupina" />
-      <!--CHANGE v. 2.0.  elementy SkartacniZnak a SkartacniLhuta přesunuty do komplexního typu tSkartacniRezim, který obsahuje navíc i spouštěcí událost. -->
       <xs:element minOccurs="0" name="SkartacniRezim" type="tSkartacniRezim" />
       <xs:element minOccurs="0" name="Poznamka" type="sPoznamka" />
       <xs:element minOccurs="0" name="Zmocneni" type="tZmocneni" />
@@ -129,7 +123,6 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
       <xs:documentation>Skupina metadat společná jak pro popis dokumentu tak pro popis spisu. Jedná se o kopii ze schématu ess_ns.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <!--CHANGE 2011-04-28 Přidání nového elementu pro společný profil dokumentu a spisu. -->
       <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
       <xs:element name="Nazev" type="sNazev" />
       <xs:element minOccurs="0" name="Popis" type="sPopis" />
@@ -138,9 +131,7 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
       <xs:element minOccurs="0" name="PodaciDenikRok" type="sPodaciDenikRok" />
       <xs:element minOccurs="0" name="PodaciDenik" type="sPodaciDenik" />
       <xs:element minOccurs="0" name="TypDokumentu" type="sTypDokumentu" />
-      <!--CHANGE v. 2.0.  elementy SpisovyPlan a SpisovyZnak přesunuty do komplexního typu tVecnaSkupina. -->
       <xs:element minOccurs="0" name="VecnaSkupina" type="tVecnaSkupina" />
-      <!--CHANGE v. 2.0.  elementy SkartacniZnak a SkartacniLhuta přesunuty do komplexního typu tSkartacniRezim, který obsahuje navíc i spouštěcí událost. -->
       <xs:element minOccurs="0" name="SkartacniRezim" type="tSkartacniRezim" />
       <xs:element minOccurs="0" name="Poznamka" type="sPoznamka" />
       <xs:element minOccurs="0" name="Zmocneni" type="tZmocneni" />
@@ -161,7 +152,6 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
       <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2011-04-28 Položka ZpusobVedeni byla přesunuta přímo do komplexního typu ProfilSpisu - tato položka neumožňuje dodatečnou editaci. -->
   <xs:complexType name="tDoplnujiciDataSpis">
     <xs:annotation>
       <xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace. Např. zde mohou být data potřebná pro výměnu informací s agendovým systémem.
@@ -171,7 +161,6 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
       <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2011-04-28 Položky PocetListu, PocetPriloh, DruhPriloh byly přesunuty do komplexních typů tProfilDokumentuUprava a tProfilDokumentu. -->
   <xs:complexType name="tDoplnujiciDataDokument">
     <xs:annotation>
       <xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace. Např. zde mohou být data potřebná pro výměnu informací s agendovým systémem.
@@ -196,11 +185,12 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
       <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2011-04-28 Byl přidán nový komplexní typ tFile. 
-	Tento typ je podobný datovému typu použitému v rámci ISDS ale doplňuje identifikátor a popisné atributy, které upřesňují vlastnosti obecného elektronického souboru. 
-	Oproti verzi popsané v ISDS je odstraněn elementr dmXmlContent - ERMS systémy pracují se soubory a zde by byl uveden pouze fragment XML dat. Nebylo zřejmé, jak s takovým fragmentem zacházet v rámci ERMS. Proto byl pro svou nejednoznačnost tento prvek odstraněn. 
-	Pro přenos obecných, doplňkových dat jsou ve schématu umístěny elementy DoplnujiciData, pro přenos obsahu elektronických souborů je to dmEncodedContent. -->
   <xs:complexType name="tFile">
+    <xs:annotation>
+      <xs:documentation>Tento typ je podobný datovému typu použitému v rámci ISDS ale doplňuje identifikátor a popisné atributy, které upřesňují vlastnosti obecného elektronického souboru. 
+        Oproti verzi popsané v ISDS je odstraněn elementr dmXmlContent - ERMS systémy pracují se soubory a zde by byl uveden pouze fragment XML dat. Nebylo zřejmé, jak s takovým fragmentem zacházet v rámci ERMS. Proto byl pro svou nejednoznačnost tento prvek odstraněn. 
+        Pro přenos obecných, doplňkových dat jsou ve schématu umístěny elementy DoplnujiciData, pro přenos obsahu elektronických souborů je to dmEncodedContent.</xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="dmEncodedContent" type="xs:base64Binary">
         <xs:annotation>
@@ -230,7 +220,6 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <!--CHANGE v. 2.0. -->
   </xs:complexType>
   <xs:complexType name="tFileLink">
     <xs:sequence>
@@ -255,7 +244,6 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
           <xs:enumeration value="meta" />
           <xs:enumeration value="dorucenka" />
           <xs:enumeration value="protokol_overeni_podpisu" />
-          <!--CHANGE v. 2.0. -->
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -303,7 +291,6 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
           <xs:enumeration value="meta" />
           <xs:enumeration value="dorucenka" />
           <xs:enumeration value="protokol_overeni_podpisu" />
-          <!--CHANGE v. 2.0. -->
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -347,7 +334,6 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2011-04-28 Byl změněn datový typ na tFileLink definovaný v tomto jmenném prostoru -->
   <xs:complexType name="tFileLinksArray">
     <xs:annotation>
       <xs:documentation>Pole odkazů na místa obsahující binární obrazy soubory.</xs:documentation>
@@ -356,8 +342,6 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
       <xs:element maxOccurs="unbounded" name="dmFileLink" type="tFileLink" />
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2011-04-28 Bylo změněno jméno tohoto prvku.  Sjednocení jmenné konvence.-->
-  <!--CHANGE 2011-04-28 Bylo použit nový datový typ tFileArray a vypuštěna jedna úroveň vnoření ( prvek tFile ), která zde neměla žádné opodstatnění. -->
   <xs:complexType name="tFilesIdArray">
     <xs:sequence>
       <xs:element maxOccurs="unbounded" name="dmFileId" type="tFileId" />
@@ -618,9 +602,6 @@ Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:d
       <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArray" />
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2011-04-28 Původní komplexní typ ( v původní struktuře ) byl přejmenován z tProfilDokumentu na tProfilDokumentuUprava.
-	Důvodem pro tuto změnu byla nutnost odlišit, které položky lze editovat přímou změnou hodnot od všech ostatních položek, které jsou předávány jako kompletní popis dokumentu např. při postoupení.
-	-->
   <xs:complexType name="tProfilDokumentuUprava">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Profilové informace o dokumentu určené pro přímou editaci v rámci služby DokumentUprava.</xs:documentation>
@@ -642,7 +623,6 @@ SpisV § 10, odst. 2 písm. b), NSESSS 5.2.6 k)</xs:documentation>
       <xs:group minOccurs="0" ref="gDokumentZakladniProfil" />
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2011-04-28 Byl založen nový komplexní typ tProfilDokumentu.Obsahuje kompletní popis dokumentu, který se používá např. při postoupení. -->
   <xs:group name="gProfilDokumentu">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Kompletní profilové informace o dokumentu. 
@@ -718,7 +698,6 @@ VlozenVeSpisu vynechá nebo ignoruje. Mohl by obsahovat informace, které jsou v
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <!--CHANGE 2015-06-24 Převedeno na nový komplexní typ tDoruceni. -->
       <xs:element minOccurs="0" name="Doruceni" type="tDoruceni">
         <xs:annotation>
           <xs:documentation xml:lang="CS">Přítomností tohoto elementu je určeno, že se jedná o doručený dokument.
@@ -726,15 +705,14 @@ Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:d
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Vypraveni" type="tVypraveni" />
-      <!--CHANGE 2011-04-28 Byla odtraněna možnost přenášet obsahy souborů společně s popisnými daty dokumenů. 
-		Záměrem této změny je zajistit přenos i rozsáhlých spisů. 
-		Samotné obsahy ( elektronické dokumenty ) musí být přenášeny odděleně od popisných dat dokumentu. 
-		U synchronního rozhraní budou obsahy přenášeny následně po přenosu popisných dat a to dodatečným voláním webové služby, která požadovaný obsah poskytne. 
-		U asynchronního rozhraní tomu bude naopak. Nejprve budou přeneseny obsahy a teprve následně se přenesou popisná data dokumentu, který se na obsah odkazuje. 
-		Toto obrácené pořadí je u asynchronního přenosu nutné pro zajištění konzistence dat popisovaného a přenášeného dokumentu.
-		-->
-      <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArray" />
-      <!--CHANGE v. 2.0: odstraněna povinnost uvádět související dokumenty. -->
+      <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArray" >
+        <xs:annotation>
+          <xs:documentation>Samotné obsahy ( elektronické dokumenty ) musí být přenášeny odděleně od popisných dat dokumentu. 
+            U synchronního rozhraní budou obsahy přenášeny následně po přenosu popisných dat a to dodatečným voláním webové služby, která požadovaný obsah poskytne. 
+            U asynchronního rozhraní tomu bude naopak. Nejprve budou přeneseny obsahy a teprve následně se přenesou popisná data dokumentu, který se na obsah odkazuje. 
+            Toto obrácené pořadí je u asynchronního přenosu nutné pro zajištění konzistence dat popisovaného a přenášeného dokumentu.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="SouvisejiciDokument" type="tSouvisejiciDokument" />
       <xs:element name="KrizoveOdkazyVolne">
         <xs:complexType>
@@ -746,7 +724,6 @@ Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:d
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdo je aktuálním vlastníkem spisu.  -->
       <xs:element name="VlastniKdo">
         <xs:annotation>
           <xs:documentation xml:lang="CS">Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu. To je uživatele IS, který je zodpovědný za zpracování (vyřízení) dokumentu.</xs:documentation>
@@ -776,7 +753,6 @@ Při zakládání záznamu nebo při jeho následné editaci se tato položka ig
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilDokumentuZadost byla přidána položka, která má pouze informativní charakter: V jakém stavu vyřizování se dokument nachází.  -->
       <xs:element name="StavDokumentu">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -812,11 +788,8 @@ komplexním nepovinným prvkem Vyrizeni.</xs:documentation>
         </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="DatumZniceni" type="xs:date" />
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdy byl spis uzavřen. Položka je uvedena pouze v případě, že byl spis již vyřízen. V případě zrušení uzavření se tato položka neuvádí.  -->
       <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdy byl spis uzavřen. Položka je uvedena pouze v případě, že byl spis již předán do spisovny a to po jeho uzavření. V případě zrušení uzavření a vyjmutí ze spisovny se tato položka neuvádí.  -->
       <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime" />
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdy byl spis předán do archivu. Položka je uvedena pouze v případě, že byl spis již předán do archivu nebo skartovan.  -->
       <xs:element minOccurs="0" name="DatumCasPredaniDoArchivuNeboSkartace" type="xs:dateTime" />
       <xs:element minOccurs="0" name="UzivatelskePoznamky">
         <xs:annotation>
@@ -851,7 +824,6 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
       <xs:group ref="gProfilDokumentu" />
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2011-04-28 Byl založen nový komplexní typ tSouvisejiciDokument. Tento typ je podobný datovému typu použitému v rámci ISDS ale doplňuje identifikátor. Tento typ se ve schématech opakoval a definováním tohoto typu se vše zpřehlední. -->
   <xs:complexType name="tSouvisejiciDokument">
     <xs:annotation>
       <xs:documentation>Výčet odkazů na dokumenty související s řešením problematiky daného dokumentu, primárně vyřizující odpověď.</xs:documentation>
@@ -882,7 +854,6 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
       <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2011-04-28 Byl založen nový komplexní typ tProfilSpisu. Obsahuje kompletní popis spisu, který se používá např. při postoupení. -->
   <xs:group name="gProfilSpisu">
     <xs:annotation>
       <xs:documentation>Profil spisu použitý při exportu profilových dat spisu - při postoupení a dotazu na profil.</xs:documentation>
@@ -1011,7 +982,6 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdo je aktuálním vlastníkem spisu.  -->
       <xs:element name="VlastniKdo">
         <xs:annotation>
           <xs:documentation xml:lang="CS">Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
@@ -1048,7 +1018,6 @@ Při zakládání záznamu nebo při jeho následné editaci se tato položka ig
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: V jakém stavu vyřizování se spis nachází.  -->
       <xs:element name="StavSpisu">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -1070,11 +1039,8 @@ Byl odstraněn element DatumCasVyrizeni a byl nahrazen
 komplexním nepovinným prvkem Vyrizeni.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdy byl spis uzavřen. Položka je uvedena pouze v případě, že byl spis již vyřízen. V případě zrušení uzavření se tato položka neuvádí.  -->
       <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdy byl spis uzavřen. Položka je uvedena pouze v případě, že byl spis již předán do spisovny a to po jeho uzavření. V případě zrušení uzavření a vyjmutí ze spisovny se tato položka neuvádí.  -->
       <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime" />
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdy byl spis předán do archivu. Položka je uvedena pouze v případě, že byl spis již předán do archivu nebo skartovan.  -->
       <xs:element minOccurs="0" name="DatumCasPredaniDoArchivuNeboSkartace" type="xs:dateTime" />
       <xs:element minOccurs="0" name="KrizoveOdkazyPevne">
         <xs:complexType>
@@ -1251,9 +1217,6 @@ Pokud dokument v okamžiku zakládání spisu bude již existovat, potom se z t�
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2011-04-28 Původní komplexní typ ( v původní struktuře ) byl přejmenován z tProfilSpisu na tProfilSpisuUprava.
-	Důvodem pro tuto změnu byla nutnost odlišit, které položky lze editovat přímou změnou hodnot od všech ostatních položek, které jsou předávány jako kompletní popis spisu např. při postoupení.
-	-->
   <xs:complexType name="tProfilSpisuUprava">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Přímo editovatelné profilové údaje popisující spis. 
@@ -1265,7 +1228,6 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
       <xs:group ref="gSpisZakladniProfil" />
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE v. 2.0.  Byl založen nový komplexní typ tVecnaSkupina. -->
   <xs:complexType name="tVecnaSkupina">
     <xs:annotation>
       <xs:documentation xml:lang="cs">Věcná skupina.</xs:documentation>
@@ -1292,7 +1254,6 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
       </xs:sequence>
     </xs:choice>
   </xs:complexType>
-  <!--CHANGE v. 2.0.  Byl založen nový komplexní typ tSkartacniRezim. -->
   <xs:complexType name="tSkartacniRezim">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Skartační režim.</xs:documentation>
@@ -1351,7 +1312,6 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
       </xs:sequence>
     </xs:choice>
   </xs:complexType>
-  <!--CHANGE v. 2.0. -->
   <xs:complexType name="tDavka">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Dávka událostí.</xs:documentation>
@@ -1369,7 +1329,6 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE v. 2.0. pridany typy z ess_ns.xsd -->
   <xs:complexType name="tIdentifikator">
     <xs:annotation>
       <xs:documentation>Obecný interní identifikátor informačního systému. 
@@ -1470,9 +1429,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
       <xs:documentation>Metadata obecného subjektu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <!-- Identifikator -->
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Identifikator" type="tIdentifikator" />
-      <!-- TypSubjektu -->
       <xs:element name="TypSubjektu">
         <xs:annotation>
           <xs:documentation>Typ subjektu vyjadřuje právní forma subjektu a případný způsob zastoupení tohoto subjektu.</xs:documentation>
@@ -1514,7 +1471,6 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- ObchodniNazev -->
       <xs:element minOccurs="0" name="ObchodniNazev">
         <xs:annotation>
           <xs:documentation>Element se neuvádí pouze v případě že TypSubjektu="Fyzicka".</xs:documentation>
@@ -1525,7 +1481,6 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- IČO -->
       <xs:element minOccurs="0" name="IC">
         <xs:annotation>
           <xs:documentation>IČO se uvádí, pokud je subjektu IČO přiděleno a je v době pořízení záznamu známé.
@@ -1538,8 +1493,6 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- DatumNarozeni -->
-      <!-- MistoNarozeni -->
       <xs:element minOccurs="0" name="DatumNarozeni" type="xs:date">
         <xs:annotation>
           <xs:documentation>
@@ -1561,7 +1514,6 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- Jmeno -->
       <xs:element minOccurs="0" name="Jmeno">
         <xs:annotation>
           <xs:documentation>Element se neuvádí v případě TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -1572,7 +1524,6 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- Prijmeni -->
       <xs:element minOccurs="0" name="Prijmeni">
         <xs:annotation>
           <xs:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -1583,7 +1534,6 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- Osloveni -->
       <xs:element minOccurs="0" name="Osloveni">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -1591,7 +1541,6 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- TitulPred -->
       <xs:element minOccurs="0" name="TitulPred">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -1599,7 +1548,6 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- TitulZa -->
       <xs:element minOccurs="0" name="TitulZa">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -1607,7 +1555,6 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- FunkceUtvarPopis -->
       <xs:element minOccurs="0" name="FunkceUtvarPopis">
         <xs:annotation>
           <xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -1618,7 +1565,6 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- FunkceUtvarIdentifikator -->
       <xs:element minOccurs="0" name="FunkceUtvarIdentifikator">
         <xs:annotation>
           <xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -1629,7 +1575,6 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- Poznamka -->
       <xs:element minOccurs="0" name="Poznamka">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -1637,9 +1582,7 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- Adresy -->
       <xs:element minOccurs="0" name="Adresy" type="tAdresy" />
-      <!-- DoplnujiciData -->
       <xs:element minOccurs="0" name="DoplnujiciData">
         <xs:annotation>
           <xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace.</xs:documentation>
@@ -1758,8 +1701,6 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!-- Návrh: Do popisu uvést, že přípustné hodnoty státu jsou pouze na základě číselníku xxxxx 
-      ( doplnit libovolný, dnes užívaný číselník států např. ISVS AAA nebo jiný ) -->
       <xs:element minOccurs="0" name="Zeme">
         <xs:annotation>
           <xs:documentation>Kód státu podle: ISO-3166 Alpha 2 country codes</xs:documentation>
@@ -1833,7 +1774,6 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <!-- AdresaDS -->
   <xs:complexType name="tAdresaDS">
     <xs:annotation>
       <xs:documentation>Metadata identifikátoru datové schránky</xs:documentation>
@@ -1856,7 +1796,6 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <!-- AdresaElektronicka -->
   <xs:complexType name="tAdresaElektronicka">
     <xs:annotation>
       <xs:documentation>Metadata elektronické adresy ( mail, fax, rep, .. )</xs:documentation>
@@ -1942,7 +1881,6 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
             <xs:enumeration value="vzetimNaVedomi" />
             <xs:enumeration value="zaznamemNaDokumentu" />
             <xs:enumeration value="jinyZpusob" />
-            <!--CHANGE v. 2.0. : upraven vycet hodnot -->
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1963,7 +1901,6 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <!--CHANGE 2015-06-24 Byl založen nový komplexní typ tDoruceni. -->
   <xs:complexType name="tDoruceni">
     <xs:annotation>
       <xs:documentation xml:lang="CS">Informace o doručení zásilky.</xs:documentation>
@@ -2256,7 +2193,6 @@ Tento údaj může sloužit pro posouzení, zda je nutné načítat tento celý 
       <xs:maxLength value="40" />
     </xs:restriction>
   </xs:simpleType>
-  <!--CHANGE v. 2.0.  Byl založen nový komplexní typ tPolozkaCiselniku. -->
   <xs:complexType name="tPolozkaCiselniku">
     <xs:annotation>
       <xs:documentation xml:lang="cs">Položka číselníku. Z důvodu obecnosti jsou všechny vnořené elementy ponechány jako nepovinné. Alespoň jeden z elementů by však měl být vždy uveden.</xs:documentation>
@@ -2344,7 +2280,6 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Přidání nového elementu pro společný profil dokumentu a spisu. -->
       <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
       <xs:element name="Nazev" type="sNazev" />
       <xs:element minOccurs="0" name="Popis">
@@ -2369,7 +2304,6 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
           <xs:documentation>NS z roku 2023 požadavek č.2.7.1</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <!--CHANGE v. 2.0.  elementy SpisovyPlan a SpisovyZnak přesunuty do komplexního typu tVecnaSkupina. -->
       <xs:element name="VecnaSkupina" type="tVecnaSkupina" />
       <xs:group ref="gTypovySpisZakladniProfil" />
     </xs:sequence>
@@ -2401,7 +2335,6 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdo je aktuálním vlastníkem spisu.  -->
       <xs:element name="VlastniKdo">
         <xs:annotation>
           <xs:documentation xml:lang="CS">Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
@@ -2424,7 +2357,6 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: V jakém stavu vyřizování se spis nachází.  -->
       <xs:element name="StavTypovehoSpisu">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -2433,7 +2365,6 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdy byl spis uzavřen. Položka je uvedena pouze v případě, že byl spis již vyřízen. V případě zrušení uzavření se tato položka neuvádí.  -->
       <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DatumZniceni" type="xs:date" />
       <xs:element minOccurs="0" name="DatumPrenosu" type="xs:date" />
@@ -2581,7 +2512,6 @@ NSESSS 2.1.3</xs:documentation>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <!--CHANGE v. 2.0. -->
   </xs:complexType>
   <xs:group name="gSoucastTypovehoSpisu">
     <xs:annotation>
@@ -2625,7 +2555,6 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
           </xs:complexType>
         </xs:element>
       </xs:choice>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: V jakém stavu vyřizování se spis nachází.  -->
       <xs:element name="Stav">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -2634,9 +2563,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdy byl spis uzavřen. Položka je uvedena pouze v případě, že byl spis již vyřízen. V případě zrušení uzavření se tato položka neuvádí.  -->
       <xs:element minOccurs="0" name="DatumCasUzavreni" type="xs:dateTime" />
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdo je aktuálním vlastníkem spisu.  -->
       <xs:element name="VlastniKdo">
         <xs:annotation>
           <xs:documentation xml:lang="CS">Označení aktuálního zpracovatele - aktuálního vlastníka dokumentu a současně osoby, která je zodpovědná za zpracování (vyřízení) dokumentu.</xs:documentation>
@@ -2682,9 +2609,7 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdy byl spis předán do archivu. Položka je uvedena pouze v případě, že byl spis již předán do archivu nebo skartovan.  -->
       <xs:element minOccurs="0" name="DatumCasPredaniDoArchivuNeboSkartace" type="xs:dateTime" />
-      <!--CHANGE 2011-04-28 Pro potřeby služby ProfilSpisuZadost byla přidána položka, která má pouze informativní charakter: Kdy byl spis uzavřen. Položka je uvedena pouze v případě, že byl spis již předán do spisovny a to po jeho uzavření. V případě zrušení uzavření a vyjmutí ze spisovny se tato položka neuvádí.  -->
       <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime" />
       <xs:element name="SpisyVlozene">
         <xs:annotation>
@@ -2747,7 +2672,6 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <!--CHANGE 2011-04-28 Přidání nového elementu pro společný profil dokumentu a spisu. -->
       <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode" />
       <xs:element name="Nazev">
         <xs:simpleType>
@@ -2897,7 +2821,6 @@ Většinou stát</xs:documentation>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <!-- ZpusobManipulace -->
       <xs:choice minOccurs="0">
         <xs:element name="ZpusobManipulaceId">
           <xs:annotation>
@@ -2925,7 +2848,6 @@ Většinou stát</xs:documentation>
               <xs:enumeration value="DopisOnline" />
               <xs:enumeration value="InterniVypraveni" />
             </xs:restriction>
-            <!--CHANGE 2011-04-28 Změně výčtu povolených typů - Odebrán typ EPodatelnaMailElPodpis, protože není specifikovatelné, která podání do této kategorie patří. Podpis může být obecně spojen i s dalšími typy elektronických podání. -->
           </xs:simpleType>
         </xs:element>
         <xs:element name="ZpusobManipulaceText" type="xs:string">
@@ -2937,8 +2859,6 @@ Většinou stát</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:choice>
-      <!-- ZpusobZachazeni -->
-      <!--CHANGE v. 2.0. : odstranen ZpusobZachazeniId a Text -->
       <xs:element minOccurs="0" name="PostovniSluzby">
         <xs:annotation>
           <xs:documentation>K zásilce specifikuje kombinaci poštovních služeb. 
@@ -2995,7 +2915,6 @@ Zde použité textové konstanty musí být vždy dohodnuty s komunikující pro
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <!-- DruhZasilky -->
       <xs:choice minOccurs="0">
         <xs:element name="DruhZasilkyId">
           <xs:annotation>
@@ -3151,7 +3070,6 @@ Zde použité textové konstanty musí být vždy dohodnuty s komunikující pro
                 </xs:annotation>
               </xs:enumeration>
             </xs:restriction>
-            <!--CHANGE 2011-04-28 Změně výčtu povolených typů - aktualizace do stavu podle České pošty -->
           </xs:simpleType>
         </xs:element>
         <xs:element name="DruhZasilkyText" type="xs:string">
@@ -3321,7 +3239,6 @@ Pokud element není uveden, potom se to chápe jako hodnota (ne).</xs:documentat
       <xs:element minOccurs="0" name="DatumCasStornovani" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DatumCasPredeniVypravne" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DatumVypraveni" type="xs:date" />
-      <!--CHANGE v. 2.0 -->
       <xs:element minOccurs="0" name="CasVypraveni" type="xs:time" />
       <xs:element minOccurs="0" name="Poplatek">
         <xs:annotation>
@@ -3411,7 +3328,6 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
           <xs:enumeration value="meta" />
           <xs:enumeration value="dorucenka" />
           <xs:enumeration value="protokol_overeni_podpisu" />
-          <!--CHANGE v. 2.0. -->
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>

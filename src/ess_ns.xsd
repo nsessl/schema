@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
-Toto je návrh obecného přenosového formátu pro výměnu dat mezi systémy Spisových služeb.
-Tento návrh vznikl v rámci pracovní skupiny založené na základě memoranda:
-            M e m o r a n d u m o s p o l u p r á c i
-                             mezi
-             Ministerstvem vnitra České republiky
-               se sídlem Nad Štolou 3, Praha 7,
-             zastoupené náměstkem ministra vnitra
-                   Mgr. Zdeňkem Zajíčkem
-                              a
-     zástupci společností zabývajících se výrobou a vývojem
-                 programů spisových služeb
-při přípravě technické části prováděcí vyhlášky k zákonu č. 300/2008 Sb.,
- o elektronických úkonech a autorizované konverzi dokumentů, z hlediska
-         propojení datových schránek a spisových služeb.
-
-Na tvorbě tohoto dokumentu se společně podíleli zástupci firem:
-         
-         AiP Safe s.r.o.
-         Asseco Czech Republic, a.s.
-         GORDIC, s.r.o.
-         ICZ a.s.
-         PilsCom, s.r.o.
-         SoftHouse, s.r.o.
-         Triada s.r.o.
-         VERA, s.r.o.
-
-	Navržené schéma ESS.XSD slouží to pro výměnu spisů a dokumentů mezi spisovými službami. 
-Ne-jedná se tedy o základní schéma pro komunikaci prostřednictvím IS DS. Lze jej využít 
-pro všechny možnosti elektronické výměny dat mezi spisovými službami. Vlastní schéma je 
-složeno z popisů typů typických pro elektronické spisové služby v rozsahu daném zákonnými 
-povinnosti evidence a běžný-mi zvyklostmi, a může tedy dále sloužit jako etalon typů pro 
-komunikaci mezi spisovými službami a dalšími agendami.
--->
 <xs:schema xmlns:tns="http://mvcr.cz/ess/v_1.0.0.0" xmlns:isds="http://isds.czechpoint.cz/v20" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mvcr.cz/ess/v_1.0.0.0" elementFormDefault="qualified" id="ess">
-	<xs:import namespace="http://isds.czechpoint.cz/v20" schemaLocation="dmBaseTypes.xsd"/>
-	<!-- Identifikator -->
+	<xs:annotation>
+	  <xs:documentation>Toto je návrh obecného přenosového formátu pro výměnu dat mezi systémy Spisových služeb.
+	    Tento návrh vznikl v rámci pracovní skupiny založené na základě memoranda:
+	    M e m o r a n d u m o s p o l u p r á c i
+	    mezi
+	    Ministerstvem vnitra České republiky
+	    se sídlem Nad Štolou 3, Praha 7,
+	    zastoupené náměstkem ministra vnitra
+	    Mgr. Zdeňkem Zajíčkem
+	    a
+	    zástupci společností zabývajících se výrobou a vývojem
+	    programů spisových služeb
+	    při přípravě technické části prováděcí vyhlášky k zákonu č. 300/2008 Sb.,
+	    o elektronických úkonech a autorizované konverzi dokumentů, z hlediska
+	    propojení datových schránek a spisových služeb.
+	    
+	    Na tvorbě tohoto dokumentu se společně podíleli zástupci firem:
+	    
+	    AiP Safe s.r.o.
+	    Asseco Czech Republic, a.s.
+	    GORDIC, s.r.o.
+	    ICZ a.s.
+	    PilsCom, s.r.o.
+	    SoftHouse, s.r.o.
+	    Triada s.r.o.
+	    VERA, s.r.o.
+	    
+	    Navržené schéma ESS.XSD slouží to pro výměnu spisů a dokumentů mezi spisovými službami. 
+	    Ne-jedná se tedy o základní schéma pro komunikaci prostřednictvím IS DS. Lze jej využít 
+	    pro všechny možnosti elektronické výměny dat mezi spisovými službami. Vlastní schéma je 
+	    složeno z popisů typů typických pro elektronické spisové služby v rozsahu daném zákonnými 
+	    povinnosti evidence a běžný-mi zvyklostmi, a může tedy dále sloužit jako etalon typů pro 
+	    komunikaci mezi spisovými službami a dalšími agendami.
+	  </xs:documentation>
+	</xs:annotation>
+  <xs:import namespace="http://isds.czechpoint.cz/v20" schemaLocation="dmBaseTypes.xsd"/>
 	<xs:complexType name="tIdentifikator">
 		<xs:annotation>
 			<xs:documentation>Obecný interní identifikátor informačního systému. 
@@ -91,7 +91,6 @@ kde aa je označení informačního systému (spisován služba, lokální agend
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- Odkaz na elektronický soubor, který je uložen v jiné části přenášených dat -->
 	<xs:complexType name="tFileLink">
 		<xs:annotation>
 			<xs:documentation>Datový typ, který popisuje odkaz na fyzické uložení souboru a také popisuje logické vazby mezi soubory.</xs:documentation>
@@ -153,13 +152,11 @@ Tento soubor musí být fyzicky uložen ve stejném, nebo nadřízeném souboru.
 			<xs:element name="FileLink" type="tns:tFileLink" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- DokumentSpis -->
 	<xs:group name="gSpolecneDokSpis">
 		<xs:annotation>
 			<xs:documentation>Skupina metadat společná jak pro popis dokumentu tak pro popis spisu.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<!-- Identifikator -->
 			<xs:element name="Identifikator" type="tns:tIdentifikator" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Identifikátor, nebo identifikátory, které jsou v rámci různých informačních systémů přiřazeny tomuto záznamu, tedy dokumentu nebo spisu.
@@ -385,7 +382,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<!-- Zmocneni -->
 	<xs:complexType name="tZmocneni">
 		<xs:annotation>
 			<xs:documentation>Určuje právní normu, podle které je daná věc vyřizována</xs:documentation>
@@ -429,15 +425,12 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- Subjekt (complexType)-->
 	<xs:complexType name="tSubjekt">
 		<xs:annotation>
 			<xs:documentation>Metadata obecného subjektu.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<!-- Identifikator -->
 			<xs:element name="Identifikator" type="tns:tIdentifikator" minOccurs="0" maxOccurs="unbounded"/>
-			<!-- TypSubjektu -->
 			<xs:element name="TypSubjektu">
 				<xs:annotation>
 					<xs:documentation>Typ subjektu vyjadřuje právní forma subjektu a případný způsob zastoupení tohoto subjektu.</xs:documentation>
@@ -479,7 +472,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- ObchodniNazev -->
 			<xs:element name="ObchodniNazev" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Element se neuvádí pouze v případě že TypSubjektu="Fyzicka".</xs:documentation>
@@ -490,7 +482,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- IČO -->
 			<xs:element name="IC" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>IČO se uvádí, pokud je subjektu IČO přiděleno a je v době pořízení záznamu známé.</xs:documentation>
@@ -502,8 +493,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- DatumNarozeni -->
-			<!-- MistoNarozeni -->
 			<xs:element name="DatumNarozeni" type="xs:date" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
@@ -525,7 +514,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- Jmeno -->
 			<xs:element name="Jmeno" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Element se neuvádí v případě TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -536,7 +524,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- Prijmeni -->
 			<xs:element name="Prijmeni" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -547,7 +534,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- Osloveni -->
 			<xs:element name="Osloveni" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -558,7 +544,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- TitulPred -->
 			<xs:element name="TitulPred" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -569,7 +554,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- TitulZa -->
 			<xs:element name="TitulZa" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -580,7 +564,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- FunkceUtvarPopis -->
 			<xs:element name="FunkceUtvarPopis" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -591,7 +574,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- FunkceUtvarIdentifikator -->
 			<xs:element name="FunkceUtvarIdentifikator" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
@@ -602,7 +584,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- Poznamka -->
 			<xs:element name="Poznamka" minOccurs="0">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -610,9 +591,7 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- Adresy -->
 			<xs:element name="Adresy" type="tns:tAdresy" minOccurs="0"/>
-			<!-- DoplnujiciData -->
 			<xs:element name="DoplnujiciData" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace.</xs:documentation>
@@ -625,7 +604,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- AdresaPostovni -->
 	<xs:complexType name="tAdresaPostovni">
 		<xs:annotation>
 			<xs:documentation>Metadata poštovní adresy ( pro doručování fyzických zásilek )</xs:documentation>
@@ -717,8 +695,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- Návrh: Do popisu uvést, že přípustné hodnoty státu jsou pouze na základě číselníku xxxxx 
-      ( doplnit libovolný, dnes užívaný číselník států např. ISVS AAA nebo jiný ) -->
 			<xs:element name="Zeme" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Kód zkratky státu dle číselníku ČSÚ</xs:documentation>
@@ -792,7 +768,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- AdresaDS -->
 	<xs:complexType name="tAdresaDS">
 		<xs:annotation>
 			<xs:documentation>Metadata identifikátoru datové schránky</xs:documentation>
@@ -815,7 +790,6 @@ Hodnota tohoto atributu může být použita pouze v elementu SouvisejiciDokumen
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- AdresaElektronicka -->
 	<xs:complexType name="tAdresaElektronicka">
 		<xs:annotation>
 			<xs:documentation>Metadata elektronické adresy ( mail, fax, rep, .. )</xs:documentation>
@@ -866,7 +840,6 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
-	<!-- Adresy -->
 	<xs:complexType name="tAdresy">
 		<xs:annotation>
 			<xs:documentation>Adresy které jsou spojeny s jedním subjektem. 
@@ -1028,7 +1001,6 @@ Většinou stát</xs:documentation>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<!-- ZpusobManipulace -->
 			<xs:choice minOccurs="0">
 				<xs:element name="ZpusobManipulaceId">
 					<xs:annotation>
@@ -1065,7 +1037,6 @@ Většinou stát</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
-			<!-- ZpusobZachazeni -->
 			<xs:choice minOccurs="0">
 				<xs:element name="ZpusobZachazeniId">
 					<xs:annotation>
@@ -1098,7 +1069,6 @@ Většinou stát</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
-			<!-- DruhZasilky -->
 			<xs:choice minOccurs="0">
 				<xs:element name="DruhZasilkyId">
 					<xs:annotation>
@@ -1119,7 +1089,6 @@ Většinou stát</xs:documentation>
 								</xs:annotation>
 							</xs:enumeration>
 							<xs:enumeration value="DoporucenaZasilkaStandard"/>
-							<!-- DOPORUCENA ZASILKA - STANDARD -->
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
@@ -1299,19 +1268,16 @@ Na soubory je odkazováno prostřednictvím uvedené hodnoty atributu dmFileGuid
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- Zasilka -->
 	<xs:complexType name="tZasilka">
 		<xs:annotation>
 			<xs:documentation>Komplexní popis jedné zásilky, obsahuje odesilatele a další popisné parametry zásilky.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<!-- Odesilatel - v rámci ISDS musí být pouze jeden  -->
 			<xs:element name="Odesilatel" type="tns:tAdresat" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Popis subjetku, který odeslal - vypravil zásilku.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<!-- Adresat - může být větší počet cílových adresátů -->
 			<xs:element name="Adresat" type="tns:tAdresat" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Popis subjetku, který je uveden jako adresát zásilky.
@@ -1321,7 +1287,6 @@ Na soubory je odkazováno prostřednictvím uvedené hodnoty atributu dmFileGuid
 			<xs:element name="ZasilkaInfo" type="tns:tZasilkaInfo"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- Souvisejici subjekty -->
 	<xs:complexType name="tSouvisejiciSubjekt">
 		<xs:annotation>
 			<xs:documentation>Matadata souvisejících subjektů (typický příklad jsou subjekty správního řízení např. účastníci, dotčené orgány a další subjekty)</xs:documentation>
@@ -1406,7 +1371,6 @@ Bylo by vhodné vytvořit číselník důvodů, ale v tomto okamžiku je to patr
 			<xs:element name="VlozenyDokument" type="tns:tVlozenyDokument" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- DokumentSpis -->
 	<xs:element name="Dokumenty">
 		<xs:annotation>
 			<xs:documentation>Seznam přenášených dokumentů.</xs:documentation>
@@ -1432,7 +1396,6 @@ Bylo by vhodné vytvořit číselník důvodů, ale v tomto okamžiku je to patr
 			<xs:documentation>Kolekce souborů, která může být následně využita z dokumentů, spisů a zásilek pro zadání odkazů na  jednotlivé elektronické soubory.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<!-- DoplnujiciData -->
 	<xs:element name="DoplnujiciData">
 		<xs:annotation>
 			<xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace.</xs:documentation>

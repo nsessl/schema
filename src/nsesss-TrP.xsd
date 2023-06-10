@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML Studio 7.1.6.1440 (http://www.liquid-technologies.com)-->
 <xsd:schema xmlns:ns0="http://mvcr.cz/ess/v_1.0.0.0" xmlns="http://nsess.public.cz/erms_trans/v_01_01" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://nsess.public.cz/erms_trans/v_01_01">
   <xs:import schemaLocation="ess_ns.xsd" namespace="http://mvcr.cz/ess/v_1.0.0.0" />
   <xs:element name="TransakcniLogObjektu">

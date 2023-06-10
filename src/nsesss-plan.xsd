@@ -19,7 +19,6 @@
 		</xs:appinfo>
 	</xs:annotation>
 
-	<!-- definice kořenových elementů -->
 	<xs:element name="SpisovyPlan">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Sada elementů pro popis spisového plánu (hierarchického uspořádání věcných skupin) organizace.</xs:documentation>
@@ -44,9 +43,7 @@
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
-	<!-- konec definice kořenových elementů -->
 
-	<!-- definice složených typů -->
 	<xs:complexType name="tPlanEvidencniUdajeVecneSkupiny">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Sada elementů pro evidenční údaje entity "věcná skupina".</xs:documentation>
@@ -99,5 +96,4 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<!-- konec definice složených typů -->
 </xs:schema>

@@ -1,46 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- ************************************************************************
-   XSD schema typů použitých ve WSDL pro manipulaci s datovými zprávami
-                       verze 2.1    9.6.2009  novela
-                       
- Změny:  
-     5.2.2009  verze 0.1   základní verze
-    10.2.2009  verze 0.2   - v typu tDelivery místo ID zprávy je nyní kompletní obálka včetně časového razítka a hashe, které se ale asi nepoužije, protože bez písemností neplatí                         
-    18.2.2009  verze 0.3   - v typu tDelivery přibyl obalovací element dmDm pro obálku DZ (sjednocení s tReturnedMessage[Envelope])
-                           - v typu tReturnedMessageEnvelope vypuštěna nadbytečná sekvence
-                           - doplněna dokumentace k méně jasným elementům a atributům  
-    19.2.2009  verze 0.4   - upřesněn význam dmPurpose jako pole pro Zmocnění (zrušeno ve verzi 0.6)
-                           - k tFile přidán do obálky souboru další atribut dmUpFileGuid, který společně s dmFileGuid může uchovat vztahy závislosti mezi soubory
-                           - do atributu dmFileMetaType přidána další položka výčtu typu "signature"
-                           - do skupiny elementů gMesssageEnvelope přidány nové elementy upřesňující podrobnější organizační členění organizací (dmRecipientOrgUnit, dmRecipientOrgUnitNum, dmRecipientOrgUnit a dmRecipientOrgUnitNum).
-    24.2.2009  verze 0.5   - změněn základní namespace na http://isds.czechpoint.cz
-    25.2.2009  verze 0.6   - změněno jméno elementu dmSubstDelivery na výstižnější dmAllowSubstDelivery	
-                           - změněna vnitřní struktura grupy gMessageEnvelope - skládá se nově z několika elementů a nové grupy gMessageEnvelopeSub obsahující všechny elementy potřebné pro vytvoření DZ (použití ve WSDL)                       
-                           - přidán nový typ tMessageEnvelopeSub (obsahující grupu gMessageEnvelopeSub): obsahuje jen ty elementy obálky, které se zadávají na vstupu WS CreateMessage; důsledkem je trochu zpřeházené pořadí v gMessageEnvelope a tedy i v odvozených typech
-                           - do grupy gMessageEnvelopeSub přidána pětice elementů (dmLegalTitle...) nahrazující původní jeden stringový element dmPurpose; pro zadání Právního titulu/Zmocnění písemnosti (zákon, rok, paragr., odst. a písmeno)
-                           - do grupy gMessageEnvelopeSub přidán element dmIdent pro Značku (spisovou)
-                           - do grupy gMessageEnvelope přidána dvojice elementů s adresou odesílatele a adresou příjemce (dmSenderAddress a dmRecipientAddress)
-    27.2.2009  verze 0.7   - element dmMessageStatus změněn na typ integer  
-                           - element dmMessageStatus se stavem DZ přidán i do stažené zprávy (tReturnedMessage), stažené obálky DZ (tReturnedMessageEnvelope) a Dodejky (tDelivery)
-                           - upraveno pořadí elementů v gMessageEnvelopSub (dmAllowSubstDelivery na konec)
-    20.3.2009  verze 1.0   - přidány elementy (na první úrovni) k jednotlivým typům pro použití jako parametry ve WSDL (document/literal)+komplexní typy pro tyto elementy popisující jednotlivé parametry operací
-                           - podle požadavku MV upraveny v grupě gMessageEnvelopeSub elementy pro Číslo jednací a Spisovou značku: zdvojeny (1x pro odesílatel, 1x pro příjemce), u původních změněno jméno, nově tedy jsou: dmRecipientRefNumber, dmSenderRefNumber, dmRecipientIdent, dmSenderIdent
-    31.3.2009  verze 1.1.  - opraven překlep v complex type tListOfMessOutput: z dmRecieverOrgUnit na dmRecipientOrgUnit
-                           - sjednoceno pojmenování elementů - u typu tStatus jsou elementy dmStatusCode a dmStatusMessage (místo StatusCode a StatusMessage)
-                           - upravena vlastnost atributu dmFileDescr u popisu přílohy - nově je Required, protože se objeví v seznamu příloh DZ na portále 
-    15.4.2009  verze 1.2   - přidán element DummyOperation pro WS stejného jména
-    13.5.2009  verze 1.5   - opraveno jméno elementu dmSenderOrgUnitNum a dmRecipientOrgUnitNum ve vstupních parametrech WS pro získání seznamu, aby bylo shodné se stejným elementem u zprávy
-                           - opraven typ u elementu MarkMessageAsDownloadedResponse - chyběl obalovací element dmStatus
-                           - opraveno omezení u typu tIdDm z length na maxLength
-                           - doplněna kardinalita některých elementů v odpovědích od serveru - při výskytu některých chyb se vrací pouze Status
-                           - doplněna vlastnosti nillable = TRUE u některých elementů vč. stringových
-     3.6.2009  verze 2.0   - novela zákona 300/2008 Sb. a ChangeRequesty
-                           - do obálky stažené zprávy (a tudíž do všech struktur pracujících se zprávou) přibyl element dmSenderType typu int pro typ DS odesílatele 
-                           - do stažené zprávy (tReturnedMessage), stažené obálky zprávy (tReturnedMessageEnvelope) a do staženého seznamu zpráv (tRecord) přibyl element dmAttachmentSize typu int pro velikost přílohy v DS
-                           - na vstup služby CreateMessage (element CreateMessage) přibyl nepovinný element dmOVM pro příznak, je-li DZ odesílána v režimu OVM (pro DS typu OVM nepodstatný)
-     9.6.2009 verze 2.1    - do obálky zprávy přibyl nepovinný element dmAmbiguousRecipient  
-                           - změna namespace pro verzi ISDS 2.0                      
-    ******************************************************************* -->
 <xs:schema xmlns:tns="http://isds.czechpoint.cz/v20" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://isds.czechpoint.cz/v20" elementFormDefault="qualified">
 	<xs:simpleType name="tIdDm">
 		<xs:annotation>

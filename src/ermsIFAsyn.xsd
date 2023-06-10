@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML Studio 7.1.6.1440 (http://www.liquid-technologies.com)-->
-<!--
-	Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
-	Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.
--->
-<!--CHANGE 2011-04-28 Změny proti verzi připomínkované výrobci spisových služeb ze dne 24.4.2011 jsou označeny přímo v textu komentáře, začínajícími stejně jako tento řádek. Tyto změny se snaží uplatnit některé jejich připomínky. -->
 <xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api" elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api" id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>
+      Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
+      Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.
+    </xs:documentation>
+  </xs:annotation>
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20" />
   <xs:include schemaLocation="ermsTypes.xsd" />
   <xs:include schemaLocation="ermsAsynU.xsd" />
@@ -33,7 +33,6 @@
       <xs:attributeGroup ref="gDavkaInfo" />
     </xs:complexType>
   </xs:element>
-  <!--CHANGE v. 2.0. : pridan response -->
   <xs:element name="ermsAsynResponse">
     <xs:annotation>
       <xs:documentation />
@@ -72,7 +71,6 @@ Textový popis výsledku příjmu dávky.
       <xs:attributeGroup ref="gDavkaInfoResponse" />
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2011-04-28 Přidána nová služba. Tato byla přesunuta z ermsIFSyn, protože ta je provozována pouze na straně ESSL zatímco ermsIFAsyn je provozována na obou stranách, tedy ISSD i ESSL. To zajistí schopnost otestovat technologie a síťovou dostupnost oubou stran. -->
   <xs:element name="WsTestRequest">
     <xs:complexType>
       <xs:sequence>
@@ -91,11 +89,8 @@ Položka "provedlKdy" může sloužit ke kontrole nastavení aktuálního času 
         </xs:element>
       </xs:sequence>
       <xs:attributeGroup ref="gZdrojCil" />
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Zdroj na "required". -->
-      <!--CHANGE 2015-06-24 Změna povinnosti atributu Cil na "required". -->
     </xs:complexType>
   </xs:element>
-  <!--CHANGE 2011-04-28 Přidána nová služba. Tato byla přesunuta z ermsIFSyn, protože ta je provozována pouze na straně ESSL zatímco ermsIFAsyn je provozována na obou stranách, tedy ISSD i ESSL. To zajistí schopnost otestovat technologie a síťovou dostupnost oubou stran. -->
   <xs:element name="WsTestResponse">
     <xs:complexType>
       <xs:sequence>

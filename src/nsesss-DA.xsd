@@ -19,7 +19,6 @@
 		</xs:appinfo>
 	</xs:annotation>
 
-	<!-- definice kořenových elementů -->
 	<xs:element name="Seznam">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Sada elementů pro zaznamenání entit, které byly zařazeny do skartačního řízení nebo které byly vybrány za archiválie.</xs:documentation>
@@ -60,9 +59,7 @@
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
-	<!-- konec definice kořenových elementů -->
 
-	<!-- definice jednoduchých typů -->
 	<xs:simpleType name="tOperace">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Prvek pro zaznamenání operace, která se provádí ve skartačním řízení.</xs:documentation>
@@ -74,9 +71,7 @@
 			<xs:enumeration value="vyřadit z výběru"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- konec definice jednoduchých typů -->
 
-	<!-- definice složených typů -->
 	<xs:complexType name="tEntitaSeznamu">
 		<xs:annotation>
 			<xs:documentation xml:lang="cs">Sada elementů pro zaznamenání entity, její identifikace přidělené původcem a stanovené operace nebo příslušného identifikátoru digitálního archivu.</xs:documentation>
@@ -97,5 +92,4 @@
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-	<!-- konec definice složených typů -->
 </xs:schema>
