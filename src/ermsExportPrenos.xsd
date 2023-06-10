@@ -150,7 +150,7 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
       </xs:choice>
     </xs:sequence>
   </xs:group>
-  <xs:element name="PrenosovaDavka">
+  <xs:element name="Davka">
     <xs:annotation>
       <xs:documentation>Soubor popisující obsah celé přenosové dávky ve formátu ZIP
 Tento soubor musí být v root adresáři ZIPu se jménem manifest.xml
@@ -183,12 +183,20 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
         </xs:element>
         <xs:element name="Cil" type="sIdInformacnihoSystemu"/>
         <xs:element minOccurs="0" name="Puvodce" type="tAdresat"/>
+        <xs:element name="TypDavky">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="Prenos"/>
+              <xs:enumeration value="Export"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
         <xs:element minOccurs="0" name="UcelDavky" type="xs:string"/>
         <xs:element minOccurs="0" name="Poznamka" type="xs:string"/>
         <xs:element name="Obsah">
           <xs:complexType>
             <xs:sequence maxOccurs="unbounded">
-              <xs:element name="File">
+              <xs:element name="Entita">
                 <xs:complexType>
                   <xs:attribute name="Poradi" use="required">
                     <xs:simpleType>
