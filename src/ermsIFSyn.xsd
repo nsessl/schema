@@ -759,7 +759,7 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="IdTypoveho" type="tIdTypovehoSpisu"/>
+        <xs:element name="TypovySpisId" type="tIdTypovehoSpisu"/>
         <xs:element name="Autorizace" type="tAutorizace">
           <xs:annotation>
             <xs:documentation xml:lang="CS">Identifikace osoby, která žádá o informace o spisu. 
