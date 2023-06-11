@@ -95,7 +95,7 @@ Přijatá z pohledu aktuálně volaného systému, systému který odpovídá na
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Cislo" type="xs:unsignedLong">
+              <xs:element name="Cislo" type="sPoradi">
                 <xs:annotation>
                   <xs:documentation>Identifikace dávky. Odpovídá hodnotě položky "Poradi" uvedené v hlavičce ermsAsyn dávky.</xs:documentation>
                 </xs:annotation>
@@ -115,7 +115,7 @@ Odeslaná dávka z pohledu aktuálně volaného systému, systému který odpov�
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Cislo" type="xs:unsignedLong">
+              <xs:element name="Cislo" type="sPoradi">
                 <xs:annotation>
                   <xs:documentation>Identifikace dávky. Odpovídá hodnotě položky "Poradi" uvedené v hlavičce ermsAsyn dávky.</xs:documentation>
                 </xs:annotation>

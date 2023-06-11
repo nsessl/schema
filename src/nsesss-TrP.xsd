@@ -238,7 +238,7 @@ Součástí identifikátoru je také ZdrojID, který slouží k identifikaci zdr
   </xs:complexType>
   <xs:group name="gSpolecneUdalost">
     <xs:sequence>
-      <xs:element name="Poradi" type="xs:unsignedLong">
+      <xs:element name="Poradi" type="xs:positiveInteger">
         <xs:annotation>
           <xs:documentation>Pořadové číslo události v rámci transakčního protokolu ERMS. 
 V číslování událostí mohou být mezery. 
