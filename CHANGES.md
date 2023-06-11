@@ -6,6 +6,8 @@
 * u většiny hodnot omezení zůstala, aby se minimalizovala nutnost
   úpravy stávajích aplikací, které v některých případech počítají s
   pevnou délkou
+* schémata již nepoužívají `nillable="true"` -- místo toho je daný
+  element nepovinný
 
 ## Změny API
 
@@ -45,21 +47,26 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
 * Položky číselníku mohou přenášet větší množství nepovinných položek
   podle potřeby
 
+### Asynchronní rozhraní
 
-### Přidány následující události do asynchronního rozhraní
+#### Přidány následující události
 
-* SpisVlozeniDoTypovehoSpisu
-* SpisVyjmutiZTypovehoSpisu
-* DokumentZalozeni
+* DokumentOdebran
+* DokumentSkartacniNavrh
 * DokumentUzavreni
 * DokumentVyrizeni
-* SpisVraceni
+* DokumentZalozeni
 * OdkazVytvoreni
 * OdkazZruseni
-* DokumentOdebran
 * SpisOdebran
-* DokumentSkartacniNavrh
 * SpisSkartacniNavrh
+* SpisVlozeniDoTypovehoSpisu
+* SpisVraceni
+* SpisVyjmutiZTypovehoSpisu
+
+#### Další důležité změny
+
+
 
 ## Změny v transakčním protokolu
 

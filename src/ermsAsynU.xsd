@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api" elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api" id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xml:lang="cs">
+<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api"
+  elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
+  id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
   <xs:annotation>
     <xs:documentation>
       Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
       Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.
     </xs:documentation>
   </xs:annotation>
-  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20" />
-  <xs:include schemaLocation="ermsTypes.xsd" />
+  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
+  <xs:include schemaLocation="ermsTypes.xsd"/>
   <xs:element name="DokumentPostoupeni">
     <xs:annotation>
       <xs:documentation>Hlášení z ESSL do ISSD.
@@ -24,10 +25,10 @@ Toto oprávnění budou mít od této chvíle pouze uživatelé ISSD do kterého
 							Tento popis obsahuje také všechny odkazy na obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentZalozeni">
@@ -37,11 +38,11 @@ Založení dokumentu. Dříve bylo spojeno s přidělením ČJ dokumentu na zák
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ProfilDokumentu" type="tProfilDokumentuZalozeni" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
-        <xs:element name="Autorizace" type="tAutorizace" />
+        <xs:element name="ProfilDokumentu" type="tProfilDokumentuZalozeni"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentUprava">
@@ -51,11 +52,11 @@ Změna profilu existujícího dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ProfilDokumentuUprava" type="tProfilDokumentuUprava" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="ProfilDokumentuUprava" type="tProfilDokumentuUprava"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentZmenaZpracovatele">
@@ -68,16 +69,16 @@ Změna zpracovatele dokumentu. </xs:documentation>
         <xs:element name="DokumentPredani">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdDokument" type="tIdDokument" />
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+              <xs:element name="IdDokument" type="tIdDokument"/>
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Prebirajici" type="tPrebirajici" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Prebirajici" type="tPrebirajici"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentVlozeniDoSpisu">
@@ -88,7 +89,7 @@ Vloženi dokumentu do spisu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu" />
+        <xs:element name="SpisId" type="tIdSpisu"/>
         <xs:element name="DokumentyVlozene">
           <xs:annotation>
             <xs:documentation>Je-li použit element DokumentUplnyVlozeny, pak je jsou nejprve založenydokument uvedený v tomto elementu, poté je do spisu vloženy.
@@ -119,7 +120,7 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
                         </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:integer">
-                            <xs:minInclusive value="1" />
+                            <xs:minInclusive value="1"/>
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
@@ -129,8 +130,8 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
                         </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
-                            <xs:enumeration value="Vlozen" />
-                            <xs:enumeration value="Vyjmut" />
+                            <xs:enumeration value="Vlozen"/>
+                            <xs:enumeration value="Vyjmut"/>
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
@@ -140,7 +141,7 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
                 <xs:element name="DokumentIdVlozeny">
                   <xs:complexType>
                     <xs:sequence>
-                      <xs:element name="IdDokument" type="tIdDokument" />
+                      <xs:element name="IdDokument" type="tIdDokument"/>
                       <xs:element minOccurs="0" name="PoradiVeSpisu">
                         <xs:annotation>
                           <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.
@@ -150,7 +151,7 @@ V případě exportu popisných dat musí být tato položka vyplněna.</xs:docu
                         </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:integer">
-                            <xs:minInclusive value="1" />
+                            <xs:minInclusive value="1"/>
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
@@ -160,8 +161,8 @@ V případě exportu popisných dat musí být tato položka vyplněna.</xs:docu
                         </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
-                            <xs:enumeration value="Vlozen" />
-                            <xs:enumeration value="Vyjmut" />
+                            <xs:enumeration value="Vlozen"/>
+                            <xs:enumeration value="Vyjmut"/>
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
@@ -172,10 +173,10 @@ V případě exportu popisných dat musí být tato položka vyplněna.</xs:docu
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentVyjmutiZeSpisu">
@@ -185,24 +186,24 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu" />
+        <xs:element name="SpisId" type="tIdSpisu"/>
         <xs:element name="DokumentyVlozene">
           <xs:complexType>
             <xs:sequence minOccurs="1" maxOccurs="1">
               <xs:element name="DokumentIdVlozeny">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="IdDokument" type="tIdDokument" />
+                    <xs:element name="IdDokument" type="tIdDokument"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentVyrizeni">
@@ -213,12 +214,12 @@ Vyřízení dokumentu. Při vyřízení dokumentu dojde současně k převedení
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="IdDokument" type="tIdDokument" />
-        <xs:element name="Vyrizeni" type="tVyrizeni" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="IdDokument" type="tIdDokument"/>
+        <xs:element name="Vyrizeni" type="tVyrizeni"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentOtevreni">
@@ -228,11 +229,11 @@ Otevření vyřízeného nebo uzavřeného dokumentu. Výsledkem je nevyřízen�
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DokumentOtevreni" type="tIdDokument" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="DokumentOtevreni" type="tIdDokument"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentUzavreni">
@@ -242,16 +243,16 @@ Uzavření dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="IdDokument" type="tIdDokument" />
+        <xs:element name="IdDokument" type="tIdDokument"/>
         <xs:element name="DatumCasUzavreni">
           <xs:simpleType>
-            <xs:restriction base="xs:dateTime" />
+            <xs:restriction base="xs:dateTime"/>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentZruseni">
@@ -261,11 +262,11 @@ Stornování dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DokumentZruseni" type="tIdDokument" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="DokumentZruseni" type="tIdDokument"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentVraceni">
@@ -277,11 +278,11 @@ Jedná se o reversní událost k události DokumentPostoupeni.</xs:documentation
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DokumentId" type="tIdDokument" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="DokumentId" type="tIdDokument"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisPostoupeni">
@@ -292,11 +293,11 @@ Jedná se o reversní událost k události DokumentPostoupeni.</xs:documentation
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ProfilSpisu" type="tProfilSpisu" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="ProfilSpisu" type="tProfilSpisu"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisZalozeni">
@@ -314,10 +315,10 @@ SpisovaZnacka, PodaciDenik, PodaciDenikRok, PodaciDenikPoradi je přidělována 
 Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCasPredaniDoArchivuNeboStornovani se v této situaci neuvádějí.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisUprava">
@@ -327,11 +328,11 @@ Událost popisující změnu evidenčních položek spisu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ProfilSpisuUprava" type="tProfilSpisuUprava" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="ProfilSpisuUprava" type="tProfilSpisuUprava"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisZmenaZpracovatele">
@@ -344,16 +345,16 @@ Změna zpracovatele spisu.</xs:documentation>
         <xs:element name="SpisPredani">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdSpis" type="tIdSpisu" />
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+              <xs:element name="IdSpis" type="tIdSpisu"/>
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Prebirajici" type="tPrebirajici" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Prebirajici" type="tPrebirajici"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisVyrizeni">
@@ -364,12 +365,12 @@ Vyřízení spisu a všech dokumentů v něm vložených. V tomto okamžiku mus�
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu" />
-        <xs:element name="Vyrizeni" type="tVyrizeni" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="SpisId" type="tIdSpisu"/>
+        <xs:element name="Vyrizeni" type="tVyrizeni"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisOtevreni">
@@ -381,18 +382,18 @@ Vyřízení případně uzavření v něm vložených dokumentů se nerealizuje.
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu" />
+        <xs:element name="SpisId" type="tIdSpisu"/>
         <xs:element minOccurs="0" maxOccurs="1" name="Duvod">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="50" />
+              <xs:maxLength value="50"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisUzavreni">
@@ -403,16 +404,16 @@ Uzavření spisu a všech dokumentů v něm vložených. V tomto okamžiku musí
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu" />
+        <xs:element name="SpisId" type="tIdSpisu"/>
         <xs:element name="DatumCasUzavreni">
           <xs:simpleType>
-            <xs:restriction base="xs:dateTime" />
+            <xs:restriction base="xs:dateTime"/>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisZruseni">
@@ -422,18 +423,18 @@ Stornování spisu a všech dokumentů v něm vložených.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu" />
+        <xs:element name="SpisId" type="tIdSpisu"/>
         <xs:element minOccurs="0" maxOccurs="1" name="Duvod">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="50" />
+              <xs:maxLength value="50"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisVraceni">
@@ -445,11 +446,11 @@ Jedná se o reversní událost k události SpisPostoupeni.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu" />
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="SpisId" type="tIdSpisu"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DoruceniUprava">
@@ -462,16 +463,16 @@ Jedná se o reversní událost k události SpisPostoupeni.</xs:documentation>
         <xs:element name="DokumentDoruceni">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdDokument" type="tIdDokument" />
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
-              <xs:element name="Doruceni" type="tDoruceni" />
+              <xs:element name="IdDokument" type="tIdDokument"/>
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+              <xs:element name="Doruceni" type="tDoruceni"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="VypraveniZalozeni">
@@ -484,16 +485,16 @@ Zaevidování nového vypravení k dokumentu. Zásilka po této akci zůstává 
         <xs:element name="DokumentZaevidovaniVypraveni">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdDokument" type="tIdDokument" />
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
-              <xs:element minOccurs="1" maxOccurs="1" name="Vypraveni" type="tVypraveni" />
+              <xs:element name="IdDokument" type="tIdDokument"/>
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+              <xs:element minOccurs="1" maxOccurs="1" name="Vypraveni" type="tVypraveni"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="VypraveniUprava">
@@ -506,16 +507,16 @@ Změna informací o připravovaném vypravení, vypravení nesmí být Vypaveno,
         <xs:element name="DokumentUpravaVypraveni">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdDokument" type="tIdDokument" />
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
-              <xs:element minOccurs="1" maxOccurs="1" name="Vypraveni" type="tVypraveni" />
+              <xs:element name="IdDokument" type="tIdDokument"/>
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+              <xs:element minOccurs="1" maxOccurs="1" name="Vypraveni" type="tVypraveni"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="VypraveniVypraveno">
@@ -530,25 +531,25 @@ Tato událost se předává z ISSD do ESSL většinou pouze u vypravení typu Os
           <xs:element name="DokumentVypravenoVypraveni">
             <xs:complexType>
               <xs:sequence>
-                <xs:element name="IdDokument" type="tIdDokument" />
-                <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+                <xs:element name="IdDokument" type="tIdDokument"/>
+                <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
                 <xs:element maxOccurs="unbounded" name="Vypraveni">
                   <xs:complexType>
                     <xs:sequence>
-                      <xs:element name="Identifikator" type="tIdentifikator" />
-                      <xs:element name="ZasilkaInfo" type="tZasilkaInfoVypraveni" />
+                      <xs:element name="Identifikator" type="tIdentifikator"/>
+                      <xs:element name="ZasilkaInfo" type="tZasilkaInfoVypraveni"/>
                     </xs:sequence>
                   </xs:complexType>
                 </xs:element>
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element name="Obalka" type="tObalka" />
+          <xs:element name="Obalka" type="tObalka"/>
         </xs:choice>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="VypraveniDoruceno">
@@ -564,25 +565,25 @@ Zásadní položkou pro posouzení, zda a jak byla zásilka doručena je element
           <xs:element name="DokumentDoruceniVypraveni">
             <xs:complexType>
               <xs:sequence>
-                <xs:element name="IdDokument" type="tIdDokument" />
-                <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+                <xs:element name="IdDokument" type="tIdDokument"/>
+                <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
                 <xs:element maxOccurs="1" name="Vypraveni">
                   <xs:complexType>
                     <xs:sequence>
-                      <xs:element name="Identifikator" type="tIdentifikator" />
-                      <xs:element name="ZasilkaInfo" type="tZasilkaInfoVypraveni" />
+                      <xs:element name="Identifikator" type="tIdentifikator"/>
+                      <xs:element name="ZasilkaInfo" type="tZasilkaInfoVypraveni"/>
                     </xs:sequence>
                   </xs:complexType>
                 </xs:element>
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element name="Obalka" type="tObalka" />
+          <xs:element name="Obalka" type="tObalka"/>
         </xs:choice>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="VypraveniZruseni">
@@ -595,22 +596,22 @@ Zrušení/stornování jednoho konkrétního vypravení dokumentu.</xs:documenta
         <xs:element name="DokumentZruseniVypraveni">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdDokument" type="tIdDokument" />
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+              <xs:element name="IdDokument" type="tIdDokument"/>
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
               <xs:element name="Vypraveni">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="Identifikator" type="tIdentifikator" />
+                    <xs:element name="Identifikator" type="tIdentifikator"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="VypraveniPredatVypravne">
@@ -625,25 +626,25 @@ Pro tuto akci nesmí být Vypravení již Vypaveno, Doručeno, Zrušeno, Předá
         <xs:element minOccurs="0" maxOccurs="unbounded" name="Vypraveni">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Identifikator" type="tIdentifikator" />
+              <xs:element name="Identifikator" type="tIdentifikator"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" maxOccurs="unbounded" name="Obalka" type="tObalka" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Obalka" type="tObalka"/>
         <xs:element minOccurs="0" name="VypravnaKod">
           <xs:annotation>
             <xs:documentation>Možnost určit přímo, na kterou výpravnu má být předáno. Seznam výpraven lze získat prostřednictvím obecné synchronní funkce CiselnikZadostRequest.</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="50" />
+              <xs:maxLength value="50"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SouborZalozeni">
@@ -661,9 +662,9 @@ Vlastní binární obsah může být volitelně buď součástí této události
         <xs:element name="ZalozeniSouboru">
           <xs:complexType>
             <xs:sequence>
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
               <xs:choice>
-                <xs:element name="Soubor" type="tFile" />
+                <xs:element name="Soubor" type="tFile"/>
                 <xs:element name="SouborOdkaz" type="tFileLinkZalozeni">
                   <xs:annotation>
                     <xs:documentation>Zde je uvedena možnost, pro založení souboru, použít odkaz na soubor. To následně předpokládá, že příjemce těchto dat musí volat REST službu pro získání obsahu samotné nové verze el.souboru</xs:documentation>
@@ -673,10 +674,10 @@ Vlastní binární obsah může být volitelně buď součástí této události
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SouborNovaVerze">
@@ -691,9 +692,9 @@ Pokud je identifikátor elektronického souboru propojen současně na více dok
         <xs:element name="NovaVerzeSouboru">
           <xs:complexType>
             <xs:sequence>
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
               <xs:choice>
-                <xs:element name="Soubor" type="tFile" />
+                <xs:element name="Soubor" type="tFile"/>
                 <xs:element name="SouborOdkaz" type="tFileLink">
                   <xs:annotation>
                     <xs:documentation>Zde je uvedena možnost, pro založení nové verze souboru, použít odkaz na soubor. To následně předpokládá, že příjemce těchto dat musí volat REST službu pro získání obsahu samotné nové verze el.souboru</xs:documentation>
@@ -709,14 +710,14 @@ Pokud je identifikátor elektronického souboru propojen současně na více dok
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="50" />
+              <xs:maxLength value="50"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SouborZruseni">
@@ -729,15 +730,15 @@ Zrušení elektronického souboru. Touto operací dojde k odstranění, nejenom 
         <xs:element name="ZruseniSouboru">
           <xs:complexType>
             <xs:sequence>
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
-              <xs:element name="Soubor" type="tFileId" />
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+              <xs:element name="Soubor" type="tFileId"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SouborVlozitKDokumentu">
@@ -751,16 +752,16 @@ Jeden elektronický soubor může být připojen k více dokumentům současně.
         <xs:element name="DokumentZaevidovaniSouboru">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdDokument" type="tIdDokument" />
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
-              <xs:element name="Soubor" type="tFileLink" />
+              <xs:element name="IdDokument" type="tIdDokument"/>
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+              <xs:element name="Soubor" type="tFileLink"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SouborVyjmoutZDokumentu">
@@ -773,16 +774,16 @@ Odstraní z dokumentu vazbu na zadaný elektronický soubor. Soubor samotný ale
         <xs:element name="DokumentZruseniSouboru">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdDokument" type="tIdDokument" />
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
-              <xs:element name="Soubor" type="tFileId" />
+              <xs:element name="IdDokument" type="tIdDokument"/>
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+              <xs:element name="Soubor" type="tFileId"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SouborVlozitKVypraveni">
@@ -796,16 +797,16 @@ Vypravení nesmí být Vypaveno, Doručeno, Zrušeno, Předáno výpravně.</xs:
         <xs:element name="DokumentZaevidovaniSouboruVypraveni">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdDokument" type="tIdDokument" />
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+              <xs:element name="IdDokument" type="tIdDokument"/>
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
               <xs:element minOccurs="0" name="Vypraveni">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="Identifikator" type="tIdentifikator" />
+                    <xs:element name="Identifikator" type="tIdentifikator"/>
                     <xs:element name="ZasilkaInfo">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="Soubor" type="tFileLink" />
+                          <xs:element name="Soubor" type="tFileLink"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
@@ -815,10 +816,10 @@ Vypravení nesmí být Vypaveno, Doručeno, Zrušeno, Předáno výpravně.</xs:
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SouborVyjmoutZVypraveni">
@@ -832,16 +833,16 @@ Vypravení nesmí být Vypaveno, Doručeno, Zrušeno, Předáno výpravně.</xs:
         <xs:element name="DokumentZruseniSouboruVypraveni">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IdDokument" type="tIdDokument" />
-              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+              <xs:element name="IdDokument" type="tIdDokument"/>
+              <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
               <xs:element name="Vypraveni">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="Identifikator" type="tIdentifikator" />
+                    <xs:element name="Identifikator" type="tIdentifikator"/>
                     <xs:element name="ZasilkaInfo">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="Soubor" type="tFileId" />
+                          <xs:element name="Soubor" type="tFileId"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
@@ -851,10 +852,10 @@ Vypravení nesmí být Vypaveno, Doručeno, Zrušeno, Předáno výpravně.</xs:
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentExterniSpousteciUdalost">
@@ -864,16 +865,16 @@ Zápis datumu externí spouštěcí události</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DokumentId" type="tIdSpisu" />
+        <xs:element name="DokumentId" type="tIdSpisu"/>
         <xs:element minOccurs="1" maxOccurs="1" name="DatumExterniUdalosti">
           <xs:simpleType>
-            <xs:restriction base="xs:date" />
+            <xs:restriction base="xs:date"/>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisExterniSpousteciUdalost">
@@ -883,16 +884,16 @@ Zápis datumu externí spouštěcí události</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu" />
+        <xs:element name="SpisId" type="tIdSpisu"/>
         <xs:element minOccurs="1" maxOccurs="1" name="DatumExterniUdalosti">
           <xs:simpleType>
-            <xs:restriction base="xs:date" />
+            <xs:restriction base="xs:date"/>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentSkartovano">
@@ -902,24 +903,24 @@ Postoupení informace o proběhlé skartaci dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DokumentId" type="tIdSpisu" />
+        <xs:element name="DokumentId" type="tIdSpisu"/>
         <xs:element name="SkartacniOperace">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:enumeration value="ano" />
-              <xs:enumeration value="ne" />
+              <xs:enumeration value="ano"/>
+              <xs:enumeration value="ne"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
         <xs:element minOccurs="1" maxOccurs="1" name="DatumSkartace">
           <xs:simpleType>
-            <xs:restriction base="xs:date" />
+            <xs:restriction base="xs:date"/>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisSkartovano">
@@ -929,24 +930,24 @@ Postoupení informace o proběhlé skartaci.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu" />
+        <xs:element name="SpisId" type="tIdSpisu"/>
         <xs:element name="SkartacniOperace">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:enumeration value="ano" />
-              <xs:enumeration value="ne" />
+              <xs:enumeration value="ano"/>
+              <xs:enumeration value="ne"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
         <xs:element minOccurs="1" maxOccurs="1" name="DatumSkartace">
           <xs:simpleType>
-            <xs:restriction base="xs:date" />
+            <xs:restriction base="xs:date"/>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SouborOdemkniFinal">
@@ -958,14 +959,14 @@ Postoupení informace o proběhlé skartaci.</xs:documentation>
         <xs:element name="OdemknutiSouboru">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Soubor" type="tFileId" />
+              <xs:element name="Soubor" type="tFileId"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisVlozeniDoTypovehoSpisu">
@@ -991,10 +992,10 @@ Vloženi spisu do typového spisu a to do součásti určené zadanou věcnou sk
             <xs:documentation>ID vkládaného spisu </xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisVyjmutiZTypovehoSpisu">
@@ -1014,10 +1015,10 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
             <xs:documentation>ID vyjímaného spisu</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="OdkazVytvoreni">
@@ -1026,13 +1027,13 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ZdrojIdentifikator" type="tIdentifikator" />
-        <xs:element name="CilIdentifikator" type="tIdentifikator" />
+        <xs:element name="ZdrojIdentifikator" type="tIdentifikator"/>
+        <xs:element name="CilIdentifikator" type="tIdentifikator"/>
         <xs:element name="TypOdkazu" type="sTypOdkazu"/>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="OdkazZruseni">
@@ -1041,13 +1042,13 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ZdrojIdentifikator" type="tIdentifikator" />
-        <xs:element name="CilIdentifikator" type="tIdentifikator" />
+        <xs:element name="ZdrojIdentifikator" type="tIdentifikator"/>
+        <xs:element name="CilIdentifikator" type="tIdentifikator"/>
         <xs:element name="TypOdkazu" type="sTypOdkazu"/>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentOdebran">
@@ -1056,16 +1057,16 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="IdDokument" type="tIdDokument" />
+        <xs:element name="IdDokument" type="tIdDokument"/>
         <xs:element name="DuvodText" type="xs:string">
           <xs:annotation>
             <xs:documentation>Důvod odebrání výhradní správy</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisOdebran">
@@ -1074,16 +1075,16 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu" />
+        <xs:element name="SpisId" type="tIdSpisu"/>
         <xs:element name="DuvodText" type="xs:string">
           <xs:annotation>
             <xs:documentation>Důvod odebrání výhradní správy</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace" />
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData" />
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="DokumentSkartacniNavrh">
@@ -1097,7 +1098,7 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
         <xs:element name="Autorizace" type="tAutorizace"/>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="SpisSkartacniNavrh">
@@ -1111,53 +1112,53 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
         <xs:element name="Autorizace" type="tAutorizace"/>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:group name="gUdalost">
     <xs:sequence>
       <xs:choice>
-        <xs:element ref="DokumentZalozeni" />
-        <xs:element ref="DokumentUprava" />
-        <xs:element ref="DokumentZruseni" />
-        <xs:element ref="SpisZalozeni" />
-        <xs:element ref="SpisUprava" />
-        <xs:element ref="DokumentVlozeniDoSpisu" />
-        <xs:element ref="DokumentVyjmutiZeSpisu" />
-        <xs:element ref="SpisVyrizeni" />
-        <xs:element ref="SpisOtevreni" />
-        <xs:element ref="SpisZruseni" />
-        <xs:element ref="DoruceniUprava" />
-        <xs:element ref="VypraveniZalozeni" />
-        <xs:element ref="VypraveniUprava" />
-        <xs:element ref="VypraveniVypraveno" />
-        <xs:element ref="VypraveniDoruceno" />
-        <xs:element ref="VypraveniZruseni" />
-        <xs:element ref="VypraveniPredatVypravne" />
-        <xs:element ref="SouborZalozeni" />
-        <xs:element ref="SouborNovaVerze" />
-        <xs:element ref="SouborZruseni" />
-        <xs:element ref="SouborVlozitKDokumentu" />
-        <xs:element ref="SouborVyjmoutZDokumentu" />
-        <xs:element ref="SouborVlozitKVypraveni" />
-        <xs:element ref="SouborVyjmoutZVypraveni" />
-        <xs:element ref="DokumentZmenaZpracovatele" />
-        <xs:element ref="SpisZmenaZpracovatele" />
-        <xs:element ref="DokumentVraceni" />
-        <xs:element ref="SpisVraceni" />
-        <xs:element ref="DokumentVyrizeni" />
-        <xs:element ref="SpisUzavreni" />
-        <xs:element ref="DokumentUzavreni" />
-        <xs:element ref="DokumentOtevreni" />
-        <xs:element ref="DokumentPostoupeni" />
-        <xs:element ref="SpisPostoupeni" />
-        <xs:element ref="DokumentExterniSpousteciUdalost" />
-        <xs:element ref="SpisExterniSpousteciUdalost" />
-        <xs:element ref="DokumentSkartovano" />
-        <xs:element ref="SpisSkartovano" />
-        <xs:element ref="SouborOdemkniFinal" />
-        <xs:element ref="SpisVlozeniDoTypovehoSpisu" />
-        <xs:element ref="SpisVyjmutiZTypovehoSpisu" />
+        <xs:element ref="DokumentZalozeni"/>
+        <xs:element ref="DokumentUprava"/>
+        <xs:element ref="DokumentZruseni"/>
+        <xs:element ref="SpisZalozeni"/>
+        <xs:element ref="SpisUprava"/>
+        <xs:element ref="DokumentVlozeniDoSpisu"/>
+        <xs:element ref="DokumentVyjmutiZeSpisu"/>
+        <xs:element ref="SpisVyrizeni"/>
+        <xs:element ref="SpisOtevreni"/>
+        <xs:element ref="SpisZruseni"/>
+        <xs:element ref="DoruceniUprava"/>
+        <xs:element ref="VypraveniZalozeni"/>
+        <xs:element ref="VypraveniUprava"/>
+        <xs:element ref="VypraveniVypraveno"/>
+        <xs:element ref="VypraveniDoruceno"/>
+        <xs:element ref="VypraveniZruseni"/>
+        <xs:element ref="VypraveniPredatVypravne"/>
+        <xs:element ref="SouborZalozeni"/>
+        <xs:element ref="SouborNovaVerze"/>
+        <xs:element ref="SouborZruseni"/>
+        <xs:element ref="SouborVlozitKDokumentu"/>
+        <xs:element ref="SouborVyjmoutZDokumentu"/>
+        <xs:element ref="SouborVlozitKVypraveni"/>
+        <xs:element ref="SouborVyjmoutZVypraveni"/>
+        <xs:element ref="DokumentZmenaZpracovatele"/>
+        <xs:element ref="SpisZmenaZpracovatele"/>
+        <xs:element ref="DokumentVraceni"/>
+        <xs:element ref="SpisVraceni"/>
+        <xs:element ref="DokumentVyrizeni"/>
+        <xs:element ref="SpisUzavreni"/>
+        <xs:element ref="DokumentUzavreni"/>
+        <xs:element ref="DokumentOtevreni"/>
+        <xs:element ref="DokumentPostoupeni"/>
+        <xs:element ref="SpisPostoupeni"/>
+        <xs:element ref="DokumentExterniSpousteciUdalost"/>
+        <xs:element ref="SpisExterniSpousteciUdalost"/>
+        <xs:element ref="DokumentSkartovano"/>
+        <xs:element ref="SpisSkartovano"/>
+        <xs:element ref="SouborOdemkniFinal"/>
+        <xs:element ref="SpisVlozeniDoTypovehoSpisu"/>
+        <xs:element ref="SpisVyjmutiZTypovehoSpisu"/>
         <xs:element ref="OdkazVytvoreni"/>
         <xs:element ref="OdkazZruseni"/>
         <xs:element ref="DokumentOdebran"/>
@@ -1170,9 +1171,9 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+              <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
             </xs:sequence>
-            <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
+            <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
           </xs:complexType>
         </xs:element>
       </xs:choice>
@@ -1187,24 +1188,24 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="8" />
+              <xs:maxLength value="8"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Popis" nillable="true">
+        <xs:element name="Popis" minOccurs="0">
           <xs:annotation>
             <xs:documentation>Český popis výsledku operace.</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="255" />
+              <xs:maxLength value="255"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required" />
-      <xs:attribute name="Poradi" type="xs:integer" use="required" />
-      <xs:attribute name="DatumVzniku" type="xs:dateTime" />
+      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
+      <xs:attribute name="Poradi" type="xs:integer" use="required"/>
+      <xs:attribute name="DatumVzniku" type="xs:dateTime"/>
     </xs:complexType>
   </xs:element>
 </xs:schema>

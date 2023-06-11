@@ -471,14 +471,14 @@ Tedy např. 'TypDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si b
   <xs:element name="DavkaZadostResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Udalosti" nillable="true">
+        <xs:element minOccurs="0" name="Udalosti">
           <xs:complexType>
             <xs:sequence minOccurs="1" maxOccurs="unbounded">
               <xs:group ref="gUdalost"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="Zpravy" nillable="true">
+        <xs:element minOccurs="0" name="Zpravy">
           <xs:complexType>
             <xs:sequence maxOccurs="unbounded">
               <xs:element ref="Zprava"/>

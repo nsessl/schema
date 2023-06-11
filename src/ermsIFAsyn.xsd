@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api" elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api" id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xml:lang="cs">
+<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api"
+  elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
+  id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
   <xs:annotation>
     <xs:documentation>
       Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
       Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.
     </xs:documentation>
   </xs:annotation>
-  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20" />
-  <xs:include schemaLocation="ermsTypes.xsd" />
-  <xs:include schemaLocation="ermsAsynU.xsd" />
+  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
+  <xs:include schemaLocation="ermsTypes.xsd"/>
+  <xs:include schemaLocation="ermsAsynU.xsd"/>
   <xs:element name="ermsAsyn">
     <xs:complexType>
       <xs:sequence>
@@ -19,24 +20,24 @@
           </xs:annotation>
           <xs:complexType>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
-              <xs:group ref="gUdalost" />
+              <xs:group ref="gUdalost"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="Zpravy" nillable="true">
+        <xs:element minOccurs="0" name="Zpravy">
           <xs:complexType>
             <xs:sequence maxOccurs="unbounded">
-              <xs:element ref="Zprava" />
+              <xs:element ref="Zprava"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attributeGroup ref="gDavkaInfo" />
+      <xs:attributeGroup ref="gDavkaInfo"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="ermsAsynResponse">
     <xs:annotation>
-      <xs:documentation />
+      <xs:documentation/>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -50,23 +51,23 @@ response s vyplněným chybovým kódem a popisem chyby.</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="8" />
+              <xs:maxLength value="8"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="Popis" nillable="true">
+        <xs:element name="Popis" minOccurs="0">
           <xs:annotation>
             <xs:documentation>Textový popis výsledku příjmu dávky.
 Úspěšný příjem dávky odpovídá vždy pouze textu "OK".</xs:documentation>
           </xs:annotation>
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="255" />
+              <xs:maxLength value="255"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
       </xs:sequence>
-      <xs:attributeGroup ref="gDavkaInfoResponse" />
+      <xs:attributeGroup ref="gDavkaInfoResponse"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="WsTestRequest">
@@ -86,7 +87,7 @@ Položka "provedlKdy" může sloužit ke kontrole nastavení aktuálního času 
           </xs:annotation>
         </xs:element>
       </xs:sequence>
-      <xs:attributeGroup ref="gZdrojCil" />
+      <xs:attributeGroup ref="gZdrojCil"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="WsTestResponse">
@@ -115,11 +116,11 @@ Přijatá z pohledu aktuálně volaného systému, systému který odpovídá na
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:enumeration value="Neodeslana" />
-                    <xs:enumeration value="Odeslana" />
-                    <xs:enumeration value="OdeslanaOdmitnuta" />
-                    <xs:enumeration value="PotvrzenaBezChyb" />
-                    <xs:enumeration value="PotvrzenaSChybou" />
+                    <xs:enumeration value="Neodeslana"/>
+                    <xs:enumeration value="Odeslana"/>
+                    <xs:enumeration value="OdeslanaOdmitnuta"/>
+                    <xs:enumeration value="PotvrzenaBezChyb"/>
+                    <xs:enumeration value="PotvrzenaSChybou"/>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -144,11 +145,11 @@ Odeslaná dávka z pohledu aktuálně volaného systému, systému který odpov�
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:enumeration value="Neodeslana" />
-                    <xs:enumeration value="Odeslana" />
-                    <xs:enumeration value="OdeslanaOdmitnuta" />
-                    <xs:enumeration value="PotvrzenaBezChyb" />
-                    <xs:enumeration value="PotvrzenaSChybou" />
+                    <xs:enumeration value="Neodeslana"/>
+                    <xs:enumeration value="Odeslana"/>
+                    <xs:enumeration value="OdeslanaOdmitnuta"/>
+                    <xs:enumeration value="PotvrzenaBezChyb"/>
+                    <xs:enumeration value="PotvrzenaSChybou"/>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

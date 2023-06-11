@@ -453,7 +453,7 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="Popis" nillable="true">
+      <xs:element name="Popis" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Český popis výsledku operace. Byla-li dokončena korektně, může být hodnota prázdná.</xs:documentation>
         </xs:annotation>
@@ -2689,7 +2689,7 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element minOccurs="0" name="AdresaRadek1" nillable="true">
+            <xs:element minOccurs="0" name="AdresaRadek1">
               <xs:annotation>
                 <xs:documentation>První řádek zásilkové adresy.
 
@@ -2703,7 +2703,7 @@ Většinou oslovení</xs:documentation>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="AdresaRadek2" nillable="true">
+            <xs:element minOccurs="0" name="AdresaRadek2">
               <xs:annotation>
                 <xs:documentation>Druhý řádek zásilkové adresy.
 
@@ -2717,7 +2717,7 @@ Většinou funkce nebo konkrétní osoba ( u firem nebo organizací )</xs:docume
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="AdresaRadek3" nillable="true">
+            <xs:element minOccurs="0" name="AdresaRadek3">
               <xs:annotation>
                 <xs:documentation>Třetí řádek zásilkové adresy.
 
@@ -2731,7 +2731,7 @@ Většinou obchodní jméno nebo jméno a příjmení.</xs:documentation>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="AdresaRadek4" nillable="true">
+            <xs:element minOccurs="0" name="AdresaRadek4">
               <xs:annotation>
                 <xs:documentation>Čtvrtý řádek zásilkové adresy.
 
@@ -2745,7 +2745,7 @@ Většinou ulice.</xs:documentation>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="AdresaRadek5" nillable="true">
+            <xs:element minOccurs="0" name="AdresaRadek5">
               <xs:annotation>
                 <xs:documentation>Pátý řádek zásilkové adresy.
 
@@ -2759,7 +2759,7 @@ Většinou částo obce</xs:documentation>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="AdresaRadek6" nillable="true">
+            <xs:element minOccurs="0" name="AdresaRadek6">
               <xs:annotation>
                 <xs:documentation>Šestý řádek zásilkové adresy.
 
@@ -2773,7 +2773,7 @@ Většinou město.</xs:documentation>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="AdresaRadek7" nillable="true">
+            <xs:element minOccurs="0" name="AdresaRadek7">
               <xs:annotation>
                 <xs:documentation>Sedmý řádek zásilkové adresy.
 
@@ -2787,7 +2787,7 @@ Většinou PSČ</xs:documentation>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="AdresaRadek8" nillable="true">
+            <xs:element minOccurs="0" name="AdresaRadek8">
               <xs:annotation>
                 <xs:documentation>Osmý řádek zásilkové adresy.
 
