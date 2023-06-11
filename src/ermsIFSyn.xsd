@@ -148,7 +148,7 @@ Za chybu je považována žádost o postoupení dokumentu, který není ve volan
         <xs:element minOccurs="0" name="ProfilDokumentu" type="tProfilDokumentu">
           <xs:annotation>
             <xs:documentation>Kompletní popis postupovaného dokumentu. 
-											Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
+                                                                                        Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="OperaceStatus" type="tOperaceStatus"/>
@@ -221,7 +221,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
 Odpověď obsahuje kompletní popis dokumentu nebo číselný a textový popis chyby. 
 Za chybu je považována žádost o informace o dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.
-	</xs:documentation>
+        </xs:documentation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.8 e)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -268,7 +268,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
 Odpověď obsahuje kompletní popis spisu nebo číselný a textový popis chyby. 
 Za chybu je považována žádost o informace o spisu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému spisu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.
-	</xs:documentation>
+        </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -949,7 +949,7 @@ Za chybu je považována žádost o vrácení dokumentu, který není ve volané
         <xs:element minOccurs="0" name="ProfilDokumentu" type="tProfilDokumentu">
           <xs:annotation>
             <xs:documentation>Kompletní popis postupovaného dokumentu. 
-											Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
+                                                                                        Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="OperaceStatus" type="tOperaceStatus"/>

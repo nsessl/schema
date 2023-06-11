@@ -363,7 +363,7 @@ Pouze v případě, kdy transakční protokol obsahuje události generované v r
             
             Doporučený standard identifikace:
             
-            &lt;-- DiV OLD		
+            &lt;-- DiV OLD              
             fffff.pppppp.iiiii.ccccccc
             "firma.produkt.instalace.custum"
             
@@ -379,7 +379,7 @@ Pouze v případě, kdy transakční protokol obsahuje události generované v r
             --&gt;
             
             pppp.aa.ccccccccc
-            "původce.aplikace-agenda.číslo"	
+            "původce.aplikace-agenda.číslo"     
             kde pppp je jednoznačné jméno původce, který identifikátor přidělil
             kde aa je označení informačního systému (spisován služba, lokální agenda, centrální agenda apod.), která identifikátor přidělila</xs:documentation>
         </xs:annotation>

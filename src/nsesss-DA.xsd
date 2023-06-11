@@ -3,94 +3,94 @@
   xml:lang="cs">
   <xs:include schemaLocation="nsesss.xsd"/>
 
-	<xs:annotation>
-		<xs:documentation>Schéma XML pro zasílání údajů o rozhodnutí ve skartačním řízení a potvrzení přejímky s identifikátory digitálního archivu původci podle národního standardu pro elektronické systémy spisové služby</xs:documentation>
-		<xs:appinfo>
-			<rdf:RDF>
-				<rdf:Description>
-					<dc:Creator>Odbor archivní správy Ministerstva vnitra</dc:Creator>
-					<dc:Description>Schéma XML pro zasílání údajů o rozhodnutí ve skartačním řízení a potvrzení přejímky s identifikátory digitálního archivu původci</dc:Description>
-					<dc:Publisher>Ministerstvo vnitra</dc:Publisher>
-					<dc:Date>2017-04-28</dc:Date>
-					<dc:Type>XML Schema</dc:Type>
-					<dc:Format>text/xml</dc:Format>
-					<dc:Language>cs-CZ</dc:Language>
-				</rdf:Description>
-			</rdf:RDF>
-		</xs:appinfo>
-	</xs:annotation>
+  <xs:annotation>
+    <xs:documentation>Schéma XML pro zasílání údajů o rozhodnutí ve skartačním řízení a potvrzení přejímky s identifikátory digitálního archivu původci podle národního standardu pro elektronické systémy spisové služby</xs:documentation>
+    <xs:appinfo>
+      <rdf:RDF>
+        <rdf:Description>
+          <dc:Creator>Odbor archivní správy Ministerstva vnitra</dc:Creator>
+          <dc:Description>Schéma XML pro zasílání údajů o rozhodnutí ve skartačním řízení a potvrzení přejímky s identifikátory digitálního archivu původci</dc:Description>
+          <dc:Publisher>Ministerstvo vnitra</dc:Publisher>
+          <dc:Date>2017-04-28</dc:Date>
+          <dc:Type>XML Schema</dc:Type>
+          <dc:Format>text/xml</dc:Format>
+          <dc:Language>cs-CZ</dc:Language>
+        </rdf:Description>
+      </rdf:RDF>
+    </xs:appinfo>
+  </xs:annotation>
 
-	<xs:element name="Seznam">
-		<xs:annotation>
-			<xs:documentation>Sada elementů pro zaznamenání entit, které byly zařazeny do skartačního řízení nebo které byly vybrány za archiválie.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="EntitaSeznamu" type="nsesss:tEntitaSeznamu" maxOccurs="unbounded"/>
-			</xs:sequence>
-			<xs:attribute name="ID" type="xs:ID" use="required">
-				<xs:annotation>
-					<xs:documentation>Identifikátor jednoznačně označuje seznam uvnitř archivu.</xs:documentation>
-				</xs:annotation>
-			</xs:attribute>
-			<xs:attribute name="identifikatorArchivu" type="xs:string" use="required">
-				<xs:annotation>
-					<xs:documentation>Jednoznačný identifikátor archivu, který zasílá seznam původci.</xs:documentation>
-				</xs:annotation>
-			</xs:attribute>
-			<xs:attribute name="identifikatorPuvodce" type="xs:string" use="required">
-				<xs:annotation>
-					<xs:documentation>Jednoznačný identifikátor původce, kterému je archivem zasílán seznam.</xs:documentation>
-				</xs:annotation>
-			</xs:attribute>
-			<xs:attribute name="identifikatorSkartacnihoRizeni" type="xs:string" use="optional">
-				<xs:annotation>
-					<xs:documentation>Jednoznačný identifikátor skartačního řízení.</xs:documentation>
-				</xs:annotation>
-			</xs:attribute>
-			<xs:attribute name="identifikatorPrejimky" type="xs:string" use="optional">
-				<xs:annotation>
-					<xs:documentation>Jednoznačný identifikátor přejímky.</xs:documentation>
-				</xs:annotation>
-			</xs:attribute>
-			<xs:attribute name="datumVytvoreni" type="xs:dateTime" use="required">
-				<xs:annotation>
-					<xs:documentation>Prvek pro zaznamenání přesného časového údaje vytvoření seznamu. Datum je zaznamenáno ve tvaru "YYYY-MM-DDThh:mm:ss±hh:mm.</xs:documentation>
-				</xs:annotation>
-			</xs:attribute>
-		</xs:complexType>
-	</xs:element>
+  <xs:element name="Seznam">
+    <xs:annotation>
+      <xs:documentation>Sada elementů pro zaznamenání entit, které byly zařazeny do skartačního řízení nebo které byly vybrány za archiválie.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="EntitaSeznamu" type="nsesss:tEntitaSeznamu" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="ID" type="xs:ID" use="required">
+        <xs:annotation>
+          <xs:documentation>Identifikátor jednoznačně označuje seznam uvnitř archivu.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="identifikatorArchivu" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>Jednoznačný identifikátor archivu, který zasílá seznam původci.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="identifikatorPuvodce" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>Jednoznačný identifikátor původce, kterému je archivem zasílán seznam.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="identifikatorSkartacnihoRizeni" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Jednoznačný identifikátor skartačního řízení.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="identifikatorPrejimky" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Jednoznačný identifikátor přejímky.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="datumVytvoreni" type="xs:dateTime" use="required">
+        <xs:annotation>
+          <xs:documentation>Prvek pro zaznamenání přesného časového údaje vytvoření seznamu. Datum je zaznamenáno ve tvaru "YYYY-MM-DDThh:mm:ss±hh:mm.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
 
-	<xs:simpleType name="tOperace">
-		<xs:annotation>
-			<xs:documentation>Prvek pro zaznamenání operace, která se provádí ve skartačním řízení.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="vybrat za archiválii"/>
-			<xs:enumeration value="zničit"/>
-			<xs:enumeration value="předložit k výběru"/>
-			<xs:enumeration value="vyřadit z výběru"/>
-		</xs:restriction>
-	</xs:simpleType>
+  <xs:simpleType name="tOperace">
+    <xs:annotation>
+      <xs:documentation>Prvek pro zaznamenání operace, která se provádí ve skartačním řízení.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="vybrat za archiválii"/>
+      <xs:enumeration value="zničit"/>
+      <xs:enumeration value="předložit k výběru"/>
+      <xs:enumeration value="vyřadit z výběru"/>
+    </xs:restriction>
+  </xs:simpleType>
 
-	<xs:complexType name="tEntitaSeznamu">
-		<xs:annotation>
-			<xs:documentation>Sada elementů pro zaznamenání entity, její identifikace přidělené původcem a stanovené operace nebo příslušného identifikátoru digitálního archivu.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Identifikator" type="nsesss:tIdentifikator"/>
-			<xs:choice>
-				<xs:element name="Operace" type="nsesss:tOperace">
-					<xs:annotation>
-						<xs:documentation>Prvek se uvádí v případě, kdy je seznam využit za účelem vykonání rozhodnutí ve skartačním řízení včetně vyzvání původce, aby předložil entitu k archivní prohlídce.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="IdentifikatorDA" type="nsesss:tIdentifikator">
-					<xs:annotation>
-						<xs:documentation>Prvek pro zaznamenání identifikátoru digitálního archivu. Uvádí se v případě, kdy je seznam využit po provedeném skartačním řízení k potvrzení přejímky s identifikátorem digitálního archivu.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:choice>
-		</xs:sequence>
-	</xs:complexType>
+  <xs:complexType name="tEntitaSeznamu">
+    <xs:annotation>
+      <xs:documentation>Sada elementů pro zaznamenání entity, její identifikace přidělené původcem a stanovené operace nebo příslušného identifikátoru digitálního archivu.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Identifikator" type="nsesss:tIdentifikator"/>
+      <xs:choice>
+        <xs:element name="Operace" type="nsesss:tOperace">
+          <xs:annotation>
+            <xs:documentation>Prvek se uvádí v případě, kdy je seznam využit za účelem vykonání rozhodnutí ve skartačním řízení včetně vyzvání původce, aby předložil entitu k archivní prohlídce.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="IdentifikatorDA" type="nsesss:tIdentifikator">
+          <xs:annotation>
+            <xs:documentation>Prvek pro zaznamenání identifikátoru digitálního archivu. Uvádí se v případě, kdy je seznam využit po provedeném skartačním řízení k potvrzení přejímky s identifikátorem digitálního archivu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

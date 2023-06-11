@@ -21,8 +21,8 @@ Toto oprávnění budou mít od této chvíle pouze uživatelé ISSD do kterého
         <xs:element minOccurs="1" name="ProfilDokumentu" type="tProfilDokumentu">
           <xs:annotation>
             <xs:documentation>
-							Kompletní popis postupovaného dokumentu. 
-							Tento popis obsahuje také všechny odkazy na obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
+                                                        Kompletní popis postupovaného dokumentu. 
+                                                        Tento popis obsahuje také všechny odkazy na obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="Autorizace" type="tAutorizace"/>
@@ -94,7 +94,7 @@ Vloženi dokumentu do spisu.</xs:documentation>
           <xs:annotation>
             <xs:documentation>Je-li použit element DokumentUplnyVlozeny, pak je jsou nejprve založenydokument uvedený v tomto elementu, poté je do spisu vloženy.
 Při variantě DokumentIdVlozeny je do spisu vložen již existující dokument.
-			</xs:documentation>
+                        </xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence minOccurs="1" maxOccurs="1">
@@ -262,8 +262,8 @@ Jedná se o reversní událost k události DokumentPostoupeni.</xs:documentation
   <xs:element name="SpisPostoupeni">
     <xs:annotation>
       <xs:documentation>Postoupení zpracování spisu do jiného ERMS.
-	V původním ERMS je nad spisem vytvořen excluzivní zámek, aby nešel prostředky původního ERMS spis měnit. 
-	Toto oprávnění bude mít od této chvíle pouze nové ERMS.</xs:documentation>
+        V původním ERMS je nad spisem vytvořen excluzivní zámek, aby nešel prostředky původního ERMS spis měnit. 
+        Toto oprávnění bude mít od této chvíle pouze nové ERMS.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
