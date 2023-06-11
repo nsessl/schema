@@ -995,6 +995,7 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
         <xs:element name="Autorizace" type="tAutorizace"/>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="OsobySeznamResponse">
