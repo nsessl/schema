@@ -7,7 +7,9 @@
 ## Hlášení chyb
 
 Pokud ve schématech najdete chybu,
-[nahlašte ji jako nové issue](https://github.com/nsessl/schema/issues/new)
+[nahlašte ji jako nové issue](https://github.com/nsessl/schema/issues/new). Předtím
+se ještě
+[podívejte, zda již tato chyba není nahlášena](https://github.com/nsessl/schema/issues).
 
 Pro nahlášení problému je potřeba být přihlášen pomocí GitHub účtu (to
 nám umožní vás kontaktovat v případě nejasností s nahlášeným
@@ -35,6 +37,7 @@ Doplňující informace:
 * [dokumentace synchronního rozhraní](doc/1-api-sync/ermsAPI.html)
 * [dokumentace asynchronní komunikace](doc/1-api-async/ermsIFASyn.html)
 
+<!--
 ## Příloha 2 – Schéma pro zaznamenání popisných metadat uvnitř datového balíčku SIP
 
 Normativní části přílohy:
@@ -90,6 +93,8 @@ Doplňující informace:
 ## Příloha Y – ...
 
 ...
+
+-->
 
 ## Příloha C – Schéma pro spisovou rozluku
 
