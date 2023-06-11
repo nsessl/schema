@@ -101,7 +101,7 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence maxOccurs="unbounded">
-                    <xs:element name="StraraVerze" type="tTransferFileLocation"/>
+                    <xs:element name="StaraVerze" type="tTransferFileLocation"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
