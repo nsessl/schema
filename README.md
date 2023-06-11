@@ -6,13 +6,12 @@
 
 ## Hlášení chyb
 
-Pokud ve schématech najdete chybu, nahlašte ji jako nové issue na
-adrese https://github.com/nsessl/schema/issues/new
+Pokud ve schématech najdete chybu,
+[nahlašte ji jako nové issue](https://github.com/nsessl/schema/issues/new)
 
 Pro nahlášení problému je potřeba být přihlášen pomocí GitHub účtu (to
 nám umožní vás kontaktovat v případě nejasností s nahlášeným
-problémem). GitHub účet si můžete zdarma založit na adrese
-https://github.com/signup
+problémem). [Založení GitHub účtu](https://github.com/signup).
 
 ## Příloha 1 – Schéma pro výměnu dokumentů a jejich metadat (WS API)
 
