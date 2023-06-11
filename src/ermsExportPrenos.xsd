@@ -159,7 +159,7 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
     <xs:annotation>
       <xs:documentation>Soubor popisující obsah celé přenosové dávky ve formátu ZIP
 Tento soubor musí být v root adresáři ZIPu se jménem manifest.xml
-Ostatní datové soubory obsažené v ZIP souboru budou uvedena v podadresářích.
+Ostatní datové soubory obsažené v ZIP souboru budou umístěny v podadresářích.
 Tento soubor dokumentuje vznik případně určení dávky a dále popisuje obsah dávky.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -252,7 +252,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
   </xs:element>
   <xs:element name="PrenosPotvrzeni">
     <xs:annotation>
-      <xs:documentation>Formát XML souboru, který se v rámci off-line přenosu dat používá pro potvrzení úspěšného přenosu dat. Na základě tohoto potvrzení zdrojový systém může realizovat mazání dat atd..</xs:documentation>
+      <xs:documentation>Formát XML souboru, který se v rámci off-line přenosu dat používá pro potvrzení úspěšného přenosu dat. Na základě tohoto potvrzení zdrojový systém může realizovat mazání dat atd.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
