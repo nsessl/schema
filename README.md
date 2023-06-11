@@ -1,6 +1,8 @@
 # XML schémata pro Národní standard pro elektronické systémy spisové služby
 
-## [Přehled změn](CHANGES.md)
+## Přehled změn
+
+[Přehled změn](CHANGES.md)
 
 ## Hlášení chyb
 
@@ -31,7 +33,8 @@ Normativní části přílohy:
 
 Doplňující informace:
 
-* [dokumentace schématu](doc/1-api/ermsAPI.html)
+* [dokumentace synchronního rozhraní](doc/1-api-sync/ermsAPI.html)
+* [dokumentace asynchronní komunikace](doc/1-api-async/ermsIFASyn.html)
 
 ## Příloha 2 – Schéma pro zaznamenání popisných metadat uvnitř datového balíčku SIP
 
