@@ -7,8 +7,8 @@ při přenosu dat z jednoho systému do druhého (tzv. spisová rozluka).
 
 Data se přenášejí jako archiv ve formátu ZIP definovaném ve
 specifikaci
-https://pkware.cachefly.net/webdocs/APPNOTE/APPNOTE-6.3.10.TXT a musí
-navíc splnit následující požadavky:
+[APPNOTE](https://pkware.cachefly.net/webdocs/APPNOTE/APPNOTE-6.3.10.TXT)
+a musí navíc splnit následující požadavky:
 
 * Soubory uložené v archivu musí být nekomprimované nebo musí používat
   kompresní metodu „deflate“ popsanou v RFC1951.
