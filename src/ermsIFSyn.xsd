@@ -647,14 +647,12 @@ Seznam bude obsahovat pouze entity vlastněné tímto uživatelem.</xs:documenta
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="1" name="Pridelene">
           <xs:complexType>
-            <xs:sequence minOccurs="0" maxOccurs="unbounded">
-              <xs:choice>
-                <xs:element minOccurs="0" name="Dokument" type="tProfilDokumentuSeznam"/>
-                <xs:element minOccurs="0" name="Spis" type="tProfilSpisuSeznam"/>
-                <xs:element name="SoucastTypovehoSpisu" type="tProfilSoucastiTypovehoSpisuSeznam"/>
-                <xs:element name="TypovySpis" type="tProfilTypovehoSpisuSeznam"/>
-              </xs:choice>
-            </xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Dokument" type="tProfilDokumentuSeznam"/>
+              <xs:element name="Spis" type="tProfilSpisuSeznam"/>
+              <xs:element name="SoucastTypovehoSpisu" type="tProfilSoucastiTypovehoSpisuSeznam"/>
+              <xs:element name="TypovySpis" type="tProfilTypovehoSpisuSeznam"/>
+            </xs:choice>
           </xs:complexType>
         </xs:element>
         <xs:element name="OperaceStatus" type="tOperaceStatus"/>
