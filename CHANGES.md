@@ -16,19 +16,35 @@ XML odmítly zpracovat a nedocházelo k nečekaným chybám.
 Místo jmenného prostoru `http://nsess.public.cz/erms/v_02_00` se nyní
 používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
 
-### Přidány následující funkce do synchronního rozhraní
+### Synchronní rozhraní
 
-* SpisPostoupeniZadost
-* ProfilTypovehoSpisuZadost
-* ProfilOsobyZadost
-* OsobaZalozeni
-* OsobaUprava
-* OsobySeznam
+#### Přidány následující služby
+
 * CiselnikySeznam
 * DokumentVraceniZadost
+* OsobaUprava
+* OsobaZalozeni
+* OsobySeznam
+* ProfilOsobyZadost
+* ProfilTypovehoSpisuZadost
+* SpisPostoupeniZadost
 * SpisVraceniZadost
 * TypovySpisZalozeni
 * UzivateleSeznam
+
+#### Další důležité změny
+
+* Služba DokumentZalozeni v požadavku nepřenáší kompletní profil
+  dokumentu, ale jen údaje, které dávají smysl při založení popsané
+  typem tProfilDokumentuZalozeni
+* Služba SpisZalozeni v požadavku nepřenáší kompletní profil
+  spisu, ale jen údaje, které dávají smysl při založení popsané
+  typem tProfilSpisuZalozeni
+* Služba CiselnikZadost používá pro určení číselníku element
+  IdCiselniku a ne Kod.
+* Položky číselníku mohou přenášet větší množství nepovinných položek
+  podle potřeby
+
 
 ### Přidány následující události do asynchronního rozhraní
 
