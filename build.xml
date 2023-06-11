@@ -23,6 +23,8 @@
 
   <target name="doc">
 
+    <deltree dir="doc"/>
+
     <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\wsdlDocumentation.bat">
       <arg value="src/ermsAPI.wsdl"/>
       <arg value="-cfg:wsdldoc.xml"/>
