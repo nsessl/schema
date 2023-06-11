@@ -66,8 +66,6 @@ Doplňující informace:
 Normativní části přílohy:
 
 * [`nsesss-TrP.xsd`](src/nsesss-TrP.xsd) – schéma transakčního protokolu
-* [`ess_ns.xsd`](src/ess_ns.xsd) – schéma komponent používaných
-  schématem transakčního protokolu
 
 Doplňující informace:
 
