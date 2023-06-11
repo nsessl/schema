@@ -1855,7 +1855,7 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
     <xs:sequence>
       <xs:element minOccurs="0" name="ZpusobVyrizeni">
         <xs:annotation>
-          <xs:documentation>Obsolete - v nové verzi NS 2023 již nění způsob vyřízení - pro stará data zůstane tento element zachován, jako nepovinný.</xs:documentation>
+          <xs:documentation>Obsolete - v nové verzi NS 2023 již není způsob vyřízení - pro stará data zůstane tento element zachován, jako nepovinný.</xs:documentation>
           <xs:documentation>Ve vyhlášce z 2023 toto ale stále je § 14 - odstavec 2)
 Již ale není povinnost způsob vyřízení uvádět v evidenční pomůcce.
 Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
