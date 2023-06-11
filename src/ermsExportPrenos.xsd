@@ -164,15 +164,8 @@ Tento soubor dokumentuje vznik případně určení dávky a dále popisuje obsa
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DavkaId">
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:minLength value="1"/>
-              <xs:maxLength value="40"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
-        <xs:element minOccurs="1" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
+        <xs:element name="DavkaId" type="sDavkaId"/>
+        <xs:element name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
           <xs:annotation>
             <xs:documentation>Čas vzniku přenosové dávky</xs:documentation>
           </xs:annotation>
@@ -188,14 +181,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
         </xs:element>
         <xs:element name="Cil" type="sIdInformacnihoSystemu"/>
         <xs:element minOccurs="0" name="Puvodce" type="tAdresat"/>
-        <xs:element name="TypDavky">
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:enumeration value="Prenos"/>
-              <xs:enumeration value="Export"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
+        <xs:element name="TypDavky" type="sTypDavky"/>
         <xs:element minOccurs="0" name="UcelDavky" type="xs:string"/>
         <xs:element minOccurs="0" name="Poznamka" type="xs:string"/>
         <xs:element name="Obsah">
@@ -203,13 +189,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
             <xs:sequence maxOccurs="unbounded">
               <xs:element name="Entita">
                 <xs:complexType>
-                  <xs:attribute name="Poradi" use="required">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:integer">
-                        <xs:minInclusive value="1"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:attribute>
+                  <xs:attribute name="Poradi" use="required" type="sPoradi"/>
                   <xs:attribute name="Umisteni" type="xs:string" use="required">
                     <xs:annotation>
                       <xs:documentation>Relativní cesta k souboru s binárním obsahem komponenty.
@@ -275,21 +255,12 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
         <xs:element name="PotvrzovanaDavka">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="DavkaId">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:minLength value="1"/>
-                    <xs:maxLength value="40"/>
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="DavkaId" type="sDavkaId"/>
               <xs:element name="Cil" type="sIdInformacnihoSystemu"/>
               <xs:element name="Zdroj" type="sIdInformacnihoSystemu">
                 <xs:annotation>
                   <xs:documentation>Zdroj interního identifikátoru:
-Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.
-
-</xs:documentation>
+Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.</xs:documentation>
                   <xs:documentation>NS z roku 2023 požadavek č.8.1.2</xs:documentation>
                 </xs:annotation>
               </xs:element>
@@ -297,43 +268,22 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
           </xs:complexType>
         </xs:element>
         <xs:element minOccurs="0" name="Poznamka" type="xs:string"/>
-        <xs:element name="StatusPrenosu">
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:enumeration value="nacteno"/>
-              <xs:enumeration value="castecneNacteno"/>
-              <xs:enumeration value="nenacteno"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
+        <xs:element name="StatusPrenosu" type="sStatusPrenosu"/>
         <xs:element name="StatusEntit">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Entita">
                 <xs:complexType>
-                  <xs:attribute name="Poradi" use="required">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:integer">
-                        <xs:minInclusive value="1"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:attribute>
+                  <xs:attribute name="Poradi" use="required" type="sPoradi"/>
                   <xs:attribute name="TypEntity" use="required" type="sTypEntity"/>
                   <xs:attribute name="IdEntity" type="xs:string" use="required">
                     <xs:annotation>
                       <xs:documentation>Identifikace entity podle systému původce. 
                         Přesné identifikace entit jsou obsaženy v každmé jednom obsaženém specifickém XML souboru. 
-                        Zde uvedené ID má především přehledovou funkci pro uživatele, který dávku generoval nebo se chystá d8vku načítat.</xs:documentation>
+                        Zde uvedené ID má především přehledovou funkci pro uživatele, který dávku generoval nebo se chystá dávku načítat.</xs:documentation>
                     </xs:annotation>
                   </xs:attribute>
-                  <xs:attribute name="StatusPrenosu" use="required">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="nacteno"/>
-                        <xs:enumeration value="nenacteno"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:attribute>
+                  <xs:attribute name="StatusPrenosu" use="required" type="sStausPrenosuEntita"/>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>

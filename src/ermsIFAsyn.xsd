@@ -41,7 +41,7 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Kod">
+        <xs:element name="Kod" type="sKod">
           <xs:annotation>
             <xs:documentation>Návratový kód po příjmu dávky.
 Úspěšný příjem dávky odpovídá vždy pouze kódu "0000".</xs:documentation>
@@ -49,22 +49,12 @@
 reagovat vrácením SOAP exception, nebo řádně vrátit 
 response s vyplněným chybovým kódem a popisem chyby.</xs:documentation>
           </xs:annotation>
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:maxLength value="8"/>
-            </xs:restriction>
-          </xs:simpleType>
         </xs:element>
-        <xs:element name="Popis" minOccurs="0">
+        <xs:element name="Popis" minOccurs="0" type="sPopis">
           <xs:annotation>
             <xs:documentation>Textový popis výsledku příjmu dávky.
 Úspěšný příjem dávky odpovídá vždy pouze textu "OK".</xs:documentation>
           </xs:annotation>
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:maxLength value="255"/>
-            </xs:restriction>
-          </xs:simpleType>
         </xs:element>
       </xs:sequence>
       <xs:attributeGroup ref="gDavkaInfoResponse"/>
@@ -110,19 +100,10 @@ Přijatá z pohledu aktuálně volaného systému, systému který odpovídá na
                   <xs:documentation>Identifikace dávky. Odpovídá hodnotě položky "Poradi" uvedené v hlavičce ermsAsyn dávky.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="Stav">
+              <xs:element name="Stav" type="sStavDavky">
                 <xs:annotation>
                   <xs:documentation>Stav dávky</xs:documentation>
                 </xs:annotation>
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:enumeration value="Neodeslana"/>
-                    <xs:enumeration value="Odeslana"/>
-                    <xs:enumeration value="OdeslanaOdmitnuta"/>
-                    <xs:enumeration value="PotvrzenaBezChyb"/>
-                    <xs:enumeration value="PotvrzenaSChybou"/>
-                  </xs:restriction>
-                </xs:simpleType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
@@ -139,19 +120,10 @@ Odeslaná dávka z pohledu aktuálně volaného systému, systému který odpov�
                   <xs:documentation>Identifikace dávky. Odpovídá hodnotě položky "Poradi" uvedené v hlavičce ermsAsyn dávky.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="Stav">
+              <xs:element name="Stav" type="sStavDavky">
                 <xs:annotation>
                   <xs:documentation>Stav dávky</xs:documentation>
                 </xs:annotation>
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:enumeration value="Neodeslana"/>
-                    <xs:enumeration value="Odeslana"/>
-                    <xs:enumeration value="OdeslanaOdmitnuta"/>
-                    <xs:enumeration value="PotvrzenaBezChyb"/>
-                    <xs:enumeration value="PotvrzenaSChybou"/>
-                  </xs:restriction>
-                </xs:simpleType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>

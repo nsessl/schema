@@ -535,27 +535,15 @@ Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:
 Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="FunkcniMistoNazev">
+      <xs:element name="FunkcniMistoNazev" type="sFunkcniMistoNazev">
         <xs:annotation>
           <xs:documentation>Zobrazitelný název funkčního místa</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="128"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
-      <xs:element name="FunkcniMistoKod">
+      <xs:element name="FunkcniMistoKod" type="sFunkcniMistoKod">
         <xs:annotation>
           <xs:documentation>Jednoznačný identifikátor funkčního místa v organizaci</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="50"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -572,60 +560,39 @@ Je-li vráceno právě 100 záznamů, je nutné pro získání kompletního sezn
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="1" name="Identifikator" type="tIdentifikator">
+        <xs:element minOccurs="0" name="Identifikator" type="tIdentifikator">
           <xs:annotation>
             <xs:documentation>Identifikátor má snad pouze význam u DruhEntity = spis</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" maxOccurs="1" name="Drzeni">
+        <xs:element minOccurs="0" name="Drzeni" type="sDrzeniFiltr">
           <xs:annotation>
             <xs:documentation>Vracet všechny entity uživatele v držení eSSL i ISSD, nebo pouze ty ve výhradním držení eSSL.</xs:documentation>
           </xs:annotation>
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:enumeration value="vse"/>
-              <xs:enumeration value="essl"/>
-              <xs:enumeration value="issd"/>
-            </xs:restriction>
-          </xs:simpleType>
         </xs:element>
-        <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode"/>
-        <xs:element name="DruhEntity" minOccurs="0">
+        <xs:element minOccurs="0" name="BarCode" type="sBarCode"/>
+        <xs:element name="DruhEntity" type="sDruhEntity" minOccurs="0">
           <xs:annotation>
             <xs:documentation>NS z roku 2023 požadavek č.8.1.29</xs:documentation>
           </xs:annotation>
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:enumeration value="Dokument"/>
-              <xs:enumeration value="Spis"/>
-              <xs:enumeration value="TypovySpis"/>
-              <xs:enumeration value="SoucastTypovehoSpisu"/>
-            </xs:restriction>
-          </xs:simpleType>
         </xs:element>
         <xs:element minOccurs="0" name="SpisovyZnak" type="sSpisovyZnak"/>
         <xs:element name="CisloJednaci" type="sCisloJednaci" minOccurs="0"/>
         <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka"/>
         <xs:element minOccurs="0" name="NazevObsahuje" type="xs:string"/>
-        <xs:element minOccurs="0" maxOccurs="1" name="DatumCasVytvoreniOd" type="xs:dateTime"/>
-        <xs:element minOccurs="0" maxOccurs="1" name="DatumCasVytvoreniDo" type="xs:dateTime"/>
-        <xs:element minOccurs="0" maxOccurs="1" name="CasPosledniZmenyOd" type="xs:dateTime"/>
-        <xs:element minOccurs="0" maxOccurs="1" name="CasPosledniZmenyDo" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="DatumCasVytvoreniOd" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="DatumCasVytvoreniDo" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="CasPosledniZmenyOd" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="CasPosledniZmenyDo" type="xs:dateTime"/>
         <xs:element minOccurs="0" name="odZaznamu" type="xs:integer">
           <xs:annotation>
             <xs:documentation>od kolikátého záznamu</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" name="pocetZaznamu">
+        <xs:element minOccurs="0" name="pocetZaznamu" type="sPocetZaznamu">
           <xs:annotation>
             <xs:documentation>kolik záznamů (maximálně 100)</xs:documentation>
           </xs:annotation>
-          <xs:simpleType>
-            <xs:restriction base="xs:integer">
-              <xs:minInclusive value="1"/>
-              <xs:maxInclusive value="100"/>
-            </xs:restriction>
-          </xs:simpleType>
         </xs:element>
         <xs:element name="Autorizace" type="tAutorizace">
           <xs:annotation>
@@ -823,83 +790,46 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="Jmeno">
+                    <xs:element name="Jmeno" type="sJmeno">
                       <xs:annotation>
                         <xs:documentation>Element se neuvádí v případě TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:maxLength value="24"/>
-                          <xs:minLength value="1"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
-                    <xs:element name="Prijmeni">
+                    <xs:element name="Prijmeni" type="sPrijmeni">
                       <xs:annotation>
                         <xs:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:maxLength value="35"/>
-                          <xs:minLength value="1"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
                     <xs:element minOccurs="0" name="DatumNarozeni" type="xs:date">
                       <xs:annotation>
-                        <xs:documentation>
-            Datum narození.
-            Element se uvádí pouze v případě že TypSubjektu="Fyzicka" nebo TypSubjektu="Osvc" a to pouze v případě, že je nutné odlišit dvě osoby stejného jména a stejného trvalého bydliště.
-          </xs:documentation>
+                        <xs:documentation>Datum narození.
+            Element se uvádí pouze v případě že TypSubjektu="Fyzicka" nebo TypSubjektu="Osvc" a to pouze v případě, že je nutné odlišit dvě osoby stejného jména a stejného trvalého bydliště.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="Ulice">
+                    <xs:element name="Ulice" type="sUlice">
                       <xs:annotation>
                         <xs:documentation>Název ulice</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:maxLength value="48"/>
-                          <xs:minLength value="1"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
                     <xs:element name="CisloDomu" type="xs:string">
                       <xs:annotation>
                         <xs:documentation>Umožňuje zadat text, který se použije pro hledání na přesnou shodu přes: číslo pospisné nebo číslo oriantační nebo číslo evidenční. </xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="Obec">
+                    <xs:element name="Obec" type="sObec">
                       <xs:annotation>
                         <xs:documentation>Název obce</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:maxLength value="48"/>
-                          <xs:minLength value="1"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="Psc">
+                    <xs:element minOccurs="0" name="Psc" type="sPsc">
                       <xs:annotation>
                         <xs:documentation>Poštovní směrovací číslo / Pro zahraniční adresy PostCode</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:maxLength value="12"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="Zeme">
+                    <xs:element minOccurs="0" name="Zeme" type="sZeme">
                       <xs:annotation>
                         <xs:documentation>Kód státu podle: ISO-3166 Alpha 2 country codes</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:minLength value="2"/>
-                          <xs:maxLength value="3"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
                   </xs:sequence>
                 </xs:complexType>
@@ -910,69 +840,35 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" name="ObchodniNazev">
+                    <xs:element minOccurs="0" name="ObchodniNazev" type="sObchodniNazev">
                       <xs:annotation>
                         <xs:documentation>Element se neuvádí pouze v případě že TypSubjektu="Fyzicka".</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:maxLength value="255"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="IC">
+                    <xs:element minOccurs="0" name="IC" type="sIC">
                       <xs:annotation>
                         <xs:documentation>IČO se uvádí, pokud je subjektu IČO přiděleno a je v době pořízení záznamu známé.</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:length value="8"/>
-                          <xs:pattern value="[0-9]{0,8}"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
-                    <xs:element name="Ulice">
+                    <xs:element name="Ulice" type="sUlice">
                       <xs:annotation>
                         <xs:documentation>Název ulice</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:maxLength value="48"/>
-                          <xs:minLength value="1"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
-                    <xs:element name="Obec">
+                    <xs:element name="Obec" type="sObec">
                       <xs:annotation>
                         <xs:documentation>Název obce</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:maxLength value="48"/>
-                          <xs:minLength value="1"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="Psc">
+                    <xs:element minOccurs="0" name="Psc" type="sPsc">
                       <xs:annotation>
                         <xs:documentation>Poštovní směrovací číslo / Pro zahraniční adresy PostCode</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:maxLength value="12"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="Zeme">
+                    <xs:element minOccurs="0" name="Zeme" type="sZeme">
                       <xs:annotation>
                         <xs:documentation>Kód státu podle: ISO-3166 Alpha 2 country codes</xs:documentation>
                       </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:minLength value="2"/>
-                          <xs:maxLength value="3"/>
-                        </xs:restriction>
-                      </xs:simpleType>
                     </xs:element>
                   </xs:sequence>
                 </xs:complexType>
@@ -1011,17 +907,11 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="SeznamOmezen">
+        <xs:element minOccurs="0" name="SeznamOmezen" type="sSeznamOmezen">
           <xs:annotation>
             <xs:documentation>Příznak, který signalizuje, že nalezených záznamů je více, než dovoluje nastavení omezení pro maxímální počet vracených záznamů.
 Pokud tento příznak nenú uveden, potom seznam vrázených záznamů je kompletní, tedy bez omezení.</xs:documentation>
           </xs:annotation>
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:enumeration value="ano"/>
-              <xs:enumeration value="ne"/>
-            </xs:restriction>
-          </xs:simpleType>
         </xs:element>
         <xs:element name="OperaceStatus" type="tOperaceStatus"/>
       </xs:sequence>
