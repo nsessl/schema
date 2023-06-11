@@ -563,7 +563,8 @@ Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:
     <xs:annotation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Webovou službu poskytuje ISSD pro napojené ESSL.
-Požadavek na seznam entit vlatněných uživatele ESSL/ISSD ( Určeno elementem provedlKdo ). 
+Požadavek na seznam entit vlatněných uživatelem ESSL/ISSD (Určeno elementem provedlKdo).
+Filtrovat lze i pomocí dalších nepovinných elementů.
 Funkce vrací v jedné odpovědi (response) maximálně 100 záznamů. 
 Je-li vráceno právě 100 záznamů, je nutné pro získání kompletního seznamu volat funkci opakovaně s uvedeným parametrem odZaznamu (např.101, 201 atd.)</xs:documentation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.m)</xs:documentation>
@@ -589,7 +590,7 @@ Je-li vráceno právě 100 záznamů, je nutné pro získání kompletního sezn
           </xs:simpleType>
         </xs:element>
         <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="sBarCode"/>
-        <xs:element name="DruhEntity">
+        <xs:element name="DruhEntity" minOccurs="0">
           <xs:annotation>
             <xs:documentation>NS z roku 2023 požadavek č.8.1.29</xs:documentation>
           </xs:annotation>
@@ -603,7 +604,7 @@ Je-li vráceno právě 100 záznamů, je nutné pro získání kompletního sezn
           </xs:simpleType>
         </xs:element>
         <xs:element minOccurs="0" name="SpisovyZnak" type="sSpisovyZnak"/>
-        <xs:element name="CisloJednaci" type="sCisloJednaci"/>
+        <xs:element name="CisloJednaci" type="sCisloJednaci" minOccurs="0"/>
         <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka"/>
         <xs:element minOccurs="0" name="NazevObsahuje" type="xs:string"/>
         <xs:element minOccurs="0" maxOccurs="1" name="DatumCasVytvoreniOd" type="xs:dateTime"/>
