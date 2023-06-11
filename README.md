@@ -1,4 +1,16 @@
- # XML schémata pro Národní standard pro elektronické systémy spisové služby
+# XML schémata pro Národní standard pro elektronické systémy spisové služby
+
+## [Přehled změn](CHANGES.md)
+
+## Hlášení chyb
+
+Pokud ve schématech najdete chybu, nahlašte ji jako nové issue na
+adrese https://github.com/nsessl/schema/issues/new
+
+Pro nahlášení problému je potřeba být přihlášen pomocí GitHub účtu (to
+nám umožní vás kontaktovat v případě nejasností s nahlášeným
+problémem). GitHub účet si můžete zdarma založit na adrese
+https://github.com/signup
 
 ## Příloha 1 – Schéma pro výměnu dokumentů a jejich metadat (WS API)
 
@@ -39,8 +51,7 @@ Normativní části přílohy tvoří schémata ze standardu METS:
 * [`mets-xlink.xsd`](src/mets-xlink.xsd) – schéma XLink používané
   schématem METS
 
-## Příloha 4 – Schéma pro zasílání údajů o rozhodnutí ve skartačním
-   řízení a potvrzení přejímky
+## Příloha 4 – Schéma pro zasílání údajů o rozhodnutí ve skartačním řízení a potvrzení přejímky
 
 Normativní části přílohy:
 
@@ -50,8 +61,7 @@ Doplňující informace:
 
 * [dokumentace schématu](doc/4-da/nsesss-DA.html)
 
-## Příloha 5 – Schéma pro export a import spisového a skartačního
-   plánu
+## Příloha 5 – Schéma pro export a import spisového a skartačního plánu
 
 Normativní části přílohy:
 
@@ -75,7 +85,19 @@ Doplňující informace:
 
 ...
 
-## Příloha C – Schéma pro spisovou rozluku
+## Příloha Y – ...
 
 ...
+
+## Příloha C – Schéma pro spisovou rozluku
+
+Normativní části přílohy:
+
+* [Textová část přílohy](PrilohaC.md)
+* [`ermsExportPrenos.xsd`](src/ermsExportPrenos.xsd) – schéma
+
+Doplňující informace:
+
+* [dokumentace schématu](doc/C-export/ermsExportPrenos.html)
+
 
