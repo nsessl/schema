@@ -327,13 +327,6 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
   <xs:complexType name="tFileId">
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator"/>
-      <xs:element minOccurs="0" name="WsUrl" type="xs:string">
-        <xs:annotation>
-          <xs:documentation>URL stream webové služby pro získání obsahu komponenty - elektronického souboru.
-V rámci URL může být zakódovaný přístupový klíč a platnost vystavené URL může být omezena časově nebo i počtem použití.
-Při exspiraci získané URL musí externí systém znovu požádat a získání této informace.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="tFileLinksArray">
