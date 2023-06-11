@@ -11,7 +11,7 @@
 
 Změny v API byly provedeny co nejmenší, ale i přesto je změněn jmenný
 prostor používaný v XML dokumentech, aby neaktulizované systémy nové
-XML odmítli zpracovat a nedocházelo k nečekaným chybám.
+XML odmítly zpracovat a nedocházelo k nečekaným chybám.
 
 Místo jmenného prostoru `http://nsess.public.cz/erms/v_02_00` se nyní
 používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
