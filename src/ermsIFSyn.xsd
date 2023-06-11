@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api"
   elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
-  id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xml:lang="cs">
+  id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
   <xs:annotation>
     <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
       Toto schéma popisuje synchroní výměnu událostí, např. formou webových služeb.</xs:documentation>
@@ -315,15 +314,10 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Soubor">
+        <xs:element minOccurs="0" name="Soubor" type="tFile">
           <xs:annotation>
             <xs:documentation>El. soubor (příloha) navázaný k dokumentu nebo dokumentům. </xs:documentation>
           </xs:annotation>
-          <xs:complexType>
-            <xs:complexContent mixed="false">
-              <xs:extension base="tFile"/>
-            </xs:complexContent>
-          </xs:complexType>
         </xs:element>
         <xs:element name="OperaceStatus" type="tOperaceStatus"/>
       </xs:sequence>
