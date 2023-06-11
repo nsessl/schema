@@ -15,6 +15,9 @@ Pro nahlášení problému je potřeba být přihlášen pomocí GitHub účtu (
 nám umožní vás kontaktovat v případě nejasností s nahlášeným
 problémem). [Založení GitHub účtu](https://github.com/signup).
 
+Pokud jste nenašli přímo chybu, ale máte nějaký dotaz či nejasnost,
+[využijte diskuse pro položení dotazu](https://github.com/nsessl/schema/discussions).
+
 ## Příloha 1 – Schéma pro výměnu dokumentů a jejich metadat (WS API)
 
 Normativní části přílohy:
