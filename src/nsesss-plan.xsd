@@ -6,7 +6,7 @@
   elementFormDefault="qualified"
   version="4.0" id="nsesss-plan" xml:lang="cs">
 
-  <xs:include schemaLocation="nsesss.xsd"/>
+  <xs:include schemaLocation="nsesss-common.xsd"/>
 
   <xs:annotation>
     <xs:documentation>Schéma XML pro export a import spisového a skartačního plánu podle národního standardu pro elektronické systémy spisové služby</xs:documentation>

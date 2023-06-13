@@ -78,6 +78,7 @@ nové XML odmítly zpracovat a nedocházelo k nečekaným chybám.
 Místo jmenného prostoru `http://www.mvcr.cz/nsesss/v3` se nyní
 používá jmenný prostor `http://www.mvcr.cz/nsesss/v4`.
 
+* Sdílené definice jsou součástí schématu `nsesss-common.xsd`
 * Metadata skartačního režimu rozšížena o rok vyřazení a lhůtu pro
   kontrolu
 

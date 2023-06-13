@@ -45,6 +45,8 @@ Doplňující informace:
 Normativní části přílohy:
 
 * [`nsesss.xsd`](src/nsesss.xsd) – schéma pro popisná metadata
+* [`nsesss-common.xsd`](src/nsesss-common.xsd) – schéma sdílených
+  datových typů
 
 Doplňující informace:
 
