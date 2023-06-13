@@ -92,7 +92,13 @@ Doplňující informace:
 
 ## Příloha X – Popisná metadata pro automatické zpracování dokumentu
 
-...
+Normativní části přílohy:
+
+* [`nsesss-document.xsd`](src/nsesss-document.xsd) – schéma transakčního protokolu
+
+Doplňující informace:
+
+* [dokumentace schématu](doc/X-doc/nsesss-document.html)
 
 ## Příloha Y – ...
 

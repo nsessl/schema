@@ -42,6 +42,30 @@
       <arg value="-cfg:schemadoc.xml"/>
       <arg value="-out:../doc/C-export/ermsExportPrenos.html"/>
     </exec>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/nsesss.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/2-metadata/nsesss.html"/>
+    </exec>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/nsesss-DA.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/4-da/nsesss-DA.html"/>
+    </exec>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/nsesss-plan.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/5-plan/nsesss-plan.html"/>
+    </exec>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/nsesss-document.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/X-doc/nsesss-document.html"/>
+    </exec>
     
   </target>
 
