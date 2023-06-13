@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://www.mvcr.cz/nsesss/v3"
   targetNamespace="http://www.mvcr.cz/nsesss/v3" 
+  xmlns="http://www.mvcr.cz/nsesss/v3"
   elementFormDefault="qualified" 
   version="3.0" id="nsesss" xml:lang="cs">
   <xs:annotation>
