@@ -40,7 +40,6 @@ Doplňující informace:
 * [dokumentace synchronního rozhraní](doc/1-api-sync/ermsAPI.html)
 * [dokumentace asynchronní komunikace](doc/1-api-async/ermsIFASyn.html)
 
-<!--
 ## Příloha 2 – Schéma pro zaznamenání popisných metadat uvnitř datového balíčku SIP
 
 Normativní části přílohy:
@@ -89,15 +88,13 @@ Doplňující informace:
 
 * [dokumentace schématu](doc/6-trp/nsesss-trp.html)
 
-## Příloha X – ...
+## Příloha X – Popisná metadata pro automatické zpracování dokumentu
 
 ...
 
 ## Příloha Y – ...
 
 ...
-
--->
 
 ## Příloha C – Schéma pro spisovou rozluku
 
