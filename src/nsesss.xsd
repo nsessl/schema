@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:nsesss="http://www.mvcr.cz/nsesss/v3"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+<xs:schema 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://www.mvcr.cz/nsesss/v3"
   targetNamespace="http://www.mvcr.cz/nsesss/v3" 
   elementFormDefault="qualified" 
   version="3.0" id="nsesss" xml:lang="cs">
@@ -15,8 +15,8 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="EvidencniUdaje" type="nsesss:tEvidencniUdajeDilu"/>
-        <xs:element name="Dokumenty" type="nsesss:tDokumenty"/>
+        <xs:element name="EvidencniUdaje" type="tEvidencniUdajeDilu"/>
+        <xs:element name="Dokumenty" type="tDokumenty"/>
       </xs:sequence>
       <xs:attribute name="ID" type="xs:ID" use="required">
         <xs:annotation>
@@ -32,8 +32,8 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="EvidencniUdaje" type="nsesss:tEvidencniUdajeDokumentu"/>
-        <xs:element name="Komponenty" type="nsesss:tKomponenty" minOccurs="0">
+        <xs:element name="EvidencniUdaje" type="tEvidencniUdajeDokumentu"/>
+        <xs:element name="Komponenty" type="tKomponenty" minOccurs="0">
           <xs:annotation>
             <xs:documentation>Prvek se vyplňuje jen v případě entit v digitální podobě. Nepovinný je v případě, že jsou předávána pouze metadata entit.</xs:documentation>
           </xs:annotation>
@@ -53,8 +53,8 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="EvidencniUdaje" type="nsesss:tEvidencniUdajeSpisu"/>
-        <xs:element name="Dokumenty" type="nsesss:tDokumenty"/>
+        <xs:element name="EvidencniUdaje" type="tEvidencniUdajeSpisu"/>
+        <xs:element name="Dokumenty" type="tDokumenty"/>
       </xs:sequence>
       <xs:attribute name="ID" type="xs:ID" use="required">
         <xs:annotation>
@@ -69,12 +69,12 @@
       <xs:documentation>Sada elementů pro popis evidenčních údajů dále uvedených entit, tedy věcné skupiny, spisu, součásti, dílu a dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikace" type="nsesss:tIdentifikace"/>
-      <xs:element name="Popis" type="nsesss:tPopis"/>
-      <xs:element name="Souvislosti" type="nsesss:tSouvislosti" minOccurs="0"/>
-      <xs:element name="Pristupnost" type="nsesss:tPristupnost" minOccurs="0"/>
-      <xs:element name="Poznamky" type="nsesss:tPoznamky" minOccurs="0"/>
-      <xs:element name="JineUdaje" type="nsesss:tJineUdaje" minOccurs="0"/>
+      <xs:element name="Identifikace" type="tIdentifikace"/>
+      <xs:element name="Popis" type="tPopis"/>
+      <xs:element name="Souvislosti" type="tSouvislosti" minOccurs="0"/>
+      <xs:element name="Pristupnost" type="tPristupnost" minOccurs="0"/>
+      <xs:element name="Poznamky" type="tPoznamky" minOccurs="0"/>
+      <xs:element name="JineUdaje" type="tJineUdaje" minOccurs="0"/>
     </xs:sequence>
   </xs:group>
 
@@ -269,8 +269,8 @@
       <xs:documentation>Sada elementů pro identifikaci entit nebo objektů.</xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
-      <xs:extension base="nsesss:tIdentifikatorHodnota">
-        <xs:attribute name="zdroj" type="nsesss:tNazev" use="required">
+      <xs:extension base="tIdentifikatorHodnota">
+        <xs:attribute name="zdroj" type="tNazev" use="required">
           <xs:annotation>
             <xs:documentation>Povinný prvek pro zaznamenání názvu zdroje identifikátoru. V případě identifikace entit nebo některých objektů je zdrojem ERMS, v případě identifikace subjektů může být zdrojem například rodné číslo, klientské číslo, zaměstnanecké označení, služební číslo oprávněné úřední osoby (fyzické osoby) nebo IČ, DIČ (právnické osoby).</xs:documentation>
           </xs:annotation>
@@ -284,36 +284,36 @@
       <xs:documentation>Bezpečnostní kategorie je opatření spojené s entitou, které podmiňuje nebo definuje pravidla určující podmínky přístupu k ní. Toto opatření se uplatňuje zejména v souvislosti s klasifikací dokumentu, který obsahuje utajovanou informaci, stupněm utajení, jímž je klasifikován (zákon č. 412/2005 Sb.), nebo v souvislosti s označením dokumentu pro omezení přístupu k němu podle jiného právního předpisu, anebo v souvislosti s rozhodnutím organizace (původce) omezit přístup k jím stanoveným kategoriím entit.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="nsesss:tIdentifikator"/>
-      <xs:element name="Nazev" type="nsesss:tNazev"/>
-      <xs:element name="Komentar" type="nsesss:tKomentar" minOccurs="0"/>
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element name="Nazev" type="tNazev"/>
+      <xs:element name="Komentar" type="tKomentar" minOccurs="0"/>
       <xs:element name="Oduvodneni" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Volitelný prvek pro zaznamenání důvodu přidělení bezpečnostní kategorie.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="BezpecnostniStupen" type="nsesss:tText"/>
+      <xs:element name="BezpecnostniStupen" type="tText"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="tCertifikat">
     <xs:sequence>
-      <xs:element name="SerioveCislo" type="nsesss:tIdentifikator">
+      <xs:element name="SerioveCislo" type="tIdentifikator">
         <xs:annotation>
           <xs:documentation>Sériové číslo certifikátu vydaného poskytovatelem certifikačních služeb.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Vydavatel" type="nsesss:tOsobaExterni">
+      <xs:element name="Vydavatel" type="tOsobaExterni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání poskytovatele certifikačních služeb, který vydal příslušný certifikát.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Držitel" type="nsesss:tOsobaExterni">
+      <xs:element name="Držitel" type="tOsobaExterni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání držitele certifikátu.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Platnost" type="nsesss:tPlatnost"/>
+      <xs:element name="Platnost" type="tPlatnost"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -332,7 +332,7 @@
       <xs:documentation>Metadatový kontejner pro dceřiné dokumenty.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element ref="nsesss:Dokument" maxOccurs="unbounded"/>
+      <xs:element ref="Dokument" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -341,16 +341,16 @@
       <xs:documentation>Sada elementů pro evidenci údajů o doručení dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="DatumVytvoreni" type="nsesss:tDatum" minOccurs="0"/>
-      <xs:element name="Autor" type="nsesss:tOsobyExterni" minOccurs="0"/>
-      <xs:element name="DatumDoruceni" type="nsesss:tDatum"/>
-      <xs:element name="OdesilatelovoEvidencniCislo" type="nsesss:tEvidencniCislo" minOccurs="0"/>
+      <xs:element name="DatumVytvoreni" type="tDatum" minOccurs="0"/>
+      <xs:element name="Autor" type="tOsobyExterni" minOccurs="0"/>
+      <xs:element name="DatumDoruceni" type="tDatum"/>
+      <xs:element name="OdesilatelovoEvidencniCislo" type="tEvidencniCislo" minOccurs="0"/>
       <xs:element name="DoruceneMnozstvi" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek se vyplňuje jen v případě entit v analogové podobě.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Odesilatel" type="nsesss:tOsobaExterni"/>
+      <xs:element name="Odesilatel" type="tOsobaExterni"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -359,14 +359,14 @@
       <xs:documentation>Sada elementů pro evidenci spisů nebo dokumentů.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="EvidencniCislo" type="nsesss:tEvidencniCislo"/>
-      <xs:element name="PoradoveCislo" type="nsesss:tPoradoveCislo" minOccurs="0">
+      <xs:element name="EvidencniCislo" type="tEvidencniCislo"/>
+      <xs:element name="PoradoveCislo" type="tPoradoveCislo" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek je nepovinný v případě, že je entita evidována v rámci samostatné evidence dokumentů, která nepoužívá pořadových čísel.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="UrceneCasoveObdobi" type="nsesss:tUrceneCasoveObdobi"/>
-      <xs:element name="NazevEvidenceDokumentu" type="nsesss:tNazev">
+      <xs:element name="UrceneCasoveObdobi" type="tUrceneCasoveObdobi"/>
+      <xs:element name="NazevEvidenceDokumentu" type="tNazev">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání názvu evidence dokumentů. Pokud je používána jediná evidence dokumentů v organizaci, použije se název ERMS. Pokud je v organizaci používáno několik evidencí dokumentů současně, použijí se názvy uvedené ve spisovém plánu organizace.</xs:documentation>
         </xs:annotation>
@@ -379,12 +379,12 @@
       <xs:documentation>Sada elementů pro evidenční údaje entity "díl".</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:group ref="nsesss:tEntita"/>
-      <xs:element name="Puvod" type="nsesss:tPuvodSeskupeni"/>
-      <xs:element name="Trideni" type="nsesss:tTrideniDilu"/>
-      <xs:element name="Uzavreni" type="nsesss:tUzavreni"/>
-      <xs:element name="Vyrazovani" type="nsesss:tVyrazovani"/>
-      <xs:element name="Manipulace" type="nsesss:tManipulaceSeskupeni"/>
+      <xs:group ref="tEntita"/>
+      <xs:element name="Puvod" type="tPuvodSeskupeni"/>
+      <xs:element name="Trideni" type="tTrideniDilu"/>
+      <xs:element name="Uzavreni" type="tUzavreni"/>
+      <xs:element name="Vyrazovani" type="tVyrazovani"/>
+      <xs:element name="Manipulace" type="tManipulaceSeskupeni"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -393,22 +393,22 @@
       <xs:documentation>Sada elementů pro evidenční údaje entity "dokument".</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:group ref="nsesss:tEntita"/>
+      <xs:group ref="tEntita"/>
       <xs:choice>
-        <xs:element name="Evidence" type="nsesss:tEvidence"/>
-        <xs:element name="Neevidence" type="nsesss:tNeevidence"/>
+        <xs:element name="Evidence" type="tEvidence"/>
+        <xs:element name="Neevidence" type="tNeevidence"/>
       </xs:choice>
-      <xs:element name="Jazyky" type="nsesss:tJazyky" minOccurs="0"/>
-      <xs:element name="Puvod" type="nsesss:tPuvodDokumentu"/>
-      <xs:element name="Trideni" type="nsesss:tTrideniDokumentu"/>
-      <xs:element name="Vyrizeni" type="nsesss:tVyrizeniEntity" minOccurs="0">
+      <xs:element name="Jazyky" type="tJazyky" minOccurs="0"/>
+      <xs:element name="Puvod" type="tPuvodDokumentu"/>
+      <xs:element name="Trideni" type="tTrideniDokumentu"/>
+      <xs:element name="Vyrizeni" type="tVyrizeniEntity" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek je povinný pouze v případě, že je entita "dokument" použita jako základní entita.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Vyrazovani" type="nsesss:tVyrazovani"/>
-      <xs:element name="Manipulace" type="nsesss:tManipulaceDokumentu"/>
-      <xs:element name="Prevod" type="nsesss:tPrevodDokumentu" minOccurs="0"/>
+      <xs:element name="Vyrazovani" type="tVyrazovani"/>
+      <xs:element name="Manipulace" type="tManipulaceDokumentu"/>
+      <xs:element name="Prevod" type="tPrevodDokumentu" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -417,11 +417,11 @@
       <xs:documentation>Sada elementů pro evidenční údaje entity "komponenta".</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikace" type="nsesss:tIdentifikace"/>
-      <xs:element name="Popis" type="nsesss:tPopisKomponenty"/>
-      <xs:element name="Trideni" type="nsesss:tTrideni"/>
-      <xs:element name="Manipulace" type="nsesss:tManipulaceKomponenty" minOccurs="0"/>
-      <xs:element name="Prevod" type="nsesss:tPrevodKomponenty" minOccurs="0"/>
+      <xs:element name="Identifikace" type="tIdentifikace"/>
+      <xs:element name="Popis" type="tPopisKomponenty"/>
+      <xs:element name="Trideni" type="tTrideni"/>
+      <xs:element name="Manipulace" type="tManipulaceKomponenty" minOccurs="0"/>
+      <xs:element name="Prevod" type="tPrevodKomponenty" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -430,12 +430,12 @@
       <xs:documentation>Sada elementů pro evidenční údaje entity "součást".</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:group ref="nsesss:tEntita"/>
-      <xs:element name="Puvod" type="nsesss:tPuvodSeskupeni"/>
-      <xs:element name="Trideni" type="nsesss:tTrideniSoucasti"/>
-      <xs:element name="Uzavreni" type="nsesss:tUzavreni" minOccurs="0"/>
-      <xs:element name="Vyrazovani" type="nsesss:tVyrazovaniSoucasti"/>
-      <xs:element name="Manipulace" type="nsesss:tManipulaceSeskupeni"/>
+      <xs:group ref="tEntita"/>
+      <xs:element name="Puvod" type="tPuvodSeskupeni"/>
+      <xs:element name="Trideni" type="tTrideniSoucasti"/>
+      <xs:element name="Uzavreni" type="tUzavreni" minOccurs="0"/>
+      <xs:element name="Vyrazovani" type="tVyrazovaniSoucasti"/>
+      <xs:element name="Manipulace" type="tManipulaceSeskupeni"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -444,23 +444,23 @@
       <xs:documentation>Sada elementů pro evidenční údaje entity "spis".</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:group ref="nsesss:tEntita"/>
-      <xs:element name="Evidence" type="nsesss:tEvidence"/>
-      <xs:element name="Puvod" type="nsesss:tPuvodSeskupeni"/>
-      <xs:element name="Trideni" type="nsesss:tTrideniSpisu"/>
-      <xs:element name="VyrizeniUzavreni" type="nsesss:tVyrizeniEntity"/>
-      <xs:element name="Vyrazovani" type="nsesss:tVyrazovani"/>
-      <xs:element name="Manipulace" type="nsesss:tManipulaceSeskupeni"/>
+      <xs:group ref="tEntita"/>
+      <xs:element name="Evidence" type="tEvidence"/>
+      <xs:element name="Puvod" type="tPuvodSeskupeni"/>
+      <xs:element name="Trideni" type="tTrideniSpisu"/>
+      <xs:element name="VyrizeniUzavreni" type="tVyrizeniEntity"/>
+      <xs:element name="Vyrazovani" type="tVyrazovani"/>
+      <xs:element name="Manipulace" type="tManipulaceSeskupeni"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="tEvidencniUdajeTypovehoSpisu">
     <xs:sequence>
-      <xs:group ref="nsesss:tEntita"/>
-      <xs:element name="Puvod" type="nsesss:tPuvodSeskupeni"/>
-      <xs:element name="Trideni" type="nsesss:tTrideniTypovehoSpisu"/>
-      <xs:element name="Uzavreni" type="nsesss:tUzavreni" minOccurs="0"/>
-      <xs:element name="Manipulace" type="nsesss:tManipulaceSeskupeni"/>
+      <xs:group ref="tEntita"/>
+      <xs:element name="Puvod" type="tPuvodSeskupeni"/>
+      <xs:element name="Trideni" type="tTrideniTypovehoSpisu"/>
+      <xs:element name="Uzavreni" type="tUzavreni" minOccurs="0"/>
+      <xs:element name="Manipulace" type="tManipulaceSeskupeni"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -469,11 +469,11 @@
       <xs:documentation>Sada elementů pro evidenční údaje entity "věcná skupina".</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:group ref="nsesss:tEntita"/>
-      <xs:element name="Puvod" type="nsesss:tPuvodSeskupeni"/>
-      <xs:element name="Trideni" type="nsesss:tTrideniVecneSkupiny"/>
-      <xs:element name="Vyrazovani" type="nsesss:tVyrazovaniVecneSkupiny"/>
-      <xs:element name="Manipulace" type="nsesss:tManipulaceSeskupeni"/>
+      <xs:group ref="tEntita"/>
+      <xs:element name="Puvod" type="tPuvodSeskupeni"/>
+      <xs:element name="Trideni" type="tTrideniVecneSkupiny"/>
+      <xs:element name="Vyrazovani" type="tVyrazovaniVecneSkupiny"/>
+      <xs:element name="Manipulace" type="tManipulaceSeskupeni"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -482,7 +482,7 @@
       <xs:documentation>Sada elementů pro identifikační údaje entit. Prvek je opakovatelný pouze v případě použití v entitě "komponenta".</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="nsesss:tIdentifikator" maxOccurs="unbounded"/>
+      <xs:element name="Identifikator" type="tIdentifikator" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -491,7 +491,7 @@
       <xs:documentation>Metadatový kontejner pro identifikaci jazyků dokumentů.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Jazyk" type="nsesss:tJazyk" maxOccurs="unbounded"/>
+      <xs:element name="Jazyk" type="tJazyk" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -509,7 +509,7 @@
       <xs:documentation>Metadatový kontejner pro popis entity pomocí klíčových slov.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="KlicoveSlovo" type="nsesss:tText" maxOccurs="unbounded"/>
+      <xs:element name="KlicoveSlovo" type="tText" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -518,25 +518,25 @@
       <xs:documentation>Sada elementů pro popis entity "komponenta" v digitální podobě (jednoznačně vymezený řetězec bitů tvořící počítačový soubor). Tato sada se povinně alespoň jednou vyskytuje v každé instanci XML podle tohoto schématu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="EvidencniUdaje" type="nsesss:tEvidencniUdajeKomponenty"/>
+      <xs:element name="EvidencniUdaje" type="tEvidencniUdajeKomponenty"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required">
       <xs:annotation>
         <xs:documentation>Identifikátor jednoznačně označuje entitu uvnitř XML dokumentu.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="poradi" type="nsesss:tPoradoveCislo" use="required">
+    <xs:attribute name="poradi" type="tPoradoveCislo" use="required">
       <xs:annotation>
         <xs:documentation>Pořadové číslo komponenty v rámci struktury dokumentu. Průvodní dopis/hlavní dokument nebo jiná komponenta výchozí pro zobrazení dokumentu se označuje číslem 1, navazující komponenty např. přílohy se pak označují vyššími čísly v pořadí, v jakém by měly být komponenty příslušného dokumentu znázorněny.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="druh" type="nsesss:tDruhKomponenty" use="required"/>
-    <xs:attribute name="verze" type="nsesss:tPoradoveCislo" use="required">
+    <xs:attribute name="druh" type="tDruhKomponenty" use="required"/>
+    <xs:attribute name="verze" type="tPoradoveCislo" use="required">
       <xs:annotation>
         <xs:documentation>Prvek pro číselné uvedení verze komponenty v rámci vývoje od prvotního konceptu po originál ve výstupním datovém formátu. Prvotní koncept/doručená verze se označuje číslem 1, navazující verze nebo následné výstupy převodů se pak označují vyššími čísly. Verze s nejvyšším číslem je konečná.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="forma_uchovani" type="nsesss:tFormaUchovani" use="required"/>
+    <xs:attribute name="forma_uchovani" type="tFormaUchovani" use="required"/>
     <xs:attribute name="vztah_k" type="xs:IDREF">
       <xs:annotation>
         <xs:documentation>Prvek je povinný v případě, že komponenta zaznamenává externí autentizační prostředek. Prvek popisuje vazbu autentizačního prostředku k příslušné komponentě odkazem na její atribut ID.</xs:documentation>
@@ -549,7 +549,7 @@
       <xs:documentation>Metadatový kontejner pro dceřiné komponenty v digitální podobě.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Komponenta" type="nsesss:tKomponenta" maxOccurs="unbounded"/>
+      <xs:element name="Komponenta" type="tKomponenta" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -558,15 +558,15 @@
       <xs:documentation>Sada elementů pro popis konverze dokumentu nebo komponenty z analogové podoby do digitální podoby (AD) nebo z podoby digitální do podoby analogové (DA).</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:element name="Vystup" type="nsesss:tVystup" maxOccurs="unbounded"/>
+      <xs:element name="Vystup" type="tVystup" maxOccurs="unbounded"/>
       <xs:sequence>
         <xs:element name="Oduvodneni" type="xs:string" minOccurs="0"/>
-        <xs:element name="AutorizovanaKonverze" type="nsesss:tLogicky">
+        <xs:element name="AutorizovanaKonverze" type="tLogicky">
           <xs:annotation>
             <xs:documentation>Indikace, zda je prováděná konverze autorizovanou konverzí ve smyslu zákona č. 300/2008 Sb., o elektronických úkonech a autorizované konverzi dokumentů, nebo nikoli.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="OdkazVstup" type="nsesss:tOdkaz">
+        <xs:element name="OdkazVstup" type="tOdkaz">
           <xs:annotation>
             <xs:documentation>Metadatový kontejner pro identifikaci vstupní entity (dokumentu nebo komponenty) do procesu konverze.</xs:documentation>
           </xs:annotation>
@@ -580,14 +580,14 @@
       <xs:documentation>Sada elementů pro popis konverze komponenty z digitální podoby do jiné digitální podoby (DD). V terminologii jiné profesní oblasti se jedná o migraci komponenty.</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:element name="Ztvarneni" type="nsesss:tZtvarneni" maxOccurs="unbounded"/>
+      <xs:element name="Ztvarneni" type="tZtvarneni" maxOccurs="unbounded"/>
       <xs:sequence>
         <xs:element name="Oduvodneni" type="xs:string">
           <xs:annotation>
             <xs:documentation>Povinný prvek pro zaznamenání důvodu konverze komponenty. Důvodem může být splnění povinnosti převést komponentu do výstupního datového formátu podle prováděcího právního předpisu upravujícího podrobnosti výkonu spisové služby.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="OdkazPuvodniKomponenta" type="nsesss:tOdkaz" maxOccurs="unbounded">
+        <xs:element name="OdkazPuvodniKomponenta" type="tOdkaz" maxOccurs="unbounded">
           <xs:annotation>
             <xs:documentation>Metadatový kontejner pro identifikaci vstupní komponenty do procesu konverze.</xs:documentation>
           </xs:annotation>
@@ -601,7 +601,7 @@
       <xs:documentation>Sada elementů pro indikaci dokumentů v analogové podobě v rámci entity.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="AnalogovyDokument" type="nsesss:tLogicky"/>
+      <xs:element name="AnalogovyDokument" type="tLogicky"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -610,7 +610,7 @@
       <xs:documentation>Metadatový kontejner pro popis výsledku ověření certifikátů a na nich založených bezpečnostních prvků (tj. elektronického podpisu, elektronické značky nebo časového razítka).</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="OvereniBezpecnostnihoPrvku" type="nsesss:tOvereniBezpecnostnihoPrvku" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="OvereniBezpecnostnihoPrvku" type="tOvereniBezpecnostnihoPrvku" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -619,8 +619,8 @@
       <xs:documentation>Časové údaje evidující počátek a konec platnosti spisového plánu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="DatumOtevreni" type="nsesss:tDatum"/>
-      <xs:element name="DatumUzavreni" type="nsesss:tDatum" minOccurs="0"/>
+      <xs:element name="DatumOtevreni" type="tDatum"/>
+      <xs:element name="DatumUzavreni" type="tDatum" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -629,7 +629,7 @@
       <xs:documentation>Metadatový kontejner pro mateřské entity dílu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Soucast" type="nsesss:tSoucast"/>
+      <xs:element name="Soucast" type="tSoucast"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -638,7 +638,7 @@
       <xs:documentation>Metadatový kontejner pro mateřské entity dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="VecnaSkupina" type="nsesss:tVecnaSkupina"/>
+      <xs:element name="VecnaSkupina" type="tVecnaSkupina"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -647,7 +647,7 @@
       <xs:documentation>Metadatový kontejner pro mateřské entity součásti.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="TypovySpis" type="nsesss:tTypovySpis"/>
+      <xs:element name="TypovySpis" type="tTypovySpis"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -656,7 +656,7 @@
       <xs:documentation>Metadatový kontejner pro mateřské entity spisu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="VecnaSkupina" type="nsesss:tVecnaSkupina"/>
+      <xs:element name="VecnaSkupina" type="tVecnaSkupina"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -665,7 +665,7 @@
       <xs:documentation>Metadatový kontejner pro mateřskou entitu typového spisu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="VecnaSkupina" type="nsesss:tVecnaSkupina"/>
+      <xs:element name="VecnaSkupina" type="tVecnaSkupina"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -674,7 +674,7 @@
       <xs:documentation>Metadatový kontejner pro mateřskou entitu věcné skupiny.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="VecnaSkupina" type="nsesss:tVecnaSkupina"/>
+      <xs:element name="VecnaSkupina" type="tVecnaSkupina"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -696,8 +696,8 @@
       <xs:documentation>Metadatový kontejner pro referenci na jinou entitu v podobě plně určeného spisového znaku a identifikátoru přiděleného ERMS.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="PlneUrcenySpisovyZnak" type="nsesss:tPlneUrcenySpisovyZnak"/>
-      <xs:element name="Identifikator" type="nsesss:tIdentifikator"/>
+      <xs:element name="PlneUrcenySpisovyZnak" type="tPlneUrcenySpisovyZnak"/>
+      <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element name="Specifikace" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Volitelný prvek pro zaznamenání bližší charakteristiky vazby mezi entitami.</xs:documentation>
@@ -711,7 +711,7 @@
       <xs:documentation>Metadatový kontejner pro zaznamenání právě jednoho externího subjektu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Subjekt" type="nsesss:tSubjektExterni"/>
+      <xs:element name="Subjekt" type="tSubjektExterni"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -720,7 +720,7 @@
       <xs:documentation>Metadatový kontejner pro zaznamenání právě jednoho interního subjektu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Subjekt" type="nsesss:tSubjektInterni"/>
+      <xs:element name="Subjekt" type="tSubjektInterni"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -729,7 +729,7 @@
       <xs:documentation>Metadatový kontejner pro možné zaznamenání několika externích subjektů současně.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Subjekt" type="nsesss:tSubjektExterni" maxOccurs="unbounded"/>
+      <xs:element name="Subjekt" type="tSubjektExterni" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -738,30 +738,30 @@
       <xs:documentation>Metadatový kontejner pro možné zaznamenání několika interních subjektů současně.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Subjekt" type="nsesss:tSubjektInterni" maxOccurs="unbounded"/>
+      <xs:element name="Subjekt" type="tSubjektInterni" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="tOvereniBezpecnostnihoPrvku">
     <xs:sequence>
-      <xs:element name="Certifikat" type="nsesss:tCertifikat"/>
-      <xs:element name="OvereniCertifikatu" type="nsesss:tOvereniCertifikatu"/>
-      <xs:element name="CasPouziti" type="nsesss:tDatum" minOccurs="0">
+      <xs:element name="Certifikat" type="tCertifikat"/>
+      <xs:element name="OvereniCertifikatu" type="tOvereniCertifikatu"/>
+      <xs:element name="CasPouziti" type="tDatum" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Časový okamžik, ve kterém je komponenta opatřena bezpečnostním prvkem. Prvek je volitelný s ohledem na možnosti zjištění tohoto údaje.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="CasOvereni" type="nsesss:tDatum">
+      <xs:element name="CasOvereni" type="tDatum">
         <xs:annotation>
           <xs:documentation>Časový okamžik, ve kterém je prováděno ověření platnosti bezpečnostního prvku.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="PlatnostBezpecnostnihoPrvku" type="nsesss:tVysledekOvereni">
+      <xs:element name="PlatnostBezpecnostnihoPrvku" type="tVysledekOvereni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání platnosti bezpečnostního prvku.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Overovatel" type="nsesss:tOsobaInterni">
+      <xs:element name="Overovatel" type="tOsobaInterni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání fyzické osoby, která provádí ověření bezpečnostního prvku.</xs:documentation>
         </xs:annotation>
@@ -771,47 +771,47 @@
 
   <xs:complexType name="tOvereniCertifikatu">
     <xs:sequence>
-      <xs:element name="PosuzovanyOkamzik" type="nsesss:tDatum">
+      <xs:element name="PosuzovanyOkamzik" type="tDatum">
         <xs:annotation>
           <xs:documentation>Časový údaj, k němuž je vztaženo posuzování platnosti bezpečnostního prvku, který je založen na certifikátu.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="PlatnostBezpecnostnihoPrvkuCertifikatu" type="nsesss:tVysledekOvereni">
+      <xs:element name="PlatnostBezpecnostnihoPrvkuCertifikatu" type="tVysledekOvereni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání platnosti bezpečnostního prvku, kterým je certifikát opatřen.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="CisloSeznamuCRL" type="nsesss:tIdentifikator" minOccurs="0">
+      <xs:element name="CisloSeznamuCRL" type="tIdentifikator" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání čísla seznamu revokovaných certifikátů (tzv. CRL), prostřednictvím kterého byla zjišťována revokace certifikátu. Prvek je nepovinný v případě, kdy k ověření platnosti certifikátu dochází prostřednictvím OCSP.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="StavRevokace" type="nsesss:tLogicky">
+      <xs:element name="StavRevokace" type="tLogicky">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání revokace certifikátu.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="PlatnostBezpecnostnihoPrvkuRevokaceCertifikatu" type="nsesss:tVysledekOvereni">
+      <xs:element name="PlatnostBezpecnostnihoPrvkuRevokaceCertifikatu" type="tVysledekOvereni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání platnosti bezpečnostního prvku, kterým je seznam revokovaných certifikátů (tzv. CRL) nebo OCSP.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="PlatnostCertifikacniCesty" type="nsesss:tVysledekOvereni">
+      <xs:element name="PlatnostCertifikacniCesty" type="tVysledekOvereni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání platnosti celé certifikační cesty (tj. certifikátů, na nichž jsou založeny bezpečnostní prvky, kterými jsou opatřeny certfikáty od kořenového certifikátu až po příslušný vydaný certifikát).</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="CasOvereni" type="nsesss:tDatum">
+      <xs:element name="CasOvereni" type="tDatum">
         <xs:annotation>
           <xs:documentation>Časový okamžik, ve kterém je prováděno ověření platnosti certifikátu.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="PlatnostCertifikatu" type="nsesss:tVysledekOvereni">
+      <xs:element name="PlatnostCertifikatu" type="tVysledekOvereni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání platnosti certifikátu.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Overovatel" type="nsesss:tOsobaInterni">
+      <xs:element name="Overovatel" type="tOsobaInterni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání fyzické osoby, která provádí ověření certifikátu.</xs:documentation>
         </xs:annotation>
@@ -824,8 +824,8 @@
       <xs:documentation>Prvek pro zaznamenání časových údajů počátku a konce řádné platnosti certifikátu vydaného poskytovatelem certifikačních služeb.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="PlatnostOd" type="nsesss:tDatum"/>
-      <xs:element name="PlatnostDo" type="nsesss:tDatum"/>
+      <xs:element name="PlatnostOd" type="tDatum"/>
+      <xs:element name="PlatnostDo" type="tDatum"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -834,9 +834,9 @@
       <xs:documentation>Sada elementů pro věcný popis entit nebo objektů.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Nazev" type="nsesss:tNazev"/>
-      <xs:element name="Komentar" type="nsesss:tKomentar" minOccurs="0"/>
-      <xs:element name="KlicovaSlova" type="nsesss:tKlicovaSlova" minOccurs="0"/>
+      <xs:element name="Nazev" type="tNazev"/>
+      <xs:element name="Komentar" type="tKomentar" minOccurs="0"/>
+      <xs:element name="KlicovaSlova" type="tKlicovaSlova" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -845,9 +845,9 @@
       <xs:documentation>Sada elementů pro věcný popis komponenty.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Nazev" type="nsesss:tNazev"/>
-      <xs:element name="Komentar" type="nsesss:tKomentar" minOccurs="0"/>
-      <xs:element name="KlicovaSlova" type="nsesss:tKlicovaSlova" minOccurs="0"/>
+      <xs:element name="Nazev" type="tNazev"/>
+      <xs:element name="Komentar" type="tKomentar" minOccurs="0"/>
+      <xs:element name="KlicovaSlova" type="tKlicovaSlova" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -865,8 +865,8 @@
       <xs:documentation>Metadatový kontejner pro zaznamenání procesu redakce nebo konverze dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Redakce" type="nsesss:tRedakce" minOccurs="0"/>
-      <xs:element name="KonverzeAD-DA" type="nsesss:tKonverzeAD-DA" minOccurs="0"/>
+      <xs:element name="Redakce" type="tRedakce" minOccurs="0"/>
+      <xs:element name="KonverzeAD-DA" type="tKonverzeAD-DA" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -875,8 +875,8 @@
       <xs:documentation>Metadatový kontejner pro zaznamenání procesu konverze komponenty.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="KonverzeAD-DA" type="nsesss:tKonverzeAD-DA" minOccurs="0"/>
-      <xs:element name="KonverzeDD" type="nsesss:tKonverzeDD" minOccurs="0"/>
+      <xs:element name="KonverzeAD-DA" type="tKonverzeAD-DA" minOccurs="0"/>
+      <xs:element name="KonverzeDD" type="tKonverzeDD" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -885,7 +885,7 @@
       <xs:documentation>Sada elementů pro popis pravidel určujících podmínky přístupu k entitě.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="BezpecnostniKategorie" type="nsesss:tBezpecnostniKategorie" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="BezpecnostniKategorie" type="tBezpecnostniKategorie" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="JineOmezeni" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání jiných pravidel určujících podmínky přístupu k entitě, které nemají bezpečnostní charakter. Například to mohou být podmínky přístupu k entitě vyplývající z podmínek ochrany osobních údajů stanovených zákonem č. 101/2000 Sb., o ochraně osobních údajů o změně některých zákonů, ve znění pozdějších předpisů, apod.</xs:documentation>
@@ -899,8 +899,8 @@
       <xs:documentation>Metadatový kontejner pro zaznamenání doručení nebo vzniku dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:element name="DorucenyDokument" type="nsesss:tDorucenyDokument"/>
-      <xs:element name="VlastniDokument" type="nsesss:tVlastniDokument"/>
+      <xs:element name="DorucenyDokument" type="tDorucenyDokument"/>
+      <xs:element name="VlastniDokument" type="tVlastniDokument"/>
     </xs:choice>
   </xs:complexType>
 
@@ -909,7 +909,7 @@
       <xs:documentation>Metadatový kontejner pro zaznamenání vzniku entit.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="DatumVytvoreni" type="nsesss:tDatum"/>
+      <xs:element name="DatumVytvoreni" type="tDatum"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -918,14 +918,14 @@
       <xs:documentation>Sada elementů pro popis úpravy kopie dokumentu, která zahrnuje proces skrytí určitých informací v dokumentu, jež nejsou potřebné pro další využití kopie dokumentu. Výsledkem procesu redakce je vytvoření výtahu (upravené kopie dokumentu).</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:element name="Vytah" type="nsesss:tVytah" maxOccurs="unbounded"/>
+      <xs:element name="Vytah" type="tVytah" maxOccurs="unbounded"/>
       <xs:sequence>
         <xs:element name="Oduvodneni" type="xs:string">
           <xs:annotation>
             <xs:documentation>Povinný prvek pro zaznamenání důvodu vytvoření výtahu.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="OdkazPuvodniDokument" type="nsesss:tOdkaz">
+        <xs:element name="OdkazPuvodniDokument" type="tOdkaz">
           <xs:annotation>
             <xs:documentation>Metadatový kontejner pro identifikaci vstupního dokumentu do procesu redakce.</xs:documentation>
           </xs:annotation>
@@ -939,8 +939,8 @@
       <xs:documentation>Sada elementů pro popis individuálního procesu schválení entity.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="DatumSchvaleni" type="nsesss:tDatum"/>
-      <xs:element name="Schvalovatel" type="nsesss:tOsobaInterni">
+      <xs:element name="DatumSchvaleni" type="tDatum"/>
+      <xs:element name="Schvalovatel" type="tOsobaInterni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání fyzické osoby, která entitu podepisuje zpravidla podle vnitřního předpisu organizace.</xs:documentation>
         </xs:annotation>
@@ -953,7 +953,7 @@
       <xs:documentation>Metadatový kontejner pro zaznamenání procesu schvalování entity.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Schvaleni" type="nsesss:tSchvaleni" maxOccurs="unbounded"/>
+      <xs:element name="Schvaleni" type="tSchvaleni" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -962,17 +962,17 @@
       <xs:documentation>Sada elementů pro popis systému vyřazování entit, který určuje datum zahájení plynutí skartační lhůty, vymezuje dobu ukládání entit a určuje typ skartační operace podle skartačního znaku.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="nsesss:tIdentifikator"/>
-      <xs:element name="Nazev" type="nsesss:tNazev"/>
-      <xs:element name="Komentar" type="nsesss:tKomentar" minOccurs="0"/>
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element name="Nazev" type="tNazev"/>
+      <xs:element name="Komentar" type="tKomentar" minOccurs="0"/>
       <xs:element name="Oduvodneni" type="xs:string">
         <xs:annotation>
           <xs:documentation>Povinný prvek pro zaznamenání důvodu přidělení skartačního znaku příslušnému skartačnímu režimu.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SkartacniZnak" type="nsesss:tSkartacniZnak"/>
+      <xs:element name="SkartacniZnak" type="tSkartacniZnak"/>
       <xs:choice>
-        <xs:element name="SkartacniLhuta" type="nsesss:tSkartacniLhuta"/>
+        <xs:element name="SkartacniLhuta" type="tSkartacniLhuta"/>
         <xs:element name="RokVyrazeni" type="xs:gYear">
           <xs:annotation>
             <xs:documentation>Rok vyřazení, pokud není nastavena skartační lhůta.</xs:documentation>
@@ -984,7 +984,7 @@
           <xs:documentation>Prvek pro zaznamenání kritéria, kterým je stanoven začátek plynutí skartační lhůty.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="KontrolaLhuta" minOccurs="0" type="nsesss:tSkartacniLhuta">
+      <xs:element name="KontrolaLhuta" minOccurs="0" type="tSkartacniLhuta">
         <xs:annotation>
           <xs:documentation>Lhůta pro kontrolu, zda došlo k externí spouštěcí události.</xs:documentation>
         </xs:annotation>
@@ -997,15 +997,15 @@
       <xs:documentation>Sada elementů pro popis náležitostí skartačního řízení. Prvek je povinný jen u základní entity.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Datum" type="nsesss:tDatum"/>
+      <xs:element name="Datum" type="tDatum"/>
       <xs:element name="Mnozstvi" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek se vyplňuje jen v případě entit v analogové podobě.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SkartacniOperace" type="nsesss:tSkartacniOperace"/>
+      <xs:element name="SkartacniOperace" type="tSkartacniOperace"/>
       <xs:element name="Oduvodneni" type="xs:string" minOccurs="0"/>
-      <xs:element name="Posuzovatel" type="nsesss:tOsobaInterni">
+      <xs:element name="Posuzovatel" type="tOsobaInterni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání fyzické osoby, která je zodpovědná za provedení procesu výběru archiválií vůči vedení organizace. Posuzovatel skartační operace je určen ve spisovém řádu, popřípadě v jiném vnitřním předpisu organizace.</xs:documentation>
         </xs:annotation>
@@ -1018,7 +1018,7 @@
       <xs:documentation>Sada elementů pro popis entity "součást" (logická část typového spisu).</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="EvidencniUdaje" type="nsesss:tEvidencniUdajeSoucasti"/>
+      <xs:element name="EvidencniUdaje" type="tEvidencniUdajeSoucasti"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required">
       <xs:annotation>
@@ -1032,7 +1032,7 @@
       <xs:documentation>Metadatový kontejner pro zaznamenání křížových odkazů na související entity.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="KrizovyOdkaz" type="nsesss:tKrizovyOdkaz" maxOccurs="unbounded"/>
+      <xs:element name="KrizovyOdkaz" type="tKrizovyOdkaz" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1041,11 +1041,11 @@
       <xs:documentation>Sada elementů pro popis spisového plánu (hierarchického uspořádání věcných skupin) organizace.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="nsesss:tIdentifikator"/>
-      <xs:element name="Nazev" type="nsesss:tNazev"/>
-      <xs:element name="Komentar" type="nsesss:tKomentar" minOccurs="0"/>
-      <xs:element name="Manipulace" type="nsesss:tManipulaceSpisovyPlan"/>
-      <xs:element name="Vydavatel" type="nsesss:tOsobaExterni">
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element name="Nazev" type="tNazev"/>
+      <xs:element name="Komentar" type="tKomentar" minOccurs="0"/>
+      <xs:element name="Manipulace" type="tManipulaceSpisovyPlan"/>
+      <xs:element name="Vydavatel" type="tOsobaExterni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání organizace, která vydala a které přísluší popisovaný spisový plán.</xs:documentation>
         </xs:annotation>
@@ -1064,20 +1064,20 @@
     </xs:annotation>
     <xs:choice>
       <xs:sequence>
-        <xs:element name="IdentifikatorOrganizace" type="nsesss:tIdentifikator"/>
-        <xs:element name="NazevOrganizace" type="nsesss:tNazev"/>
-        <xs:element name="IdentifikatorFyzickeOsoby" type="nsesss:tIdentifikator" minOccurs="0"/>
-        <xs:element name="NazevFyzickeOsoby" type="nsesss:tNazev" minOccurs="0"/>
-        <xs:element name="OrganizacniUtvar" type="nsesss:tText" minOccurs="0"/>
-        <xs:element name="PracovniPozice" type="nsesss:tText" minOccurs="0"/>
+        <xs:element name="IdentifikatorOrganizace" type="tIdentifikator"/>
+        <xs:element name="NazevOrganizace" type="tNazev"/>
+        <xs:element name="IdentifikatorFyzickeOsoby" type="tIdentifikator" minOccurs="0"/>
+        <xs:element name="NazevFyzickeOsoby" type="tNazev" minOccurs="0"/>
+        <xs:element name="OrganizacniUtvar" type="tText" minOccurs="0"/>
+        <xs:element name="PracovniPozice" type="tText" minOccurs="0"/>
         <xs:element name="SidloOrganizace" type="xs:string"/>
-        <xs:element name="ElektronickyKontakt" type="nsesss:tText" minOccurs="0"/>
+        <xs:element name="ElektronickyKontakt" type="tText" minOccurs="0"/>
       </xs:sequence>
       <xs:sequence>
-        <xs:element name="IdentifikatorFyzickeOsoby" type="nsesss:tIdentifikator" minOccurs="0"/>
-        <xs:element name="NazevFyzickeOsoby" type="nsesss:tNazev"/>
+        <xs:element name="IdentifikatorFyzickeOsoby" type="tIdentifikator" minOccurs="0"/>
+        <xs:element name="NazevFyzickeOsoby" type="tNazev"/>
         <xs:element name="PostovniAdresa" type="xs:string"/>
-        <xs:element name="ElektronickyKontakt" type="nsesss:tText"/>
+        <xs:element name="ElektronickyKontakt" type="tText"/>
       </xs:sequence>
     </xs:choice>
   </xs:complexType>
@@ -1087,12 +1087,12 @@
       <xs:documentation>Sada elementů pro identifikaci právnické nebo fyzické osoby a pro uvedení její poštovní adresy (adresy pro doručování) nebo elektronického kontaktu. Tato osoba je identická s organizací, která tato metadata vytváří, nebo je v zaměstnaneckém poměru k této organizaci.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="IdentifikatorOrganizace" type="nsesss:tIdentifikator"/>
-      <xs:element name="NazevOrganizace" type="nsesss:tNazev"/>
-      <xs:element name="IdentifikatorFyzickeOsoby" type="nsesss:tIdentifikator"/>
-      <xs:element name="NazevFyzickeOsoby" type="nsesss:tNazev"/>
-      <xs:element name="OrganizacniUtvar" type="nsesss:tText"/>
-      <xs:element name="PracovniPozice" type="nsesss:tText"/>
+      <xs:element name="IdentifikatorOrganizace" type="tIdentifikator"/>
+      <xs:element name="NazevOrganizace" type="tNazev"/>
+      <xs:element name="IdentifikatorFyzickeOsoby" type="tIdentifikator"/>
+      <xs:element name="NazevFyzickeOsoby" type="tNazev"/>
+      <xs:element name="OrganizacniUtvar" type="tText"/>
+      <xs:element name="PracovniPozice" type="tText"/>
       <xs:element name="SidloOrganizace" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
@@ -1102,8 +1102,8 @@
       <xs:documentation>Sada elementů pro zatřídění entity do hierarchie spisového plánu. Prvek obsahuje údaje o jednoduchém spisovém znaku a plně určeném spisovém znaku entity.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="JednoduchySpisovyZnak" type="nsesss:tJednoduchySpisovyZnak"/>
-      <xs:element name="PlneUrcenySpisovyZnak" type="nsesss:tPlneUrcenySpisovyZnak"/>
+      <xs:element name="JednoduchySpisovyZnak" type="tJednoduchySpisovyZnak"/>
+      <xs:element name="PlneUrcenySpisovyZnak" type="tPlneUrcenySpisovyZnak"/>
       <xs:element name="Oduvodneni" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek se vyplňuje jen v případě přetřídění entity.</xs:documentation>
@@ -1117,9 +1117,9 @@
       <xs:documentation>Sada elementů pro popis dokumentů se stejnou charakteristikou, která usnadňuje správu dokumentů stejného typu shodně a stanoveným specifickým způsobem. Typem dokumentu jsou například "faktury", "rozsudky" nebo "webové stránky".</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Identifikator" type="nsesss:tIdentifikator"/>
-      <xs:element name="Nazev" type="nsesss:tNazev"/>
-      <xs:element name="Komentar" type="nsesss:tKomentar" minOccurs="0"/>
+      <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element name="Nazev" type="tNazev"/>
+      <xs:element name="Komentar" type="tKomentar" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1128,7 +1128,7 @@
       <xs:documentation>Sada elementů pro popis entity "typový spis" (kmenový spis v rámci agendy).</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="EvidencniUdaje" type="nsesss:tEvidencniUdajeTypovehoSpisu"/>
+      <xs:element name="EvidencniUdaje" type="tEvidencniUdajeTypovehoSpisu"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required">
       <xs:annotation>
@@ -1165,18 +1165,18 @@
       <xs:documentation>Sada elementů pro evidenci údajů o uzavření typového spisu, součásti nebo dílu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Datum" type="nsesss:tDatum"/>
-      <xs:element name="Zpracovatel" type="nsesss:tOsobyInterni">
+      <xs:element name="Datum" type="tDatum"/>
+      <xs:element name="Zpracovatel" type="tOsobyInterni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání fyzické osoby, která je pověřena uzavřením entity.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Konzultant" type="nsesss:tOsobyInterni" minOccurs="0">
+      <xs:element name="Konzultant" type="tOsobyInterni" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání fyzické osoby, která spolupracovala na uzavření entity.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Schvalovani" type="nsesss:tSchvalovani" minOccurs="0"/>
+      <xs:element name="Schvalovani" type="tSchvalovani" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1185,7 +1185,7 @@
       <xs:documentation>Sada elementů pro popis entity "věcná skupina" (položka spisového plánu).</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="EvidencniUdaje" type="nsesss:tEvidencniUdajeVecneSkupiny"/>
+      <xs:element name="EvidencniUdaje" type="tEvidencniUdajeVecneSkupiny"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required">
       <xs:annotation>
@@ -1199,13 +1199,13 @@
       <xs:documentation>Sada elementů pro evidenci údajů o vzniku vlastního dokumentu organizace.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="DatumVytvoreni" type="nsesss:tDatum"/>
+      <xs:element name="DatumVytvoreni" type="tDatum"/>
       <xs:element name="VytvoreneMnozstvi" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek se vyplňuje volitelně a jen v případě entit v analogové podobě.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Autor" type="nsesss:tOsobyInterni"/>
+      <xs:element name="Autor" type="tOsobyInterni"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1214,13 +1214,13 @@
       <xs:documentation>Sada elementů pro evidenci údajů o skartačním režimu entit, časovém rozsahu plynutí skartační lhůty a náležitostech skartačního řízení.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="SkartacniRezim" type="nsesss:tSkartacniRezim"/>
-      <xs:element name="DataceVyrazeni" type="nsesss:tDataceVyrazeni" minOccurs="0">
+      <xs:element name="SkartacniRezim" type="tSkartacniRezim"/>
+      <xs:element name="DataceVyrazeni" type="tDataceVyrazeni" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek je povinný jen u základní entity.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SkartacniRizeni" type="nsesss:tSkartacniRizeni" minOccurs="0">
+      <xs:element name="SkartacniRizeni" type="tSkartacniRizeni" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek je povinný jen u základní entity. Prvek je rovněž nepovinný v případě, kdy základní entita ještě neprošla výběrem archiválií (např. ve fázi přípravy výběru archiválií).</xs:documentation>
         </xs:annotation>
@@ -1233,7 +1233,7 @@
       <xs:documentation>Sada elementů pro evidenci údajů o skartačním režimu součástí.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="SkartacniRezim" type="nsesss:tSkartacniRezim"/>
+      <xs:element name="SkartacniRezim" type="tSkartacniRezim"/>
     </xs:sequence>
   </xs:complexType>
   
@@ -1242,7 +1242,7 @@
       <xs:documentation>Sada elementů pro evidenci údajů o skartačním režimu věcných skupin.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="SkartacniRezim" type="nsesss:tSkartacniRezim" minOccurs="0">
+      <xs:element name="SkartacniRezim" type="tSkartacniRezim" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek je nepovinný ve všech případech, kdy je tato věcná skupina mateřskou entitou jiné věcné skupiny nebo typového spisu.</xs:documentation>
         </xs:annotation>
@@ -1255,8 +1255,8 @@
       <xs:documentation>Sada elementů pro evidenci údajů o vyřízení a uzavření entity.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Datum" type="nsesss:tDatum"/>
-      <xs:element name="Zpusob" type="nsesss:tZpusobVyrizeni"/>
+      <xs:element name="Datum" type="tDatum"/>
+      <xs:element name="Zpusob" type="tZpusobVyrizeni"/>
       <xs:element name="ObsahVyrizeni" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek je povinný v případě, že byla v prvku "Zpusob" vybrána hodnota "jiný způsob". Zaznamená se věcná informace o výsledku vyřízení (obsah vyřizujícího sdělení).</xs:documentation>
@@ -1267,17 +1267,17 @@
           <xs:documentation>Prvek je povinný v případě, že byla do prvku "Zpusob" vybrána hodnota "jiný způsob". Nejčastěji se zaznamená vyřízení jiným způsobem, než zpracováním dokumentu, tedy s využitím například komunikačního prostředku (například telefonem, ústním jednáním apod.).</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Zpracovatel" type="nsesss:tOsobyInterni">
+      <xs:element name="Zpracovatel" type="tOsobyInterni">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání fyzické osoby, která je pověřena vyřízením dokumentu.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Konzultant" type="nsesss:tOsobyInterni" minOccurs="0">
+      <xs:element name="Konzultant" type="tOsobyInterni" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání fyzické osoby, která spolupracovala na vyřízení dokumentu.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Schvalovani" type="nsesss:tSchvalovani" minOccurs="0"/>
+      <xs:element name="Schvalovani" type="tSchvalovani" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1287,7 +1287,7 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Oduvodneni" type="xs:string" minOccurs="0"/>
-      <xs:element name="OdkazVystup" type="nsesss:tOdkaz"/>
+      <xs:element name="OdkazVystup" type="tOdkaz"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1301,7 +1301,7 @@
           <xs:documentation>Povinný prvek pro zaznamenání důvodu vytvoření výtahu.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="OdkazVytah" type="nsesss:tOdkaz"/>
+      <xs:element name="OdkazVytah" type="tOdkaz"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1315,7 +1315,7 @@
           <xs:documentation>Povinný prvek pro zaznamenání důvodu konverze komponenty. Důvodem může být splnění povinnosti převést komponentu do výstupního datového formátu podle prováděcího právního předpisu upravujícího podrobnosti výkonu spisové služby.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="OdkazZtvarneni" type="nsesss:tOdkaz"/>
+      <xs:element name="OdkazZtvarneni" type="tOdkaz"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1324,8 +1324,8 @@
       <xs:documentation>Metadatový kontejner pro referenci na jinou entitu.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="nsesss:tOdkaz">
-        <xs:attribute name="pevny" type="nsesss:tLogicky" use="required">
+      <xs:extension base="tOdkaz">
+        <xs:attribute name="pevny" type="tLogicky" use="required">
           <xs:annotation>
             <xs:documentation>Indikace pevného křížového odkazu.</xs:documentation>
           </xs:annotation>
@@ -1339,10 +1339,10 @@
       <xs:documentation>Sada elementů pro indikaci dokumentů v analogové podobě. Prvek obsahuje volitelnou identifikaci externího subjektu, který zajišťuje správu dokumentů (například dodavatele hostovaného řešení digitálního úložiště nebo komerční spisovnu dokumentů v analogové podobě).</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="nsesss:tManipulace">
+      <xs:extension base="tManipulace">
         <xs:sequence>
-          <xs:element name="SpravceSpisovny" type="nsesss:tOsobyExterni" minOccurs="0"/>
-          <xs:element name="UkladaciJednotka" type="nsesss:tUkladaciJednotka" minOccurs="0">
+          <xs:element name="SpravceSpisovny" type="tOsobyExterni" minOccurs="0"/>
+          <xs:element name="UkladaciJednotka" type="tUkladaciJednotka" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Prvek je povinný pouze u dokumentů v analogové podobě.</xs:documentation>
             </xs:annotation>
@@ -1357,10 +1357,10 @@
       <xs:documentation>Sada elementů pro indikaci dokumentů v analogové podobě. Prvek obsahuje povinné časové údaje evidující otevření a uzavření entity pro příjem dceřiných entit.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="nsesss:tManipulace">
+      <xs:extension base="tManipulace">
         <xs:sequence>
-          <xs:element name="DatumOtevreni" type="nsesss:tDatum"/>
-          <xs:element name="DatumUzavreni" type="nsesss:tDatum" minOccurs="0"/>
+          <xs:element name="DatumOtevreni" type="tDatum"/>
+          <xs:element name="DatumUzavreni" type="tDatum" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1371,9 +1371,9 @@
       <xs:documentation>Sada elementů pro zatřídění dílu do hierarchie spisového plánu.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="nsesss:tTrideni">
+      <xs:extension base="tTrideni">
         <xs:sequence>
-          <xs:element name="MaterskaEntita" type="nsesss:tMaterskaEntitaDilu"/>
+          <xs:element name="MaterskaEntita" type="tMaterskaEntitaDilu"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1384,10 +1384,10 @@
       <xs:documentation>Sada elementů pro zatřídění dokumentu do hierarchie spisového plánu.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="nsesss:tTrideni">
+      <xs:extension base="tTrideni">
         <xs:sequence>
-          <xs:element name="TypDokumentu" type="nsesss:tTypDokumentu" minOccurs="0"/>
-          <xs:element name="MaterskeEntity" type="nsesss:tMaterskeEntityDokumentu" minOccurs="0">
+          <xs:element name="TypDokumentu" type="tTypDokumentu" minOccurs="0"/>
+          <xs:element name="MaterskeEntity" type="tMaterskeEntityDokumentu" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Prvek je povinný pouze v případě, že je entita "dokument" použita jako základní entita.</xs:documentation>
             </xs:annotation>
@@ -1402,9 +1402,9 @@
       <xs:documentation>Sada elementů pro zatřídění součásti do hierarchie spisového plánu.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="nsesss:tTrideni">
+      <xs:extension base="tTrideni">
         <xs:sequence>
-          <xs:element name="MaterskaEntita" type="nsesss:tMaterskaEntitaSoucasti"/>
+          <xs:element name="MaterskaEntita" type="tMaterskaEntitaSoucasti"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1415,9 +1415,9 @@
       <xs:documentation>Sada elementů pro zatřídění spisu do hierarchie spisového plánu.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="nsesss:tTrideni">
+      <xs:extension base="tTrideni">
         <xs:sequence>
-          <xs:element name="MaterskaEntita" type="nsesss:tMaterskaEntitaSpisu"/>
+          <xs:element name="MaterskaEntita" type="tMaterskaEntitaSpisu"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1428,9 +1428,9 @@
       <xs:documentation>Sada elementů pro zatřídění typového spisu do hierarchie spisového plánu.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="nsesss:tTrideni">
+      <xs:extension base="tTrideni">
         <xs:sequence>
-          <xs:element name="MaterskaEntita" type="nsesss:tMaterskaEntitaTypovehoSpisu"/>
+          <xs:element name="MaterskaEntita" type="tMaterskaEntitaTypovehoSpisu"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1441,10 +1441,10 @@
       <xs:documentation>Sada elementů pro zatřídění věcné skupiny do hierarchie spisového plánu.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="nsesss:tTrideni">
+      <xs:extension base="tTrideni">
         <xs:choice>
-          <xs:element name="SpisovyPlan" type="nsesss:tSpisovyPlan"/>
-          <xs:element name="MaterskaEntita" type="nsesss:tMaterskaEntitaVecneSkupiny"/>
+          <xs:element name="SpisovyPlan" type="tSpisovyPlan"/>
+          <xs:element name="MaterskaEntita" type="tMaterskaEntitaVecneSkupiny"/>
         </xs:choice>
       </xs:extension>
     </xs:complexContent>
@@ -1455,13 +1455,13 @@
       <xs:documentation>Sada elementů pro evidenci údajů o vyřízení a uzavření entity a případném odeslání vyřizujícího dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="nsesss:tVyrizeni">
+      <xs:extension base="tVyrizeni">
         <xs:sequence>
           <xs:choice minOccurs="0" maxOccurs="2">
-            <xs:element name="OdkazVyrizujiciDokument" type="nsesss:tOdkaz"/>
-            <xs:element name="OdkazVyrizovanyDokument" type="nsesss:tOdkaz"/>
+            <xs:element name="OdkazVyrizujiciDokument" type="tOdkaz"/>
+            <xs:element name="OdkazVyrizovanyDokument" type="tOdkaz"/>
           </xs:choice>
-          <xs:element name="DatumOdeslani" type="nsesss:tDatum" minOccurs="0">
+          <xs:element name="DatumOdeslani" type="tDatum" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Prvek je povinný v případě odeslání dokumentu externí právnické nebo fyzické osobě.</xs:documentation>
             </xs:annotation>
@@ -1471,7 +1471,7 @@
               <xs:documentation>Prvek se vyplňuje jen v případě entit v analogové podobě a v případě odeslání dokumentu.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Prijemce" type="nsesss:tOsobyExterni" minOccurs="0">
+          <xs:element name="Prijemce" type="tOsobyExterni" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Prvek je povinný v případě odeslání dokumentu.</xs:documentation>
             </xs:annotation>
