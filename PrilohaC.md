@@ -42,7 +42,7 @@ schématu `ermsExportPrenos.xsd`.
 ## Potvrzení přenosu
 
 Pokud se při spisové rozluce data přenášejí z jednoho systému do
-druhého, první systém data smaže, až poté co obdrží potvrzení o
+druhého, první systém data smaže až poté, co obdrží potvrzení o
 úspěšném a kompletním přenosu. Potvrzení má podobu dokumentu XML,
 který má kořenový element `PrenosPotvrzeni` validní vůči schématu
 `ermsExportPrenos.xsd`.
