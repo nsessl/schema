@@ -980,12 +980,24 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="SkartacniZnak" type="nsesss:tSkartacniZnak"/>
-      <xs:element name="SkartacniLhuta" type="nsesss:tSkartacniLhuta"/>
+      <xs:choice>
+        <xs:element name="SkartacniLhuta" type="nsesss:tSkartacniLhuta"/>
+        <xs:element name="RokVyrazeni" type="xs:gYear">
+          <xs:annotation>
+            <xs:documentation>Rok vyřazení, pokud není nastavena skartační lhůta.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>      
       <xs:element name="SpousteciUdalost" type="xs:string">
         <xs:annotation>
           <xs:documentation>Prvek pro zaznamenání kritéria, kterým je stanoven začátek plynutí skartační lhůty.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="KontrolaLhuta" minOccurs="0" type="nsesss:tSkartacniLhuta">
+        <xs:annotation>
+          <xs:documentation>Lhůta pro kontrolu, zda došlo k externí spouštěcí události.</xs:documentation>
+        </xs:annotation>
+      </xs:element>      
     </xs:sequence>
   </xs:complexType>
 
