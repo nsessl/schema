@@ -66,7 +66,20 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
 
 #### Další důležité změny
 
+## Změny ve schématech pro popisná metadata, o rozhodnutí ve skartačním řízení, pro spisový a skartační plán
 
+Níže popsané změny se týkají schémat `nsesss.xsd`, `nsesss-DA.xsd` a
+`nsesss-plan.xsd`.
+
+Změny ve schématech byly provedeny co nejmenší, ale i přesto je změněn
+jmenný prostor používaný v XML dokumentech, aby neaktulizované systémy
+nové XML odmítly zpracovat a nedocházelo k nečekaným chybám.
+
+Místo jmenného prostoru `http://www.mvcr.cz/nsesss/v3` se nyní
+používá jmenný prostor `http://www.mvcr.cz/nsesss/v4`.
+
+* Metadata skartačního režimu rozšížena o rok vyřazení a lhůtu pro
+  kontrolu
 
 ## Změny v transakčním protokolu
 
