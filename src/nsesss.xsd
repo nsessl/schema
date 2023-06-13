@@ -1,21 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:nsesss="http://www.mvcr.cz/nsesss/v3" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.mvcr.cz/nsesss/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0" id="nsesss"
-  xml:lang="cs">
+<xs:schema xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:nsesss="http://www.mvcr.cz/nsesss/v3"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  targetNamespace="http://www.mvcr.cz/nsesss/v3" 
+  elementFormDefault="qualified" 
+  version="3.0" id="nsesss" xml:lang="cs">
   <xs:annotation>
     <xs:documentation>Schéma XML pro zaznamenání popisných metadat uvnitř datového balíčku SIP podle národního standardu pro elektronické systémy spisové služby</xs:documentation>
-    <xs:appinfo>
-      <rdf:RDF>
-        <rdf:Description>
-          <dc:Creator>Odbor archivní správy Ministerstva vnitra</dc:Creator>
-          <dc:Description>Schéma XML pro zaznamenání popisných metadat uvnitř datového balíčku SIP</dc:Description>
-          <dc:Publisher>Ministerstvo vnitra</dc:Publisher>
-          <dc:Date>2017-04-29</dc:Date>
-          <dc:Type>XML Schema</dc:Type>
-          <dc:Format>text/xml</dc:Format>
-          <dc:Language>cs-CZ</dc:Language>
-        </rdf:Description>
-      </rdf:RDF>
-    </xs:appinfo>
   </xs:annotation>
 
   <xs:element name="Dil">
