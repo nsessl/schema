@@ -94,7 +94,7 @@ Doplňující informace:
 
 Normativní části přílohy:
 
-* [`nsesss-document.xsd`](src/nsesss-document.xsd) – schéma transakčního protokolu
+* [`nsesss-document.xsd`](src/nsesss-document.xsd) – schéma
 
 Doplňující informace:
 
