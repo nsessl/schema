@@ -105,6 +105,11 @@
           <xs:documentation>Soubor obsahující jeden nebo více dalších souborů (např. ZIP archiv), které musí být v SIPu rozbaleny.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="analogová">
+        <xs:annotation>
+          <xs:documentation>Komponenta odpovídá analogové části dokumentu.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
