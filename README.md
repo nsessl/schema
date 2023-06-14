@@ -64,6 +64,7 @@ Příloha v sobě slučuju i předchozí přílohu 2.
 
 Normativní části přílohy:
 
+* [Textová část přílohy](Priloha3.md)
 * [`nsesss-document.xsd`](src/nsesss-document.xsd) – schéma
 
 Doplňující informace:
