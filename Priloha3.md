@@ -12,6 +12,6 @@ přímo tyto formáty nebo další samostatné standardy.
 
 Metadata ve formátu ISDOC.PDF (faktura ve formátu PDF/A-3a s vloženou
 strojově čitelnou podobou faktury ve formátu XML) se přenášejí ve
-vloženém soboru pojmenovaném `metadata-invoice-nsessl.xml`. Viz
+vloženém souboru pojmenovaném `metadata-invoice-nsessl.xml`. Viz
 kapitola 3.2 Národního standardu pro elektronickou fakturaci
 ISDOC 6.0.2.
