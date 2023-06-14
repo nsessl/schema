@@ -84,6 +84,7 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/v4`.
 * element `Držitel` přejmenován na `Drzitel`
 * forma uchování komponenty může nyní být i "digitalizát"
 * do dílu lze vkládat i spisy
+* evidenční číslo je nyní nepovinné
   
 
 ## Změny v transakčním protokolu

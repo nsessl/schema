@@ -364,7 +364,11 @@
       <xs:documentation>Sada elementů pro evidenci spisů nebo dokumentů.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="EvidencniCislo" type="tEvidencniCislo"/>
+      <xs:element name="EvidencniCislo" type="tEvidencniCislo" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Evidenční číslo může být vynecháno pro spisy uzavřené před účinností vyhlášky 259/2012.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="PoradoveCislo" type="tPoradoveCislo" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek je nepovinný v případě, že je entita evidována v rámci samostatné evidence dokumentů, která nepoužívá pořadových čísel.</xs:documentation>
