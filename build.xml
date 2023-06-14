@@ -101,6 +101,7 @@
       </zipfileset>
       <zipfileset dir=".">
         <include name="*.html"/>
+        <include name="*.rtf"/>
         <exclude name="README.html"/>
       </zipfileset>
     </zip>    
