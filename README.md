@@ -100,11 +100,11 @@ Doplňující informace:
 
 * [dokumentace schématu](doc/6-trp/nsesss-trp.html)
 
-## Příloha C – Schéma pro spisovou rozluku
+## Příloha 7 – Schéma pro spisovou rozluku
 
 Normativní části přílohy:
 
-* [Textová část přílohy](PrilohaC.md)
+* [Textová část přílohy](Priloha7.md)
 * [`ermsExportPrenos.xsd`](src/ermsExportPrenos.xsd) – schéma
 
 Doplňující informace:
