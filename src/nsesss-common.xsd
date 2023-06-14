@@ -1018,7 +1018,7 @@
 
   <xs:complexType name="tSkartacniRizeni">
     <xs:annotation>
-      <xs:documentation>Sada elementů pro popis náležitostí skartačního řízení. Prvek je povinný jen u základní entity.</xs:documentation>
+      <xs:documentation>Element pro zaznamenání podrobností skartačního řízení.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Datum" type="tDatum"/>
