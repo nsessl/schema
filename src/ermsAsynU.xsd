@@ -844,7 +844,7 @@ Postoupení informace o proběhlé skartaci dokumentu.</xs:documentation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="DokumentId" type="tIdSpisu"/>
-        <xs:element name="SkartacniOperace" type="sSkartacniOperace"/>
+        <xs:element name="SkartacniZnak" type="sSkartacniZnak"/>
         <xs:element name="DatumSkartace" type="xs:date"/>
         <xs:element name="Autorizace" type="tAutorizace"/>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
@@ -860,7 +860,7 @@ Postoupení informace o proběhlé skartaci.</xs:documentation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="SpisId" type="tIdSpisu"/>
-        <xs:element name="SkartacniOperace" type="sSkartacniOperace"/>
+        <xs:element name="SkartacniZnak" type="sSkartacniZnak"/>
         <xs:element name="DatumSkartace" type="xs:date"/>
         <xs:element name="Autorizace" type="tAutorizace"/>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>

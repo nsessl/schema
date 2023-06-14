@@ -2263,12 +2263,6 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
       <xs:maxLength value="50"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="sSkartacniOperace">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ano"/>
-      <xs:enumeration value="ne"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="sKod">
     <xs:annotation>
       <xs:documentation>Návratový kód události.</xs:documentation>
