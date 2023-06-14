@@ -81,6 +81,10 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/v4`.
 * Sdílené definice jsou součástí schématu `nsesss-common.xsd`
 * Metadata skartačního režimu rozšížena o rok vyřazení a lhůtu pro
   kontrolu
+* element `Držitel` přejmenován na `Drzitel`
+* forma uchování komponenty může nyní být i "digitalizát"
+* do dílu lze vkládat i spisy
+  
 
 ## Změny v transakčním protokolu
 

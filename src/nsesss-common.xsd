@@ -26,9 +26,15 @@
   </xs:complexType>
 
   <xs:complexType name="tDil">
+    <xs:annotation>
+      <xs:documentation>Dokumenty je do dílu možné vkládat jen pokud byly uzavřené před začátkem planosti nové vyhlášky z roku 2023. Jinak je možné vkládat jen spisy.</xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="EvidencniUdaje" type="tEvidencniUdajeDilu"/>
-      <xs:element name="Dokumenty" type="tDokumenty"/>
+      <xs:choice>
+        <xs:element name="Dokumenty" type="tDokumenty"/>
+        <xs:element name="Spisy" type="tSpisy"/>
+      </xs:choice>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required">
       <xs:annotation>
@@ -89,6 +95,11 @@
       <xs:enumeration value="koncept"/>
       <xs:enumeration value="originál"/>
       <xs:enumeration value="originál ve výstupním datovém formátu"/>
+      <xs:enumeration value="digitalizát">
+        <xs:annotation>
+          <xs:documentation>Digitalizovaná podoba analogové komponenty konvertovaná bez doložky</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -321,6 +332,15 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="tSpisy">
+    <xs:annotation>
+      <xs:documentation>Metadatový kontejner pro dceřiné spisy.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Spis" type="tSpis" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:complexType name="tDorucenyDokument">
     <xs:annotation>
       <xs:documentation>Sada elementů pro evidenci údajů o doručení dokumentu.</xs:documentation>
