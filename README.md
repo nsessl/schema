@@ -44,6 +44,7 @@ Doplňující informace:
 
 Normativní části přílohy:
 
+* [Textová část přílohy](Priloha2.rtf)
 * [`nsesss.xsd`](src/nsesss.xsd) – schéma pro popisná metadata
 * [`nsesss-common.xsd`](src/nsesss-common.xsd) – schéma sdílených
   datových typů
