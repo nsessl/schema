@@ -85,7 +85,7 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/v4`.
 * forma uchování komponenty může nyní být i "digitalizát",
   "kontejner" a "analogová"
   * u digitalizátu lze specifikovat uložení analogového originálu
-  * analogová komponenta odpovídá části v terminilogii nové vyhlášky
+  * analogová komponenta odpovídá části v terminologii nové vyhlášky
 * do dílu lze vkládat i spisy
 * evidenční číslo je nyní nepovinné
 * vylepšena definice plně určeného spisového znaku
