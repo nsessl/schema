@@ -4,6 +4,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   elementFormDefault="qualified"
   targetNamespace="http://www.mvcr.cz/nsesss/2023/log"
+  version="4.0"
   xml:lang="cs">
   <xs:element name="TransakcniLogObjektu">
     <xs:annotation>
