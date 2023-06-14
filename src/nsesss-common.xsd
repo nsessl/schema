@@ -167,7 +167,9 @@
 
   <xs:simpleType name="tPlneUrcenySpisovyZnak">
     <xs:annotation>
-      <xs:documentation>Plně určený spisový znak je označení entity, které pro účely jejího vyhledávání, ukládání a vyřazování určuje její jednoznačné místo v hierarchii spisového plánu prostřednictvím dědění jednoduchých spisových znaků mateřských entit. Je tvořen jednoduchým spisovým znakem v hierarchii nejvýše postavené věcné skupiny, jednoduchými spisovými znaky věcných skupin níže ležících v hierarchii spisového plánu až do dosažení nejbližší mateřské entity a jednoduchým spisovým znakem příslušné entity.</xs:documentation>
+      <xs:documentation>Plně určený spisový znak je označení entity, které pro účely jejího vyhledávání, ukládání a vyřazování určuje její jednoznačné místo v hierarchii spisového plánu prostřednictvím dědění jednoduchých spisových znaků mateřských entit. 
+Pro dokumenty, spisy, díly a typové spisy je tvořen jednoduchým spisovým znakem v hierarchii nejvýše postavené věcné skupiny, jednoduchými spisovými znaky věcných skupin níže ležících v hierarchii spisového plánu až do dosažení nejbližší věcné skupiny nebo součásti.        
+Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hierarchii nejvýše postavené věcné skupiny, jednoduchými spisovými znaky věcných skupin níže ležících v hierarchii spisového plánu až do dosažení nejbližší věcné skupiny a jednoduchým spisovým znakem příslušné entity.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="255"/>

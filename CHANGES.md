@@ -88,6 +88,7 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/v4`.
   * analogová komponenta odpovídá části v terminilogii nové vyhlášky
 * do dílu lze vkládat i spisy
 * evidenční číslo je nyní nepovinné
+* vylepšena definice plně určeného spisového znaku
   
 
 ## Změny v transakčním protokolu
