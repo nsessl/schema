@@ -100,6 +100,11 @@
           <xs:documentation>Digitalizovaná podoba analogové komponenty konvertovaná bez doložky</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="kontejner">
+        <xs:annotation>
+          <xs:documentation>Soubor obsahující jeden nebo více dalších souborů (např. ZIP archiv), které musí být v SIPu rozbaleny.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -549,6 +554,11 @@
     <xs:attribute name="vztah_k" type="xs:IDREF">
       <xs:annotation>
         <xs:documentation>Prvek je povinný v případě, že komponenta zaznamenává externí autentizační prostředek. Prvek popisuje vazbu autentizačního prostředku k příslušné komponentě odkazem na její atribut ID.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="analog_original" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Pokud je forma uchování "digitalizát", je možné v tomto atributu uvést místo uložení analogového originálu.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
