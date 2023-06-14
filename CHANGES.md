@@ -1,5 +1,13 @@
 # Změny provedené od 1.7.2023
 
+## Změny ve struktuře příloh
+
+* Přílohy 2 a 3 bylo sloučeny do přílohy 2
+* Nová příloha 3 obsahuje definici popisných metadat pro automatizované
+  zpracování dokumentu
+* Nová příloha 7 obsahuje schéma pro migraci dat mezi spisovými
+  službami a spisovou rozluku
+
 ## Změny datových typů
 
 * u některých elementů bylo povolena delší maximální délka
@@ -63,8 +71,6 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
 * SpisVlozeniDoTypovehoSpisu
 * SpisVraceni
 * SpisVyjmutiZTypovehoSpisu
-
-#### Další důležité změny
 
 ## Změny ve schématech pro popisná metadata, o rozhodnutí ve skartačním řízení, pro spisový a skartační plán
 
