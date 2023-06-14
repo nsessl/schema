@@ -40,7 +40,7 @@ Doplňující informace:
 * [dokumentace synchronního rozhraní](doc/1-api-sync/ermsAPI.html)
 * [dokumentace asynchronní komunikace](doc/1-api-async/ermsIFASyn.html)
 
-## Příloha 2 – Schéma pro zaznamenání popisných metadat uvnitř datového balíčku SIP
+## Příloha 2 – Schéma pro zaznamenání popisných metadat uvnitř datového balíčku SIP a schéma pro vytvoření datového balíčku
 
 Normativní části přílohy:
 
@@ -48,18 +48,28 @@ Normativní části přílohy:
 * [`nsesss-common.xsd`](src/nsesss-common.xsd) – schéma sdílených
   datových typů
 
-Doplňující informace:
-
-* [dokumentace schématu](doc/2-metadata/nsesss.html)
-
-## Příloha 3 – Schéma pro vytvoření datového balíčku
-
-Normativní části přílohy tvoří schémata ze standardu METS:
-
+Normativní části přílohy tvoří i schémata ze standardu METS:
 * [`mets.xsd`](src/mets.xsd) – schéma METS
 * [`mets-xlink.xsd`](src/mets-xlink.xsd) – schéma XLink používané
   schématem METS
 
+Doplňující informace:
+
+* [dokumentace schématu](doc/2-metadata/nsesss.html)
+
+Příloha v sobě slučuju i předchozí přílohu 2.
+
+## Příloha 3 – Popisná metadata pro automatické zpracování dokumentu
+
+Normativní části přílohy:
+
+* [`nsesss-document.xsd`](src/nsesss-document.xsd) – schéma
+
+Doplňující informace:
+
+* [dokumentace schématu](doc/3-doc/nsesss-document.html)
+
+  
 ## Příloha 4 – Schéma pro zasílání údajů o rozhodnutí ve skartačním řízení a potvrzení přejímky
 
 Normativní části přílohy:
@@ -89,20 +99,6 @@ Normativní části přílohy:
 Doplňující informace:
 
 * [dokumentace schématu](doc/6-trp/nsesss-trp.html)
-
-## Příloha X – Popisná metadata pro automatické zpracování dokumentu
-
-Normativní části přílohy:
-
-* [`nsesss-document.xsd`](src/nsesss-document.xsd) – schéma
-
-Doplňující informace:
-
-* [dokumentace schématu](doc/X-doc/nsesss-document.html)
-
-## Příloha Y – ...
-
-...
 
 ## Příloha C – Schéma pro spisovou rozluku
 

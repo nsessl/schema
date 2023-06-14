@@ -62,9 +62,15 @@
     </exec>
 
     <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/nsesss-TrP.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/6-trp/nsesss-TrP.html"/>
+    </exec>
+    
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
       <arg value="src/nsesss-document.xsd"/>
       <arg value="-cfg:schemadoc.xml"/>
-      <arg value="-out:../doc/X-doc/nsesss-document.html"/>
+      <arg value="-out:../doc/3-doc/nsesss-document.html"/>
     </exec>
     
   </target>
