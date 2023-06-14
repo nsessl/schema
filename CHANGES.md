@@ -89,6 +89,7 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/v4`.
 * do dílu lze vkládat i spisy
 * evidenční číslo je nyní nepovinné
 * vylepšena definice plně určeného spisového znaku
+* způsob vyřízení je nepovinný
   
 
 ## Změny v transakčním protokolu

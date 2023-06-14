@@ -202,7 +202,11 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
     <xs:restriction base="xs:string">
       <xs:enumeration value="A"/>
       <xs:enumeration value="S"/>
-      <xs:enumeration value="V"/>
+      <xs:enumeration value="V">
+        <xs:annotation>
+          <xs:documentation>Nelze používat pro entity uzavřené/vyřízené po začátku platnosti vyhlášky z roku 2023.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -1282,7 +1286,7 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Datum" type="tDatum"/>
-      <xs:element name="Zpusob" type="tZpusobVyrizeni"/>
+      <xs:element name="Zpusob" type="tZpusobVyrizeni" minOccurs="0"/>
       <xs:element name="ObsahVyrizeni" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Prvek je povinný v případě, že byla v prvku "Zpusob" vybrána hodnota "jiný způsob". Zaznamená se věcná informace o výsledku vyřízení (obsah vyřizujícího sdělení).</xs:documentation>
