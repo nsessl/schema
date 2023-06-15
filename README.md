@@ -50,6 +50,7 @@ Normativní části přílohy:
   datových typů
 
 Normativní části přílohy tvoří i schémata ze standardu METS:
+
 * [`mets.xsd`](src/mets.xsd) – schéma METS
 * [`mets-xlink.xsd`](src/mets-xlink.xsd) – schéma XLink používané
   schématem METS
