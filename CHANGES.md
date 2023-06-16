@@ -1,4 +1,4 @@
-# Změny provedené od 1.7.2023
+# Změny provedené od verze z 4. července 2017
 
 ## Změny ve struktuře příloh
 

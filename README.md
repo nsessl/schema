@@ -18,7 +18,7 @@ problémem). [Založení GitHub účtu](https://github.com/signup).
 Pokud jste nenašli přímo chybu, ale máte nějaký dotaz či nejasnost,
 [využijte diskuse pro položení dotazu](https://github.com/nsessl/schema/discussions).
 
-## Příloha 1 – Schéma pro výměnu dokumentů a jejich metadat (WS API)
+## Příloha 1 – Schéma XML pro výměnu dokumentů a jejich metadat (WS API)
 
 Normativní části přílohy:
 
@@ -40,7 +40,7 @@ Doplňující informace:
 * [dokumentace synchronního rozhraní](doc/1-api-sync/ermsAPI.html)
 * [dokumentace asynchronní komunikace](doc/1-api-async/ermsIFASyn.html)
 
-## Příloha 2 – Schéma pro zaznamenání popisných metadat uvnitř datového balíčku SIP a schéma pro vytvoření datového balíčku
+## Příloha 2 – Schéma XML pro vytvoření datového balíčku SIP a pro zaznamenání popisných metadat uvnitř datového balíčku SIP
 
 Normativní části přílohy:
 
@@ -61,7 +61,7 @@ Doplňující informace:
 
 Příloha v sobě slučuju i předchozí přílohu 2.
 
-## Příloha 3 – Popisná metadata pro automatické zpracování dokumentu
+## Příloha 3 – Struktura popisných metadat pro automatizované zpracování dokumentu nebo spisu
 
 Normativní části přílohy:
 
@@ -73,7 +73,7 @@ Doplňující informace:
 * [dokumentace schématu](doc/3-doc/nsesss-document.html)
 
   
-## Příloha 4 – Schéma pro zasílání údajů o rozhodnutí ve skartačním řízení a potvrzení přejímky
+## Příloha 4 – Schéma XML pro zasílání údajů o rozhodnutí ve skartačním řízení a potvrzení přejímky s identifikátory digitálního archivu původci
 
 Normativní části přílohy:
 
@@ -93,7 +93,7 @@ Doplňující informace:
 
 * [dokumentace schématu](doc/5-plan/nsesss-plan.html)
 
-## Příloha 6 – Schéma pro export a import transakčního protokolu
+## Příloha 6 – Schéma XML pro ztvárnění transakčního protokolu
 
 Normativní části přílohy:
 
@@ -103,7 +103,7 @@ Doplňující informace:
 
 * [dokumentace schématu](doc/6-trp/nsesss-trp.html)
 
-## Příloha 7 – Schéma pro spisovou rozluku
+## Příloha 7 – Schéma XML pro migraci dat mezi elektronickými systémy spisové služby
 
 Normativní části přílohy:
 

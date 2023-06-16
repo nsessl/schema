@@ -1,4 +1,4 @@
-# Příloha 7 -- Migrace dat mezi spisovými službami, spisová rozluka
+# Příloha 7 -- Schéma XML pro migraci dat mezi elektronickými systémy spisové služby
 
 Tato příloha definuje formát dat a pravidla používané při exportu dat nebo
 při přenosu dat z jednoho systému do druhého (tzv. spisová rozluka).
