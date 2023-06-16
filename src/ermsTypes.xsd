@@ -77,9 +77,9 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
       <xs:element minOccurs="0" name="PodaciDenik" type="sPodaciDenik"/>
       <xs:element minOccurs="0" name="TypDokumentu" type="sTypDokumentu">
         <xs:annotation>
-          <xs:documentation>NS z roku 2023 požadavek č.4.2.2</xs:documentation>
-          <xs:documentation>NS z roku 2023 kapitola 1.9
-Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documentation>
+          <xs:documentation>Element se používá pro přenos druhu dokumentu</xs:documentation>
+          <xs:documentation>NS z roku 2023 požadavek č. 4.2.2</xs:documentation>
+          <xs:documentation>NS z roku 2023 kapitola 1.9</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="VecnaSkupina" type="tVecnaSkupina"/>
@@ -115,7 +115,11 @@ Podle NS se nově označuje tato XML položka pojmem Druh dokumentů</xs:documen
       <xs:element minOccurs="0" name="PodaciDenikPoradi" type="sPodaciDenikPoradi"/>
       <xs:element minOccurs="0" name="PodaciDenikRok" type="sPodaciDenikRok"/>
       <xs:element minOccurs="0" name="PodaciDenik" type="sPodaciDenik"/>
-      <xs:element minOccurs="0" name="TypDokumentu" type="sTypDokumentu"/>
+      <xs:element minOccurs="0" name="TypDokumentu" type="sTypDokumentu">
+        <xs:annotation>
+          <xs:documentation>Element se používá pro přenos druhu dokumentu</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element minOccurs="0" name="VecnaSkupina" type="tVecnaSkupina"/>
       <xs:element minOccurs="0" name="SkartacniRezim" type="tSkartacniRezim"/>
       <xs:element minOccurs="0" name="Poznamka" type="sPoznamka"/>
@@ -1389,7 +1393,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   </xs:simpleType>
   <xs:simpleType name="sTypDokumentu">
     <xs:annotation>
-      <xs:documentation>Popis typu dokumentu</xs:documentation>
+      <xs:documentation>Druh dokumentu</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="100"/>
