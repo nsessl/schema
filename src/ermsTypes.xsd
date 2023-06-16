@@ -2118,7 +2118,7 @@ Pokud element není uveden, potom se to chápe jako hodnota (ne).</xs:documentat
       <xs:element minOccurs="0" name="StavZasilky" type="sStavZasilky"/>
       <xs:element name="DatumCasVytvoreni" type="xs:dateTime"/>
       <xs:element minOccurs="0" name="DatumCasStornovani" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="DatumCasPredeniVypravne" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="DatumCasPredaniVypravne" type="xs:dateTime"/>
       <xs:element minOccurs="0" name="DatumVypraveni" type="xs:date"/>
       <xs:element minOccurs="0" name="CasVypraveni" type="xs:time"/>
       <xs:element minOccurs="0" name="Poplatek" type="sPoplatek">
