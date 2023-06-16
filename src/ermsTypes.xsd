@@ -2295,7 +2295,7 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
       <xs:enumeration value="nenacteno"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="sStausPrenosuEntita">
+  <xs:simpleType name="sStatusPrenosuEntita">
     <xs:restriction base="xs:string">
       <xs:enumeration value="nacteno"/>
       <xs:enumeration value="nenacteno"/>

@@ -283,7 +283,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
                         Zde uvedené ID má především přehledovou funkci pro uživatele, který dávku generoval nebo se chystá dávku načítat.</xs:documentation>
                     </xs:annotation>
                   </xs:attribute>
-                  <xs:attribute name="StatusPrenosu" use="required" type="sStausPrenosuEntita"/>
+                  <xs:attribute name="StatusPrenosu" use="required" type="sStatusPrenosuEntita"/>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
