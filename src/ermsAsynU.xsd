@@ -885,7 +885,7 @@ Vloženi spisu do typového spisu a to do součásti určené zadanou věcnou sk
             <xs:documentation>ID typového spisu, do kterého se spis vkládá</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" name="VecnaSkupina" type="tVecnaSkupina">
+        <xs:element name="VecnaSkupina" type="tVecnaSkupina">
           <xs:annotation>
             <xs:documentation>Věcná skupina, která je jednoznačně přidělena součástí typového spisu a to na základě definované šablony typového spisu.</xs:documentation>
           </xs:annotation>
