@@ -61,7 +61,6 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
 
 * DokumentOdebran
 * DokumentSkartacniNavrh
-* DokumentUzavreni
 * DokumentVyrizeni
 * DokumentZalozeni
 * OdkazVytvoreni

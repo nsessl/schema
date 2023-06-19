@@ -214,21 +214,6 @@ Otevření vyřízeného nebo uzavřeného dokumentu. Výsledkem je nevyřízen�
       <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DokumentUzavreni">
-    <xs:annotation>
-      <xs:documentation>Hlášení z ISSD do ESSL.
-Uzavření dokumentu.</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="IdDokument" type="tIdDokument"/>
-        <xs:element name="DatumCasUzavreni" type="xs:dateTime"/>
-        <xs:element name="Autorizace" type="tAutorizace"/>
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
-      </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="DokumentZruseni">
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL.
@@ -1066,7 +1051,6 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
         <xs:element ref="SpisVraceni"/>
         <xs:element ref="DokumentVyrizeni"/>
         <xs:element ref="SpisUzavreni"/>
-        <xs:element ref="DokumentUzavreni"/>
         <xs:element ref="DokumentOtevreni"/>
         <xs:element ref="DokumentPostoupeni"/>
         <xs:element ref="SpisPostoupeni"/>
