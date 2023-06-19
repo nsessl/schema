@@ -421,10 +421,9 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="1" name="Autorizace" type="tAutorizace">
+        <xs:element name="Autorizace" type="tAutorizace" minOccurs="0">
           <xs:annotation>
-            <xs:documentation>Identifikace osoby, která volá službu pro načtení číselníku.
-            </xs:documentation>
+            <xs:documentation>Pokud systém načítá seznam pro svoji vnitřní potřebu, je možné autorizaci vynechat.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
@@ -451,12 +450,11 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
       <xs:documentation>Žádost o zaslání dávky událostí pro ISSD.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:sequence minOccurs="1" maxOccurs="1">
-        <xs:element minOccurs="1" maxOccurs="1" name="Davka" type="tDavka"/>
-        <xs:element minOccurs="1" name="Autorizace" type="tAutorizace">
+      <xs:sequence>
+        <xs:element name="Davka" type="tDavka"/>
+        <xs:element minOccurs="0" name="Autorizace" type="tAutorizace">
           <xs:annotation>
-            <xs:documentation>Identifikace osoby, která volá službu pro načtení číselníku.
-            </xs:documentation>
+            <xs:documentation>Pokud systém načítá dávku pro svoji vnitřní potřebu, je možné autorizaci vynechat.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
