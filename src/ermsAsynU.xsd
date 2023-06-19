@@ -813,7 +813,7 @@ Zápis datumu externí spouštěcí události</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DokumentId" type="tIdSpisu"/>
+        <xs:element name="DokumentId" type="tIdDokument"/>
         <xs:element name="DatumExterniUdalosti" type="xs:date"/>
         <xs:element name="Autorizace" type="tAutorizace"/>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
