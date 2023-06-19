@@ -3,35 +3,36 @@
 Tato příloha definuje formát dat a pravidla používané při exportu dat nebo
 při přenosu dat z jednoho systému do druhého (tzv. spisová rozluka).
 
-## Archiv s dávkou
+## Kontejner s dávkou
 
-Data se přenášejí jako archiv ve formátu ZIP definovaném ve
+Data se přenášejí jako kontejner ve formátu ZIP definovaném ve
 specifikaci
 [APPNOTE](https://pkware.cachefly.net/webdocs/APPNOTE/APPNOTE-6.3.10.TXT)
 a musí navíc splnit následující požadavky:
 
-* Soubory uložené v archivu musí být nekomprimované nebo musí používat
-  kompresní metodu „deflate“ popsanou v RFC1951.
+* Soubory uložené v kontejneru musí být nekomprimované nebo musí
+  používat kompresní metodu „deflate“ popsanou v RFC1951.
 
-* Archiv nesmí používat šifrování.
+* Kontejner nesmí používat šifrování.
 
-* Archiv nesmí používat digitální podpisy.
+* Kontejner nesmí používat digitální podpisy.
 
-* Archiv nesmí používat funkci „patch data“.
+* Kontejner nesmí používat funkci „patch data“.
 
-* Archiv nesmí být rozdělen do více souborů.
+* Kontejner nesmí být rozdělen do více souborů.
 
 * Jména souborů musí být uložena v kódování UTF-8 a musí být nastaven
   příznak „Language encoding flag“ (bit 11).
 
-* Archiv musí v kořenovém adresáři obsahovat soubor `manifest.xml`,
+* Kontejner musí v kořenovém adresáři obsahovat soubor `manifest.xml`,
   který obsahuje kořenový element `Davka` validní vůči schématu
   `ermsExportPrenos.xsd`.
 
 ## Přenos entit
 
-Všechny entity a jejich metadata se přenášejí uvnitř archivu ZIP a je
-doporučeno je ukládat do vhodné adresářové struktury uvnitř archivu.
+Všechny entity a jejich metadata se přenášejí uvnitř kontejneru ZIP a
+je doporučeno je ukládat do vhodné adresářové struktury uvnitř
+kontejneru.
 
 Dávka v souboru `manifest.xml` kromě nezbytných metadat obsahuje
 seznam všech entit, které se přenášejí/exportují. Pro každou entitu je
