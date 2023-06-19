@@ -87,7 +87,7 @@ Může obsahovat veškeré události systému vzniklé v zadaném časovém obdo
             <xs:enumeration value="SablonaTypovehoSpisu" />
             <xs:enumeration value="SablonaSoucasti" />
             <xs:enumeration value="Subjekt" />
-            <xs:enumeration value="TypDokumentu" />
+            <xs:enumeration value="DruhDokumentu" />
             <xs:enumeration value="TypSpisu" />
             <xs:enumeration value="UkladaciJednotka" />
             <xs:enumeration value="SchvaleniSpis" />

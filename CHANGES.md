@@ -96,6 +96,8 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/v4`.
 * evidenční číslo je nyní nepovinné
 * vylepšena definice plně určeného spisového znaku
 * způsob vyřízení je nepovinný
+* element `TypDokumentu` byl nahrazen elementem `DruhDokumentu` a
+  rozšířen o nepovinný skartační režim
   
 
 ## Změny v transakčním protokolu

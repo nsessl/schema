@@ -75,7 +75,7 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
       <xs:element minOccurs="0" name="PodaciDenikPoradi" type="sPodaciDenikPoradi"/>
       <xs:element minOccurs="0" name="PodaciDenikRok" type="sPodaciDenikRok"/>
       <xs:element minOccurs="0" name="PodaciDenik" type="sPodaciDenik"/>
-      <xs:element minOccurs="0" name="TypDokumentu" type="sTypDokumentu">
+      <xs:element minOccurs="0" name="DruhDokumentu" type="tDruhDokumentu">
         <xs:annotation>
           <xs:documentation>Element se používá pro přenos druhu dokumentu</xs:documentation>
           <xs:documentation>NS z roku 2023 požadavek č. 4.2.2</xs:documentation>
@@ -115,7 +115,7 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
       <xs:element minOccurs="0" name="PodaciDenikPoradi" type="sPodaciDenikPoradi"/>
       <xs:element minOccurs="0" name="PodaciDenikRok" type="sPodaciDenikRok"/>
       <xs:element minOccurs="0" name="PodaciDenik" type="sPodaciDenik"/>
-      <xs:element minOccurs="0" name="TypDokumentu" type="sTypDokumentu">
+      <xs:element minOccurs="0" name="DruhDokumentu" type="tDruhDokumentu">
         <xs:annotation>
           <xs:documentation>Element se používá pro přenos druhu dokumentu</xs:documentation>
         </xs:annotation>
@@ -1314,7 +1314,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   </xs:simpleType>
   <xs:simpleType name="sNazev">
     <xs:annotation>
-      <xs:documentation>Krátká věc vystihující obsah dokumentu nebo spisu.</xs:documentation>
+      <xs:documentation>Krátká věc vystihující obsah.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="100"/>
@@ -1391,14 +1391,16 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
       <xs:maxLength value="12"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="sTypDokumentu">
+  <xs:complexType name="tDruhDokumentu">
     <xs:annotation>
       <xs:documentation>Druh dokumentu</xs:documentation>
     </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:maxLength value="100"/>
-    </xs:restriction>
-  </xs:simpleType>
+    <xs:sequence>
+      <xs:element name="Identifikator" type="tIdentifikator" minOccurs="0"/>
+      <xs:element name="Nazev" type="sNazev"/>
+      <xs:element name="SkartacniRezim" type="tSkartacniRezim" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:simpleType name="sTypOdkazu">
     <xs:annotation>
       <xs:documentation>Typ křížového odkazu</xs:documentation>

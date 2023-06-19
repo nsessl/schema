@@ -367,7 +367,7 @@ Služba není povinná, každý ERMS si má možnost určit typ a obsah číseln
         <xs:element name="IdCiselniku" type="sIdCiselniku">
           <xs:annotation>
             <xs:documentation>ID číselníku. Zpravidla obsahuje název elementu ze schématu rozhraní, pro který je potřeba dotáhnout povolené hodnoty. 
-Tedy např. 'TypDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si budou ERMS mezi sebou vyměňovat záleží na vzájemné dohodě.</xs:documentation>
+Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si budou ERMS mezi sebou vyměňovat záleží na vzájemné dohodě.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element minOccurs="1" name="Autorizace" type="tAutorizace">

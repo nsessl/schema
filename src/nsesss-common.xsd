@@ -1142,7 +1142,7 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="tTypDokumentu">
+  <xs:complexType name="tDruhDokumentu">
     <xs:annotation>
       <xs:documentation>Druh dokumentu</xs:documentation>
       <xs:documentation>Sada elementů pro popis dokumentů se stejnou charakteristikou, která usnadňuje správu dokumentů stejného druhu shodně a stanoveným specifickým způsobem. Druhem dokumentu jsou například "faktury", "rozsudky" nebo "webové stránky".</xs:documentation>
@@ -1151,6 +1151,7 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
       <xs:element name="Identifikator" type="tIdentifikator"/>
       <xs:element name="Nazev" type="tNazev"/>
       <xs:element name="Komentar" type="tKomentar" minOccurs="0"/>
+      <xs:element name="SkartacniRezim" type="tSkartacniRezim" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1417,7 +1418,7 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
     <xs:complexContent>
       <xs:extension base="tTrideni">
         <xs:sequence>
-          <xs:element name="TypDokumentu" type="tTypDokumentu" minOccurs="0">
+          <xs:element name="DruhDokumentu" type="tDruhDokumentu" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Element se používá pro přenos druhu dokumentu</xs:documentation>
             </xs:annotation>            
