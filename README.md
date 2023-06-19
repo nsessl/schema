@@ -26,7 +26,7 @@ Normativní části přílohy:
   WSDL
 * [`ermsIFSyn.xsd`](src/ermsIFSyn.xsd) – schéma popisující struktury
   používané v synchroním rozhraní
-* [`ermsIFAsyn.xsd`](src/ermsIFASyn.xsd) – schéma popisující struktury
+* [`ermsIFAsyn.xsd`](src/ermsIFAsyn.xsd) – schéma popisující struktury
   používané v asynchroním rozhraní
 * [`dmBaseTypes.xsd`](src/dmBaseTypes.xsd) – schéma definující datové
   typy používané v ISDS
