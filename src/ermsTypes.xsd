@@ -1647,7 +1647,11 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
           <xs:documentation>NS z roku 2023 požadavek č.2.7.1</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VecnaSkupina" type="tVecnaSkupina"/>
+      <xs:element minOccurs="0" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
+        <xs:annotation>
+          <xs:documentation>Při zakládání nového záznamu může být tato položka vyplněna starším datum než je aktuální systémový čas IS. Pokud není vyplněna, cílový systém ji doplní automaticky podle systémového času.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:group ref="gTypovySpisZakladniProfil"/>
     </xs:sequence>
   </xs:complexType>
@@ -1707,6 +1711,11 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator"/>
+      <xs:element minOccurs="0" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
+        <xs:annotation>
+          <xs:documentation>Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že se její hodnota nemění.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:group ref="gTypovySpisZakladniProfil"/>
     </xs:sequence>
   </xs:complexType>
