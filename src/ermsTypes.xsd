@@ -2424,6 +2424,7 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
       <xs:enumeration value="meta"/>
       <xs:enumeration value="dorucenka"/>
       <xs:enumeration value="protokol_overeni_podpisu"/>
+      <xs:enumeration value="obalka"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sFinalniVerze">
