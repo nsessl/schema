@@ -61,7 +61,7 @@ Doplňující informace:
 
 Příloha v sobě slučuju i předchozí přílohu 2.
 
-## Příloha 3 – Struktura popisných metadat pro automatizované zpracování dokumentu nebo spisu
+## Příloha 3 – Struktura popisných metadat pro automatizované zpracování dokumentu
 
 Normativní části přílohy:
 
