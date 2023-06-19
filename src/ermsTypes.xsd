@@ -1956,39 +1956,70 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
       </xs:element>
       <xs:element minOccurs="0" name="DatumCasPredaniDoArchivuNeboSkartace" type="xs:dateTime"/>
       <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime"/>
-      <xs:element name="SpisyVlozene">
-        <xs:annotation>
-          <xs:documentation>Je-li použit element VlozenyDokumentUplny, pak jsou nejprve založeny dokumenty uvedené v tomto elementu, poté je založen spis kde iniciačním dokumentem je ten, který má  PoradiVeSpisu rovno 1 a poté jsou do spisu vloženy i další dokumenty.
-                                        Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.
-                                        </xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="SpisVlozeny">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element minOccurs="0" name="PoradiVDiluTypovehoSpisu" type="sPoradi">
-                    <xs:annotation>
-                      <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
-                      <xs:documentation>NS z roku 2023 požadavek č.3.2.3</xs:documentation>
-                    </xs:annotation>
-                  </xs:element>
-                  <xs:element name="SpisId" type="tIdSpisu"/>
-                  <xs:element name="StavZarazeniDoTypovehoSpisu" type="sStavZarazeniDoSpisu">
-                    <xs:annotation>
-                      <xs:documentation>Výčtový typ, který určuje, zda je spis aktuálně vložen do součásti typového spisu.</xs:documentation>
-                      <xs:documentation>Informace vyjmuto ve vztahu k této vazbě může být nadbytečná. Pokud je spis vyjmut, potom tato vazba fakticky neexistuje. 
-Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední minulou vazbu spisu na typový spis i když je spis aktuálně vyjmut. </xs:documentation>
-                    </xs:annotation>
-                  </xs:element>
-                  <xs:element name="DatumCasVlozeni" type="xs:dateTime"/>
-                  <xs:element minOccurs="0" name="DatumCasVyjmuti" type="xs:dateTime"/>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:choice>
+        <xs:element name="SpisyVlozene">
+          <xs:annotation>
+            <xs:documentation>Je-li použit element VlozenyDokumentUplny, pak jsou nejprve založeny dokumenty uvedené v tomto elementu, poté je založen spis kde iniciačním dokumentem je ten, který má  PoradiVeSpisu rovno 1 a poté jsou do spisu vloženy i další dokumenty.
+                                          Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.
+                                          </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="SpisVlozeny">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="PoradiVDiluTypovehoSpisu" type="sPoradi">
+                      <xs:annotation>
+                        <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
+                        <xs:documentation>NS z roku 2023 požadavek č.3.2.3</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="SpisId" type="tIdSpisu"/>
+                    <xs:element name="StavZarazeniDoTypovehoSpisu" type="sStavZarazeniDoSpisu">
+                      <xs:annotation>
+                        <xs:documentation>Výčtový typ, který určuje, zda je spis aktuálně vložen do součásti typového spisu.</xs:documentation>
+                        <xs:documentation>Informace vyjmuto ve vztahu k této vazbě může být nadbytečná. Pokud je spis vyjmut, potom tato vazba fakticky neexistuje. 
+  Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední minulou vazbu spisu na typový spis i když je spis aktuálně vyjmut. </xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DatumCasVlozeni" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="DatumCasVyjmuti" type="xs:dateTime"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DokumentyVlozene">
+          <xs:annotation>
+            <xs:documentation>Dokumenty je do dílu možné vkládat jen pokud byly uzavřené před začátkem planosti nové vyhlášky z roku 2023. Jinak je možné vkládat jen spisy.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="DokumentVlozeny">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="PoradiVDiluTypovehoSpisu" type="sPoradi">
+                      <xs:annotation>
+                        <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
+                        <xs:documentation>NS z roku 2023 požadavek č.3.2.3</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="IdDokument" type="tIdDokument"/>
+                    <xs:element name="StavZarazeniDoSpisu" type="sStavZarazeniDoSpisu">
+                      <xs:annotation>
+                        <xs:documentation>Výčtový typ, který určuje, zda je dokument aktuálně vložen do spisu.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DatumCasVlozeni" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="DatumCasVyjmuti" type="xs:dateTime"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
   <xs:group name="gSoucastTypovehoSpisuZakladniProfil">
