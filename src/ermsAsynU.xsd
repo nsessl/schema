@@ -954,42 +954,6 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
       <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DokumentOdebran">
-    <xs:annotation>
-      <xs:documentation>Násilné odebrání výhradní správy dokumentu</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="IdDokument" type="tIdDokument"/>
-        <xs:element name="DuvodText" type="xs:string">
-          <xs:annotation>
-            <xs:documentation>Důvod odebrání výhradní správy</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace"/>
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
-      </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SpisOdebran">
-    <xs:annotation>
-      <xs:documentation>Násilné odebrání výhradní správy spisu</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="SpisId" type="tIdSpisu"/>
-        <xs:element name="DuvodText" type="xs:string">
-          <xs:annotation>
-            <xs:documentation>Důvod odebrání výhradní správy</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Autorizace" type="tAutorizace"/>
-        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
-      </xs:sequence>
-      <xs:attribute name="UdalostId" type="tUdalostId" use="required"/>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="DokumentSkartacniNavrh">
     <xs:annotation>
       <xs:documentation>Informace o zařazení dokumentu do skartačního návrhu</xs:documentation>
@@ -1063,8 +1027,6 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
         <xs:element ref="SpisVyjmutiZTypovehoSpisu"/>
         <xs:element ref="OdkazVytvoreni"/>
         <xs:element ref="OdkazZruseni"/>
-        <xs:element ref="DokumentOdebran"/>
-        <xs:element ref="SpisOdebran"/>
         <xs:element ref="DokumentSkartacniNavrh"/>
         <xs:element ref="SpisSkartacniNavrh"/>
         <xs:element name="Ostatni">

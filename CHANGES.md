@@ -59,13 +59,11 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
 
 #### Přidány následující události
 
-* DokumentOdebran
 * DokumentSkartacniNavrh
 * DokumentVyrizeni
 * DokumentZalozeni
 * OdkazVytvoreni
 * OdkazZruseni
-* SpisOdebran
 * SpisSkartacniNavrh
 * SpisVlozeniDoTypovehoSpisu
 * SpisVraceni
