@@ -97,6 +97,7 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/v4`.
 * způsob vyřízení je nepovinný
 * element `TypDokumentu` byl nahrazen elementem `DruhDokumentu` a
   rozšířen o nepovinný skartační režim
+* věcná skupina byla rozšířena o nové podelementy
   
 
 ## Změny v transakčním protokolu

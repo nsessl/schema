@@ -260,6 +260,17 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
       <xs:enumeration value="jiný způsob"/>
     </xs:restriction>
   </xs:simpleType>
+
+  <xs:simpleType name="tPridelovaniCislaJednaciho">
+    <xs:annotation>
+      <xs:documentation>Způsob přidělování čísla jednacího dokumentům v zakládaných spisech dané věcné skupiny</xs:documentation>
+      <xs:documentation>NSESSS 3.1.2</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ZaObdobi"/>
+      <xs:enumeration value="ZaSpisovouZnacku"/>
+    </xs:restriction>
+  </xs:simpleType>
   
   <xs:complexType name="tDatum">
     <xs:annotation>
@@ -499,6 +510,28 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
       <xs:element name="Trideni" type="tTrideniVecneSkupiny"/>
       <xs:element name="Vyrazovani" type="tVyrazovaniVecneSkupiny"/>
       <xs:element name="Manipulace" type="tManipulaceSeskupeni"/>
+      <xs:element name="UrcenoProTypoveSpisy" type="tLogicky" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Pokud element chybí, předpokládá se, že věcná skupina není určena pro typové spisy</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Soucast" type="tSoucast" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Používá se pouze v případě, kdy je věcná skupina určena pro typové spisy</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PridelovaniCislaJednaciho" type="tPridelovaniCislaJednaciho" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Způsob přidělování čísla jednacího dokumentům v zakládaných spisech dané věcné skupiny</xs:documentation>
+          <xs:documentation>NSESSS 3.1.2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TrvalySkartacniSouhlas" type="tLogicky" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Na obsah věcné skupiny je uplatněn příslušným archivem vydaný trvalý skartační souhlas</xs:documentation>
+          <xs:documentation>NSESSS 3.1.2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 

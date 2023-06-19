@@ -883,6 +883,48 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
             <xs:documentation>NS z roku 2023 kapitola 1.40</xs:documentation>
           </xs:annotation>
         </xs:element>
+        <xs:element name="JednoduchySpisovyZnak" type="sJednoduchySpisovyZnak"/>
+        <xs:element name="Popis" type="sPopis"/>
+        <xs:element name="DatumOtevreni" type="xs:date"/>
+        <xs:element name="DatumUzavreni" type="xs:date" minOccurs="0"/>
+        <xs:element name="SkartacniRezim" type="tSkartacniRezim" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Používá se pouze pro věcné skupiny na nejnižší úrovni hierarchie</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="UrcenoProTypoveSpisy" type="sUrcenoProTypoveSpisy" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Pokud element chybí, předpokládá se, že věcná skupina není určena pro typové spisy</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Soucasti" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Používá se pouze v případě, kdy je věcná skupina určena pro typové spisy</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <xs:element name="Soucast">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="gSoucastTypovehoSpisu"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PridelovaniCislaJednaciho" type="sPridelovaniCislaJednaciho" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Způsob přidělování čísla jednacího dokumentům v zakládaných spisech dané věcné skupiny</xs:documentation>
+            <xs:documentation>NSESSS 3.1.2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="TrvalySkartacniSouhlas" type="sTrvalySkartacniSouhlas" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Na obsah věcné skupiny je uplatněn příslušným archivem vydaný trvalý skartační souhlas</xs:documentation>
+            <xs:documentation>NSESSS 3.1.2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
     </xs:choice>
   </xs:complexType>
@@ -1358,6 +1400,14 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="sJednoduchySpisovyZnak">
+    <xs:annotation>
+      <xs:documentation>Jednoduchý spisový znak entit zajišťuje jejich nezaměnitelné a jedinečné označení v rámci mateřské entity.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sSpisovaZnacka">
@@ -2416,6 +2466,12 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
       <xs:enumeration value="ne"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="sUrcenoProTypoveSpisy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ano"/>
+      <xs:enumeration value="ne"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="sFileMetaType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="main"/>
@@ -3032,4 +3088,17 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
       <xs:enumeration value="historicky"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="sPridelovaniCislaJednaciho">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ZaObdobi"/>
+      <xs:enumeration value="ZaSpisovouZnacku"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="sTrvalySkartacniSouhlas">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ano"/>
+      <xs:enumeration value="ne"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
 </xs:schema>
