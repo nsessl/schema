@@ -2685,7 +2685,7 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
   </xs:simpleType>
   <xs:simpleType name="sLhuta">
     <xs:restriction base="xs:integer">
-      <xs:minInclusive value="1"/>
+      <xs:minInclusive value="0"/>
       <xs:maxInclusive value="999"/>
     </xs:restriction>
   </xs:simpleType>
