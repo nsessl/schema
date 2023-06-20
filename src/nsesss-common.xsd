@@ -272,6 +272,13 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
     </xs:restriction>
   </xs:simpleType>
   
+  <xs:simpleType name="tUmisteni">
+    <xs:annotation>
+      <xs:documentation>Informace o fyzickém umístění analogové části</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  
   <xs:complexType name="tDatum">
     <xs:annotation>
       <xs:documentation>Univerzální prvek pro zaznamenání časového údaje. Datum je zaznamenáno ve tvaru "YYYY-MM-DD".</xs:documentation>
@@ -1426,6 +1433,7 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
         <xs:sequence>
           <xs:element name="DatumOtevreni" type="tDatum"/>
           <xs:element name="DatumUzavreni" type="tDatum" minOccurs="0"/>
+          <xs:element name="Umisteni" type="tUmisteni" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
