@@ -818,7 +818,7 @@ Zápis datumu externí spouštěcí události</xs:documentation>
   </xs:element>
   <xs:element name="DokumentSkartovano">
     <xs:annotation>
-      <xs:documentation>Hlášení z ISSD do ESSL ale také z ESSL do ISSD ( v případě specifické implementace rozhraní )
+      <xs:documentation>Hlášení z ISSD do ESSL ale také z ESSL do ISSD (v případě specifické implementace rozhraní)
 Postoupení informace o proběhlé skartaci dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -834,7 +834,7 @@ Postoupení informace o proběhlé skartaci dokumentu.</xs:documentation>
   </xs:element>
   <xs:element name="SpisSkartovano">
     <xs:annotation>
-      <xs:documentation>Hlášení z ISSD do ESSL ale také z ESSL do ISSD ( v případě specifické implementace rozhraní )
+      <xs:documentation>Hlášení z ISSD do ESSL ale také z ESSL do ISSD (v případě specifické implementace rozhraní)
 Postoupení informace o proběhlé skartaci.</xs:documentation>
     </xs:annotation>
     <xs:complexType>

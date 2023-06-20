@@ -137,10 +137,10 @@ Volání WS s žádostí o postoupení dokumentu z ESSL do výhradní správy IS
   </xs:element>
   <xs:element name="DokumentPostoupeniZadostResponse">
     <xs:annotation>
-      <xs:documentation>Odpověď na volání webové služby s požadavkem na postoupení ( předání do výhradní správy ) zadaného dokumentu.
+      <xs:documentation>Odpověď na volání webové služby s požadavkem na postoupení (předání do výhradní správy) zadaného dokumentu.
 Odpověď obsahuje kompletní popis postupovaného dokumentu nebo číselný a textový popis chyby. 
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo postoupeného dokumentu chybový kód 0001 - Nedostatečná oprávnění
-Za chybu je považována žádost o postoupení dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).</xs:documentation>
+Za chybu je považována žádost o postoupení dokumentu, který není ve volaném systému obsažen (na základě zadaného identifikátoru).</xs:documentation>
       <xs:documentation>NS2023 požadavek č.8.1.8 c)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -219,7 +219,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
     <xs:annotation>
       <xs:documentation>Odpověď na volání webové služby s žádostí o poskytnutí detailních informací o dokumentu.
 Odpověď obsahuje kompletní popis dokumentu nebo číselný a textový popis chyby. 
-Za chybu je považována žádost o informace o dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).
+Za chybu je považována žádost o informace o dokumentu, který není ve volaném systému obsažen (na základě zadaného identifikátoru).
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.</xs:documentation>
       <xs:documentation>NS2023 požadavek č.8.1.8 e)</xs:documentation>
     </xs:annotation>

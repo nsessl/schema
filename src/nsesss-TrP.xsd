@@ -33,7 +33,7 @@
   <xs:element name="TransakcniLogSystemu">
     <xs:annotation>
       <xs:documentation>Kořenový element souboru transakčního protokolu generovaného v rámci celého IS.
-Může obsahovat veškeré události systému vzniklé v zadaném časovém období ( potom se element TypyObjektu neuvádí ) nebo může obsahovat události pouze uvedených typů dokumentů ( uvedeno v elementu TypyObjektu ).</xs:documentation>
+Může obsahovat veškeré události systému vzniklé v zadaném časovém období (potom se element TypyObjektu neuvádí) nebo může obsahovat události pouze uvedených typů dokumentů (uvedeno v elementu TypyObjektu).</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -197,7 +197,7 @@ Součástí identifikátoru je také ZdrojID, který slouží k identifikaci zdr
       </xs:element>
       <xs:element minOccurs="0" name="Software" type="xs:string">
         <xs:annotation>
-          <xs:documentation>Označení software ( typové ). Může sloužit společně s verzí SW k identifikaci typu transakčního protokolu ( očekávání nadstandardních částí, položek atd. )</xs:documentation>
+          <xs:documentation>Označení software ( typové ). Může sloužit společně s verzí SW k identifikaci typu transakčního protokolu (očekávání nadstandardních částí, položek atd.)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="VerzeSoftware" type="xs:string">
@@ -296,7 +296,7 @@ http://tools.ietf.org/html/rfc5424#section-6.3.3 </xs:documentation>
       </xs:element>
       <xs:element minOccurs="0" name="PopisUdalosti" type="xs:string">
         <xs:annotation>
-          <xs:documentation>Může obsahovat lidsky čitelný upřesňující popis vzniklé události. Tato položka je určena např. k textovému tisku historie objektu ( bez využití parametrů události )</xs:documentation>
+          <xs:documentation>Může obsahovat lidsky čitelný upřesňující popis vzniklé události. Tato položka je určena např. k textovému tisku historie objektu (bez využití parametrů události)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="DoplnujiciData">
@@ -308,7 +308,7 @@ http://tools.ietf.org/html/rfc5424#section-6.3.3 </xs:documentation>
       </xs:element>
       <xs:element minOccurs="0" name="ZdrojID">
         <xs:annotation>
-          <xs:documentation>Identifikace zdroje události ( zdrojového IS )
+          <xs:documentation>Identifikace zdroje události (zdrojového IS)
 Tato položka se standardně nebude uvádět. 
 Pokud tato položka není uvedena, potom se automaticky za zdrojový systém chápe hodnota uvedená v hlavičce transakčního logu v položce Identifikator.ZdrojID
 Pouze v případě, kdy transakční protokol obsahuje události generované v rámci více IS se zde touto položkou odliší zdrojový systém události.</xs:documentation>
@@ -356,7 +356,7 @@ Pouze v případě, kdy transakční protokol obsahuje události generované v r
         <xs:annotation>
           <xs:documentation>Zdroj interního identifikátoru:
             
-Zde uvedený text by měl jednoznačně specifikovat hlavního správce ( zdroj ) uvedeného identifikátoru.
+Zde uvedený text by měl jednoznačně specifikovat hlavního správce (zdroj) uvedeného identifikátoru.
 
 Protože seznam všech možných zdrojů identifikátorů není dopředu známý, musí se tato hodnota uvádět jako otevřený text.
 Pro zajištění jednoznačnosti identifikace zdroje hodnot identifikátorů je nutné dodržovat konvenci pro vyskládání textu, určujícího zdroj identifikace.
@@ -371,7 +371,7 @@ kde fffff je jednoznačné jméno firmy dodavatele nebo jednoznačné označení
 
 Kde pppppp je označení produktu v rámci kterého identifikátor vznikl.
 
-Kde iiiii je označení instalace ( lokality ) produktu. Může se jednat o identifikaci konkrétního zákazníka, kde je produk provozován.
+Kde iiiii je označení instalace (lokality) produktu. Může se jednat o identifikaci konkrétního zákazníka, kde je produk provozován.
 
 Kde ccccccc a případně další sekce oddělené tečkami si určuje výrobce nebo provozovatel systému produkujícího identifikátory sám.
 
