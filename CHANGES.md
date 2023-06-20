@@ -60,14 +60,17 @@ používá jmenný prostor `http://www.mvcr.cz/nsesss/2023/api`.
 #### Přidány následující události
 
 * DokumentSkartacniNavrh
-* DokumentVyrizeni
+* DokumentVytvoreni
 * DokumentZalozeni
 * OdkazVytvoreni
 * OdkazZruseni
 * SpisSkartacniNavrh
 * SpisVlozeniDoTypovehoSpisu
-* SpisVraceni
 * SpisVyjmutiZTypovehoSpisu
+
+#### Odstraněny následující události
+
+* DokumentUzavreni
 
 ## Změny ve schématech pro popisná metadata, o rozhodnutí ve skartačním řízení, pro spisový a skartační plán
 
