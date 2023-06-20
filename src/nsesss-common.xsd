@@ -858,7 +858,7 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
       </xs:element>
       <xs:element name="PlatnostCertifikacniCesty" type="tVysledekOvereni">
         <xs:annotation>
-          <xs:documentation>Prvek pro zaznamenání platnosti celé certifikační cesty (tj. certifikátů, na nichž jsou založeny bezpečnostní prvky, kterými jsou opatřeny certfikáty od kořenového certifikátu až po příslušný vydaný certifikát).</xs:documentation>
+          <xs:documentation>Prvek pro zaznamenání platnosti celé certifikační cesty (tj. certifikátů, na nichž jsou založeny bezpečnostní prvky, kterými jsou opatřeny certifikáty od kořenového certifikátu až po příslušný vydaný certifikát).</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="CasOvereni" type="tDatum">

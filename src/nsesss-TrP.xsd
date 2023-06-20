@@ -371,7 +371,7 @@ kde fffff je jednoznačné jméno firmy dodavatele nebo jednoznačné označení
 
 Kde pppppp je označení produktu v rámci kterého identifikátor vznikl.
 
-Kde iiiii je označení instalace (lokality) produktu. Může se jednat o identifikaci konkrétního zákazníka, kde je produk provozován.
+Kde iiiii je označení instalace (lokality) produktu. Může se jednat o identifikaci konkrétního zákazníka, kde je produkt provozován.
 
 Kde ccccccc a případně další sekce oddělené tečkami si určuje výrobce nebo provozovatel systému produkujícího identifikátory sám.
 

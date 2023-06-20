@@ -3,10 +3,8 @@
   elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
   id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
   <xs:annotation>
-    <xs:documentation>
-      Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
-      Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.
-    </xs:documentation>
+    <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
+Toto schéma popisuje asynchronní výměnu událostí, např. formou dávek.</xs:documentation>
   </xs:annotation>
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
   <xs:include schemaLocation="ermsTypes.xsd"/>

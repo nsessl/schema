@@ -57,7 +57,7 @@
           <xs:documentation>Používá se pouze v případě, kdy je věcná skupina určena pro typové spisy</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="PridelovaniCislaJednaciho" type="tPridelovaniCislaJednaciho" minOccurs="0">
+      <xs:element name="ZpusobVedeni" type="tZpusobVedeni" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Způsob přidělování čísla jednacího dokumentům v zakládaných spisech dané věcné skupiny</xs:documentation>
           <xs:documentation>NSESSS 3.1.2</xs:documentation>
