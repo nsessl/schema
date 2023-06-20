@@ -1051,27 +1051,19 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
           <xs:documentation>Místo narození</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="Jmeno" type="sJmeno">
-        <xs:annotation>
-          <xs:documentation>Element se neuvádí v případě TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="Prijmeni" type="sPrijmeni">
-        <xs:annotation>
-          <xs:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
-        </xs:annotation>
-      </xs:element>
+      <xs:element minOccurs="0" name="Jmeno" type="sJmeno"/>
+      <xs:element minOccurs="0" name="Prijmeni" type="sPrijmeni"/>
       <xs:element minOccurs="0" name="Osloveni" type="sOsloveni"/>
       <xs:element minOccurs="0" name="TitulPred" type="sTitul"/>
       <xs:element minOccurs="0" name="TitulZa" type="sTitul"/>
       <xs:element minOccurs="0" name="FunkceUtvarPopis" type="sFunkceUtvarPopis">
         <xs:annotation>
-          <xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
+          <xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Utvar".</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="FunkceUtvarIdentifikator" type="sFunkceUtvarIdentifikator">
         <xs:annotation>
-          <xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
+          <xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Utvar".</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="Poznamka" type="sPoznamka"/>
@@ -1909,10 +1901,6 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
       <xs:element minOccurs="0" name="DatumCasPredaniDoSpisovny" type="xs:dateTime"/>
       <xs:choice>
         <xs:element name="SpisyVlozene">
-          <xs:annotation>
-            <xs:documentation>Je-li použit element VlozenyDokumentUplny, pak jsou nejprve založeny dokumenty uvedené v tomto elementu, poté je založen spis kde iniciačním dokumentem je ten, který má  PoradiVeSpisu rovno 1 a poté jsou do spisu vloženy i další dokumenty.
-Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.</xs:documentation>
-          </xs:annotation>
           <xs:complexType>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
               <xs:element name="SpisVlozeny">
