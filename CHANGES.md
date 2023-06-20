@@ -2,7 +2,7 @@
 
 ## Změny ve struktuře příloh
 
-* Přílohy 2 a 3 bylo sloučeny do přílohy 2
+* Přílohy 2 a 3 byly sloučeny do přílohy 2
 * Nová příloha 3 obsahuje definici popisných metadat pro automatizované
   zpracování dokumentu
 * Nová příloha 7 obsahuje schéma pro migraci dat mezi spisovými
