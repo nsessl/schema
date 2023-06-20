@@ -112,6 +112,6 @@ Normativní části přílohy:
 
 Doplňující informace:
 
-* [dokumentace schématu](doc/C-export/ermsExportPrenos.html)
+* [dokumentace schématu](doc/7-export/ermsExportPrenos.html)
 
 
