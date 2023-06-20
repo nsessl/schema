@@ -607,11 +607,6 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
         <xs:documentation>Prvek je povinný v případě, že komponenta zaznamenává externí autentizační prostředek. Prvek popisuje vazbu autentizačního prostředku k příslušné komponentě odkazem na její atribut ID.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="analog_original" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Pokud je forma uchování "digitalizát", je možné v tomto atributu uvést místo uložení analogového originálu.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="tKomponenty">
