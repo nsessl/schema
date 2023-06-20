@@ -30,11 +30,11 @@ Na adresy
 
 je potřeba umístit stránku s následujícím obsahem:
 
-Toto je jmenný prostor používaný v dokumentech XML definovaných v
-Národním standardu pro elektronické systémy spisové služby.
-
-Další informace:
-
-* _Odkaz na standard a jeho přílohy_
-* _Odkaz na stránku s distribucí schémat_
+> Toto je jmenný prostor používaný v dokumentech XML definovaných v
+> Národním standardu pro elektronické systémy spisové služby.
+>
+> Další informace:
+>
+> * _Odkaz na standard a jeho přílohy_
+> * _Odkaz na stránku s distribucí schémat_
 
