@@ -121,7 +121,7 @@ Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jin
             <xs:sequence>
               <xs:element name="IdCiselniku" type="sIdCiselniku">
                 <xs:annotation>
-                  <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
+                  <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element name="NazevCiselniku" type="xs:string"/>
@@ -172,7 +172,7 @@ Tento soubor dokumentuje vznik případně určení dávky a dále popisuje obsa
           <xs:annotation>
             <xs:documentation>Zdroj interního identifikátoru:
 Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.</xs:documentation>
-            <xs:documentation>NS z roku 2023 požadavek č.8.1.2</xs:documentation>
+            <xs:documentation>NS2023 požadavek č.8.1.2</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="Cil" type="sIdInformacnihoSystemu"/>
@@ -241,7 +241,7 @@ Např. SHA-256 je identifikováno hodnotou "http://www.w3.org/2001/04/xmlenc#sha
           <xs:annotation>
             <xs:documentation>Zdroj interního identifikátoru:
 Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.</xs:documentation>
-            <xs:documentation>NS z roku 2023 požadavek č.8.1.2</xs:documentation>
+            <xs:documentation>NS2023 požadavek č.8.1.2</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="CilPotvrzeni" type="sIdInformacnihoSystemu"/>
@@ -255,7 +255,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
                 <xs:annotation>
                   <xs:documentation>Zdroj interního identifikátoru:
 Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.</xs:documentation>
-                  <xs:documentation>NS z roku 2023 požadavek č.8.1.2</xs:documentation>
+                  <xs:documentation>NS2023 požadavek č.8.1.2</xs:documentation>
                 </xs:annotation>
               </xs:element>
             </xs:sequence>

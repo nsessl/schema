@@ -16,7 +16,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="Udalosti">
           <xs:annotation>
-            <xs:documentation>NS z roku 2023 požadavek č.8.1.4</xs:documentation>
+            <xs:documentation>NS2023 požadavek č.8.1.4</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">

@@ -59,8 +59,8 @@ Je duplicitní k položce provedlKdy a přináší nejednoznačnost, který datu
       <xs:element minOccurs="0" name="Popis" type="sPopis"/>
       <xs:element minOccurs="0" name="CisloJednaci" type="sCisloJednaci">
         <xs:annotation>
-          <xs:documentation>NS z roku 2023 požadavek č.3.2.3
-NS z roku 2023 požadavek č.2.7.4</xs:documentation>
+          <xs:documentation>NS2023 požadavek č.3.2.3
+NS2023 požadavek č.2.7.4</xs:documentation>
           <xs:documentation>Číslo jednací dokumentu - vložením do jiného spisu se může měnit - přetřídění.</xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -76,8 +76,8 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
       <xs:element minOccurs="0" name="DruhDokumentu" type="tDruhDokumentu">
         <xs:annotation>
           <xs:documentation>Element se používá pro přenos druhu dokumentu</xs:documentation>
-          <xs:documentation>NS z roku 2023 požadavek č. 4.2.2</xs:documentation>
-          <xs:documentation>NS z roku 2023 kapitola 1.9</xs:documentation>
+          <xs:documentation>NS2023 požadavek č. 4.2.2</xs:documentation>
+          <xs:documentation>NS2023 kapitola 1.9</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="VecnaSkupina" type="tVecnaSkupina"/>
@@ -262,8 +262,8 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
   </xs:group>
   <xs:complexType name="tOperaceStatus">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.5
-NS z roku 2023 požadavek č.8.1.6</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.5
+NS2023 požadavek č.8.1.6</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Kod" type="sKod">
@@ -301,7 +301,7 @@ NS z roku 2023 požadavek č.8.1.6</xs:documentation>
   <xs:simpleType name="tUdalostId">
     <xs:annotation>
       <xs:documentation>Jednoznačná identifikace události v rámci dávky.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.4</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.4</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:integer"/>
   </xs:simpleType>
@@ -417,7 +417,7 @@ Tento profil je určen pro export kompletních dat o dokumetnu.</xs:documentatio
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator">
         <xs:annotation>
-          <xs:documentation>NS z roku 2023 požadavek č.2.7.1</xs:documentation>
+          <xs:documentation>NS2023 požadavek č.2.7.1</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="1" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
@@ -438,7 +438,7 @@ SpisV § 10, odst. 2 písm. b), NSESSS 5.2.6 k)</xs:documentation>
           <xs:documentation>Evidenční parametry dokumentu podle pravidla NS č.2.7.2     
 Pro nově vzniklé dokumentu podle pravidel NS roku 2023 je tato položka povinná. 
 Pro starší dokumentu není uvedena.</xs:documentation>
-          <xs:documentation>NS z roku 2023 požadavek č.2.7.2</xs:documentation>
+          <xs:documentation>NS2023 požadavek č.2.7.2</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:group minOccurs="0" ref="gDokumentZakladniProfil"/>
@@ -618,7 +618,7 @@ Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán n
                     <xs:element name="PoradiVeSpisu" type="sPoradi">
                       <xs:annotation>
                         <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
-                        <xs:documentation>NS z roku 2023 požadavek č.3.2.3</xs:documentation>
+                        <xs:documentation>NS2023 požadavek č.3.2.3</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="StavZarazeniDoSpisu" type="sStavZarazeniDoSpisu">
@@ -638,7 +638,7 @@ Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán n
                     <xs:element name="PoradiVeSpisu" type="sPoradi">
                       <xs:annotation>
                         <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
-                        <xs:documentation>NS z roku 2023 požadavek č.3.2.3</xs:documentation>
+                        <xs:documentation>NS2023 požadavek č.3.2.3</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="StavZarazeniDoSpisu" type="sStavZarazeniDoSpisu">
@@ -742,16 +742,16 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator">
         <xs:annotation>
-          <xs:documentation>NS z roku 2023 požadavek č.2.7.1</xs:documentation>
+          <xs:documentation>NS2023 požadavek č.2.7.1</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ZpusobVedeni" type="sZpusobVedeni">
         <xs:annotation>
           <xs:documentation>Způsob vedení spisu - určuje, jak budou přidělována ČJ vkládaných dokumentů.
-Priorace - Dokumenty budou získávat ČJ na základě svého evidenčního čísla v odpovídajícím období ( NS z roku 2023 - požadavek 2.7.4 a) )
-SbernyArch - Dokument bude získávat ČJ na základě spisové značky spisu, do které se vkládá ( NS z roku 2023 - požadavek 2.7.4 b) ).</xs:documentation>
-          <xs:documentation>NS z roku 2023 požadavek č.2.7.4
-NS z roku 2023 požadavek č.3.2.2</xs:documentation>
+Priorace - Dokumenty budou získávat ČJ na základě svého evidenčního čísla v odpovídajícím období ( NS2023 - požadavek 2.7.4 a) )
+SbernyArch - Dokument bude získávat ČJ na základě spisové značky spisu, do které se vkládá ( NS2023 - požadavek 2.7.4 b) ).</xs:documentation>
+          <xs:documentation>NS2023 požadavek č.2.7.4
+NS2023 požadavek č.3.2.2</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
@@ -842,7 +842,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
         <xs:element name="SpisovyZnak" type="sSpisovyZnak">
           <xs:annotation>
             <xs:documentation>Plně určený spisový znak</xs:documentation>
-            <xs:documentation>NS z roku 2023 kapitola 1.40</xs:documentation>
+            <xs:documentation>NS2023 kapitola 1.40</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="JednoduchySpisovyZnak" type="sJednoduchySpisovyZnak"/>
@@ -878,8 +878,8 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
         <xs:element name="ZpusobVedeni" type="sZpusobVedeni" minOccurs="0">
           <xs:annotation>
             <xs:documentation>Způsob přidělování čísla jednacího dokumentům v zakládaných spisech dané věcné skupiny.
-              Priorace - Dokumenty budou získávat ČJ na základě svého evidenčního čísla v odpovídajícím období ( NS z roku 2023 - požadavek 2.7.4 a) )
-              SbernyArch - Dokument bude získávat ČJ na základě spisové značky spisu, do které se vkládá ( NS z roku 2023 - požadavek 2.7.4 b) ).</xs:documentation>
+              Priorace - Dokumenty budou získávat ČJ na základě svého evidenčního čísla v odpovídajícím období ( NS2023 - požadavek 2.7.4 a) )
+              SbernyArch - Dokument bude získávat ČJ na základě spisové značky spisu, do které se vkládá ( NS2023 - požadavek 2.7.4 b) ).</xs:documentation>
             <xs:documentation>NSESSS 3.1.2</xs:documentation>
           </xs:annotation>
         </xs:element>
@@ -951,7 +951,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
     <xs:annotation>
       <xs:documentation>Obecný interní identifikátor informačního systému. 
 Součástí informace obsažené v tomto prvku je i  určení, který informační systém tento identifikátor vytvořil.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.2.7.4</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.2.7.4</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="HodnotaID" type="sHodnotaID">
@@ -963,7 +963,7 @@ Součástí informace obsažené v tomto prvku je i  určení, který informačn
         <xs:annotation>
           <xs:documentation>Zdroj interního identifikátoru:
 Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.</xs:documentation>
-          <xs:documentation>NS z roku 2023 požadavek č.8.1.2</xs:documentation>
+          <xs:documentation>NS2023 požadavek č.8.1.2</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -1300,7 +1300,7 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   <xs:simpleType name="sIdInformacnihoSystemu">
     <xs:annotation>
       <xs:documentation>Identifikátor, přidělený v rámci implementace rozhraní, informačnímu systému.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.2</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.2</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="10"/>
@@ -1347,7 +1347,7 @@ Může se jednat o označení dokumentu nebo spisu určitou značkou, která v t
   <xs:simpleType name="sSpisovyZnak">
     <xs:annotation>
       <xs:documentation>Plně určený spisový znak</xs:documentation>
-      <xs:documentation>NS z roku 2023 kapitola 1.40</xs:documentation>
+      <xs:documentation>NS2023 kapitola 1.40</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="255"/>
@@ -1364,7 +1364,7 @@ Může se jednat o označení dokumentu nebo spisu určitou značkou, která v t
   <xs:simpleType name="sSpisovaZnacka">
     <xs:annotation>
       <xs:documentation>Položka vyjadřuje označení spisu.</xs:documentation>
-      <xs:documentation>NS z roku 2023 kapitola 1.38</xs:documentation>
+      <xs:documentation>NS2023 kapitola 1.38</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="50"/>
@@ -1515,13 +1515,13 @@ Identifikace volajícího má zabránit záměně např. testovací a ostré ins
   </xs:complexType>
   <xs:complexType name="tEvidenceDokumentu">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.2.7.2</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.2.7.2</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="EvidenceObdobiId" type="sObdobiId"/>
       <xs:element name="EvidencePoradi" type="sEvidencePoradi">
         <xs:annotation>
-          <xs:documentation>NS z roku 2023 požadavek č.2.7.2</xs:documentation>
+          <xs:documentation>NS2023 požadavek č.2.7.2</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -1530,7 +1530,7 @@ Identifikace volajícího má zabránit záměně např. testovací a ostré ins
     <xs:annotation>
       <xs:documentation>ID evidenčního období dokumentů. Správce systému ESSL stanovuje ID a název období a také jeho časovou platnost a stav ( otevřeno/uzavřeno )
 V jednom okamžiku může být otevřeno pouze jedno období.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.2.7.2</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.2.7.2</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="10"/>
@@ -1547,13 +1547,13 @@ V jednom okamžiku může být otevřeno pouze jedno období.</xs:documentation>
   </xs:simpleType>
   <xs:complexType name="tCiselnik">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
       <xs:documentation>Prvek pro popis pomocného číselníku vedeného v rámci ESSL nebo ISSD</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="IdCiselniku" type="sIdCiselniku">
         <xs:annotation>
-          <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
+          <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="NazevCiselniku" type="xs:string"/>
@@ -1568,7 +1568,7 @@ Tento údaj může sloužit pro posouzení, zda je nutné načítat tento celý 
   </xs:complexType>
   <xs:simpleType name="sIdCiselniku">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:minLength value="1"/>
@@ -1647,7 +1647,7 @@ Neaktivní položky se nově již nesmí použít při zakládání nebo editaci
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator">
         <xs:annotation>
-          <xs:documentation>NS z roku 2023 požadavek č.2.7.1</xs:documentation>
+          <xs:documentation>NS2023 požadavek č.2.7.1</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
@@ -1921,7 +1921,7 @@ Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán n
                     <xs:element minOccurs="0" name="PoradiVDiluTypovehoSpisu" type="sPoradi">
                       <xs:annotation>
                         <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
-                        <xs:documentation>NS z roku 2023 požadavek č.3.2.3</xs:documentation>
+                        <xs:documentation>NS2023 požadavek č.3.2.3</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="SpisId" type="tIdSpisu"/>
@@ -1952,7 +1952,7 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
                     <xs:element minOccurs="0" name="PoradiVDiluTypovehoSpisu" type="sPoradi">
                       <xs:annotation>
                         <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.</xs:documentation>
-                        <xs:documentation>NS z roku 2023 požadavek č.3.2.3</xs:documentation>
+                        <xs:documentation>NS2023 požadavek č.3.2.3</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="IdDokument" type="tIdDokument"/>

@@ -18,7 +18,7 @@
     <xs:annotation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Zaevidování nového dokumentu vzniklého v ISSD.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 b)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 b)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -37,7 +37,7 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
   </xs:element>
   <xs:element name="DokumentZalozeniResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8</xs:documentation>
       <xs:documentation>Výsledek volání webové služby s požadavkem na založení dokumentu.
 ESSL přidělí evidenční číslo v rámci evidenčního období. Podle aktuální konfigurace může přidělit také ČJ dokumentu.
 Pokud byl součástí požadavku také odkaz na spis do kterého se má dokument vložit, potom bude přidělena i spisová značka.</xs:documentation>
@@ -57,8 +57,8 @@ Je možné založit spis i s dokumenty v něm vloženými, nebo je možné zalo�
 Jako iniciační dokument spisu se považuje dokument s pořadovým číslem 1.
 Pořadové číslo, rok a deník určuje volající ISSD v případě, že je pro něj vyhrazen samostatný deník spisů.
 Pokud je deník spisů v rámci ESSL nastaven centrální jeden, potom se položky pro podací deník, rok a pořadové číslo na vstupu této WS ignorují a jsou přiděleny z ESSL podle jeho aktuálního nastavení a vráceny vrámci response tohoto volání.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 a)
-NS z roku 2023 požadavek č.3.2.4</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 a)
+NS2023 požadavek č.3.2.4</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -77,8 +77,8 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
   </xs:element>
   <xs:element name="SpisZalozeniResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8
-NS z roku 2023 požadavek č.3.2.2</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8
+NS2023 požadavek č.3.2.2</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -91,7 +91,7 @@ NS z roku 2023 požadavek č.3.2.2</xs:documentation>
     <xs:annotation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Požadavek na synchronní zpracování seznamu udalostí.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 k)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 k)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -102,7 +102,7 @@ Požadavek na synchronní zpracování seznamu udalostí.</xs:documentation>
   </xs:element>
   <xs:element name="UdalostiResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 k)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 k)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -120,7 +120,7 @@ Požadavek na synchronní zpracování seznamu udalostí.</xs:documentation>
     <xs:annotation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Volání WS s žádostí o postoupení dokumentu z ESSL do výhradní správy ISSD.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 c)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 c)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -141,7 +141,7 @@ Volání WS s žádostí o postoupení dokumentu z ESSL do výhradní správy IS
 Odpověď obsahuje kompletní popis postupovaného dokumentu nebo číselný a textový popis chyby. 
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo postoupeného dokumentu chybový kód 0001 - Nedostatečná oprávnění
 Za chybu je považována žádost o postoupení dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 c)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 c)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -159,7 +159,7 @@ Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů,
     <xs:annotation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Volání WS s žádostí o postoupení spisu z ESSL do výhradní správy ISSD. Postoupení je spojené s předáním výhradní správy dat spisu z ESSL do ISSD. Po postoupení jsou data spisu v ESSL přístupná pro běžné uživatele aplikací pouze v režimu čtení. Aktivní operace s daty spisu smí potom realizovat pouze ISSD a to až do okamžiku vrácení.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 d)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 d)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -181,7 +181,7 @@ Volání WS s žádostí o postoupení spisu z ESSL do výhradní správy ISSD. 
   <xs:element name="SpisPostoupeniZadostResponse">
     <xs:annotation>
       <xs:documentation>Odpověď na žádost o postoupení spisu.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 d)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 d)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -199,7 +199,7 @@ Volání WS s žádostí o postoupení spisu z ESSL do výhradní správy ISSD. 
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Webovou službu poskytuje ISSD pro napojené ESSL.
 Volání WS s žádostí o poskytnutí detailních informací o dokumentu.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 e)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 e)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -221,7 +221,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
 Odpověď obsahuje kompletní popis dokumentu nebo číselný a textový popis chyby. 
 Za chybu je považována žádost o informace o dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 e)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 e)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -241,7 +241,7 @@ Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému 
   </xs:element>
   <xs:element name="ProfilSpisuZadostRequest">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 f)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 f)</xs:documentation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Webovou službu poskytuje ISSD pro napojené ESSL.
 Volání WS s žádostí o poskytnutí detailních informací o spisu.</xs:documentation>
@@ -262,7 +262,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
   </xs:element>
   <xs:element name="ProfilSpisuZadostResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 f)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 f)</xs:documentation>
       <xs:documentation>Odpověď na volání webové služby s žádostí o poskytnutí detailních informací o spisu.
 Odpověď obsahuje kompletní popis spisu nebo číselný a textový popis chyby. 
 Za chybu je považována žádost o informace o spisu, který není ve volaném systému obsažen (na základě zadaného identifikátoru).
@@ -289,7 +289,7 @@ Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému 
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Webovou službu poskytuje ISSD pro napojené ESSL.
 Žádost o získání obsahu zadaného elektronického souboru.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 g)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 g)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -307,7 +307,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
   </xs:element>
   <xs:element name="SouborZadostResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 g)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 g)</xs:documentation>
       <xs:documentation>Vrátí obsah poslední verze požadovaného elektronického souboru a nebo vrátí číslo a text chyby.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -323,7 +323,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
   </xs:element>
   <xs:element name="CiselnikySeznamRequest">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Webovou službu poskytuje ISSD pro napojené ESSL.
 Webová služba pro získání seznamu číselníků, které jsou dostupné v rámci webové služby CiselnikZadost. S pomocí tohoto seznamu lze získat IdCiselniku</xs:documentation>
@@ -357,7 +357,7 @@ Webová služba pro získání seznamu číselníků, které jsou dostupné v r�
 Webovou službu poskytuje ISSD pro napojené ESSL.
 Žádost o poskytnutí obsahu zadaného číselníku. 
 Služba není povinná, každý ERMS si má možnost určit typ a obsah číselníků, které bude zpřístupňovat protistraně.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -383,7 +383,7 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
   </xs:element>
   <xs:element name="CiselnikZadostResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 h)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -411,7 +411,7 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
   <xs:element name="DavkySeznamRequest">
     <xs:annotation>
       <xs:documentation>Požadavek na seznam připravených nepotvrzených dávek událostí pro ISSD.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 i)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 i)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -431,7 +431,7 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
   </xs:element>
   <xs:element name="DavkySeznamResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 i)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 i)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -484,7 +484,7 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
   <xs:element name="FunkcniMistaRequest">
     <xs:annotation>
       <xs:documentation>Požadavek na zjištění funkčních míst konkrétní jedné osoby/uživatele</xs:documentation>
-      <xs:documentation>Není součástí NS z roku 2023 požadavek č.8.1.8 
+      <xs:documentation>Není součástí NS2023 požadavek č.8.1.8 
 Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -503,7 +503,7 @@ Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:
     <xs:annotation>
       <xs:documentation>Odpověď obsahuje seznam funkčních míst uživatele, který je uveden z elementu Autorizace. 
 Hlavní funkční místo by mělo být na první pozici seznamu.</xs:documentation>
-      <xs:documentation>Není součástí NS z roku 2023 požadavek č.8.1.8 
+      <xs:documentation>Není součástí NS2023 požadavek č.8.1.8 
 Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -523,7 +523,7 @@ Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:
   <xs:complexType name="FunkcniMistoType">
     <xs:annotation>
       <xs:documentation>Funkční místo uživatele v organizačním schématu</xs:documentation>
-      <xs:documentation>Není součástí NS z roku 2023 požadavek č.8.1.8 
+      <xs:documentation>Není součástí NS2023 požadavek č.8.1.8 
 Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -547,7 +547,7 @@ Požadavek na seznam entit vlatněných uživatelem ESSL/ISSD (Určeno elementem
 Filtrovat lze i pomocí dalších nepovinných elementů.
 Funkce vrací v jedné odpovědi (response) maximálně 100 záznamů. 
 Je-li vráceno právě 100 záznamů, je nutné pro získání kompletního seznamu volat funkci opakovaně s uvedeným parametrem odZaznamu (např.101, 201 atd.)</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.m)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.m)</xs:documentation>
       <xs:documentation>Funkce pro zaslání seznamu všech entit konkrétního uživatele v daném systému. Funkce umožňuje filtrování podle identifikátoru, druhu entity, data vytvoření a data poslední změny</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -565,7 +565,7 @@ Je-li vráceno právě 100 záznamů, je nutné pro získání kompletního sezn
         <xs:element minOccurs="0" name="BarCode" type="sBarCode"/>
         <xs:element name="DruhEntity" type="sDruhEntity" minOccurs="0">
           <xs:annotation>
-            <xs:documentation>NS z roku 2023 požadavek č.8.1.29</xs:documentation>
+            <xs:documentation>NS2023 požadavek č.8.1.29</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element minOccurs="0" name="SpisovyZnak" type="sSpisovyZnak"/>
@@ -600,7 +600,7 @@ Seznam bude obsahovat pouze entity vlastněné tímto uživatelem.</xs:documenta
   </xs:element>
   <xs:element name="PrideleneSeznamResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.m)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.m)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -679,7 +679,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
   </xs:element>
   <xs:element name="OsobaZalozeniRequest">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.p)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.p)</xs:documentation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Žádost o založení osoby do jmenného rejstříku vedeného při ESSL.</xs:documentation>
     </xs:annotation>
@@ -694,7 +694,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
   </xs:element>
   <xs:element name="OsobaZalozeniResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.p)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.p)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -727,7 +727,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
   </xs:element>
   <xs:element name="ProfilOsobyZadostRequest">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.n)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.n)</xs:documentation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Žádost o získání podrobných informací o osobě z jmenného rejstříku vedeného při ESSL.</xs:documentation>
     </xs:annotation>
@@ -747,7 +747,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
   </xs:element>
   <xs:element name="ProfilOsobyZadostResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.n)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.n)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -758,7 +758,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
   </xs:element>
   <xs:element name="OsobySeznamRequest">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.n) r)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.n) r)</xs:documentation>
       <xs:documentation>Podle pravidel ISZR by se uvedené položky měly hledat na přesnou shodu case insensitive.
 V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation>
       <xs:documentation>Tato služba musí být ve svém výstupu omezena na maximální počet vrácených záznamů. Toto omezení bude v rámci implemnentací konfigurovatelné.</xs:documentation>
@@ -773,12 +773,12 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
               <xs:element name="VazbaNaEntitu" type="tIdentifikator">
                 <xs:annotation>
                   <xs:documentation>Zadáním ID dokumentu, spisu nebo typového spisu lze dohledat osoby spojené se zadanými entitami spisové služby.</xs:documentation>
-                  <xs:documentation>NS z roku 2023 požadavek 2.8.7 bod b)</xs:documentation>
+                  <xs:documentation>NS2023 požadavek 2.8.7 bod b)</xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element name="FyzickaOsoba">
                 <xs:annotation>
-                  <xs:documentation>NS z roku 2023 požadavek 2.8.8 bod a)</xs:documentation>
+                  <xs:documentation>NS2023 požadavek 2.8.8 bod a)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
@@ -827,7 +827,7 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
               </xs:element>
               <xs:element name="PravnickaOsoba">
                 <xs:annotation>
-                  <xs:documentation>NS z roku 2023 požadavek 2.8.8 bod c) d)</xs:documentation>
+                  <xs:documentation>NS2023 požadavek 2.8.8 bod c) d)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
@@ -867,13 +867,13 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
               <xs:element name="IdDb" type="isds:tIdDb">
                 <xs:annotation>
                   <xs:documentation>Id datové schránky</xs:documentation>
-                  <xs:documentation>NS z roku 2023 požadavek 2.8.8 bod e)</xs:documentation>
+                  <xs:documentation>NS2023 požadavek 2.8.8 bod e)</xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element name="eMail" type="xs:string">
                 <xs:annotation>
                   <xs:documentation>e-mail adresa</xs:documentation>
-                  <xs:documentation>NS z roku 2023 požadavek 2.8.8 bod f)</xs:documentation>
+                  <xs:documentation>NS2023 požadavek 2.8.8 bod f)</xs:documentation>
                 </xs:annotation>
               </xs:element>
             </xs:choice>
@@ -887,7 +887,7 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
   </xs:element>
   <xs:element name="OsobySeznamResponse">
     <xs:annotation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.n) -> r)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.n) -> r)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -912,7 +912,7 @@ Pokud tento příznak nenú uveden, potom seznam vrázených záznamů je komple
     <xs:annotation>
       <xs:documentation>Webovou službu poskytuje ISSD pro napojené ESSL.
 Volání WS s žádostí o vrácení dokumentu z ISSD do výhradní správy ESSL.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 c)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 c)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -933,7 +933,7 @@ Volání WS s žádostí o vrácení dokumentu z ISSD do výhradní správy ESSL
 Odpověď obsahuje kompletní popis postupovaného dokumentu nebo číselný a textový popis chyby. 
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo vráceného dokumentu chybový kód 0001 - Nedostatečná oprávnění
 Za chybu je považována žádost o vrácení dokumentu, který není ve volaném systému obsažen (na základě zadaného identifikátoru).</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 c)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 c)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -954,7 +954,7 @@ Volání WS s žádostí o vrácení spisu z ISSD zpět do výhradní správy ES
 Vrácení je spojené s předáním výhradní správy dat spisu z ISSD do ESSL. 
 Po vrácení jsou data spisu v ISSD přístupná pro běžné uživatele aplikací pouze v režimu čtení. 
 Aktivní operace s daty spisu smí od tohoto okamžiku realizovat již pouze ESSL.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 d)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 d)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -976,7 +976,7 @@ Aktivní operace s daty spisu smí od tohoto okamžiku realizovat již pouze ESS
   <xs:element name="SpisVraceniZadostResponse">
     <xs:annotation>
       <xs:documentation>Odpověď na žádost o postoupení spisu.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.8.1.8 d)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 d)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>

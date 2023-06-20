@@ -82,7 +82,7 @@ Změna zpracovatele dokumentu. </xs:documentation>
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL.
 Vloženi dokumentu do spisu.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.3.2.5</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.3.2.5</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -183,7 +183,7 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL.
 Vyřízení dokumentu. Při vyřízení dokumentu dojde současně k převedení všech jeho elektronických souborů do stavu finál. Tedy do stavu, který neumožňuje další editaci souborů. Změna datového typu, připojení časových razítek atd.. ale není považována za editaci a lze tyto akce realizovat i po vyřízení dokumentů.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.3.2.7</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.3.2.7</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -315,7 +315,7 @@ Změna zpracovatele spisu.</xs:documentation>
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL.
 Vyřízení spisu a všech dokumentů v něm vložených. V tomto okamžiku musí všechny vložené dokumenty splňovat pravidla pro jejich vyřízení.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.3.2.6</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.3.2.6</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -332,7 +332,7 @@ Vyřízení spisu a všech dokumentů v něm vložených. V tomto okamžiku mus�
       <xs:documentation>Hlášení z ISSD do ESSL.
 Znovu otevření spisu. Tedy zrušení vyřízení případně i uzavření spisu.
 Vyřízení případně uzavření v něm vložených dokumentů se nerealizuje.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.3.2.11</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.3.2.11</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -348,7 +348,7 @@ Vyřízení případně uzavření v něm vložených dokumentů se nerealizuje.
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL.
 Uzavření spisu a všech dokumentů v něm vložených. V tomto okamžiku musí všechny vložené dokumenty splňovat pravidla pro jejich uzavření.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.3.2.9</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.3.2.9</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -871,7 +871,7 @@ Postoupení informace o proběhlé skartaci.</xs:documentation>
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL.
 Vloženi spisu do typového spisu a to do součásti určené zadanou věcnou skupinou.</xs:documentation>
-      <xs:documentation>NS z roku 2023 požadavek č.3.2.5</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.3.2.5</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
