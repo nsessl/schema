@@ -991,7 +991,6 @@ Aktivní operace s daty spisu smí od tohoto okamžiku realizovat již pouze ESS
   </xs:element>
   <xs:element name="UzivateleSeznamRequest">
     <xs:annotation>
-      <xs:documentation>VZ01_priloha2 bod i) - podbod 12</xs:documentation>
       <xs:documentation>V rámci celého rozhraní ale také v rámci exportu/přenosu se pracuje s ID uživatele.
 Systémy si musí vzájemně propojit seznam uživatelů. Pro toto propojení slouží tato webové služba.
 Seznam uživatelů může být přímo seznamem osob, které se mohou do systému s pomocí svého přihlašovacího jména přihlásit.
