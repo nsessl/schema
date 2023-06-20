@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.mvcr.cz/nsesss/v4"
+  xmlns="http://www.mvcr.cz/nsesss/v4"
+  elementFormDefault="qualified"
+  version="4.0" id="nsesss-plan" xml:lang="cs">
+  
+  <xs:include schemaLocation="nsesss-common.xsd"/>
+  
+  <xs:annotation>
+    <xs:documentation>Schéma XML pro popisná metadata pro automatické zpracování dokumentu</xs:documentation>
+  </xs:annotation>
+
+  <xs:element name="Dokument">
+    <xs:annotation>
+      <xs:documentation>Sada elementů pro popis dokumentu</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="EvidencniUdaje" type="tEvidencniUdajeDokumentu"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,452 +1,1026 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://nsess.public.cz/erms/v_02_00" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nsess.public.cz/erms/v_02_00" elementFormDefault="qualified" id="ermsIFAsyn">
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api"
+  elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
+  id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
   <xs:annotation>
-    <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého. Toto schéma popisuje synchroní výměnu událostí, např. formou webových služeb.</xs:documentation>
+    <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
+      Toto schéma popisuje synchroní výměnu událostí, např. formou webových služeb.</xs:documentation>
   </xs:annotation>
-	<xs:import namespace="http://isds.czechpoint.cz/v20" schemaLocation="dmBaseTypes.xsd"/>
-	<xs:include schemaLocation="ermsTypes.xsd"/>
-	<xs:include schemaLocation="ermsAsynU.xsd"/>
-	<xs:complexType name="tUdalostiSyn">
-		<xs:sequence maxOccurs="10">
-			<xs:group ref="gUdalost"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="DokumentZalozeniRequest">
-		<xs:annotation>
-			<xs:documentation>Zaevidování nového přijatého nebo vlastního dokumentu vzniklého v agendě.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="UdalostiPredchazejici" type="tUdalostiSyn" minOccurs="0"/>
-				<xs:element name="ProfilDokumentu" type="tProfilDokumentu">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">V případě založení dokumentu se předpokládá pro položku StavSpisu povolená hodnota pouze "nevyrizen".
+  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
+  <xs:include schemaLocation="ermsTypes.xsd"/>
+  <xs:include schemaLocation="ermsAsynU.xsd"/>
+  <xs:complexType name="tUdalostiSyn">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:group ref="gUdalost"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DokumentZalozeniRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Zaevidování nového dokumentu vzniklého v ISSD.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 b)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UdalostiPredchazejici" type="tUdalostiSyn"/>
+        <xs:element name="ProfilDokumentu" type="tProfilDokumentuZalozeni">
+          <xs:annotation>
+            <xs:documentation>V případě založení dokumentu se předpokládá pro položku StavSpisu povolená hodnota pouze "nevyrizen".
 Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCasPredaniDoArchivuNeboStornovani se v této situaci neuvádějí.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="Autorizace" type="tAutorizace"/>
-				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="DokumentZalozeniResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="ProfilDokumentu" type="tProfilDokumentu" minOccurs="0"/>
-				<xs:element name="OperaceStatus" type="tOperaceStatus"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="SpisZalozeniRequest">
-		<xs:annotation>
-			<xs:documentation>Založení spisu nad dokumentem. Je možné založit celý spis i s dokumenty v něm, nebo je spis založen nad existujícím dokumentem.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="UdalostiPredchazejici" type="tUdalostiSyn" minOccurs="0"/>
-				<xs:element name="ProfilSpisu" type="tProfilSpisu">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">V případě založení spisu se předpokládá pro položku StavSpisu povolená hodnota pouze "nevyrizen".
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DokumentZalozeniResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.8</xs:documentation>
+      <xs:documentation>Výsledek volání webové služby s požadavkem na založení dokumentu.
+ESSL přidělí evidenční číslo v rámci evidenčního období. Podle aktuální konfigurace může přidělit také ČJ dokumentu.
+Pokud byl součástí požadavku také odkaz na spis do kterého se má dokument vložit, potom bude přidělena i spisová značka.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProfilDokumentu" type="tProfilDokumentu"/>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpisZalozeniRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Založení spisu. 
+Je možné založit spis i s dokumenty v něm vloženými, nebo je možné založit prázdný spis.
+Jako iniciační dokument spisu se považuje dokument s pořadovým číslem 1.
+Pořadové číslo, rok a deník určuje volající ISSD v případě, že je pro něj vyhrazen samostatný deník spisů.
+Pokud je deník spisů v rámci ESSL nastaven centrální jeden, potom se položky pro podací deník, rok a pořadové číslo na vstupu této WS ignorují a jsou přiděleny z ESSL podle jeho aktuálního nastavení a vráceny vrámci response tohoto volání.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 a)
+NS2023 požadavek č.3.2.4</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UdalostiPredchazejici" type="tUdalostiSyn"/>
+        <xs:element name="ProfilSpisu" type="tProfilSpisuZalozeni">
+          <xs:annotation>
+            <xs:documentation>V případě založení spisu se předpokládá pro položku StavSpisu povolená hodnota pouze "nevyrizen".
 Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCasPredaniDoArchivuNeboStornovani se v této situaci neuvádějí.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="Autorizace" type="tAutorizace"/>
-				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="SpisZalozeniResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="ProfilSpisu" type="tProfilSpisu" minOccurs="0"/>
-				<xs:element name="OperaceStatus" type="tOperaceStatus"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="UdalostiRequest">
-		<xs:annotation>
-			<xs:documentation>Pozadavek na synchronni zpracovani udalosti.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Udalosti" type="tUdalostiSyn"/>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="UdalostiResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Zpravy">
-					<xs:complexType>
-						<xs:sequence maxOccurs="unbounded">
-							<xs:element ref="Zprava"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="DokumentPostoupeniZadostRequest">
-		<xs:annotation>
-			<xs:documentation xml:lang="CS">Volání WS s žádostí o postoupení dokumentu z ESSL do výhradní správy ISSD.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="IdDokument" type="tIdDokument"/>
-				<xs:element name="Autorizace" type="tAutorizace">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Identifikace osoby, která žádá o postoupení dokumentu. Tato osoba se v případě postoupení stane aktuálním vlastníkem postoupeného dokumentu.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="DokumentPostoupeniZadostResponse">
-		<xs:annotation>
-			<xs:documentation xml:lang="CS">Odpověď na volání webové služby s požadavkem na postoupení ( předání do výhradní správy ) zadaného dokumentu.
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpisZalozeniResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.8
+NS2023 požadavek č.3.2.2</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProfilSpisu" type="tProfilSpisu"/>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UdalostiRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Požadavek na synchronní zpracování seznamu udalostí.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 k)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Udalosti" type="tUdalostiSyn"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UdalostiResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 k)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Zpravy">
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <xs:element ref="Zprava"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DokumentPostoupeniZadostRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Volání WS s žádostí o postoupení dokumentu z ESSL do výhradní správy ISSD.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 c)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdDokument" type="tIdDokument"/>
+        <xs:element name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace osoby, která žádá o postoupení dokumentu. Tato osoba se v případě postoupení stane aktuálním vlastníkem postoupeného dokumentu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DokumentPostoupeniZadostResponse">
+    <xs:annotation>
+      <xs:documentation>Odpověď na volání webové služby s požadavkem na postoupení ( předání do výhradní správy ) zadaného dokumentu.
 Odpověď obsahuje kompletní popis postupovaného dokumentu nebo číselný a textový popis chyby. 
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo postoupeného dokumentu chybový kód 0001 - Nedostatečná oprávnění
 Za chybu je považována žádost o postoupení dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="ProfilDokumentu" type="tProfilDokumentu" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Kompletní popis postupovaného dokumentu. 
-											Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="OperaceStatus" type="tOperaceStatus"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="ProfilDokumentuZadostRequest">
-		<xs:annotation>
-			<xs:documentation xml:lang="CS">Volání WS s žádostí o poskytnutí detailních informací o dokumentu.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="IdDokument" type="tIdDokument"/>
-				<xs:element name="Autorizace" type="tAutorizace">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Identifikace osoby, která žádá o informace o dokumentu. 
+      <xs:documentation>NS2023 požadavek č.8.1.8 c)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProfilDokumentu" type="tProfilDokumentu">
+          <xs:annotation>
+            <xs:documentation>Kompletní popis postupovaného dokumentu.
+Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpisPostoupeniZadostRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Volání WS s žádostí o postoupení spisu z ESSL do výhradní správy ISSD. Postoupení je spojené s předáním výhradní správy dat spisu z ESSL do ISSD. Po postoupení jsou data spisu v ESSL přístupná pro běžné uživatele aplikací pouze v režimu čtení. Aktivní operace s daty spisu smí potom realizovat pouze ISSD a to až do okamžiku vrácení.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 d)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdSpisu" type="tIdSpisu">
+          <xs:annotation>
+            <xs:documentation>Identifikace spisu o jehož postoupení se žádá.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace uživatele IS, který žádá o postoupení dokumentu. Tento uživatel IS se v případě postoupení stane aktuálním vlastníkem postoupeného spisu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpisPostoupeniZadostResponse">
+    <xs:annotation>
+      <xs:documentation>Odpověď na žádost o postoupení spisu.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 d)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProfilSpisu" type="tProfilSpisu">
+          <xs:annotation>
+            <xs:documentation>Kompletní popis postoupeného spisu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProfilDokumentuZadostRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Webovou službu poskytuje ISSD pro napojené ESSL.
+Volání WS s žádostí o poskytnutí detailních informací o dokumentu.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 e)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdDokument" type="tIdDokument"/>
+        <xs:element name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace osoby, která žádá o informace o dokumentu. 
 Tento údaj může volaný systém využít k posouzení přístupových práv k dokumentu.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="ProfilDokumentuZadostResponse">
-		<xs:annotation>
-			<xs:documentation xml:lang="CS">Odpověď na volání webové služby s žádostí o poskytnutí detailních informací o dokumentu.
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProfilDokumentuZadostResponse">
+    <xs:annotation>
+      <xs:documentation>Odpověď na volání webové služby s žádostí o poskytnutí detailních informací o dokumentu.
 Odpověď obsahuje kompletní popis dokumentu nebo číselný a textový popis chyby. 
 Za chybu je považována žádost o informace o dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).
-Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.
-	</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="ProfilDokumentu" type="tProfilDokumentu" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Kompletní popis dokumentu.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="OperaceStatus" type="tOperaceStatus"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="ProfilSpisuZadostRequest">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="IdSpisu" type="tIdSpisu"/>
-				<xs:element name="Autorizace" type="tAutorizace">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Identifikace osoby, která žádá o informace o spisu. 
+Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 e)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProfilDokumentu">
+          <xs:annotation>
+            <xs:documentation>Kompletní popis dokumentu.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="gProfilDokumentu"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProfilSpisuZadostRequest">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 f)</xs:documentation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Webovou službu poskytuje ISSD pro napojené ESSL.
+Volání WS s žádostí o poskytnutí detailních informací o spisu.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdSpisu" type="tIdSpisu"/>
+        <xs:element name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace osoby, která žádá o informace o spisu. 
 Tento údaj může volaný systém využít k posouzení přístupových práv k dokumentu.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="ProfilSpisuZadostResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="ProfilSpisu" type="tProfilSpisu" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Kompletní popis spisu.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="OperaceStatus" type="tOperaceStatus"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="SouborZadostRequest">
-		<xs:annotation>
-			<xs:documentation xml:lang="CS">Žádost o získání obsahu zadaného elektronického souboru.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Soubor" type="tFileId"/>
-				<xs:element name="Autorizace" type="tAutorizace">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Identifikace osoby, která žádá o obsah elektronického souboru.
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProfilSpisuZadostResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 f)</xs:documentation>
+      <xs:documentation>Odpověď na volání webové služby s žádostí o poskytnutí detailních informací o spisu.
+Odpověď obsahuje kompletní popis spisu nebo číselný a textový popis chyby. 
+Za chybu je považována žádost o informace o spisu, který není ve volaném systému obsažen (na základě zadaného identifikátoru).
+Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému spisu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProfilSpisu">
+          <xs:annotation>
+            <xs:documentation>Kompletní popis spisu.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="gProfilSpisu"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SouborZadostRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Webovou službu poskytuje ISSD pro napojené ESSL.
+Žádost o získání obsahu zadaného elektronického souboru.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 g)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Soubor" type="tFileId"/>
+        <xs:element name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace osoby, která žádá o obsah elektronického souboru.
 Tento údaj může volaný systém využít k posouzení přístupových práv k obsahu elektronického souboru.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="SouborZadostResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Soubor" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">El. soubor (příloha) navázaný k dokumentu nebo dokumentům. </xs:documentation>
-					</xs:annotation>
-					<xs:complexType mixed="false">
-						<xs:complexContent>
-							<xs:extension base="tFile"/>
-						</xs:complexContent>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="OperaceStatus" type="tOperaceStatus"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="CiselnikZadostRequest">
-		<xs:annotation>
-			<xs:documentation xml:lang="CS">Žádost o poskytnutí číselníku. Služba není povinná, každý ERMS si má možnost určit typ a obsah číselníků, které bude zpřístupňovat protistraně.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Kod" type="xs:string">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Kód číselníku. Zpravidla obsahuje název elementu ze schématu rozhraní, pro který je potřeba dotáhnout povolené hodnoty. Tedy např. 'TypDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si budou ERMS mezi sebou vyměňovat záleží na vzájemné dohodě.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="Autorizace" type="tAutorizace" minOccurs="1">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Identifikace osoby, která volá službu pro načtení číselníku.
-            </xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="CiselnikZadostResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Kod" type="xs:string">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Kód číselníku. Zpravidla obsahuje název elementu ze schématu rozhraní, pro který je potřeba dotáhnout povolené hodnoty. Tedy např. 'TypDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si budou ERMS mezi sebou vyměňovat záleží na vzájemné dohodě.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="Polozky">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Seznam položek číselníku.</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="Polozka" type="tPolozkaCiselniku" minOccurs="0" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
-				<xs:element name="OperaceStatus" type="tOperaceStatus">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">
-                Status operace získání číselníku. Vrácení číselníku může být odmítnuto například z důvodu nedostatečných oprávnění uživatele nebo volajícího ERMS k číselníku.
-            </xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="DavkySeznamRequest">
-		<xs:annotation>
-			<xs:documentation>Požadavek na seznam připravených nepotvrzených dávek událostí pro ISSD.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="DavkySeznamResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Davka" type="tDavka" minOccurs="0" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="DavkaZadostRequest">
-		<xs:annotation>
-			<xs:documentation>Žádost o zaslání dávky událostí pro ISSD.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence minOccurs="1" maxOccurs="1">
-				<xs:element name="Davka" type="tDavka" minOccurs="1" maxOccurs="1"/>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="DavkaZadostResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Udalosti" nillable="true" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">2016-06-15 Změna z minOccurs="1" na minOccurs="0"</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence minOccurs="1" maxOccurs="unbounded">
-							<xs:group ref="gUdalost"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="Zpravy" nillable="true" minOccurs="0">
-					<xs:complexType>
-						<xs:sequence maxOccurs="unbounded">
-							<xs:element ref="Zprava"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-			<xs:attributeGroup ref="gDavkaInfo"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="FunkcniMistaRequest">
-		<xs:annotation>
-			<xs:documentation xml:lang="cs">Požadavek na zjištění funkčních míst konkrétního uživatele</xs:documentation>
-			<xs:documentation xml:lang="CS">2016-06-15 Změna z minOccurs="0" na  minOccurs="1" u atributů Zdroj a Cil</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Autorizace" type="tAutorizace"/>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="FunkcniMistaResponse">
-		<xs:annotation>
-			<xs:documentation xml:lang="cs">Odpověď obsahuje seznam funkčních míst uživatele. Hlavní funkční místo by mělo 
-být na první pozici seznamu.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="FunkcniMista" minOccurs="0">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="FunkcniMisto" type="FunkcniMistoType" minOccurs="0" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="OperaceStatus" type="tOperaceStatus"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:complexType name="FunkcniMistoType">
-		<xs:annotation>
-			<xs:documentation xml:lang="cs">Funkční místo uživatele v organizačním schématu</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="FunkcniMistoNazev">
-				<xs:annotation>
-					<xs:documentation xml:lang="cs">Zobrazitelný název funkčního místa</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="128"/>
-						<xs:minLength value="1"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="FunkcniMistoKod">
-				<xs:annotation>
-					<xs:documentation xml:lang="cs">Jednoznačný identifikátor funkčního místa v organizaci</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="50"/>
-						<xs:minLength value="1"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="PrideleneSeznamRequest">
-		<xs:annotation>
-			<xs:documentation>Požadavek na seznam přidělených dokumentů/spisů ke zpracování uživatele ESSL (provedlKdo). Funkce vrací v jedné odpovědi (response) maximálně 100 záznamů. Je=li vráceno právě 100 záznamů, je nutné pro získání kompletního seznamu volat funkci opakovaně s uvedeným parametrem odZaznamu (např.101, 201 atd.)</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Drzeni" nillable="false" minOccurs="1">
-					<xs:annotation>
-						<xs:documentation>Vracet všechny entity uživatele v držení eSSL i ISSD, nebo pouze ty ve výhradním držení eSSL.</xs:documentation>
-					</xs:annotation>
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="vse"/>
-							<xs:enumeration value="essl"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				<xs:element name="odZaznamu" type="xs:integer" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>od kolikátého záznamu</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="pocetZaznamu" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>kolik záznamů (maximálně 100)</xs:documentation>
-					</xs:annotation>
-					<xs:simpleType>
-						<xs:restriction base="xs:integer">
-							<xs:minInclusive value="1"/>
-							<xs:maxInclusive value="100"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				<xs:element name="Autorizace" type="tAutorizace">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Identifikace osoby, která žádá o obsah elektronického souboru.
-		Tento údaj může volaný systém využít k posouzení přístupových práv k obsahu elektronického souboru.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="DoplnujiciData" type="tDoplnujiciData" minOccurs="0"/>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="PrideleneSeznamResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Pridelene" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:choice>
-								<xs:element name="Dokument" type="tProfilDokumentuSeznam" minOccurs="0" maxOccurs="unbounded"/>
-								<xs:element name="Spis" type="tProfilSpisuSeznam" minOccurs="0" maxOccurs="unbounded"/>
-							</xs:choice>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="OperaceStatus" type="tOperaceStatus"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SouborZadostResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 g)</xs:documentation>
+      <xs:documentation>Vrátí obsah poslední verze požadovaného elektronického souboru a nebo vrátí číslo a text chyby.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Soubor" type="tFile">
+          <xs:annotation>
+            <xs:documentation>El. soubor (příloha) navázaný k dokumentu nebo dokumentům. </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CiselnikySeznamRequest">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Webovou službu poskytuje ISSD pro napojené ESSL.
+Webová služba pro získání seznamu číselníků, které jsou dostupné v rámci webové služby CiselnikZadost. S pomocí tohoto seznamu lze získat IdCiselniku</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace osoby, která volá službu pro načtení číselníku.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
+          <xs:annotation>
+            <xs:documentation>Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CiselnikySeznamResponse">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element name="Ciselnik" type="tCiselnik"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CiselnikZadostRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Webovou službu poskytuje ISSD pro napojené ESSL.
+Žádost o poskytnutí obsahu zadaného číselníku. 
+Služba není povinná, každý ERMS si má možnost určit typ a obsah číselníků, které bude zpřístupňovat protistraně.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdCiselniku" type="sIdCiselniku">
+          <xs:annotation>
+            <xs:documentation>ID číselníku. Zpravidla obsahuje název elementu ze schématu rozhraní, pro který je potřeba dotáhnout povolené hodnoty. 
+Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si budou ERMS mezi sebou vyměňovat záleží na vzájemné dohodě.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="1" name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace osoby, která volá službu pro načtení číselníku.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
+          <xs:annotation>
+            <xs:documentation>Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CiselnikZadostResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdCiselniku" type="sIdCiselniku"/>
+        <xs:element name="Polozky">
+          <xs:annotation>
+            <xs:documentation>Seznam položek číselníku.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Polozka"
+                type="tPolozkaCiselniku"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+        <xs:element name="OperaceStatus" type="tOperaceStatus">
+          <xs:annotation>
+            <xs:documentation>Status operace získání číselníku. Vrácení číselníku může být odmítnuto například z důvodu nedostatečných oprávnění uživatele nebo volajícího ERMS k číselníku.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DavkySeznamRequest">
+    <xs:annotation>
+      <xs:documentation>Požadavek na seznam připravených nepotvrzených dávek událostí pro ISSD.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 i)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Autorizace" type="tAutorizace" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Pokud systém načítá seznam pro svoji vnitřní potřebu, je možné autorizaci vynechat.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
+          <xs:annotation>
+            <xs:documentation>Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DavkySeznamResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 i)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Davka" type="tDavka"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DavkaZadostRequest">
+    <xs:annotation>
+      <xs:documentation>Žádost o zaslání dávky událostí pro ISSD.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Davka" type="tDavka"/>
+        <xs:element minOccurs="0" name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Pokud systém načítá dávku pro svoji vnitřní potřebu, je možné autorizaci vynechat.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
+          <xs:annotation>
+            <xs:documentation>Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DavkaZadostResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Udalosti">
+          <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+              <xs:group ref="gUdalost"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="Zpravy">
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <xs:element ref="Zprava"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="gDavkaInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FunkcniMistaRequest">
+    <xs:annotation>
+      <xs:documentation>Požadavek na zjištění funkčních míst konkrétní jedné osoby/uživatele</xs:documentation>
+      <xs:documentation>Není součástí NS2023 požadavek č.8.1.8 
+Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
+          <xs:annotation>
+            <xs:documentation>Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FunkcniMistaResponse">
+    <xs:annotation>
+      <xs:documentation>Odpověď obsahuje seznam funkčních míst uživatele, který je uveden z elementu Autorizace. 
+Hlavní funkční místo by mělo být na první pozici seznamu.</xs:documentation>
+      <xs:documentation>Není součástí NS2023 požadavek č.8.1.8 
+Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FunkcniMista">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="FunkcniMisto"
+                type="FunkcniMistoType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FunkcniMistoType">
+    <xs:annotation>
+      <xs:documentation>Funkční místo uživatele v organizačním schématu</xs:documentation>
+      <xs:documentation>Není součástí NS2023 požadavek č.8.1.8 
+Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FunkcniMistoNazev" type="sFunkcniMistoNazev">
+        <xs:annotation>
+          <xs:documentation>Zobrazitelný název funkčního místa</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FunkcniMistoKod" type="sFunkcniMistoKod">
+        <xs:annotation>
+          <xs:documentation>Jednoznačný identifikátor funkčního místa v organizaci</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrideleneSeznamRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Webovou službu poskytuje ISSD pro napojené ESSL.
+Požadavek na seznam entit vlatněných uživatelem ESSL/ISSD (Určeno elementem provedlKdo).
+Filtrovat lze i pomocí dalších nepovinných elementů.
+Funkce vrací v jedné odpovědi (response) maximálně 100 záznamů. 
+Je-li vráceno právě 100 záznamů, je nutné pro získání kompletního seznamu volat funkci opakovaně s uvedeným parametrem odZaznamu (např.101, 201 atd.)</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.m)</xs:documentation>
+      <xs:documentation>Funkce pro zaslání seznamu všech entit konkrétního uživatele v daném systému. Funkce umožňuje filtrování podle identifikátoru, druhu entity, data vytvoření a data poslední změny</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Identifikator" type="tIdentifikator">
+          <xs:annotation>
+            <xs:documentation>Identifikátor má snad pouze význam u DruhEntity = spis</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Drzeni" type="sDrzeniFiltr">
+          <xs:annotation>
+            <xs:documentation>Vracet všechny entity uživatele v držení eSSL i ISSD, nebo pouze ty ve výhradním držení eSSL.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="BarCode" type="sBarCode"/>
+        <xs:element name="DruhEntity" type="sDruhEntity" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>NS2023 požadavek č.8.1.29</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="SpisovyZnak" type="sSpisovyZnak"/>
+        <xs:element name="CisloJednaci" type="sCisloJednaci" minOccurs="0"/>
+        <xs:element minOccurs="0" name="SpisovaZnacka" type="sSpisovaZnacka"/>
+        <xs:element minOccurs="0" name="NazevObsahuje" type="xs:string"/>
+        <xs:element minOccurs="0" name="DatumCasVytvoreniOd" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="DatumCasVytvoreniDo" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="CasPosledniZmenyOd" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="CasPosledniZmenyDo" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="odZaznamu" type="xs:integer">
+          <xs:annotation>
+            <xs:documentation>od kolikátého záznamu</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="pocetZaznamu" type="sPocetZaznamu">
+          <xs:annotation>
+            <xs:documentation>kolik záznamů (maximálně 100)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace uživatele, který žádá o vybudování seznamu.
+Tento údaj volaný systém využije jako hlavní filtr pro sestavení seznamu. 
+Seznam bude obsahovat pouze entity vlastněné tímto uživatelem.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrideleneSeznamResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.m)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Pridelene">
+          <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Dokument" type="tProfilDokumentuSeznam"/>
+              <xs:element name="Spis" type="tProfilSpisuSeznam"/>
+              <xs:element name="SoucastTypovehoSpisu" type="tProfilSoucastiTypovehoSpisuSeznam"/>
+              <xs:element name="TypovySpis" type="tProfilTypovehoSpisuSeznam"/>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TypovySpisZalozeniRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Založení typového spisu</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UdalostiPredchazejici" type="tUdalostiSyn"/>
+        <xs:element name="ProfilTypovehoSpisu" type="tProfilTypovehoSpisuZalozeni">
+          <xs:annotation>
+            <xs:documentation>V případě založení spisu se předpokládá pro položku StavSpisu povolená hodnota pouze "nevyrizen".
+Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCasPredaniDoArchivuNeboStornovani se v této situaci neuvádějí.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TypovySpisZalozeniResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProfilTypovehoSpisu" type="tTypovySpis"/>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProfilTypovehoSpisuZadostRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Žádost o poskytnutí podrobných informací o existujícím typovém spisu</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TypovySpisId" type="tIdTypovehoSpisu"/>
+        <xs:element name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace osoby, která žádá o informace o spisu. 
+Tento údaj může volaný systém využít k posouzení přístupových práv k dokumentu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProfilTypovehoSpisuZadostResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProfilTypovehoSpisu" type="tTypovySpis">
+          <xs:annotation>
+            <xs:documentation>Kompletní popis spisu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OsobaZalozeniRequest">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.p)</xs:documentation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Žádost o založení osoby do jmenného rejstříku vedeného při ESSL.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ProfilOsoby" type="tAdresat"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OsobaZalozeniResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.p)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ProfilOsoby" type="tAdresat"/>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OsobaUpravaRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Žádost o úpravu dat osoby ve jmenném rejstříku vedeného při ESSL.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ProfilOsoby" type="tAdresat"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OsobaUpravaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ProfilOsoby" type="tAdresat"/>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProfilOsobyZadostRequest">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.n)</xs:documentation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Žádost o získání podrobných informací o osobě z jmenného rejstříku vedeného při ESSL.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdOsoby" type="tIdentifikator"/>
+        <xs:element name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace osoby, která žádá o informace o dokumentu. 
+Tento údaj může volaný systém využít k posouzení přístupových práv k dokumentu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProfilOsobyZadostResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.n)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ProfilOsoby" type="tAdresat"/>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OsobySeznamRequest">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.n) r)</xs:documentation>
+      <xs:documentation>Podle pravidel ISZR by se uvedené položky měly hledat na přesnou shodu case insensitive.
+V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation>
+      <xs:documentation>Tato služba musí být ve svém výstupu omezena na maximální počet vrácených záznamů. Toto omezení bude v rámci implemnentací konfigurovatelné.</xs:documentation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Žádost o získání seznamu osob z jmenného rejstříku vedeného při ESSL.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ParametryHledaneOsoby">
+          <xs:complexType>
+            <xs:choice>
+              <xs:element name="VazbaNaEntitu" type="tIdentifikator">
+                <xs:annotation>
+                  <xs:documentation>Zadáním ID dokumentu, spisu nebo typového spisu lze dohledat osoby spojené se zadanými entitami spisové služby.</xs:documentation>
+                  <xs:documentation>NS2023 požadavek 2.8.7 bod b)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="FyzickaOsoba">
+                <xs:annotation>
+                  <xs:documentation>NS2023 požadavek 2.8.8 bod a)</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Jmeno" type="sJmeno">
+                      <xs:annotation>
+                        <xs:documentation>Element se neuvádí v případě TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Prijmeni" type="sPrijmeni">
+                      <xs:annotation>
+                        <xs:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="DatumNarozeni" type="xs:date">
+                      <xs:annotation>
+                        <xs:documentation>Datum narození</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Ulice" type="sUlice">
+                      <xs:annotation>
+                        <xs:documentation>Název ulice</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="CisloDomu" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Umožňuje zadat text, který se použije pro hledání na přesnou shodu přes: číslo pospisné nebo číslo oriantační nebo číslo evidenční. </xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Obec" type="sObec">
+                      <xs:annotation>
+                        <xs:documentation>Název obce</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Psc" type="sPsc">
+                      <xs:annotation>
+                        <xs:documentation>Poštovní směrovací číslo / Pro zahraniční adresy PostCode</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Zeme" type="sZeme">
+                      <xs:annotation>
+                        <xs:documentation>Kód státu podle: ISO-3166 Alpha 2 country codes</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="PravnickaOsoba">
+                <xs:annotation>
+                  <xs:documentation>NS2023 požadavek 2.8.8 bod c) d)</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="ObchodniNazev" type="sObchodniNazev">
+                      <xs:annotation>
+                        <xs:documentation>Element se neuvádí pouze v případě že TypSubjektu="Fyzicka".</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="IC" type="sIC">
+                      <xs:annotation>
+                        <xs:documentation>IČO se uvádí, pokud je subjektu IČO přiděleno a je v době pořízení záznamu známé.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Ulice" type="sUlice">
+                      <xs:annotation>
+                        <xs:documentation>Název ulice</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Obec" type="sObec">
+                      <xs:annotation>
+                        <xs:documentation>Název obce</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Psc" type="sPsc">
+                      <xs:annotation>
+                        <xs:documentation>Poštovní směrovací číslo / Pro zahraniční adresy PostCode</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Zeme" type="sZeme">
+                      <xs:annotation>
+                        <xs:documentation>Kód státu podle: ISO-3166 Alpha 2 country codes</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="IdDb" type="isds:tIdDb">
+                <xs:annotation>
+                  <xs:documentation>Id datové schránky</xs:documentation>
+                  <xs:documentation>NS2023 požadavek 2.8.8 bod e)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="eMail" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>e-mail adresa</xs:documentation>
+                  <xs:documentation>NS2023 požadavek 2.8.8 bod f)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OsobySeznamResponse">
+    <xs:annotation>
+      <xs:documentation>NS2023 požadavek č.8.1.n) -> r)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ProfilOsob">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="ProfilOsoby" type="tAdresat"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="SeznamOmezen" type="sSeznamOmezen">
+          <xs:annotation>
+            <xs:documentation>Příznak, který signalizuje, že nalezených záznamů je více, než dovoluje nastavení omezení pro maxímální počet vracených záznamů.
+Pokud tento příznak nenú uveden, potom seznam vrázených záznamů je kompletní, tedy bez omezení.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DokumentVraceniZadostRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ISSD pro napojené ESSL.
+Volání WS s žádostí o vrácení dokumentu z ISSD do výhradní správy ESSL.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 c)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdDokument" type="tIdDokument"/>
+        <xs:element name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace osoby, která žádá o postoupení dokumentu. Tato osoba se v případě postoupení stane aktuálním vlastníkem postoupeného dokumentu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DokumentVraceniZadostResponse">
+    <xs:annotation>
+      <xs:documentation>Odpověď na volání webové služby s požadavkem na vrácení (předání do výhradní správy) zadaného dokumentu.
+Odpověď obsahuje kompletní popis postupovaného dokumentu nebo číselný a textový popis chyby. 
+Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo vráceného dokumentu chybový kód 0001 - Nedostatečná oprávnění
+Za chybu je považována žádost o vrácení dokumentu, který není ve volaném systému obsažen (na základě zadaného identifikátoru).</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 c)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProfilDokumentu" type="tProfilDokumentu">
+          <xs:annotation>
+            <xs:documentation>Kompletní popis postupovaného dokumentu.
+Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpisVraceniZadostRequest">
+    <xs:annotation>
+      <xs:documentation>Webovou službu poskytuje ISSD pro napojené ESSL.
+Volání WS s žádostí o vrácení spisu z ISSD zpět do výhradní správy ESSL. 
+Vrácení je spojené s předáním výhradní správy dat spisu z ISSD do ESSL. 
+Po vrácení jsou data spisu v ISSD přístupná pro běžné uživatele aplikací pouze v režimu čtení. 
+Aktivní operace s daty spisu smí od tohoto okamžiku realizovat již pouze ESSL.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 d)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdSpisu" type="tIdSpisu">
+          <xs:annotation>
+            <xs:documentation>Identifikace spisu o jehož postoupení se žádá.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace uživatele IS, který žádá o postoupení dokumentu. Tento uživatel IS se v případě postoupení stane aktuálním vlastníkem postoupeného spisu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpisVraceniZadostResponse">
+    <xs:annotation>
+      <xs:documentation>Odpověď na žádost o postoupení spisu.</xs:documentation>
+      <xs:documentation>NS2023 požadavek č.8.1.8 d)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProfilSpisu" type="tProfilSpisu">
+          <xs:annotation>
+            <xs:documentation>Kompletní popis postoupeného spisu.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UzivateleSeznamRequest">
+    <xs:annotation>
+      <xs:documentation>VZ01_priloha2 bod i) - podbod 12</xs:documentation>
+      <xs:documentation>V rámci celého rozhraní ale také v rámci exportu/přenosu se pracuje s ID uživatele.
+Systémy si musí vzájemně propojit seznam uživatelů. Pro toto propojení slouží tato webové služba.
+Seznam uživatelů může být přímo seznamem osob, které se mohou do systému s pomocí svého přihlašovacího jména přihlásit.
+Nebo se může jednat o větší seznam a to seznam funkčních/pracovních míst. Jedna přihlašující se osoba může v rámci systému zastávat více funkčních/pracovních míst. 
+Při přihlášení svým přihlašovacím jménem potom zvolí, za kterou svou pracovní pozici chce v systému pracovat. 
+V obou případěch se musí zajistit, že IDUzivatele v tomto seznamu bude unikátní pro všechny zde uvedené záznamu. 
+V rámci zde uvedených záznamů nemusí být unikátní hodnota položky PrihlasovaciJmeno a položky OsobniCislo.</xs:documentation>
+      <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
+Webovou službu poskytuje ISSD pro napojené ESSL.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UzivateleSeznamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Uzivatele">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Uzivatel" type="tProfilUzivateleSeznam"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

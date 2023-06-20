@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
+  xmlns="http://www.mvcr.cz/nsesss/2023/api" xmlns:isds="http://isds.czechpoint.cz/v20"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:log="http://www.mvcr.cz/nsesss/2023/log"
+  elementFormDefault="qualified" id="ermsExportPrenos" xml:lang="cs">
+  <xs:annotation>
+    <xs:documentation>Schéma pro migraci dat mezi spisovými službami a pro spisovou rozluku</xs:documentation>
+  </xs:annotation>
+  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
+  <xs:import schemaLocation="nsesss-TrP.xsd" namespace="http://www.mvcr.cz/nsesss/2023/log"/>
+  <xs:include schemaLocation="ermsTypes.xsd"/>
+  <xs:include schemaLocation="ermsAsynU.xsd"/>
+  <xs:element name="Export">
+    <xs:annotation>
+      <xs:documentation>Element pro export a následný import dat jednotlivých entit mezi IS typu spisová služba.
+Určeno pro off-line předání dat mezi systém ISSD.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:group ref="gExportPrenosSpolecne"/>
+        <xs:element name="Autorizace" type="tAutorizace"/>
+        <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojDavkaPoradi"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:group name="gExportPrenosSpolecne">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="TypovySpis">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="gTypovySpis"/>
+              <xs:element minOccurs="0" name="Udalosti">
+                <xs:annotation>
+                  <xs:documentation>Události transakčního protokolu této entity spisové služby - typového spisu.
+Neobsahuje události vložených entit - ty se exportují v rámci samostatných XML souborů popisující jednotlivé entity.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence maxOccurs="unbounded">
+                    <xs:element name="Udalost" type="log:tUdalostObjektu"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Spis">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="gProfilSpisu"/>
+              <xs:element minOccurs="0" name="Udalosti">
+                <xs:annotation>
+                  <xs:documentation>Události transakčního protokolu této entity spisové služby - spisu.
+Neobsahuje události vložených entit - ty se exportují v rámci samostatných XML souborů popisující jednotlivé entity.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence maxOccurs="unbounded">
+                    <xs:element name="Udalost" type="log:tUdalostObjektu"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Dokument">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="gProfilDokumentu"/>
+              <xs:element minOccurs="0" name="Udalosti">
+                <xs:annotation>
+                  <xs:documentation>Události transakčního protokolu této entity spisové služby - dokumentu.
+Měl by obsahovat i události spojené s obsaženými komponentami tohoto dokumentu.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence maxOccurs="unbounded">
+                    <xs:element name="Udalost" type="log:tUdalostObjektu"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Soubor">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Identifikator" type="tIdentifikator"/>
+              <xs:element name="AktualniVerze" type="tTransferFileLocation">
+                <xs:annotation>
+                  <xs:documentation>Aktuálně platný obsah souboru/komponenty.
+Většinou se přenáší pouze poslední verze souboru.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element minOccurs="0" name="StareVerze">
+                <xs:annotation>
+                  <xs:documentation>Staré verze souboru/komponenty.
+Většinou se mezi systémy nepřenáší. Pokud je v rámci implentace požadováno, potom se uvedou i starčí verze obsahů souboru/komponenty dokumentu.
+Pozor: Starší verze souboru/komponenty mohou mít jiné přípony a tedy i jiné jméno souboru. Např. z pracovní verze ve formátu Word se před odesláním konverzí stane PDF a následně i PDF soubor po doplnění podpisů získá novou verzi atd..</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence maxOccurs="unbounded">
+                    <xs:element name="StaraVerze" type="tTransferFileLocation"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="Udalosti">
+                <xs:annotation>
+                  <xs:documentation>Události transakčního protokolu této entity spisové služby.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence maxOccurs="unbounded">
+                    <xs:element name="Udalost" type="log:tUdalostObjektu"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Ciselnik">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdCiselniku" type="sIdCiselniku">
+                <xs:annotation>
+                  <xs:documentation>NS2023 požadavek č.8.1.8 h)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="NazevCiselniku" type="xs:string"/>
+              <xs:element name="Polozky">
+                <xs:annotation>
+                  <xs:documentation>Seznam položek číselníku.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Polozka"
+                      type="tPolozkaCiselniku"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SeznamUzivatelu">
+          <xs:annotation>
+            <xs:documentation>Element pro export a následný import dat uživatelů mezi IS typu spisová služba.
+              Určeno pro off-line předání dat mezi systémy ISSD.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <xs:element name="Uzivatel" type="tProfilUzivateleSeznam"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="Davka">
+    <xs:annotation>
+      <xs:documentation>Soubor popisující obsah celé přenosové dávky ve formátu ZIP
+Tento soubor musí být v root adresáři ZIPu se jménem manifest.xml
+Ostatní datové soubory obsažené v ZIP souboru budou umístěny v podadresářích.
+Tento soubor dokumentuje vznik případně určení dávky a dále popisuje obsah dávky.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DavkaId" type="sDavkaId"/>
+        <xs:element name="DatumCasVytvoreni" type="sDatumCasVytvoreni">
+          <xs:annotation>
+            <xs:documentation>Čas vzniku přenosové dávky</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Zdroj" type="sIdInformacnihoSystemu">
+          <xs:annotation>
+            <xs:documentation>Zdroj interního identifikátoru:
+Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.</xs:documentation>
+            <xs:documentation>NS2023 požadavek č.8.1.2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Cil" type="sIdInformacnihoSystemu"/>
+        <xs:element minOccurs="0" name="Puvodce" type="tAdresat"/>
+        <xs:element name="TypDavky" type="sTypDavky"/>
+        <xs:element minOccurs="0" name="UcelDavky" type="xs:string"/>
+        <xs:element minOccurs="0" name="Poznamka" type="xs:string"/>
+        <xs:element name="Obsah">
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <xs:element name="Entita">
+                <xs:complexType>
+                  <xs:attribute name="Poradi" use="required" type="sPoradi"/>
+                  <xs:attribute name="Umisteni" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>Relativní cesta k souboru s binárním obsahem komponenty.
+Relativní cesta je vztažena k lokaci načítaného XML souboru s daty dokumentu.
+Standardně se bude jednat o podadresář např. data nebo komponenty atd. </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Jmeno" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>Jméno pomocného souboru použitého pro přenos nebo export binárního obsahu komponenty.
+Jméno souboru standardně nebude odpovídat jménu komponenty evidované u přenášeného souboru. 
+Ani přímona souboru nemusí odpovídat skutečné příponě komponety.
+Standardně se bude jednat o strojně generovaný název např. s příponou .bin nebo .dat 
+Jediné zásadní je zachovat unikátnost názvů přenášených souborů v rámci celé exportované nebo přenášené dávky.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Otisk" type="xs:string"/>
+                  <xs:attribute name="TypEntity" use="required" type="sTypEntity"/>
+                  <xs:attribute name="IdEntity" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>Identifikace entity podle systému původce. 
+Přesné identifikace entit jsou obsaženy v každmé jednom obsaženém specifickém XML souboru. 
+Zde uvedené ID má především přehledovou funkci pro uživatele, který dávku generoval nebo se chystá dávku načítat.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="HashAlgorithm" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Identifikace algoritmu použitého pro kontrolní otisk souborů. 
+Jako identifikátory se používají URL definované v https://www.w3.org/TR/xmlsec-algorithms/#sha
+Např. SHA-256 je identifikováno hodnotou "http://www.w3.org/2001/04/xmlenc#sha256"</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrenosPotvrzeni">
+    <xs:annotation>
+      <xs:documentation>Formát XML souboru, který se v rámci off-line přenosu dat používá pro potvrzení úspěšného přenosu dat. Na základě tohoto potvrzení zdrojový systém může realizovat mazání dat atd.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="DatumCasPotvrzeni" type="sDatumCasVytvoreni">
+          <xs:annotation>
+            <xs:documentation>Čas vzniku přenosové dávky</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ZdrojPotvrzeni" type="sIdInformacnihoSystemu">
+          <xs:annotation>
+            <xs:documentation>Zdroj interního identifikátoru:
+Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.</xs:documentation>
+            <xs:documentation>NS2023 požadavek č.8.1.2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="CilPotvrzeni" type="sIdInformacnihoSystemu"/>
+        <xs:element minOccurs="0" name="PuvodcePotvrzeni" type="tAdresat"/>
+        <xs:element name="PotvrzovanaDavka">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DavkaId" type="sDavkaId"/>
+              <xs:element name="Cil" type="sIdInformacnihoSystemu"/>
+              <xs:element name="Zdroj" type="sIdInformacnihoSystemu">
+                <xs:annotation>
+                  <xs:documentation>Zdroj interního identifikátoru:
+Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.</xs:documentation>
+                  <xs:documentation>NS2023 požadavek č.8.1.2</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Poznamka" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Poznámku lze využít například k přenosu podrobnější informace o tom, proč se přenos nepovedl.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="StatusPrenosu" type="sStatusPrenosu"/>
+        <xs:element name="StatusEntit">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Entita">
+                <xs:complexType>
+                  <xs:attribute name="Poradi" use="required" type="sPoradi"/>
+                  <xs:attribute name="TypEntity" use="required" type="sTypEntity"/>
+                  <xs:attribute name="IdEntity" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>Identifikace entity podle systému původce. 
+Přesné identifikace entit jsou obsaženy v každmé jednom obsaženém specifickém XML souboru. 
+Zde uvedené ID má především přehledovou funkci pro uživatele, který dávku generoval nebo se chystá dávku načítat.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="StatusPrenosu" use="required" type="sStatusPrenosuEntita"/>
+                  <xs:attribute name="Poznamka" type="sPoznamka">
+                    <xs:annotation>
+                      <xs:documentation>Poznámku lze využít například k přenosu podrobnější informace o tom, proč se přenos nepovedl.</xs:documentation>
+                    </xs:annotation>                    
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="sTypEntity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TypovySpis"/>
+      <xs:enumeration value="Spis"/>
+      <xs:enumeration value="Dokument"/>
+      <xs:enumeration value="Soubor"/>
+      <xs:enumeration value="SeznamUzivatelu"/>
+      <xs:enumeration value="Ciselnik"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

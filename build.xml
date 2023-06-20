@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<project name="nsessl-schema" default="dist">
+
+  <path id="markdown.classpath">
+    <fileset dir="./lib">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+  
+  <taskdef name="md2html" classname="net.sf.markdownant.MarkdownTask">
+    <classpath>
+      <path refid="markdown.classpath"/>
+    </classpath>
+  </taskdef>
+
+  <target name="md">
+    <md2html outputDir=".">
+      <fileset dir=".">
+        <include name="*.md"/>
+      </fileset>
+    </md2html>
+  </target>
+
+  <target name="doc">
+
+    <deltree dir="doc"/>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\wsdlDocumentation.bat">
+      <arg value="src/ermsAPI.wsdl"/>
+      <arg value="-cfg:wsdldoc.xml"/>
+      <arg value="-out:../doc/1-api-sync/ermsAPI.html"/>
+    </exec>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/ermsIFAsyn.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/1-api-async/ermsIFAsyn.html"/>
+    </exec>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/nsesss.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/2-metadata/nsesss.html"/>
+    </exec>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/nsesss-document.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/3-doc/nsesss-document.html"/>
+    </exec>
+    
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/nsesss-DA.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/4-da/nsesss-DA.html"/>
+    </exec>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/nsesss-plan.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/5-plan/nsesss-plan.html"/>
+    </exec>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/nsesss-TrP.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/6-trp/nsesss-TrP.html"/>
+    </exec>
+
+    <exec executable="C:\Program Files\Oxygen XML Editor 24\scripts\schemaDocumentation.bat">
+      <arg value="src/ermsExportPrenos.xsd"/>
+      <arg value="-cfg:schemadoc.xml"/>
+      <arg value="-out:../doc/7-export/ermsExportPrenos.html"/>
+    </exec>
+        
+  </target>
+
+  <target name="index" depends="md">
+    <copy file="README.html"
+      tofile="index.html"
+      overwrite="true"
+      encoding="utf-8">
+    </copy>
+    <replace file="index.html">
+      <replacetoken>.md"</replacetoken>
+      <replacevalue>.html"</replacevalue>
+    </replace>
+  </target>
+  
+  <target name="dist" depends="index, doc">
+    <tstamp>
+      <format property="DATE_CS" pattern="d.M.yyyy"/>
+      <format property="DATE_EN" pattern="yyyy-MM-dd"/>
+    </tstamp>
+    <zip zipfile="nsessl-schema-${DSTAMP}.zip">
+      <zipfileset dir=".">
+        <include name="src/*"/>
+      </zipfileset>
+      <zipfileset dir=".">
+        <include name="doc/**"/>
+      </zipfileset>
+      <zipfileset dir=".">
+        <include name="*.html"/>
+        <include name="*.rtf"/>
+        <exclude name="README.html"/>
+      </zipfileset>
+    </zip>    
+  </target>
+  
+</project>
