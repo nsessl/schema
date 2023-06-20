@@ -2181,6 +2181,7 @@ Zde použité textové konstanty musí být vždy dohodnuty s komunikující pro
           <xs:documentation>ID datové zprávy</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
     </xs:sequence>
   </xs:group>
   <xs:complexType name="tZasilkaInfoDoruceni">
