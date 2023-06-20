@@ -3,10 +3,8 @@
   elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
   id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
   <xs:annotation>
-    <xs:documentation>
-      Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
-      Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.
-    </xs:documentation>
+    <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
+Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.</xs:documentation>
   </xs:annotation>
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
   <xs:include schemaLocation="ermsTypes.xsd"/>
@@ -20,9 +18,8 @@ Toto oprávnění budou mít od této chvíle pouze uživatelé ISSD do kterého
       <xs:sequence>
         <xs:element minOccurs="1" name="ProfilDokumentu" type="tProfilDokumentu">
           <xs:annotation>
-            <xs:documentation>
-                                                        Kompletní popis postupovaného dokumentu. 
-                                                        Tento popis obsahuje také všechny odkazy na obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
+            <xs:documentation>Kompletní popis postupovaného dokumentu.
+Tento popis obsahuje také všechny odkazy na obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="Autorizace" type="tAutorizace"/>
@@ -93,8 +90,7 @@ Vloženi dokumentu do spisu.</xs:documentation>
         <xs:element name="DokumentyVlozene">
           <xs:annotation>
             <xs:documentation>Je-li použit element DokumentUplnyVlozeny, pak je jsou nejprve založenydokument uvedený v tomto elementu, poté je do spisu vloženy.
-Při variantě DokumentIdVlozeny je do spisu vložen již existující dokument.
-                        </xs:documentation>
+Při variantě DokumentIdVlozeny je do spisu vložen již existující dokument.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence minOccurs="1" maxOccurs="1">
@@ -135,7 +131,6 @@ Položky DatumCasVyrizeni, DatumCasUzavreni, DatumCasPredaniDoSpisovny, DatumCas
                         <xs:annotation>
                           <xs:documentation>Pořadí, v jakém byl dokument vložen do spisu. Začíná vždy od 1.
 Položka nemusí být vyplněna v případě, že se dokument vkládá do spisu a volající strana nezná aktuální stav spisu. Potom pořadí ve spisu určí volaná strana na základě svých pravidel.
-
 V případě exportu popisných dat musí být tato položka vyplněna.</xs:documentation>
                         </xs:annotation>
                       </xs:element>
@@ -247,8 +242,8 @@ Jedná se o reversní událost k události DokumentPostoupeni.</xs:documentation
   <xs:element name="SpisPostoupeni">
     <xs:annotation>
       <xs:documentation>Postoupení zpracování spisu do jiného ERMS.
-        V původním ERMS je nad spisem vytvořen excluzivní zámek, aby nešel prostředky původního ERMS spis měnit. 
-        Toto oprávnění bude mít od této chvíle pouze nové ERMS.</xs:documentation>
+V původním ERMS je nad spisem vytvořen excluzivní zámek, aby nešel prostředky původního ERMS spis měnit. 
+Toto oprávnění bude mít od této chvíle pouze nové ERMS.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -443,7 +438,7 @@ Zaevidování nového vypravení k dokumentu. Zásilka po této akci zůstává 
   <xs:element name="VypraveniUprava">
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL.
-Změna informací o připravovaném vypravení, vypravení nesmí být Vypaveno, Doručeno, Zrušeno, Předáno výpravně.</xs:documentation>
+Změna informací o připravovaném vypravení, vypravení nesmí být Vypraveno, Doručeno, Zrušeno, Předáno výpravně.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>

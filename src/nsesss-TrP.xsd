@@ -182,8 +182,7 @@ Součástí identifikátoru je také ZdrojID, který slouží k identifikaci zdr
       </xs:element>
       <xs:element name="DatumVzniku" type="xs:dateTime">
         <xs:annotation>
-          <xs:documentation>Datum a čas generování transakčního protokolu.
-          </xs:documentation>
+          <xs:documentation>Datum a čas generování transakčního protokolu.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="DatumCasOd" type="xs:dateTime">
@@ -357,32 +356,32 @@ Pouze v případě, kdy transakční protokol obsahuje události generované v r
         <xs:annotation>
           <xs:documentation>Zdroj interního identifikátoru:
             
-            Zde uvedený text by měl jednoznačně specifikovat hlavního správce ( zdroj ) uvedeného identifikátoru.
-            
-            Protože seznam všech možných zdrojů identifikátorů není dopředu známý, musí se tato hodnota uvádět jako otevřený text.
-            Pro zajištění jednoznačnosti identifikace zdroje hodnot identifikátorů je nutné dodržovat konvenci pro vyskládání textu, určujícího zdroj identifikace.
-            
-            Doporučený standard identifikace:
-            
-            &lt;-- DiV OLD              
-            fffff.pppppp.iiiii.ccccccc
-            "firma.produkt.instalace.custum"
-            
-            kde fffff je jednoznačné jméno firmy dodavatele nebo jednoznačné označení organizace, která provozuje IS, který je zdrojem hodnoty identifikátoru.
-            
-            Kde pppppp je označení produktu v rámci kterého identifikátor vznikl.
-            
-            Kde iiiii je označení instalace ( lokality ) produktu. Může se jednat o identifikaci konkrétního zákazníka, kde je produk provozován.
-            
-            Kde ccccccc a případně další sekce oddělené tečkami si určuje výrobce nebo provozovatel systému produkujícího identifikátory sám.
-            
-            Při tvorbě textu popisujícího zdroj identifikátorů je nutné dodržet minimálně první sekci, to je sekci označenou "fffff". Ostatní sekce jsou již nepovinné.
-            --&gt;
-            
-            pppp.aa.ccccccccc
-            "původce.aplikace-agenda.číslo"     
-            kde pppp je jednoznačné jméno původce, který identifikátor přidělil
-            kde aa je označení informačního systému (spisován služba, lokální agenda, centrální agenda apod.), která identifikátor přidělila</xs:documentation>
+Zde uvedený text by měl jednoznačně specifikovat hlavního správce ( zdroj ) uvedeného identifikátoru.
+
+Protože seznam všech možných zdrojů identifikátorů není dopředu známý, musí se tato hodnota uvádět jako otevřený text.
+Pro zajištění jednoznačnosti identifikace zdroje hodnot identifikátorů je nutné dodržovat konvenci pro vyskládání textu, určujícího zdroj identifikace.
+
+Doporučený standard identifikace:
+
+&lt;-- DiV OLD              
+fffff.pppppp.iiiii.ccccccc
+"firma.produkt.instalace.custum"
+
+kde fffff je jednoznačné jméno firmy dodavatele nebo jednoznačné označení organizace, která provozuje IS, který je zdrojem hodnoty identifikátoru.
+
+Kde pppppp je označení produktu v rámci kterého identifikátor vznikl.
+
+Kde iiiii je označení instalace ( lokality ) produktu. Může se jednat o identifikaci konkrétního zákazníka, kde je produk provozován.
+
+Kde ccccccc a případně další sekce oddělené tečkami si určuje výrobce nebo provozovatel systému produkujícího identifikátory sám.
+
+Při tvorbě textu popisujícího zdroj identifikátorů je nutné dodržet minimálně první sekci, to je sekci označenou "fffff". Ostatní sekce jsou již nepovinné.
+--&gt;
+
+pppp.aa.ccccccccc
+"původce.aplikace-agenda.číslo"     
+kde pppp je jednoznačné jméno původce, který identifikátor přidělil
+kde aa je označení informačního systému (spisován služba, lokální agenda, centrální agenda apod.), která identifikátor přidělila</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">

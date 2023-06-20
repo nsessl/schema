@@ -147,8 +147,8 @@ Za chybu je považována žádost o postoupení dokumentu, který není ve volan
       <xs:sequence>
         <xs:element minOccurs="0" name="ProfilDokumentu" type="tProfilDokumentu">
           <xs:annotation>
-            <xs:documentation>Kompletní popis postupovaného dokumentu. 
-                                                                                        Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
+            <xs:documentation>Kompletní popis postupovaného dokumentu.
+Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="OperaceStatus" type="tOperaceStatus"/>
@@ -220,8 +220,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
       <xs:documentation>Odpověď na volání webové služby s žádostí o poskytnutí detailních informací o dokumentu.
 Odpověď obsahuje kompletní popis dokumentu nebo číselný a textový popis chyby. 
 Za chybu je považována žádost o informace o dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).
-Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.
-        </xs:documentation>
+Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.</xs:documentation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.8 e)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -266,9 +265,8 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
       <xs:documentation>NS z roku 2023 požadavek č.8.1.8 f)</xs:documentation>
       <xs:documentation>Odpověď na volání webové služby s žádostí o poskytnutí detailních informací o spisu.
 Odpověď obsahuje kompletní popis spisu nebo číselný a textový popis chyby. 
-Za chybu je považována žádost o informace o spisu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).
-Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému spisu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.
-        </xs:documentation>
+Za chybu je považována žádost o informace o spisu, který není ve volaném systému obsažen (na základě zadaného identifikátoru).
+Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému spisu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -334,8 +332,7 @@ Webová služba pro získání seznamu číselníků, které jsou dostupné v r�
       <xs:sequence>
         <xs:element minOccurs="1" name="Autorizace" type="tAutorizace">
           <xs:annotation>
-            <xs:documentation>Identifikace osoby, která volá službu pro načtení číselníku.
-            </xs:documentation>
+            <xs:documentation>Identifikace osoby, která volá službu pro načtení číselníku.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
@@ -372,8 +369,7 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
         </xs:element>
         <xs:element minOccurs="1" name="Autorizace" type="tAutorizace">
           <xs:annotation>
-            <xs:documentation>Identifikace osoby, která volá službu pro načtení číselníku.
-            </xs:documentation>
+            <xs:documentation>Identifikace osoby, která volá službu pro načtení číselníku.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
@@ -406,9 +402,7 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
         <xs:element name="OperaceStatus" type="tOperaceStatus">
           <xs:annotation>
-            <xs:documentation>
-                Status operace získání číselníku. Vrácení číselníku může být odmítnuto například z důvodu nedostatečných oprávnění uživatele nebo volajícího ERMS k číselníku.
-            </xs:documentation>
+            <xs:documentation>Status operace získání číselníku. Vrácení číselníku může být odmítnuto například z důvodu nedostatečných oprávnění uživatele nebo volajícího ERMS k číselníku.</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:sequence>
@@ -935,18 +929,18 @@ Volání WS s žádostí o vrácení dokumentu z ISSD do výhradní správy ESSL
   </xs:element>
   <xs:element name="DokumentVraceniZadostResponse">
     <xs:annotation>
-      <xs:documentation>Odpověď na volání webové služby s požadavkem na vrácení ( předání do výhradní správy ) zadaného dokumentu.
+      <xs:documentation>Odpověď na volání webové služby s požadavkem na vrácení (předání do výhradní správy) zadaného dokumentu.
 Odpověď obsahuje kompletní popis postupovaného dokumentu nebo číselný a textový popis chyby. 
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo vráceného dokumentu chybový kód 0001 - Nedostatečná oprávnění
-Za chybu je považována žádost o vrácení dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).</xs:documentation>
+Za chybu je považována žádost o vrácení dokumentu, který není ve volaném systému obsažen (na základě zadaného identifikátoru).</xs:documentation>
       <xs:documentation>NS z roku 2023 požadavek č.8.1.8 c)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ProfilDokumentu" type="tProfilDokumentu">
           <xs:annotation>
-            <xs:documentation>Kompletní popis postupovaného dokumentu. 
-                                                                                        Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
+            <xs:documentation>Kompletní popis postupovaného dokumentu.
+Tento popis obsahuje také všechny vložené obrazy elektronických dokumentů, které jsou s postupovaným dokumentem spojeny.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="OperaceStatus" type="tOperaceStatus"/>
@@ -1016,9 +1010,6 @@ Webovou službu poskytuje ISSD pro napojené ESSL.</xs:documentation>
     </xs:complexType>
   </xs:element>
   <xs:element name="UzivateleSeznamResponse">
-    <xs:annotation>
-      <xs:documentation>VZ01_priloha2 bod i) - podbod 12</xs:documentation>
-    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Uzivatele">

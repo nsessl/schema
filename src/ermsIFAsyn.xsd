@@ -36,9 +36,6 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="ermsAsynResponse">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Kod" type="sKod">
@@ -71,7 +68,7 @@ response s vyplněným chybovým kódem a popisem chyby.</xs:documentation>
         <xs:element minOccurs="0" name="Autorizace" type="tAutorizace">
           <xs:annotation>
             <xs:documentation>Identifikace osoby, která volá testovací WS.
-Tato položka je nepovinné.
+Tato položka je nepovinná.
 Pokud je uvedena, může sloužit také jako kontrola přípustné hodnoty položky "provedlKdo".
 Položka "provedlKdy" může sloužit ke kontrole nastavení aktuálního času v obou systémech.</xs:documentation>
           </xs:annotation>

@@ -8,9 +8,7 @@
       <xs:documentation>Identifikace uživatele informačního systému. 
 Ve většině spisových služeb se pracuje s pojmen funkční místo, v některý přímo s osobou.
 Funční místo často odpovídá pracovní pozici. Osoba může současně zastávat více pracovních pozicí a funkčním místem se odlišuje, za kterou pracovní pozici aktuálně pracuje.
-
-ID uživatele tedy podle implementace rozhraní odpovídá kódu funkčního místa a nebo osobnímu číslu  osoby. V některých případěch se v rámci implementace používá textové složení: osobní číslo + "|" + kód funkčního místa
-</xs:documentation>
+ID uživatele tedy podle implementace rozhraní odpovídá kódu funkčního místa a nebo osobnímu číslu  osoby. V některých případěch se v rámci implementace používá textové složení: osobní číslo + "|" + kód funkčního místa</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="50"/>
@@ -134,8 +132,7 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
   </xs:group>
   <xs:complexType name="tDoplnujiciData">
     <xs:annotation>
-      <xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace. Např. zde mohou být data potřebná pro výměnu informací s agendovým systémem.
-                        </xs:documentation>
+      <xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace. Např. zde mohou být data potřebná pro výměnu informací s agendovým systémem.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
@@ -143,8 +140,7 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
   </xs:complexType>
   <xs:complexType name="tDoplnujiciDataSpis">
     <xs:annotation>
-      <xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace. Např. zde mohou být data potřebná pro výměnu informací s agendovým systémem.
-                        </xs:documentation>
+      <xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace. Např. zde mohou být data potřebná pro výměnu informací s agendovým systémem.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
@@ -152,8 +148,7 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
   </xs:complexType>
   <xs:complexType name="tDoplnujiciDataDokument">
     <xs:annotation>
-      <xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace. Např. zde mohou být data potřebná pro výměnu informací s agendovým systémem.
-                        </xs:documentation>
+      <xs:documentation>Jakákoliv další doprovodná data, která nejsou součástí této specifikace. Např. zde mohou být data potřebná pro výměnu informací s agendovým systémem.</xs:documentation>
     </xs:annotation>
     <xs:sequence minOccurs="0">
       <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
@@ -177,8 +172,8 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
   <xs:complexType name="tFile">
     <xs:annotation>
       <xs:documentation>Tento typ je podobný datovému typu použitému v rámci ISDS ale doplňuje identifikátor a popisné atributy, které upřesňují vlastnosti obecného elektronického souboru. 
-        Oproti verzi popsané v ISDS je odstraněn elementr dmXmlContent - ERMS systémy pracují se soubory a zde by byl uveden pouze fragment XML dat. Nebylo zřejmé, jak s takovým fragmentem zacházet v rámci ERMS. Proto byl pro svou nejednoznačnost tento prvek odstraněn. 
-        Pro přenos obecných, doplňkových dat jsou ve schématu umístěny elementy DoplnujiciData, pro přenos obsahu elektronických souborů je to dmEncodedContent.</xs:documentation>
+Oproti verzi popsané v ISDS je odstraněn elementr dmXmlContent - ERMS systémy pracují se soubory a zde by byl uveden pouze fragment XML dat. Nebylo zřejmé, jak s takovým fragmentem zacházet v rámci ERMS. Proto byl pro svou nejednoznačnost tento prvek odstraněn. 
+Pro přenos obecných, doplňkových dat jsou ve schématu umístěny elementy DoplnujiciData, pro přenos obsahu elektronických souborů je to dmEncodedContent.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="dmEncodedContent" type="xs:base64Binary">
@@ -602,8 +597,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
       <xs:element name="DokumentyVlozene">
         <xs:annotation>
           <xs:documentation>Je-li použit element VlozenyDokumentUplny, pak jsou nejprve založeny dokumenty uvedené v tomto elementu, poté je založen spis kde iniciačním dokumentem je ten, který má  PoradiVeSpisu rovno 1 a poté jsou do spisu vloženy i další dokumenty.
-                                        Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.
-                                        </xs:documentation>
+Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -772,8 +766,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
       <xs:element name="DokumentyVlozene">
         <xs:annotation>
           <xs:documentation>Je-li použit element VlozenyDokumentUplny, pak jsou nejprve založeny dokumenty uvedené v tomto elementu, poté je založen spis kde iniciačním dokumentem je ten, který má  PoradiVeSpisu rovno 1 a poté jsou do spisu vloženy i další dokumenty.
-                                        Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.
-                                        </xs:documentation>
+Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -969,9 +962,7 @@ Součástí informace obsažené v tomto prvku je i  určení, který informačn
       <xs:element name="ZdrojID" type="sIdInformacnihoSystemu">
         <xs:annotation>
           <xs:documentation>Zdroj interního identifikátoru:
-Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.
-
-</xs:documentation>
+Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifikátoru.</xs:documentation>
           <xs:documentation>NS z roku 2023 požadavek č.8.1.2</xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1100,9 +1091,7 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
   <xs:complexType name="tAdresy">
     <xs:annotation>
       <xs:documentation>Adresy, které jsou spojeny s jedním subjektem. 
-
 Tyto adresy slouží k určení (popisu) subjektu. 
-
 Subjekt, např. v systémech spisových služeb, může být popsán velmi neúplnými informacemi. Např. již komunikace se subjektem s pomocí mailu vynucuje zaznamenat popis takového subjektu do systému, ale přitom subjekt lze identifikovat pouze na základě mailové adresy. Podobně neúplné informace je nutné zaznamenávat u papírové korespondence atd..</xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -1243,7 +1232,6 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
       <xs:element name="Subjekt" type="tSubjekt">
         <xs:annotation>
           <xs:documentation>Popis subjektu, kterému je doručováno. Informace zde uvedené nejsou doručovací adresou. Slouží pouze pro popis subjektu.
-
 Tato část nemusí být vyplněna, protože např. při komunikaci mailem nemusí být přesný popis subjektu znám.</xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1330,9 +1318,8 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   <xs:simpleType name="sBarCode">
     <xs:annotation>
       <xs:documentation>Tento element je určen pro uchování hodnoty čárového kódu, kterým může být označen dokument nebo spis a to jak v jejich fyzické, tak i elektronické podobě.
-                S pomocí hodnoty tohoto elementu je možné propojit fyzický a elektronický svět tak, aby se uživatelům usnadnilo vyhledávání fyzických dokumentů v aplikacích IS.
-                V případě dokumentu může být hodnota této položky prohlášena původcem za jednoznačný identifikátor dokumentu ve smyslu § 64 zákona č. 499/2004 Sb.
-                        </xs:documentation>
+S pomocí hodnoty tohoto elementu je možné propojit fyzický a elektronický svět tak, aby se uživatelům usnadnilo vyhledávání fyzických dokumentů v aplikacích IS.
+V případě dokumentu může být hodnota této položky prohlášena původcem za jednoznačný identifikátor dokumentu ve smyslu § 64 zákona č. 499/2004 Sb.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="50"/>
@@ -1350,9 +1337,8 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
   <xs:simpleType name="sCisloJednaci">
     <xs:annotation>
       <xs:documentation>Položka "CisloJednaci" může obsahovat i obecnou značku dokumentu, např. číslo faktury atd..
-                                                                                Nemusí se tedy jednat důsledně vždy pouze o ČJ.
-                                                                                Může se jednat o označení dokumentu nebo spisu určitou značkou, která v textové podobě kombinuje různé číselné a jiné identifikační údaje zavedené agendou nebo organizací k systematickému označování dokumentů v rámci různých řad, knih nebo jiných evidencí.
-                        </xs:documentation>
+Nemusí se tedy jednat důsledně vždy pouze o ČJ.
+Může se jednat o označení dokumentu nebo spisu určitou značkou, která v textové podobě kombinuje různé číselné a jiné identifikační údaje zavedené agendou nebo organizací k systematickému označování dokumentů v rámci různých řad, knih nebo jiných evidencí.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="50"/>
@@ -1437,18 +1423,18 @@ Takže proč to zákon definuje, když to nechce uchovávat?</xs:documentation>
     <xs:attribute name="Zdroj" type="sIdInformacnihoSystemu" use="required">
       <xs:annotation>
         <xs:documentation>Identifikuje Zdroj volání - volajícího.
-                                                Při propojení ESSS a více AIS je nutné odlišit, kdo službu volá.
-                                                Toto je primární identifikace volajícího systému.
-                                                Pokud jsou XML data podepsána, potom podpis slouží jako další kontrola k této identifikaci volajícího.</xs:documentation>
+Při propojení ESSS a více AIS je nutné odlišit, kdo službu volá.
+Toto je primární identifikace volajícího systému.
+Pokud jsou XML data podepsána, potom podpis slouží jako další kontrola k této identifikaci volajícího.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="Cil" type="sIdInformacnihoSystemu" use="required">
       <xs:annotation>
         <xs:documentation>Identifikuje cíl volání - volaného.
-                                                Volaná strana je již jednoznačně určena svou URL.
-                                                Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
-                                                K omylům může dojít především mezi ostrou, provozní instalací a testovací.
-                                                Identifikace volajícího má zabránit záměně např. testovací a ostré instalace.</xs:documentation>
+Volaná strana je již jednoznačně určena svou URL.
+Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
+K omylům může dojít především mezi ostrou, provozní instalací a testovací.
+Identifikace volajícího má zabránit záměně např. testovací a ostré instalace.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -1740,18 +1726,18 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
     <xs:attribute name="Zdroj" type="sIdInformacnihoSystemu" use="required">
       <xs:annotation>
         <xs:documentation>Identifikuje Zdroj volání - volajícího.
-                                                Při propojení ESSS a více AIS je nutné odlišit, kdo službu volá.
-                                                Toto je primární identifikace volajícího systému.
-                                                Pokud jsou XML data podepsána, potom podpis slouží jako další kontrola k této identifikaci volajícího.</xs:documentation>
+Při propojení ESSS a více AIS je nutné odlišit, kdo službu volá.
+Toto je primární identifikace volajícího systému.
+Pokud jsou XML data podepsána, potom podpis slouží jako další kontrola k této identifikaci volajícího.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="Cil" type="sIdInformacnihoSystemu" use="required">
       <xs:annotation>
         <xs:documentation>Identifikuje cíl volání - volaného.
-                                                Volaná strana je již jednoznačně určena svou URL.
-                                                Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
-                                                K omylům může dojít především mezi ostrou, provozní instalací a testovací.
-                                                Identifikace volajícího má zabránit záměně např. testovací a ostré instalace.</xs:documentation>
+Volaná strana je již jednoznačně určena svou URL.
+Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
+K omylům může dojít především mezi ostrou, provozní instalací a testovací.
+Identifikace volajícího má zabránit záměně např. testovací a ostré instalace.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="DavkaId" type="xs:string">
@@ -1765,10 +1751,10 @@ Rozložení na menší soubory spojené do logického celku jedné dávky je zvo
     <xs:attribute name="PoradiVDavce" type="xs:integer" use="required">
       <xs:annotation>
         <xs:documentation>Identifikuje cíl volání - volaného.
-                                                Volaná strana je již jednoznačně určena svou URL.
-                                                Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
-                                                K omylům může dojít především mezi ostrou, provozní instalací a testovací.
-                                                Identifikace volajícího má zabránit záměně např. testovací a ostré instalace.</xs:documentation>
+Volaná strana je již jednoznačně určena svou URL.
+Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
+K omylům může dojít především mezi ostrou, provozní instalací a testovací.
+Identifikace volajícího má zabránit záměně např. testovací a ostré instalace.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -1776,19 +1762,19 @@ Rozložení na menší soubory spojené do logického celku jedné dávky je zvo
     <xs:attribute name="Zdroj" type="sIdInformacnihoSystemu" use="required">
       <xs:annotation>
         <xs:documentation>Identifikuje Zdroj volání - volajícího.
-                                                Při propojení ESSS a více AIS je nutné odlišit, kdo službu volá.
-                                                Toto je primární identifikace volajícího systému.
-                                                Pokud jsou XML data podepsána, potom podpis slouží jako další kontrola k této identifikaci volajícího.</xs:documentation>
+Při propojení ESSS a více AIS je nutné odlišit, kdo službu volá.
+Toto je primární identifikace volajícího systému.
+Pokud jsou XML data podepsána, potom podpis slouží jako další kontrola k této identifikaci volajícího.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="DavkaId" type="sDavkaId"/>
     <xs:attribute name="PoradiVDavce" type="sPoradi" use="required">
       <xs:annotation>
         <xs:documentation>Identifikuje cíl volání - volaného.
-                                                Volaná strana je již jednoznačně určena svou URL.
-                                                Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
-                                                K omylům může dojít především mezi ostrou, provozní instalací a testovací.
-                                                Identifikace volajícího má zabránit záměně např. testovací a ostré instalace.</xs:documentation>
+Volaná strana je již jednoznačně určena svou URL.
+Tento údaj slouží pro dodatečnou kontrolu, zda není omylem volána jiná instalace webové služby a tím i jiný systém.
+K omylům může dojít především mezi ostrou, provozní instalací a testovací.
+Identifikace volajícího má zabránit záměně např. testovací a ostré instalace.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -1925,8 +1911,7 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
         <xs:element name="SpisyVlozene">
           <xs:annotation>
             <xs:documentation>Je-li použit element VlozenyDokumentUplny, pak jsou nejprve založeny dokumenty uvedené v tomto elementu, poté je založen spis kde iniciačním dokumentem je ten, který má  PoradiVeSpisu rovno 1 a poté jsou do spisu vloženy i další dokumenty.
-                                          Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.
-                                          </xs:documentation>
+Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -1944,7 +1929,7 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
                       <xs:annotation>
                         <xs:documentation>Výčtový typ, který určuje, zda je spis aktuálně vložen do součásti typového spisu.</xs:documentation>
                         <xs:documentation>Informace vyjmuto ve vztahu k této vazbě může být nadbytečná. Pokud je spis vyjmut, potom tato vazba fakticky neexistuje. 
-  Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední minulou vazbu spisu na typový spis i když je spis aktuálně vyjmut. </xs:documentation>
+Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední minulou vazbu spisu na typový spis i když je spis aktuálně vyjmut. </xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="DatumCasVlozeni" type="xs:dateTime"/>
@@ -2010,7 +1995,6 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
       <xs:element minOccurs="0" name="TextAdresy">
         <xs:annotation>
           <xs:documentation>TextAdresy je nepovinná část, která umožňuje přenést z jednoho systému do druhého požadavek, jak má být vytištěna obálková adresa. Formátování tisku obálkové adresy nemusí přesně odpovídat strukturovanému popisu doručovací adresy.
-
 Údaje zadané v strukturované části doručovací adresy mají přednost před údaji zadanými v této části. Tato část je spíše doplňkovou informací ke strukturované formě adresy a slouží pouze pro řízení tisku obálky, ne pro strojní zpracování dat o subjektu a jeho doručovací adrese.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
@@ -2018,56 +2002,48 @@ Stav vazby je zde uveden pro způsob implementace, který uvádí i poslední mi
             <xs:element minOccurs="0" name="AdresaRadek1" type="sAdresaRadek">
               <xs:annotation>
                 <xs:documentation>První řádek zásilkové adresy.
-
 Většinou oslovení</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="AdresaRadek2" type="sAdresaRadek">
               <xs:annotation>
                 <xs:documentation>Druhý řádek zásilkové adresy.
-
 Většinou funkce nebo konkrétní osoba ( u firem nebo organizací )</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="AdresaRadek3" type="sAdresaRadek">
               <xs:annotation>
                 <xs:documentation>Třetí řádek zásilkové adresy.
-
 Většinou obchodní jméno nebo jméno a příjmení.</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="AdresaRadek4" type="sAdresaRadek">
               <xs:annotation>
                 <xs:documentation>Čtvrtý řádek zásilkové adresy.
-
 Většinou ulice.</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="AdresaRadek5" type="sAdresaRadek">
               <xs:annotation>
                 <xs:documentation>Pátý řádek zásilkové adresy.
-
 Většinou částo obce</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="AdresaRadek6" type="sAdresaRadek">
               <xs:annotation>
                 <xs:documentation>Šestý řádek zásilkové adresy.
-
 Většinou město.</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="AdresaRadek7" type="sAdresaRadek">
               <xs:annotation>
                 <xs:documentation>Sedmý řádek zásilkové adresy.
-
 Většinou PSČ</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="AdresaRadek8" type="sAdresaRadek">
               <xs:annotation>
                 <xs:documentation>Osmý řádek zásilkové adresy.
-
 Většinou stát</xs:documentation>
               </xs:annotation>
             </xs:element>
@@ -2082,10 +2058,8 @@ Většinou stát</xs:documentation>
         </xs:element>
         <xs:element name="ZpusobManipulaceText" type="xs:string">
           <xs:annotation>
-            <xs:documentation>
-              Pojmenování způsobu manipulace.
-              Tento prvek se použije pouze v případě, že nelze použít jednu z možností uvedenou ve výčtu možných hodnot položky "ZpusobManipulaceId".
-            </xs:documentation>
+            <xs:documentation>Pojmenování způsobu manipulace.
+Tento prvek se použije pouze v případě, že nelze použít jednu z možností uvedenou ve výčtu možných hodnot položky "ZpusobManipulaceId".</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:choice>
@@ -2123,10 +2097,8 @@ Zde použité textové konstanty musí být vždy dohodnuty s komunikující pro
         </xs:element>
         <xs:element name="DruhZasilkyText" type="xs:string">
           <xs:annotation>
-            <xs:documentation>
-              Pojmenování způsobu zacházení se zásilkou.
-              Tento prvek se použije pouze v případě, že nelze použít jednu z možností uvedenou ve výčtu možných hodnot položky "DruhZasilkyId".
-            </xs:documentation>
+            <xs:documentation>Pojmenování způsobu zacházení se zásilkou.
+Tento prvek se použije pouze v případě, že nelze použít jednu z možností uvedenou ve výčtu možných hodnot položky "DruhZasilkyId".</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:choice>
