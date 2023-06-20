@@ -1081,18 +1081,12 @@ Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladen�
       </xs:element>
       <xs:element minOccurs="0" name="DatumNarozeni" type="xs:date">
         <xs:annotation>
-          <xs:documentation>
-            Datum narození.
-            Element se uvádí pouze v případě že TypSubjektu="Fyzicka" nebo TypSubjektu="Osvc" a to pouze v případě, že je nutné odlišit dvě osoby stejného jména a stejného trvalého bydliště.
-          </xs:documentation>
+          <xs:documentation>Datum narození</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="MistoNarozeni" type="sObec">
         <xs:annotation>
-          <xs:documentation>
-            Místo narození.
-            Element se uvádí pouze v případě že TypSubjektu="Fyzicka" nebo TypSubjektu="Osvc" a to pouze v případě, že je nutné odlišit dvě osoby stejného jména a stejného trvalého bydliště.
-          </xs:documentation>
+          <xs:documentation>Místo narození</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="Jmeno" type="sJmeno">

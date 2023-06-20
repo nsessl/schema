@@ -800,8 +800,7 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
                     </xs:element>
                     <xs:element minOccurs="0" name="DatumNarozeni" type="xs:date">
                       <xs:annotation>
-                        <xs:documentation>Datum narození.
-            Element se uvádí pouze v případě že TypSubjektu="Fyzicka" nebo TypSubjektu="Osvc" a to pouze v případě, že je nutné odlišit dvě osoby stejného jména a stejného trvalého bydliště.</xs:documentation>
+                        <xs:documentation>Datum narození</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="Ulice" type="sUlice">
