@@ -6,9 +6,9 @@
   <xs:simpleType name="tUzivatel">
     <xs:annotation>
       <xs:documentation>Identifikace uživatele informačního systému. 
-Ve většině spisových služeb se pracuje s pojmen funkční místo, v některý přímo s osobou.
-Funční místo často odpovídá pracovní pozici. Osoba může současně zastávat více pracovních pozicí a funkčním místem se odlišuje, za kterou pracovní pozici aktuálně pracuje.
-ID uživatele tedy podle implementace rozhraní odpovídá kódu funkčního místa a nebo osobnímu číslu  osoby. V některých případěch se v rámci implementace používá textové složení: osobní číslo + "|" + kód funkčního místa</xs:documentation>
+Ve většině spisových služeb se pracuje s pojmem funkční místo, v některý přímo s osobou.
+Funkční místo často odpovídá pracovní pozici. Osoba může současně zastávat více pracovních pozicí a funkčním místem se odlišuje, za kterou pracovní pozici aktuálně pracuje.
+ID uživatele tedy podle implementace rozhraní odpovídá kódu funkčního místa a nebo osobnímu číslu  osoby. V některých případech se v rámci implementace používá textové složení: osobní číslo + "|" + kód funkčního místa</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="50"/>
@@ -172,7 +172,7 @@ Může být vyplněna i v případě, že dokument je aktuálně vyjmut ze spisu
   <xs:complexType name="tFile">
     <xs:annotation>
       <xs:documentation>Tento typ je podobný datovému typu použitému v rámci ISDS ale doplňuje identifikátor a popisné atributy, které upřesňují vlastnosti obecného elektronického souboru. 
-Oproti verzi popsané v ISDS je odstraněn elementr dmXmlContent - ERMS systémy pracují se soubory a zde by byl uveden pouze fragment XML dat. Nebylo zřejmé, jak s takovým fragmentem zacházet v rámci ERMS. Proto byl pro svou nejednoznačnost tento prvek odstraněn. 
+Oproti verzi popsané v ISDS je odstraněn element dmXmlContent - ERMS systémy pracují se soubory a zde by byl uveden pouze fragment XML dat. Nebylo zřejmé, jak s takovým fragmentem zacházet v rámci ERMS. Proto byl pro svou nejednoznačnost tento prvek odstraněn. 
 Pro přenos obecných, doplňkových dat jsou ve schématu umístěny elementy DoplnujiciData, pro přenos obsahu elektronických souborů je to dmEncodedContent.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -206,7 +206,7 @@ Pro přenos obecných, doplňkových dat jsou ve schématu umístěny elementy D
         <xs:annotation>
           <xs:documentation>URL stream webové služby pro získání obsahu komponenty - elektronického souboru.
 V rámci URL může být zakódovaný přístupový klíč a platnost vystavené URL může být omezena časově nebo i počtem použití.
-Při exspiraci získané URL musí externí systém znovu požádat a získání této informace.</xs:documentation>
+Při expiraci získané URL musí externí systém znovu požádat a získání této informace.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -412,7 +412,7 @@ SpisV § 10, odst. 2 písm. b), NSESSS 5.2.6 k)</xs:documentation>
   <xs:group name="gProfilDokumentu">
     <xs:annotation>
       <xs:documentation>Kompletní profilové informace o dokumentu. 
-Tento profil je určen pro export kompletních dat o dokumetnu.</xs:documentation>
+Tento profil je určen pro export kompletních dat o dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator">
@@ -446,7 +446,7 @@ Pro starší dokumentu není uvedena.</xs:documentation>
         <xs:annotation>
           <xs:documentation>Informace o vložení do spisu se může uplatnit např. při exportu dat.
 Pokud je profil dokumentu uveden již jako součást kompletních informací o spisu jako jeho část DokumentUplnyVlozeny, potom se element 
-VlozenVeSpisu vynechá nebo ignoruje. Mohl by obsahovat informace, které jsou v rozporu s popisem samostného spisu.</xs:documentation>
+VlozenVeSpisu vynechá nebo ignoruje. Mohl by obsahovat informace, které jsou v rozporu s popisem samotného spisu.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
@@ -475,7 +475,7 @@ Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:d
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Vypraveni" type="tVypraveni"/>
       <xs:element minOccurs="0" name="OdkazyNaSoubory" type="tFileLinksArray">
         <xs:annotation>
-          <xs:documentation>Samotné obsahy ( elektronické dokumenty ) musí být přenášeny odděleně od popisných dat dokumentu. 
+          <xs:documentation>Samotné obsahy (elektronické dokumenty) musí být přenášeny odděleně od popisných dat dokumentu. 
             U synchronního rozhraní budou obsahy přenášeny následně po přenosu popisných dat a to dodatečným voláním webové služby, která požadovaný obsah poskytne. 
             U asynchronního rozhraní tomu bude naopak. Nejprve budou přeneseny obsahy a teprve následně se přenesou popisná data dokumentu, který se na obsah odkazuje. 
             Toto obrácené pořadí je u asynchronního přenosu nutné pro zajištění konzistence dat popisovaného a přenášeného dokumentu.</xs:documentation>
@@ -500,7 +500,7 @@ Pokud tento element není přítomen, potom se jedná o vlastní dokument.</xs:d
       </xs:element>
       <xs:element minOccurs="0" name="SpravujeIS" type="sIdInformacnihoSystemu">
         <xs:annotation>
-          <xs:documentation>Identifikátor informačního systému, který má aktuálně data dokumentu ve své exklusivní správě. Ostatní IS mohou přistupovat k datům tohoto dokumentu pouze pro čtení.
+          <xs:documentation>Identifikátor informačního systému, který má aktuálně data dokumentu ve své exkluzivní správě. Ostatní IS mohou přistupovat k datům tohoto dokumentu pouze pro čtení.
 Při exportu je tato položka povinná. 
 Při zakládání záznamu nebo při jeho následné editaci se tato položka ignoruje. Informace kdo spravuje dokument se smí změnit pouze na základě akce Postoupení nebo akce Vrácení.</xs:documentation>
         </xs:annotation>
@@ -528,7 +528,7 @@ Při zakládání záznamu nebo při jeho následné editaci se tato položka ig
           <xs:documentation>Příloha M - Uživatelské poznámky spisu (uživatelské poznámky spisu se jménem uživatele a
 datem 0 až n) 5.2.13 k)</xs:documentation>
           <xs:documentation>Pokud element není při editaci uveden, znamená to, že se případné poznámky nemají měnit.
-Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně již existující poznámky. Pokud je seznam prázdný, znamená to odstranění všech poznámek.</xs:documentation>
+Pokud je uveden, potom obsah seznamu poznámek nahrazuje všechny případně již existující poznámky. Pokud je seznam prázdný, znamená to odstranění všech poznámek.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -597,7 +597,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
       <xs:element name="DokumentyVlozene">
         <xs:annotation>
           <xs:documentation>Je-li použit element VlozenyDokumentUplny, pak jsou nejprve založeny dokumenty uvedené v tomto elementu, poté je založen spis kde iniciačním dokumentem je ten, který má  PoradiVeSpisu rovno 1 a poté jsou do spisu vloženy i další dokumenty.
-Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.</xs:documentation>
+Při variantě VlozenyDokumentId je předpokládáno, že  je spis zakládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -662,7 +662,7 @@ Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán n
       </xs:element>
       <xs:element minOccurs="0" name="SpravujeIS" type="sIdInformacnihoSystemu">
         <xs:annotation>
-          <xs:documentation>Identifikátor informačního systému, který má aktuálně data spisu ve své exklusivní správě. Ostatní IS mohou přistupovat k datům tohoto spisu pouze pro čtení.
+          <xs:documentation>Identifikátor informačního systému, který má aktuálně data spisu ve své exkluzivní správě. Ostatní IS mohou přistupovat k datům tohoto spisu pouze pro čtení.
 Při exportu je tato položka povinná. 
 Při zakládání záznamu nebo při jeho následné editaci se tato položka ignoruje. Informace kdo spravuje spis se smí změnit pouze na základě akce Postoupení nebo akce Vrácení.</xs:documentation>
         </xs:annotation>
@@ -713,7 +713,7 @@ komplexním nepovinným prvkem Vyrizeni.</xs:documentation>
           <xs:documentation>Příloha M - Uživatelské poznámky spisu (uživatelské poznámky spisu se jménem uživatele a
 datem 0 až n) 5.2.13 k)</xs:documentation>
           <xs:documentation>Pokud element není při editaci uveden, znamená to, že se případné poznámky nemají měnit.
-Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně již existující poznámky. Pokud je seznam prázdný, znamená to odstranění všech poznámek.</xs:documentation>
+Pokud je uveden, potom obsah seznamu poznámek nahrazuje všechny případně již existující poznámky. Pokud je seznam prázdný, znamená to odstranění všech poznámek.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -748,8 +748,8 @@ Pokud je uveden, potom obsah seznamu poznámen nahrazuje všechny případně ji
       <xs:element name="ZpusobVedeni" type="sZpusobVedeni">
         <xs:annotation>
           <xs:documentation>Způsob vedení spisu - určuje, jak budou přidělována ČJ vkládaných dokumentů.
-Priorace - Dokumenty budou získávat ČJ na základě svého evidenčního čísla v odpovídajícím období ( NS2023 - požadavek 2.7.4 a) )
-SbernyArch - Dokument bude získávat ČJ na základě spisové značky spisu, do které se vkládá ( NS2023 - požadavek 2.7.4 b) ).</xs:documentation>
+Priorace - Dokumenty budou získávat ČJ na základě svého evidenčního čísla v odpovídajícím období (NS2023 - požadavek 2.7.4 a))
+SbernyArch - Dokument bude získávat ČJ na základě spisové značky spisu, do které se vkládá (NS2023 - požadavek 2.7.4 b)).</xs:documentation>
           <xs:documentation>NS2023 požadavek č.2.7.4
 NS2023 požadavek č.3.2.2</xs:documentation>
         </xs:annotation>
@@ -766,7 +766,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
       <xs:element name="DokumentyVlozene">
         <xs:annotation>
           <xs:documentation>Je-li použit element VlozenyDokumentUplny, pak jsou nejprve založeny dokumenty uvedené v tomto elementu, poté je založen spis kde iniciačním dokumentem je ten, který má  PoradiVeSpisu rovno 1 a poté jsou do spisu vloženy i další dokumenty.
-Při variantě VlozenyDokumentId je předpokládáno, že  je spis zákládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.</xs:documentation>
+Při variantě VlozenyDokumentId je předpokládáno, že  je spis zakládán nad již existujícím dokumentem (PoradiVeSpisu = 1), jsou-li uvedeny i jiné idDokument, jsou vloženy do založeného spisu.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -878,8 +878,8 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
         <xs:element name="ZpusobVedeni" type="sZpusobVedeni" minOccurs="0">
           <xs:annotation>
             <xs:documentation>Způsob přidělování čísla jednacího dokumentům v zakládaných spisech dané věcné skupiny.
-              Priorace - Dokumenty budou získávat ČJ na základě svého evidenčního čísla v odpovídajícím období ( NS2023 - požadavek 2.7.4 a) )
-              SbernyArch - Dokument bude získávat ČJ na základě spisové značky spisu, do které se vkládá ( NS2023 - požadavek 2.7.4 b) ).</xs:documentation>
+              Priorace - Dokumenty budou získávat ČJ na základě svého evidenčního čísla v odpovídajícím období (NS2023 - požadavek 2.7.4 a))
+              SbernyArch - Dokument bude získávat ČJ na základě spisové značky spisu, do které se vkládá (NS2023 - požadavek 2.7.4 b)).</xs:documentation>
             <xs:documentation>NSESSS 3.1.2</xs:documentation>
           </xs:annotation>
         </xs:element>
@@ -901,7 +901,7 @@ Neobsahuje data, která lze nastavit pouze při založení spisu.</xs:documentat
       <xs:sequence>
         <xs:element name="SkartacniZnak" type="sSkartacniZnak">
           <xs:annotation>
-            <xs:documentation>A-archivace, S-skartace. Obsolete: ( V-vytřídění na základě skartačního řízení. )</xs:documentation>
+            <xs:documentation>A-archivace, S-skartace. Obsolete: (V-vytřídění na základě skartačního řízení.)</xs:documentation>
             <xs:documentation>Podle vyhlášky z 2023 již znak V nemá existovat. Zůstane zde zachován pro stará data.</xs:documentation>
           </xs:annotation>
         </xs:element>
@@ -1008,7 +1008,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
   </xs:complexType>
   <xs:complexType name="tSouvisejiciSubjekt">
     <xs:annotation>
-      <xs:documentation>Matadata souvisejících subjektů (typický příklad jsou subjekty správního řízení např. účastníci, dotčené orgány a další subjekty)</xs:documentation>
+      <xs:documentation>Metadata souvisejících subjektů (typický příklad jsou subjekty správního řízení např. účastníci, dotčené orgány a další subjekty)</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Subjekt" type="tSubjekt"/>
@@ -1095,7 +1095,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
   </xs:complexType>
   <xs:complexType name="tAdresaPostovni">
     <xs:annotation>
-      <xs:documentation>Metadata poštovní adresy ( pro doručování fyzických zásilek )</xs:documentation>
+      <xs:documentation>Metadata poštovní adresy (pro doručování fyzických zásilek)</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="0" name="Identifikator" type="tIdentifikator">
@@ -1204,7 +1204,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
   </xs:complexType>
   <xs:complexType name="tAdresaElektronicka">
     <xs:annotation>
-      <xs:documentation>Metadata elektronické adresy ( mail, fax, rep, .. )</xs:documentation>
+      <xs:documentation>Metadata elektronické adresy (mail, fax, rep, ...)</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="0" name="Identifikator" type="tIdentifikator"/>
@@ -1218,7 +1218,7 @@ Subjekt, např. v systémech spisových služeb, může být popsán velmi neúp
   </xs:complexType>
   <xs:complexType name="tAdresat">
     <xs:annotation>
-      <xs:documentation>Popis adresáta jako subjektu, jeho identifikačních atributů, jeho známých adres a jedné aktuálně použité adresy ( použité při procesu vypravení nebo častěji doručení zásilky ).</xs:documentation>
+      <xs:documentation>Popis adresáta jako subjektu, jeho identifikačních atributů, jeho známých adres a jedné aktuálně použité adresy (použité při procesu vypravení nebo častěji doručení zásilky).</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Subjekt" type="tSubjekt">
@@ -1247,12 +1247,12 @@ Přitom podle použitého způsobu vypravení se formát adresy výrazně odliš
       </xs:element>
       <xs:element name="AdresaDS" type="tAdresaDS">
         <xs:annotation>
-          <xs:documentation>Adresa pro realizaci elektronicého doručení prostřednictvím systémem ISDS.</xs:documentation>
+          <xs:documentation>Adresa pro realizaci elektronického doručení prostřednictvím systémem ISDS.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="AdresaElektronicka" type="tAdresaElektronicka">
         <xs:annotation>
-          <xs:documentation>Adresa pro realizaci elektronicého doručení jiného než systémem ISDS.</xs:documentation>
+          <xs:documentation>Adresa pro realizaci elektronického doručení jiného než systémem ISDS.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:choice>
@@ -1378,7 +1378,7 @@ Může se jednat o označení dokumentu nebo spisu určitou značkou, která v t
   </xs:simpleType>
   <xs:simpleType name="sPodaciDenik">
     <xs:annotation>
-      <xs:documentation>Označení podacího deníku či jiné evidenční pomůcky ( většinou se pro označení využívá výstižná zkratka )</xs:documentation>
+      <xs:documentation>Označení podacího deníku či jiné evidenční pomůcky (většinou se pro označení využívá výstižná zkratka)</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:maxLength value="12"/>
@@ -1492,7 +1492,7 @@ Identifikace volajícího má zabránit záměně např. testovací a ostré ins
   </xs:complexType>
   <xs:complexType name="tSouvisejiciSpis">
     <xs:annotation>
-      <xs:documentation>Výčet odkazů na související spisy - rozšížení proti NS2017 pro MV ČR - pro integraci se SAP</xs:documentation>
+      <xs:documentation>Výčet odkazů na související spisy - rozšíření proti NS2017 pro MV ČR - pro integraci se SAP</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator"/>
@@ -1520,7 +1520,7 @@ Identifikace volajícího má zabránit záměně např. testovací a ostré ins
   </xs:complexType>
   <xs:simpleType name="sObdobiId">
     <xs:annotation>
-      <xs:documentation>ID evidenčního období dokumentů. Správce systému ESSL stanovuje ID a název období a také jeho časovou platnost a stav ( otevřeno/uzavřeno )
+      <xs:documentation>ID evidenčního období dokumentů. Správce systému ESSL stanovuje ID a název období a také jeho časovou platnost a stav (otevřeno/uzavřeno)
 V jednom okamžiku může být otevřeno pouze jedno období.</xs:documentation>
       <xs:documentation>NS2023 požadavek č.2.7.2</xs:documentation>
     </xs:annotation>
@@ -1684,7 +1684,7 @@ Při dodatečné editaci nemusí být tato položka vyplněna. Znamená to, že 
       </xs:element>
       <xs:element minOccurs="0" name="AppUrl" type="sAppUrl">
         <xs:annotation>
-          <xs:documentation>URL aplikace pro zobrazení a případnou práci s tímot typovým spisem.</xs:documentation>
+          <xs:documentation>URL aplikace pro zobrazení a případnou práci s tímto typovým spisem.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="StavTypovehoSpisu" type="sStavTypovehoSpisu"/>
@@ -1772,7 +1772,7 @@ Identifikace volajícího má zabránit záměně např. testovací a ostré ins
   </xs:attributeGroup>
   <xs:complexType name="tTransferFileLocation">
     <xs:annotation>
-      <xs:documentation>Struktura určená pouze pro situaci Export nebo Přenost dat. 
+      <xs:documentation>Struktura určená pouze pro situaci Export nebo Přenos dat. 
 Umožňuje v rámci lokální relativní cesty vůči načítanému XML souboru s daty dokumentu určit elektronický soubor s binárním obsahem přenášené komponenty.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -1787,7 +1787,7 @@ Standardně se bude jednat o podadresář např. data nebo komponenty atd. </xs:
         <xs:annotation>
           <xs:documentation>Jméno pomocného souboru použitého pro přenos nebo export binárního obsahu komponenty.
 Jméno souboru standardně nebude odpovídat jménu komponenty evidované u přenášeného souboru. 
-Ani přímona souboru nemusí odpovídat skutečné příponě komponety.
+Ani přípona souboru nemusí odpovídat skutečné příponě komponenty.
 Standardně se bude jednat o strojně generovaný název např. s příponou .bin nebo .dat 
 Jediné zásadní je zachovat unikátnost názvů přenášených souborů v rámci celé exportované nebo přenášené dávky.</xs:documentation>
         </xs:annotation>
@@ -1802,9 +1802,9 @@ Jediné zásadní je zachovat unikátnost názvů přenášených souborů v rá
         <xs:annotation>
           <xs:documentation>Pořadové číslo verze souboru/komponenty. Verze začínají od 1 a tvoří rostoucí nepřerušenou řadu.
 Při přenosu dat dokumentu je přípustné přenést pouze poslední verzi souboru/komponenty.
-Pokud je v rámci implementace dohodnut i přenos starých verzí komponenty, potom se pod stejnou identifikací ( element Identifikator ) přenesou jednotlivé verze komponenty.
+Pokud je v rámci implementace dohodnut i přenos starých verzí komponenty, potom se pod stejnou identifikací (element Identifikator) přenesou jednotlivé verze komponenty.
 Poslední verze s nejvyšším pořadovým číslem je pokládána a poslední/aktuální verzi komponenty.
-Pozor! Příznak dmFinalVerze nesmusí být nastaven pouze pro nejvyšší/aktuální verzi komponenty. 
+Pozor! Příznak dmFinalVerze nemusí být nastaven pouze pro nejvyšší/aktuální verzi komponenty. 
 I u finální verze komponenty může např. přerazítkováním vzniknout nová verze komponenty. Jedná se potom o verzi, která vznikla ne z vůle uživatele, ale např. kvůli technickým nebo legislativním požadavkům.</xs:documentation>
           <xs:documentation>Číslo verze komponenty NSESSS 2.1.1</xs:documentation>
         </xs:annotation>
@@ -1996,7 +1996,7 @@ Většinou oslovení</xs:documentation>
             <xs:element minOccurs="0" name="AdresaRadek2" type="sAdresaRadek">
               <xs:annotation>
                 <xs:documentation>Druhý řádek zásilkové adresy.
-Většinou funkce nebo konkrétní osoba ( u firem nebo organizací )</xs:documentation>
+Většinou funkce nebo konkrétní osoba (u firem nebo organizací)</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="AdresaRadek3" type="sAdresaRadek">
@@ -2014,7 +2014,7 @@ Většinou ulice.</xs:documentation>
             <xs:element minOccurs="0" name="AdresaRadek5" type="sAdresaRadek">
               <xs:annotation>
                 <xs:documentation>Pátý řádek zásilkové adresy.
-Většinou částo obce</xs:documentation>
+Většinou část obce</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="AdresaRadek6" type="sAdresaRadek">
@@ -2068,7 +2068,7 @@ Bohužel, toto schéma bude pro určité časové období pevné, ale obchodní 
             <xs:element minOccurs="0" maxOccurs="unbounded" name="PostovniSluzbaText"
               type="xs:string">
               <xs:annotation>
-                <xs:documentation>Tento prvek se použije pouze v případě, že Česká pošta ( nebo časem jiný poskytovatel poštovních služeb ) vytvoří novou službu, která není obsažena v této verzi standardu.
+                <xs:documentation>Tento prvek se použije pouze v případě, že Česká pošta (nebo časem jiný poskytovatel poštovních služeb) vytvoří novou službu, která není obsažena v této verzi standardu.
 Této textové podoby určení poštovní služby se nesmí zneužívat pro "usnadnění si práce". 
 Zde použité textové konstanty musí být vždy dohodnuty s komunikující protistranou v rámci každé implementace rozhraní.
 </xs:documentation>
@@ -2177,7 +2177,7 @@ Pokud element není uveden, potom se to chápe jako hodnota (ne).</xs:documentat
         <xs:annotation>
           <xs:documentation>URL stream webové služby pro získání obsahu komponenty - elektronického souboru.
 V rámci URL může být zakódovaný přístupový klíč a platnost vystavené URL může být omezena časově nebo i počtem použití.
-Při exspiraci získané URL musí externí systém znovu požádat a získání této informace.</xs:documentation>
+Při expiraci získané URL musí externí systém znovu požádat a získání této informace.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="KonverzniPosta">
@@ -2219,14 +2219,14 @@ U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přená�
   <xs:complexType name="tProfilUzivateleSeznam">
     <xs:annotation>
       <xs:documentation>Metadata uživatele/funkčního místa pro použití v seznamových funkcích.
-Fyzická osoba s přiděleným loginem může zastávat více funčních míst.</xs:documentation>
+Fyzická osoba s přiděleným loginem může zastávat více funkčních míst.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="IdUzivatele" type="tUzivatel">
         <xs:annotation>
-          <xs:documentation>ID uživatele - používá se u polozek VlastniKdo, provedlKdo, novyZpracovatel
+          <xs:documentation>ID uživatele - používá se u položek VlastniKdo, provedlKdo, novyZpracovatel
 ID uživatele jednoznačně identifikuje kdo entitu vlastní, kdo s ní provedl úkon atd..
-ID uživatele může být přiřazeno jedné konkrétní pracovní pozici přihlášené osoby, nebo pokud IS nepracuje s identifikovanými pracovními pozicemu ( funkčními místy ), potom přímo identifikuje přihlášenou osobu.
+ID uživatele může být přiřazeno jedné konkrétní pracovní pozici přihlášené osoby, nebo pokud IS nepracuje s identifikovanými pracovními pozicemi (funkčními místy), potom přímo identifikuje přihlášenou osobu.
 ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozice atd.. záleží na konkrétní implementaci IS.</xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -2234,12 +2234,12 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
       <xs:element minOccurs="0" name="OsobniCislo" type="xs:string"/>
       <xs:element name="Jmeno" type="sJmeno">
         <xs:annotation>
-          <xs:documentation>Element se neuvádí v případě TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
+          <xs:documentation>Element se neuvádí v případě TypSubjektu="Pravnicka" nebo "Utvar".</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="Prijmeni" type="sPrijmeni">
         <xs:annotation>
-          <xs:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
+          <xs:documentation>Element se neuvádí v případě že TypSubjektu="Pravnicka" nebo "Utvar".</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="TitulPred" type="sTitul"/>
@@ -2247,7 +2247,7 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
       <xs:element minOccurs="0" name="FunkcniMistoKod" type="sFunkcniMistoKod"/>
       <xs:element minOccurs="0" name="FunkcniMistoNazev" type="sFunkcniMistoNazev">
         <xs:annotation>
-          <xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Pravnicka" a value="Utvar".</xs:documentation>
+          <xs:documentation>Element se uvádí pouze v případě že TypSubjektu="Utvar".</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="IdOrganizacniJednotky" type="xs:string"/>

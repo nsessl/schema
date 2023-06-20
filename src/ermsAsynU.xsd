@@ -4,7 +4,7 @@
   id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
   <xs:annotation>
     <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
-Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.</xs:documentation>
+Toto schéma popisuje asynchronní výměnu událostí, např. formou dávek.</xs:documentation>
   </xs:annotation>
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
   <xs:include schemaLocation="ermsTypes.xsd"/>
@@ -89,7 +89,7 @@ Vloženi dokumentu do spisu.</xs:documentation>
         <xs:element name="SpisId" type="tIdSpisu"/>
         <xs:element name="DokumentyVlozene">
           <xs:annotation>
-            <xs:documentation>Je-li použit element DokumentUplnyVlozeny, pak je jsou nejprve založenydokument uvedený v tomto elementu, poté je do spisu vloženy.
+            <xs:documentation>Je-li použit element DokumentUplnyVlozeny, pak je nejprve založen dokument uvedený v tomto elementu, poté je do spisu vložen.
 Při variantě DokumentIdVlozeny je do spisu vložen již existující dokument.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
@@ -182,7 +182,7 @@ Vyjmutí dokumentu ze spisu.</xs:documentation>
   <xs:element name="DokumentVyrizeni">
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL.
-Vyřízení dokumentu. Při vyřízení dokumentu dojde současně k převedení všech jeho elektronických souborů do stavu finál. Tedy do stavu, který neumožňuje další editaci souborů. Změna datového typu, připojení časových razítek atd.. ale není považována za editaci a lze tyto akce realizovat i po vyřízení dokumentů.</xs:documentation>
+Vyřízení dokumentu. Při vyřízení dokumentu dojde současně k převedení všech jeho elektronických souborů do stavu finall. Tedy do stavu, který neumožňuje další editaci souborů. Změna datového typu, připojení časových razítek atd.. ale není považována za editaci a lze tyto akce realizovat i po vyřízení dokumentů.</xs:documentation>
       <xs:documentation>NS2023 požadavek č.3.2.7</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -227,7 +227,7 @@ Stornování dokumentu.</xs:documentation>
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL
 Vrácení zpracování dokumentu do ESSL. 
-ISSD se touto událostí vzdává exklusivního přístupu k datům dokumentu a nadále bude tato data již pouze číst. Aktivní správu dokumentů musí po této akci převzít ESSL a dokončit tak životní cyklus dokumentu.
+ISSD se touto událostí vzdává exkluzivního přístupu k datům dokumentu a nadále bude tato data již pouze číst. Aktivní správu dokumentů musí po této akci převzít ESSL a dokončit tak životní cyklus dokumentu.
 Jedná se o reversní událost k události DokumentPostoupeni.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -242,7 +242,7 @@ Jedná se o reversní událost k události DokumentPostoupeni.</xs:documentation
   <xs:element name="SpisPostoupeni">
     <xs:annotation>
       <xs:documentation>Postoupení zpracování spisu do jiného ERMS.
-V původním ERMS je nad spisem vytvořen excluzivní zámek, aby nešel prostředky původního ERMS spis měnit. 
+V původním ERMS je nad spisem vytvořen exkluzivní zámek, aby nešel prostředky původního ERMS spis měnit. 
 Toto oprávnění bude mít od této chvíle pouze nové ERMS.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -258,7 +258,7 @@ Toto oprávnění bude mít od této chvíle pouze nové ERMS.</xs:documentation
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL.
 Založení spisu. 
-SpisovaZnacka, PodaciDenik, PodaciDenikRok, PodaciDenikPoradi je přidělována již ve volajícím ISSD. To předpokládá vyhrazený samostatný deník pro evidenci spisů vznikých v rámci ISSD.
+SpisovaZnacka, PodaciDenik, PodaciDenikRok, PodaciDenikPoradi je přidělována již ve volajícím ISSD. To předpokládá vyhrazený samostatný deník pro evidenci spisů vzniklých v rámci ISSD.
 </xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -379,7 +379,7 @@ Stornování spisu a všech dokumentů v něm vložených.</xs:documentation>
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL
 Vrácení zpracování spisu a všech v něm aktuálně vložených dokumentů do ESSL. 
-ISSD se touto událostí vzdává exklusivního přístupu k datům spisu a jeho dokumentů a nadále bude tato data již pouze číst. Aktivní správu spisu musí po této akci převzít ESSL a dokončit tak životní cyklus spisu.
+ISSD se touto událostí vzdává exkluzivního přístupu k datům spisu a jeho dokumentů a nadále bude tato data již pouze číst. Aktivní správu spisu musí po této akci převzít ESSL a dokončit tak životní cyklus spisu.
 Jedná se o reversní událost k události SpisPostoupeni.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -556,7 +556,7 @@ Zrušení/stornování jednoho konkrétního vypravení dokumentu.</xs:documenta
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL.
 Předání jednotlivých vypravení, nebo obálek výpravně. Od tohoto okamžiku převezme aktivní práci se zásilkou systém ESSL přesněji jeho výpravna. Systém ISSD od tohoto okamžiku nesmí se zásilkou manipulovat.
-Pro tuto akci nesmí být Vypravení již Vypaveno, Doručeno, Zrušeno, Předáno výpravně.
+Pro tuto akci nesmí být Vypravení již Vypraveno, Doručeno, Zrušeno, Předáno výpravně.
 </xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -587,7 +587,7 @@ Uložení nového souboru do úložiště obsahu elektronických dokumentů.
 Takto uložený soubor lze následně, v rámci dalších událostí, využít a to odkazem na identifikátor souboru.
 Dopředné uložení souborů do úložiště, bez vazby na konkrétní dokument, má umožnit rozložení velkých objemů do více po sobě jdoucích kroků. 
 Např. založení spisu je v jedné operaci doprovázeno současným založením všech ve spisu obsažených dokumentů. Tyto dokumenty ale mohou být propojeny na několik elektronických souborů. Pokud by se tato akce realizovala v jednom kroku, potom by přenášený datový objem spojený s touto operací přesáhl možnosti podepisovaného XML.
-Vlastní binární obsah může být volitelně buď součástí této události, nebo v případě varianty SouborOdkaz bude obdržený identifikátor použit jako vstupní parametr REST funkce zdrojového IS pro download souboru. Definice url adresy REST funkce je věcí implementace integrujících se IS.
+Vlastní binární obsah může být volitelně buď součástí této události, nebo v případě varianty SouborOdkaz bude obdržený identifikátor použit jako vstupní parametr REST funkce zdrojového IS pro download souboru. Definice URL adresy REST funkce je věcí implementace integrujících se IS.
 </xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -600,7 +600,7 @@ Vlastní binární obsah může být volitelně buď součástí této události
                 <xs:element name="Soubor" type="tFile"/>
                 <xs:element name="SouborOdkaz" type="tFileLink">
                   <xs:annotation>
-                    <xs:documentation>Zde je uvedena možnost, pro založení souboru, použít odkaz na soubor. To následně předpokládá, že příjemce těchto dat musí volat REST službu pro získání obsahu samotné nové verze el.souboru</xs:documentation>
+                    <xs:documentation>Zde je uvedena možnost, pro založení souboru, použít odkaz na soubor. To následně předpokládá, že příjemce těchto dat musí volat REST službu pro získání obsahu samotné nové verze el. souboru</xs:documentation>
                   </xs:annotation>
                 </xs:element>
               </xs:choice>
@@ -630,7 +630,7 @@ Pokud je identifikátor elektronického souboru propojen současně na více dok
                 <xs:element name="Soubor" type="tFile"/>
                 <xs:element name="SouborOdkaz" type="tFileLink">
                   <xs:annotation>
-                    <xs:documentation>Zde je uvedena možnost, pro založení nové verze souboru, použít odkaz na soubor. To následně předpokládá, že příjemce těchto dat musí volat REST službu pro získání obsahu samotné nové verze el.souboru</xs:documentation>
+                    <xs:documentation>Zde je uvedena možnost, pro založení nové verze souboru, použít odkaz na soubor. To následně předpokládá, že příjemce těchto dat musí volat REST službu pro získání obsahu samotné nové verze el. souboru</xs:documentation>
                   </xs:annotation>
                 </xs:element>
               </xs:choice>
@@ -717,8 +717,8 @@ Odstraní z dokumentu vazbu na zadaný elektronický soubor. Soubor samotný ale
   <xs:element name="SouborVlozitKVypraveni">
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL
-K existujícímů vypravení připojí el. přílohu - soubor. 
-Vypravení nesmí být Vypaveno, Doručeno, Zrušeno, Předáno výpravně.</xs:documentation>
+K existujícímu vypravení připojí el. přílohu - soubor. 
+Vypravení nesmí být Vypraveno, Doručeno, Zrušeno, Předáno výpravně.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -754,7 +754,7 @@ Vypravení nesmí být Vypaveno, Doručeno, Zrušeno, Předáno výpravně.</xs:
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL
 Zrušení vazby mezi souborem a vypravením dokumentu. Vlastní soubor zůstává v úložišti elektronických dokumentů zachován.
-Vypravení nesmí být Vypaveno, Doručeno, Zrušeno, Předáno výpravně.</xs:documentation>
+Vypravení nesmí být Vypraveno, Doručeno, Zrušeno, Předáno výpravně.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -789,7 +789,7 @@ Vypravení nesmí být Vypaveno, Doručeno, Zrušeno, Předáno výpravně.</xs:
   <xs:element name="DokumentExterniSpousteciUdalost">
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL
-Zápis datumu externí spouštěcí události</xs:documentation>
+Zápis data externí spouštěcí události</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -804,7 +804,7 @@ Zápis datumu externí spouštěcí události</xs:documentation>
   <xs:element name="SpisExterniSpousteciUdalost">
     <xs:annotation>
       <xs:documentation>Hlášení z ISSD do ESSL
-Zápis datumu externí spouštěcí události</xs:documentation>
+Zápis data externí spouštěcí události</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -818,7 +818,7 @@ Zápis datumu externí spouštěcí události</xs:documentation>
   </xs:element>
   <xs:element name="DokumentSkartovano">
     <xs:annotation>
-      <xs:documentation>Hlášení z ISSD do ESSL ale také z ESSL do ISSD ( v případě specifické implementace rozhraní )
+      <xs:documentation>Hlášení z ISSD do ESSL ale také z ESSL do ISSD (v případě specifické implementace rozhraní)
 Postoupení informace o proběhlé skartaci dokumentu.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -834,7 +834,7 @@ Postoupení informace o proběhlé skartaci dokumentu.</xs:documentation>
   </xs:element>
   <xs:element name="SpisSkartovano">
     <xs:annotation>
-      <xs:documentation>Hlášení z ISSD do ESSL ale také z ESSL do ISSD ( v případě specifické implementace rozhraní )
+      <xs:documentation>Hlášení z ISSD do ESSL ale také z ESSL do ISSD (v případě specifické implementace rozhraní)
 Postoupení informace o proběhlé skartaci.</xs:documentation>
     </xs:annotation>
     <xs:complexType>

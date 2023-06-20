@@ -3,10 +3,8 @@
   elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
   id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
   <xs:annotation>
-    <xs:documentation>
-      Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
-      Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.
-    </xs:documentation>
+    <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
+Toto schéma popisuje asynchronní výměnu událostí, např. formou dávek.</xs:documentation>
   </xs:annotation>
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
   <xs:include schemaLocation="ermsTypes.xsd"/>
@@ -131,10 +129,10 @@ Odeslaná dávka z pohledu aktuálně volaného systému, systému který odpov�
 Pokud dojde k chybě některého prostředku, musí se toto projevit vypovídajícím textem v položce "Popis".
 Testovat by se mělo především
  - shoda uvedené položky "Cil" s cílovým ERMS
- - shoda časového údaje uvedeného v části Autorizace se systémovým časem volaného systému ( čas musí odpovídat přibližně, musí být uplatněna určitá přípustná tolerance - do testu musí být zahrnuta určitá časová prodleva potřebná pro přenos dat po síti. )
+ - shoda časového údaje uvedeného v části Autorizace se systémovým časem volaného systému (čas musí odpovídat přibližně, musí být uplatněna určitá přípustná tolerance - do testu musí být zahrnuta určitá časová prodleva potřebná pro přenos dat po síti.)
  - kontrolu hodnoty položky "provedlKdo" proti seznamu všech známých uživatelů.
  - napojení do databáze systému
- - napojení na úložiště elektronických dokumentů ( pokud je oddělené od databáze systému )
+ - napojení na úložiště elektronických dokumentů (pokud je oddělené od databáze systému)
  - přístup do adresářů pro logování dávek a případných chybových zpráv
  - přístup k podpisovým certifikátům
  - další technické prostředky

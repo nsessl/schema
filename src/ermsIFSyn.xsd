@@ -4,7 +4,7 @@
   id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
   <xs:annotation>
     <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
-      Toto schéma popisuje synchroní výměnu událostí, např. formou webových služeb.</xs:documentation>
+      Toto schéma popisuje synchronní výměnu událostí, např. formou webových služeb.</xs:documentation>
   </xs:annotation>
   <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
   <xs:include schemaLocation="ermsTypes.xsd"/>
@@ -56,7 +56,7 @@ Založení spisu.
 Je možné založit spis i s dokumenty v něm vloženými, nebo je možné založit prázdný spis.
 Jako iniciační dokument spisu se považuje dokument s pořadovým číslem 1.
 Pořadové číslo, rok a deník určuje volající ISSD v případě, že je pro něj vyhrazen samostatný deník spisů.
-Pokud je deník spisů v rámci ESSL nastaven centrální jeden, potom se položky pro podací deník, rok a pořadové číslo na vstupu této WS ignorují a jsou přiděleny z ESSL podle jeho aktuálního nastavení a vráceny vrámci response tohoto volání.</xs:documentation>
+Pokud je deník spisů v rámci ESSL nastaven centrální jeden, potom se položky pro podací deník, rok a pořadové číslo na vstupu této WS ignorují a jsou přiděleny z ESSL podle jeho aktuálního nastavení a vráceny v rámci response tohoto volání.</xs:documentation>
       <xs:documentation>NS2023 požadavek č.8.1.8 a)
 NS2023 požadavek č.3.2.4</xs:documentation>
     </xs:annotation>
@@ -90,7 +90,7 @@ NS2023 požadavek č.3.2.2</xs:documentation>
   <xs:element name="UdalostiRequest">
     <xs:annotation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
-Požadavek na synchronní zpracování seznamu udalostí.</xs:documentation>
+Požadavek na synchronní zpracování seznamu událostí.</xs:documentation>
       <xs:documentation>NS2023 požadavek č.8.1.8 k)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -137,10 +137,10 @@ Volání WS s žádostí o postoupení dokumentu z ESSL do výhradní správy IS
   </xs:element>
   <xs:element name="DokumentPostoupeniZadostResponse">
     <xs:annotation>
-      <xs:documentation>Odpověď na volání webové služby s požadavkem na postoupení ( předání do výhradní správy ) zadaného dokumentu.
+      <xs:documentation>Odpověď na volání webové služby s požadavkem na postoupení (předání do výhradní správy) zadaného dokumentu.
 Odpověď obsahuje kompletní popis postupovaného dokumentu nebo číselný a textový popis chyby. 
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo postoupeného dokumentu chybový kód 0001 - Nedostatečná oprávnění
-Za chybu je považována žádost o postoupení dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).</xs:documentation>
+Za chybu je považována žádost o postoupení dokumentu, který není ve volaném systému obsažen (na základě zadaného identifikátoru).</xs:documentation>
       <xs:documentation>NS2023 požadavek č.8.1.8 c)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -219,7 +219,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
     <xs:annotation>
       <xs:documentation>Odpověď na volání webové služby s žádostí o poskytnutí detailních informací o dokumentu.
 Odpověď obsahuje kompletní popis dokumentu nebo číselný a textový popis chyby. 
-Za chybu je považována žádost o informace o dokumentu, který není ve volaném systému obsažen ( na základě zadaného identifikátoru ).
+Za chybu je považována žádost o informace o dokumentu, který není ve volaném systému obsažen (na základě zadaného identifikátoru).
 Volaný systém může posuzovat oprávnění přístupu uživatele k zadanému dokumentu a žádost může zamítnout tak, že vrátí místo profilu dokumentu chybový kód 0001 - Nedostatečná oprávnění.</xs:documentation>
       <xs:documentation>NS2023 požadavek č.8.1.8 e)</xs:documentation>
     </xs:annotation>
@@ -337,7 +337,7 @@ Webová služba pro získání seznamu číselníků, které jsou dostupné v r�
         </xs:element>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
           <xs:annotation>
-            <xs:documentation>Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
+            <xs:documentation>Doplňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:sequence>
@@ -374,7 +374,7 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
         </xs:element>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
           <xs:annotation>
-            <xs:documentation>Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
+            <xs:documentation>Doplňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:sequence>
@@ -422,7 +422,7 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
         </xs:element>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
           <xs:annotation>
-            <xs:documentation>Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
+            <xs:documentation>Doplňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:sequence>
@@ -453,7 +453,7 @@ Tedy např. 'DruhDokumentu', 'SkartacniRezim' apod. Jaké typy číselníků si 
         </xs:element>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
           <xs:annotation>
-            <xs:documentation>Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
+            <xs:documentation>Doplňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:sequence>
@@ -492,7 +492,7 @@ Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:
         <xs:element name="Autorizace" type="tAutorizace"/>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData">
           <xs:annotation>
-            <xs:documentation>Dopňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
+            <xs:documentation>Doplňující data mohou sloužit k předání kritérií pro výběr určité podmnožiny číselníku.</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:sequence>
@@ -543,7 +543,7 @@ Používá to ale systém RŽP pro dvousložkovou identifikaci uživatelů.</xs:
     <xs:annotation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Webovou službu poskytuje ISSD pro napojené ESSL.
-Požadavek na seznam entit vlatněných uživatelem ESSL/ISSD (Určeno elementem provedlKdo).
+Požadavek na seznam entit vlastněných uživatelem ESSL/ISSD (Určeno elementem provedlKdo).
 Filtrovat lze i pomocí dalších nepovinných elementů.
 Funkce vrací v jedné odpovědi (response) maximálně 100 záznamů. 
 Je-li vráceno právě 100 záznamů, je nutné pro získání kompletního seznamu volat funkci opakovaně s uvedeným parametrem odZaznamu (např.101, 201 atd.)</xs:documentation>
@@ -761,7 +761,7 @@ Tento údaj může volaný systém využít k posouzení přístupových práv k
       <xs:documentation>NS2023 požadavek č.8.1.n) r)</xs:documentation>
       <xs:documentation>Podle pravidel ISZR by se uvedené položky měly hledat na přesnou shodu case insensitive.
 V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation>
-      <xs:documentation>Tato služba musí být ve svém výstupu omezena na maximální počet vrácených záznamů. Toto omezení bude v rámci implemnentací konfigurovatelné.</xs:documentation>
+      <xs:documentation>Tato služba musí být ve svém výstupu omezena na maximální počet vrácených záznamů. Toto omezení bude v rámci implementací konfigurovatelné.</xs:documentation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Žádost o získání seznamu osob z jmenného rejstříku vedeného při ESSL.</xs:documentation>
     </xs:annotation>
@@ -804,7 +804,7 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
                     </xs:element>
                     <xs:element name="CisloDomu" type="xs:string">
                       <xs:annotation>
-                        <xs:documentation>Umožňuje zadat text, který se použije pro hledání na přesnou shodu přes: číslo pospisné nebo číslo oriantační nebo číslo evidenční. </xs:documentation>
+                        <xs:documentation>Umožňuje zadat text, který se použije pro hledání na přesnou shodu přes: číslo popisné nebo číslo orientační nebo číslo evidenční. </xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="Obec" type="sObec">
@@ -900,8 +900,8 @@ V rámci konkrétní implementace je možná i jiná konvence.</xs:documentation
         </xs:element>
         <xs:element minOccurs="0" name="SeznamOmezen" type="sSeznamOmezen">
           <xs:annotation>
-            <xs:documentation>Příznak, který signalizuje, že nalezených záznamů je více, než dovoluje nastavení omezení pro maxímální počet vracených záznamů.
-Pokud tento příznak nenú uveden, potom seznam vrázených záznamů je kompletní, tedy bez omezení.</xs:documentation>
+            <xs:documentation>Příznak, který signalizuje, že nalezených záznamů je více, než dovoluje nastavení omezení pro maximální počet vracených záznamů.
+Pokud tento příznak není uveden, potom seznam vrácených záznamů je kompletní, tedy bez omezení.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="OperaceStatus" type="tOperaceStatus"/>
@@ -991,13 +991,12 @@ Aktivní operace s daty spisu smí od tohoto okamžiku realizovat již pouze ESS
   </xs:element>
   <xs:element name="UzivateleSeznamRequest">
     <xs:annotation>
-      <xs:documentation>VZ01_priloha2 bod i) - podbod 12</xs:documentation>
       <xs:documentation>V rámci celého rozhraní ale také v rámci exportu/přenosu se pracuje s ID uživatele.
 Systémy si musí vzájemně propojit seznam uživatelů. Pro toto propojení slouží tato webové služba.
 Seznam uživatelů může být přímo seznamem osob, které se mohou do systému s pomocí svého přihlašovacího jména přihlásit.
 Nebo se může jednat o větší seznam a to seznam funkčních/pracovních míst. Jedna přihlašující se osoba může v rámci systému zastávat více funkčních/pracovních míst. 
 Při přihlášení svým přihlašovacím jménem potom zvolí, za kterou svou pracovní pozici chce v systému pracovat. 
-V obou případěch se musí zajistit, že IDUzivatele v tomto seznamu bude unikátní pro všechny zde uvedené záznamu. 
+V obou případech se musí zajistit, že IDUzivatele v tomto seznamu bude unikátní pro všechny zde uvedené záznamu. 
 V rámci zde uvedených záznamů nemusí být unikátní hodnota položky PrihlasovaciJmeno a položky OsobniCislo.</xs:documentation>
       <xs:documentation>Webovou službu poskytuje ESSL pro napojené ISSD.
 Webovou službu poskytuje ISSD pro napojené ESSL.</xs:documentation>

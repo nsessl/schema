@@ -103,6 +103,7 @@
         <include name="*.html"/>
         <include name="*.rtf"/>
         <exclude name="README.html"/>
+        <exclude name="www.mvcr.cz-pozadavky.html"/>
       </zipfileset>
     </zip>    
   </target>
