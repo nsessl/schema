@@ -373,7 +373,7 @@ Stornování spisu a všech dokumentů v něm vložených.</xs:documentation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="SpisId" type="tIdSpisu"/>
-        <xs:element minOccurs="0" name="Duvod" type="sDuvod"/> 
+        <xs:element minOccurs="0" name="Duvod" type="sDuvod"/>
         <xs:element name="Autorizace" type="tAutorizace"/>
         <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
       </xs:sequence>
@@ -603,7 +603,7 @@ Vlastní binární obsah může být volitelně buď součástí této události
               <xs:element minOccurs="0" name="DoplnujiciData" type="tDoplnujiciData"/>
               <xs:choice>
                 <xs:element name="Soubor" type="tFile"/>
-                <xs:element name="SouborOdkaz" type="tFileLinkZalozeni">
+                <xs:element name="SouborOdkaz" type="tFileLink">
                   <xs:annotation>
                     <xs:documentation>Zde je uvedena možnost, pro založení souboru, použít odkaz na soubor. To následně předpokládá, že příjemce těchto dat musí volat REST službu pro získání obsahu samotné nové verze el.souboru</xs:documentation>
                   </xs:annotation>

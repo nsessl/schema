@@ -241,38 +241,7 @@ Při exspiraci získané URL musí externí systém znovu požádat a získání
 U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přenášet s pomocí REST služby a nebude se tedy využívat tFile</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-  </xs:complexType>
-  <xs:complexType name="tFileLinkZalozeni">
-    <xs:sequence>
-      <xs:element name="Identifikator" type="tIdentifikator"/>
-    </xs:sequence>
-    <xs:attribute name="dmFileMetaType" use="optional" type="sFileMetaType">
-      <xs:annotation>
-        <xs:documentation>výčet typů písemností, main je pouze jedna</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="dmFileGuid" type="xs:string" use="optional">
-      <xs:annotation>
-        <xs:documentation>Interní identifikátor souboru unikátní v rámci všech ERMS organizace.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="dmUpFileGuid" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Nepovinný interní identifikátor nadřízeného dokumentu (např. pro vztah soubor - podpis aj.)</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="dmFileDescr" type="xs:string" use="required">
-      <xs:annotation>
-        <xs:documentation>Musí obsahovat jméno souboru, splňující požadavky Windows a Linux OS, kladené na pojmenování souboru v rámci souborového systému, včetně přípony souboru.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="dmFinalniVerze" use="optional" type="sFinalniVerze">
-      <xs:annotation>
-        <xs:documentation>Označuje, zda je soubor již ve finálním (neměnitelném) tvaru. Není-li atribut uveden, pak má stejný význam jako hodnota N. 
-U odkazu je tento atribut uveden pro situace, kdy se obsah souboru bude přenášet s pomocí REST služby a nebude se tedy využívat tFile</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:complexType>
+  </xs:complexType>  
   <xs:complexType name="tFileId">
     <xs:sequence>
       <xs:element name="Identifikator" type="tIdentifikator"/>
