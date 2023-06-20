@@ -2367,13 +2367,13 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
   </xs:simpleType>
   <xs:simpleType name="sJmeno">
     <xs:restriction base="xs:string">
-      <xs:maxLength value="24"/>
+      <xs:maxLength value="100"/>
       <xs:minLength value="1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sPrijmeni">
     <xs:restriction base="xs:string">
-      <xs:maxLength value="35"/>
+      <xs:maxLength value="100"/>
       <xs:minLength value="1"/>
     </xs:restriction>
   </xs:simpleType>
@@ -2402,7 +2402,7 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
   </xs:simpleType>
   <xs:simpleType name="sObchodniNazev">
     <xs:restriction base="xs:string">
-      <xs:maxLength value="255"/>
+      <xs:maxLength value="100"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sIC">
