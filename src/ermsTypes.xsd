@@ -3065,7 +3065,7 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
   <xs:simpleType name="sPodaciCislo">
     <xs:restriction base="xs:string">
       <xs:minLength value="0"/>
-      <xs:maxLength value="30"/>
+      <xs:maxLength value="40"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sIdZasilky">
