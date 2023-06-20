@@ -1073,7 +1073,7 @@ Zde uvedený text by měl jednoznačně specifikovat zdroj uvedeného identifik�
           <xs:documentation>Element se neuvádí pouze v případě že TypSubjektu="Fyzicka".</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="IC" type="sRozsireneIC">
+      <xs:element minOccurs="0" name="IC" type="sIC">
         <xs:annotation>
           <xs:documentation>IČO se uvádí, pokud je subjektu IČO přiděleno a je v době pořízení záznamu známé.
 Pro zahraniční subjekty tato položka nesplňuje formální požadavky kladené na IČo a lze zde uvádět např. daňové ID nebo jinou identifikaci.</xs:documentation>
@@ -2476,14 +2476,8 @@ ID může mít různé podoby, login, mail, osobní číslo, kód pracovní pozi
   </xs:simpleType>
   <xs:simpleType name="sIC">
     <xs:restriction base="xs:string">
-      <xs:length value="8"/>
-      <xs:pattern value="[0-9]{0,8}"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="sRozsireneIC">
-    <xs:restriction base="xs:string">
-      <xs:maxLength value="14"/>
       <xs:minLength value="1"/>
+      <xs:maxLength value="14"/>      
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="sSeznamOmezen">
