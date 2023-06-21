@@ -1,100 +1,115 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:nsesss="http://www.mvcr.cz/nsesss/v3" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.mvcr.cz/nsesss/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0" id="nsesss-plan">
-  <xs:include schemaLocation="nsesss.xsd"/>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.mvcr.cz/nsesss/v4"
+  xmlns="http://www.mvcr.cz/nsesss/v4"
+  elementFormDefault="qualified"
+  version="4.0" id="nsesss-plan" xml:lang="cs">
 
-	<xs:annotation>
-		<xs:documentation xml:lang="cs">Schéma XML pro export a import spisového a skartačního plánu podle národního standardu pro elektronické systémy spisové služby</xs:documentation>
-		<xs:appinfo>
-			<rdf:RDF>
-				<rdf:Description>
-					<dc:Creator>Odbor archivní správy Ministerstva vnitra</dc:Creator>
-					<dc:Description>Schéma XML pro export a import spisového a skartačního plánu</dc:Description>
-					<dc:Publisher>Ministerstvo vnitra</dc:Publisher>
-					<dc:Date>2017-05-23</dc:Date>
-					<dc:Type>XML Schema</dc:Type>
-					<dc:Format>text/xml</dc:Format>
-					<dc:Language>cs-CZ</dc:Language>
-				</rdf:Description>
-			</rdf:RDF>
-		</xs:appinfo>
-	</xs:annotation>
+  <xs:include schemaLocation="nsesss-common.xsd"/>
 
-	<xs:element name="SpisovyPlan">
-		<xs:annotation>
-			<xs:documentation xml:lang="cs">Sada elementů pro popis spisového plánu (hierarchického uspořádání věcných skupin) organizace.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Identifikator" type="nsesss:tIdentifikator"/>
-				<xs:element name="Nazev" type="nsesss:tNazev"/>
-				<xs:element name="Komentar" type="nsesss:tKomentar" minOccurs="0"/>
-				<xs:element name="Manipulace" type="nsesss:tManipulaceSpisovyPlan"/>
-				<xs:element name="Vydavatel" type="nsesss:tOsobaExterni">
-					<xs:annotation>
-						<xs:documentation xml:lang="cs">Prvek pro zaznamenání organizace, která vydala a které přísluší popisovaný spisový plán.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="PlanVecnaSkupina" type="nsesss:tPlanVecnaSkupina" maxOccurs="unbounded"/>
-			</xs:sequence>
-			<xs:attribute name="ID" type="xs:ID" use="required">
-				<xs:annotation>
-					<xs:documentation xml:lang="cs">Identifikátor jednoznačně označuje objekt uvnitř XML dokumentu.</xs:documentation>
-				</xs:annotation>
-			</xs:attribute>
-		</xs:complexType>
-	</xs:element>
+  <xs:annotation>
+    <xs:documentation>Schéma XML pro export a import spisového a skartačního plánu podle národního standardu pro elektronické systémy spisové služby</xs:documentation>
+  </xs:annotation>
+
+  <xs:element name="SpisovyPlan">
+    <xs:annotation>
+      <xs:documentation>Sada elementů pro popis spisového plánu (hierarchického uspořádání věcných skupin) organizace.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Identifikator" type="tIdentifikator"/>
+        <xs:element name="Nazev" type="tNazev"/>
+        <xs:element name="Komentar" type="tKomentar" minOccurs="0"/>
+        <xs:element name="Manipulace" type="tManipulaceSpisovyPlan"/>
+        <xs:element name="Vydavatel" type="tOsobaExterni">
+          <xs:annotation>
+            <xs:documentation>Prvek pro zaznamenání organizace, která vydala a které přísluší popisovaný spisový plán.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="PlanVecnaSkupina" type="tPlanVecnaSkupina" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="ID" type="xs:ID" use="required">
+        <xs:annotation>
+          <xs:documentation>Identifikátor jednoznačně označuje objekt uvnitř XML dokumentu.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
 
   <xs:complexType name="tPlanEvidencniUdajeVecneSkupiny">
-		<xs:annotation>
-			<xs:documentation xml:lang="cs">Sada elementů pro evidenční údaje entity "věcná skupina".</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:group ref="nsesss:tEntita"/>
-			<xs:element name="Puvod" type="nsesss:tPuvodSeskupeni"/>
-			<xs:element name="Trideni" type="nsesss:tPlanTrideni"/>
-			<xs:element name="Vyrazovani" type="nsesss:tVyrazovaniVecneSkupiny"/>
-			<xs:element name="Manipulace" type="nsesss:tPlanManipulace"/>
-		</xs:sequence>
-	</xs:complexType>
+    <xs:annotation>
+      <xs:documentation>Sada elementů pro evidenční údaje entity "věcná skupina".</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="tEntita"/>
+      <xs:element name="Puvod" type="tPuvodSeskupeni"/>
+      <xs:element name="Trideni" type="tPlanTrideni"/>
+      <xs:element name="Vyrazovani" type="tVyrazovaniVecneSkupiny"/>
+      <xs:element name="Manipulace" type="tPlanManipulace"/>
+      <xs:element name="UrcenoProTypoveSpisy" type="tLogicky" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Pokud element chybí, předpokládá se, že věcná skupina není určena pro typové spisy</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Soucast" type="tSoucast" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Používá se pouze v případě, kdy je věcná skupina určena pro typové spisy</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ZpusobVedeni" type="tZpusobVedeni" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Způsob přidělování čísla jednacího dokumentům v zakládaných spisech dané věcné skupiny</xs:documentation>
+          <xs:documentation>NSESSS 3.1.2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TrvalySkartacniSouhlas" type="tLogicky" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Na obsah věcné skupiny je uplatněn příslušným archivem vydaný trvalý skartační souhlas</xs:documentation>
+          <xs:documentation>NSESSS 3.1.2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
-	<xs:complexType name="tPlanManipulace">
-		<xs:annotation>
-			<xs:documentation xml:lang="cs">Sada elementů pro zaznamenání časových údajů evidujících otevření a uzavření entity pro příjem dceřiných entit.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="DatumOtevreni" type="nsesss:tDatum"/>
-			<xs:element name="DatumUzavreni" type="nsesss:tDatum" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
+  <xs:complexType name="tPlanManipulace">
+    <xs:annotation>
+      <xs:documentation>Sada elementů pro zaznamenání časových údajů evidujících otevření a uzavření entity pro příjem dceřiných entit.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="DatumOtevreni" type="tDatum"/>
+      <xs:element name="DatumUzavreni" type="tDatum" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
 
-	<xs:complexType name="tPlanTrideni">
-		<xs:annotation>
-			<xs:documentation xml:lang="cs">Sada elementů pro zatřídění entity do hierarchie spisového plánu. Prvek obsahuje údaje o jednoduchém spisovém znaku a plně určeném spisovém znaku entity.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="JednoduchySpisovyZnak" type="nsesss:tJednoduchySpisovyZnak"/>
-			<xs:element name="PlneUrcenySpisovyZnak" type="nsesss:tPlneUrcenySpisovyZnak"/>
-			<xs:element name="Oduvodneni" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation xml:lang="cs">Prvek se vyplňuje jen v případě přetřídění entity.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
+  <xs:complexType name="tPlanTrideni">
+    <xs:annotation>
+      <xs:documentation>Sada elementů pro zatřídění entity do hierarchie spisového plánu. Prvek obsahuje údaje o jednoduchém spisovém znaku a plně určeném spisovém znaku entity.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="JednoduchySpisovyZnak" type="tJednoduchySpisovyZnak"/>
+      <xs:element name="PlneUrcenySpisovyZnak" type="tPlneUrcenySpisovyZnak"/>
+      <xs:element name="Oduvodneni" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Prvek se vyplňuje jen v případě přetřídění entity.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
-	<xs:complexType name="tPlanVecnaSkupina">
-		<xs:annotation>
-			<xs:documentation xml:lang="cs">Sada elementů pro popis entity "věcná skupina" (položka spisového plánu).</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="EvidencniUdaje" type="nsesss:tPlanEvidencniUdajeVecneSkupiny"/>
-			<xs:element name="PlanVecnaSkupina" type="nsesss:tPlanVecnaSkupina" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-		<xs:attribute name="ID" type="xs:ID" use="required">
-			<xs:annotation>
-				<xs:documentation xml:lang="cs">Identifikátor jednoznačně označuje entitu uvnitř XML dokumentu.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	
+  <xs:complexType name="tPlanVecnaSkupina">
+    <xs:annotation>
+      <xs:documentation>Sada elementů pro popis entity "věcná skupina" (položka spisového plánu).</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="EvidencniUdaje" type="tPlanEvidencniUdajeVecneSkupiny"/>
+      <xs:element name="PlanVecnaSkupina" type="tPlanVecnaSkupina" minOccurs="0"
+        maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Identifikátor jednoznačně označuje entitu uvnitř XML dokumentu.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
 </xs:schema>

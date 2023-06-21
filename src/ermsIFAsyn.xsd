@@ -1,176 +1,145 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://nsess.public.cz/erms/v_02_00" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nsess.public.cz/erms/v_02_00" elementFormDefault="qualified" id="ermsIFAsyn">
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:isds="http://isds.czechpoint.cz/v20" xmlns="http://www.mvcr.cz/nsesss/2023/api"
+  elementFormDefault="qualified" targetNamespace="http://www.mvcr.cz/nsesss/2023/api"
+  id="ermsIFAsyn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="cs">
   <xs:annotation>
-    <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého. Toto schéma popisuje asynchroní výměnu událostí, např. formou dávek.</xs:documentation>
+    <xs:documentation>Schéma definující události a objekty vzniklé v jednom ERMS a přenášející se do ERMS druhého.
+Toto schéma popisuje asynchronní výměnu událostí, např. formou dávek.</xs:documentation>
   </xs:annotation>
-	<xs:import namespace="http://isds.czechpoint.cz/v20" schemaLocation="dmBaseTypes.xsd"/>
-	<xs:include schemaLocation="ermsTypes.xsd"/>
-	<xs:include schemaLocation="ermsAsynU.xsd"/>
-	<xs:element name="ermsAsyn">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Udalosti" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">2016-06-15 Změna z minOccurs="1" na  minOccurs="0"</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence minOccurs="0" maxOccurs="unbounded">
-							<xs:group ref="gUdalost"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="Zpravy" nillable="true" minOccurs="0">
-					<xs:complexType>
-						<xs:sequence maxOccurs="unbounded">
-							<xs:element ref="Zprava"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-			<xs:attributeGroup ref="gDavkaInfo"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="ermsAsynResponse">
-		<xs:annotation>
-			<xs:documentation/>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Kod">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">2016-06-15
-Návratový kód po příjmu dávky.
+  <xs:import schemaLocation="dmBaseTypes.xsd" namespace="http://isds.czechpoint.cz/v20"/>
+  <xs:include schemaLocation="ermsTypes.xsd"/>
+  <xs:include schemaLocation="ermsAsynU.xsd"/>
+  <xs:element name="ermsAsyn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Udalosti">
+          <xs:annotation>
+            <xs:documentation>NS2023 požadavek č.8.1.4</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:group ref="gUdalost"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="Zpravy">
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <xs:element ref="Zprava"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="gDavkaInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ermsAsynResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Kod" type="sKod">
+          <xs:annotation>
+            <xs:documentation>Návratový kód po příjmu dávky.
 Úspěšný příjem dávky odpovídá vždy pouze kódu "0000".</xs:documentation>
-						<xs:documentation xml:lang="CS">2016-06-15
-Pokud při příjmu dávky nastane chyba, potom je možné 
+            <xs:documentation>Pokud při příjmu dávky nastane chyba, potom je možné 
 reagovat vrácením SOAP exception, nebo řádně vrátit 
 response s vyplněným chybovým kódem a popisem chyby.</xs:documentation>
-					</xs:annotation>
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:maxLength value="8"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				<xs:element name="Popis" nillable="true">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">2016-06-15
-Textový popis výsledku příjmu dávky.
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Popis" minOccurs="0" type="sPopis">
+          <xs:annotation>
+            <xs:documentation>Textový popis výsledku příjmu dávky.
 Úspěšný příjem dávky odpovídá vždy pouze textu "OK".</xs:documentation>
-					</xs:annotation>
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:maxLength value="255"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-			</xs:sequence>
-			<xs:attributeGroup ref="gDavkaInfoResponse"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="WsTestRequest">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="WsTestId" type="xs:string">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Libovolný text, který bude vrácen v odpovědi volané WS.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="Autorizace" type="tAutorizace" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Identifikace osoby, která volá testovací WS.
-Tato položka je nepovinné.
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="gDavkaInfoResponse"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WsTestRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="WsTestId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Libovolný text, který bude vrácen v odpovědi volané WS.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Autorizace" type="tAutorizace">
+          <xs:annotation>
+            <xs:documentation>Identifikace osoby, která volá testovací WS.
+Tato položka je nepovinná.
 Pokud je uvedena, může sloužit také jako kontrola přípustné hodnoty položky "provedlKdo".
 Položka "provedlKdy" může sloužit ke kontrole nastavení aktuálního času v obou systémech.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
-			<xs:attributeGroup ref="gZdrojCil"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="WsTestResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="WsTestId" type="xs:string">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Text, který bude vstupní hodnotou této WS.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="PosledniPrijataDavka">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Informace o poslední přijaté dávce. 
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="gZdrojCil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WsTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="WsTestId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Text, který bude vstupní hodnotou této WS.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="PosledniPrijataDavka">
+          <xs:annotation>
+            <xs:documentation>Informace o poslední přijaté dávce. 
 Přijatá z pohledu aktuálně volaného systému, systému který odpovídá na aktuální volání WS.</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="Cislo" type="xs:unsignedLong">
-								<xs:annotation>
-									<xs:documentation xml:lang="CS">Identifikace dávky. Odpovídá hodnotě položky "Poradi" uvedené v hlavičce ermsAsyn dávky.</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="Stav">
-								<xs:annotation>
-									<xs:documentation xml:lang="CS">Stav dávky</xs:documentation>
-								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="Neodeslana"/>
-										<xs:enumeration value="Odeslana"/>
-										<xs:enumeration value="OdeslanaOdmitnuta"/>
-										<xs:enumeration value="PotvrzenaBezChyb"/>
-										<xs:enumeration value="PotvrzenaSChybou"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="PosledniOdeslanaDavka">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Informace o poslední generované nebo odeslané dávce. 
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cislo" type="sPoradi">
+                <xs:annotation>
+                  <xs:documentation>Identifikace dávky. Odpovídá hodnotě položky "Poradi" uvedené v hlavičce ermsAsyn dávky.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Stav" type="sStavDavky">
+                <xs:annotation>
+                  <xs:documentation>Stav dávky</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PosledniOdeslanaDavka">
+          <xs:annotation>
+            <xs:documentation>Informace o poslední generované nebo odeslané dávce. 
 Odeslaná dávka z pohledu aktuálně volaného systému, systému který odpovídá na aktuální volání WS.</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="Cislo" type="xs:unsignedLong">
-								<xs:annotation>
-									<xs:documentation xml:lang="CS">Identifikace dávky. Odpovídá hodnotě položky "Poradi" uvedené v hlavičce ermsAsyn dávky.</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-							<xs:element name="Stav">
-								<xs:annotation>
-									<xs:documentation xml:lang="CS">Stav dávky</xs:documentation>
-								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="Neodeslana"/>
-										<xs:enumeration value="Odeslana"/>
-										<xs:enumeration value="OdeslanaOdmitnuta"/>
-										<xs:enumeration value="PotvrzenaBezChyb"/>
-										<xs:enumeration value="PotvrzenaSChybou"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="OperaceStatus" type="tOperaceStatus">
-					<xs:annotation>
-						<xs:documentation xml:lang="CS">Při volání této WS se mají překontrolovat všechny technické prostředky, které se účastní na straně příjemce komunikace.
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cislo" type="sPoradi">
+                <xs:annotation>
+                  <xs:documentation>Identifikace dávky. Odpovídá hodnotě položky "Poradi" uvedené v hlavičce ermsAsyn dávky.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Stav" type="sStavDavky">
+                <xs:annotation>
+                  <xs:documentation>Stav dávky</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OperaceStatus" type="tOperaceStatus">
+          <xs:annotation>
+            <xs:documentation>Při volání této WS se mají překontrolovat všechny technické prostředky, které se účastní na straně příjemce komunikace.
 Pokud dojde k chybě některého prostředku, musí se toto projevit vypovídajícím textem v položce "Popis".
 Testovat by se mělo především
  - shoda uvedené položky "Cil" s cílovým ERMS
- - shoda časového údaje uvedeného v části Autorizace se systémovým časem volaného systému ( čas musí odpovídat přibližně, musí být uplatněna určitá přípustná tolerance - do testu musí být zahrnuta určitá časová prodleva potřebná pro přenos dat po síti. )
+ - shoda časového údaje uvedeného v části Autorizace se systémovým časem volaného systému (čas musí odpovídat přibližně, musí být uplatněna určitá přípustná tolerance - do testu musí být zahrnuta určitá časová prodleva potřebná pro přenos dat po síti.)
  - kontrolu hodnoty položky "provedlKdo" proti seznamu všech známých uživatelů.
  - napojení do databáze systému
- - napojení na úložiště elektronických dokumentů ( pokud je oddělené od databáze systému )
+ - napojení na úložiště elektronických dokumentů (pokud je oddělené od databáze systému)
  - přístup do adresářů pro logování dávek a případných chybových zpráv
  - přístup k podpisovým certifikátům
  - další technické prostředky
 </xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
