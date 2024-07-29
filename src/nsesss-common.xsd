@@ -457,7 +457,6 @@ Pro věcné skupiny a součásti je tvořen jednoduchým spisovým znakem v hier
     <xs:sequence>
       <xs:element name="Identifikace" type="tIdentifikace"/>
       <xs:element name="Popis" type="tPopisKomponenty"/>
-      <xs:element name="Trideni" type="tTrideni"/>
       <xs:element name="Manipulace" type="tManipulaceKomponenty" minOccurs="0"/>
       <xs:element name="Prevod" type="tPrevodKomponenty" minOccurs="0"/>
     </xs:sequence>
